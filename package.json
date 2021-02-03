@@ -5,7 +5,7 @@
   "author": "Eduard Aksamitov",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook"
+    "build": "build-storybook -o ./dist"
   },
   "dependencies": {
     "core-js": "^3.8.3",
