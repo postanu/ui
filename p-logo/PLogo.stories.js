@@ -7,5 +7,5 @@ export default {
 
 export const Logo = () => ({
 	components: { PLogo },
-	template: '<p-logo></p-logo>'
+	template: '<p-logo/>'
 })
