@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.1-dev.1",
   "author": "Eduard Aksamitov",
-  "type": "module",
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "build-storybook"
