@@ -17,5 +17,5 @@ export default {
 
 <style lang="stylus">
 .p-logo
-	line-height 0
+	//
 </style>
