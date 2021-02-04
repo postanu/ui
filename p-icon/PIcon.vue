@@ -12,7 +12,7 @@ export default defineComponent({
 			type: String,
 			default: '',
 			validator: (name) => {
-				return ['', ...iconsList].indexOf(name) !== 1
+				return ['', ...iconsList].includes(name)
 			}
 		},
 		label: { type: String, default: '' },
