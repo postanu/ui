@@ -1,5 +1,5 @@
 <template lang="pug">
-.logo
+.p-logo
 	p-icon(
 		icon='postanu'
 		label="Postanu Logo"
@@ -16,6 +16,6 @@ export default {
 </script>
 
 <style lang="stylus">
-.logo
+.p-logo
 	line-height 0
 </style>

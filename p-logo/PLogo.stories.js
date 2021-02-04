@@ -1,7 +1,7 @@
 import PLogo from './PLogo.vue'
 
 export default {
-	title: 'Logo',
+	title: 'PLogo',
 	component: PLogo
 }
 

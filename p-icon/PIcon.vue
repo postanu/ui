@@ -47,7 +47,7 @@ export default defineComponent({
 		}
 
 		return () => h('svg', {
-			class: 'icon',
+			class: 'p-icon',
 			role: 'img',
 			'aria-label': label.value || `${name.value} icon`,
 			'aria-hidden': !label.value,

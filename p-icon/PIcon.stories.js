@@ -2,7 +2,7 @@ import PIcon from './PIcon.vue'
 import icons from './icons.js'
 
 export default {
-	title: 'Icon',
+	title: 'PIcon',
 	component: PIcon,
 	argTypes: {
 		icon: { control: { type: 'select', options: Object.keys(icons) } }
