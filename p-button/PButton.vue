@@ -52,7 +52,7 @@ export default {
 	display: flex
 	align-items: center
 	border-radius: 15px
-	background: var(--color-white-01)
+	background: var(--p-color-white-01)
 	transition: background 0.05s ease-in
 
 .p-button__text
@@ -74,10 +74,10 @@ export default {
 		border-radius: 50%
 
 .p-button:not(:disabled):hover
-	background: var(--color-blue)
+	background: var(--p-color-blue)
 
 .p-button:disabled
-	color: var(--color-white-05)
+	color: var(--p-color-white-05)
 
 	.p-button__image
 		opacity: 0.6
