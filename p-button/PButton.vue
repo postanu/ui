@@ -2,6 +2,7 @@
 button(
 	:class="{\
 		'p-button': true,\
+		'p-button--text': isText,\
 		'p-button--icon': showIcon,\
 		'p-button--image': showImage\
 	}"
@@ -25,6 +26,16 @@ export default {
 	name: 'PButton',
 	components: { PIcon },
 	props: {
+		type: {
+			type: String,
+			default: 'default',
+			validate: type => {
+				return [
+					'default',
+					'text'
+				].includes(type)
+			}
+		},
 		icon: {
 			type: String,
 			default: undefined,
@@ -38,8 +49,13 @@ export default {
 		}
 	},
 	setup (props) {
-		let { icon, image } = toRefs(props)
+		let {
+			type,
+			icon,
+			image
+		} = toRefs(props)
 		return {
+			isText: type.value === 'text',
 			showIcon: icon.value && !image.value,
 			showImage: image.value && !icon.value
 		}
@@ -81,6 +97,15 @@ export default {
 
 	.p-button__image
 		opacity: 0.6
+
+.p-button--text
+	background: none
+	transition: color 0.05s ease-in
+	border-radius: none
+
+.p-button--text:not(:disabled):hover
+	color: var(--p-color-white-05)
+	background: none
 
 .p-button--icon, .p-button--image
 	.p-button__text
