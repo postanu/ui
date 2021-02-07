@@ -5,7 +5,7 @@ export default {
 	component: PLogo
 }
 
-export const Logo = () => ({
+export const Default = () => ({
 	components: { PLogo },
 	template: '<p-logo/>'
 })
