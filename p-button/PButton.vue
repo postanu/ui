@@ -101,7 +101,7 @@ export default {
 .p-button--text
 	background: none
 	transition: color 0.05s ease-in
-	border-radius: none
+	border-radius: 0
 
 .p-button--text:not(:disabled):hover
 	color: var(--p-color-white-05)
