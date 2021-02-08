@@ -19,7 +19,8 @@ export default {
 
 export const Default = () => ({
 	components: { PInput },
-	template: '<p-input placeholder="Default Input"/>'
+	template: '<p-input placeholder="Default Input" v-model:value="testValue"/>',
+	data: () => ({ testValue: '' })
 })
 
 export const Focus = () => ({

@@ -2,7 +2,6 @@
 input.p-input(
 	ref="input"
 	v-bind="$attrs"
-	:value="value"
 	@input="$emit('update:value', $event.target.value)"
 )
 </template>
