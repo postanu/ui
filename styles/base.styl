@@ -63,11 +63,18 @@ a
 a:hover
 	color: var(--p-color-white-05)
 
-button
-	border: none
+a:focus
 	outline: none
+	background-color: var(--p-color-white-01)
+
+button
+	border: 0
 	font: inherit
 	color: inherit
 	cursor: pointer
 	background: none
 	line-height: var(--line-height-body)
+
+button:focus
+	outline: none
+	box-shadow: 0 0 0 2px var(--p-color-blue)
