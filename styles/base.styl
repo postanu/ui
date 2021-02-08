@@ -37,6 +37,9 @@
 	color: var(--p-color-white-09)
 	background-color: var(--p-color-blue)
 
+::placeholder
+	color: var(--p-color-white-03)
+
 html
 	font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif
 	line-height: var(--p-body-line-height)
@@ -76,5 +79,19 @@ button
 	line-height: var(--line-height-body)
 
 button:focus
+	outline: none
+	box-shadow: 0 0 0 2px var(--p-color-blue)
+
+input
+	font: inherit
+	color: inherit
+	width: 100%
+	border: 0
+	background: none
+	font-weight: inherit
+	line-height: inherit
+	letter-spacing: inherit
+
+input:focus
 	outline: none
 	box-shadow: 0 0 0 2px var(--p-color-blue)
