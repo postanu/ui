@@ -20,7 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
-    "@postanu/eslint-config": "postanu/eslint-config",
+    "@postanu/eslint-config": "^1.0.0",
     "@storybook/addon-actions": "^6.2.0-alpha.24",
     "@storybook/addon-essentials": "^6.2.0-alpha.24",
     "@storybook/addon-links": "^6.2.0-alpha.24",
