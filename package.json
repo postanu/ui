@@ -9,6 +9,10 @@
     "dev": "start-storybook -p 6006",
     "build": "build-storybook -o ./dist"
   },
+  "engines": {
+    "node": ">=15.0.0",
+    "vue": ">=3.0.0"
+  },
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.0.5"
