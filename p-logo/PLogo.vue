@@ -6,13 +6,15 @@
 	)
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+
 import PIcon from '../p-icon/PIcon.vue'
 
-export default {
+export default defineComponent({
 	name: 'PLogo',
 	components: { PIcon }
-}
+})
 </script>
 
 <style lang="stylus">

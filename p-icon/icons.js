@@ -1,4 +1,4 @@
-export default {
+export let icons = {
 	postanu: {
 		height: 13,
 		width: 27,

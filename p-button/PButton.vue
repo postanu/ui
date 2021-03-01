@@ -17,19 +17,20 @@ button(
 		img(:src='image')
 </template>
 
-<script>
-import { toRefs } from 'vue'
+<script lang="ts">
+import { defineComponent, toRefs } from 'vue'
 
-import { PIcon, icons } from '..'
+import { icons } from '../p-icon/icons.js'
+import PIcon from '../p-icon/PIcon.vue'
 
-export default {
+export default defineComponent({
 	name: 'PButton',
 	components: { PIcon },
 	props: {
 		type: {
 			type: String,
 			default: 'default',
-			validate: type => {
+			validate: (type: string): boolean => {
 				return [
 					'default',
 					'text'
@@ -39,7 +40,7 @@ export default {
 		icon: {
 			type: String,
 			default: undefined,
-			validate: iconName => {
+			validate: (iconName: string): boolean => {
 				return [undefined, ...Object.keys(icons)].includes(iconName)
 			}
 		},
@@ -60,7 +61,7 @@ export default {
 			showImage: image.value && !icon.value
 		}
 	}
-}
+})
 </script>
 
 <style lang="stylus">

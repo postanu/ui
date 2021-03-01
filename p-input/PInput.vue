@@ -6,10 +6,10 @@ input.p-input(
 )
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 
-export default {
+export default defineComponent({
 	name: 'PInput',
 	props: {
 		value: {
@@ -19,15 +19,15 @@ export default {
 	},
 	emits: ['update:value'],
 	setup () {
-		let input = ref(null)
+		let input = ref<HTMLInputElement | null>(null)
 
 		return {
-			focus: () => input.value.focus(),
-			blur: () => input.value.blur(),
+			focus: (): void => input.value?.focus(),
+			blur: (): void => input.value?.blur(),
 			input
 		}
 	}
-}
+})
 </script>
 
 <style lang="stylus">

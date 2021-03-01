@@ -1,7 +1,7 @@
-<script>
-import { defineComponent, h, toRefs } from 'vue'
+<script lang="ts">
+import { computed, defineComponent, h, toRefs } from 'vue'
 
-import icons from './icons.js'
+import { icons } from './icons.js'
 
 const iconsList = Object.keys(icons)
 
@@ -11,7 +11,7 @@ export default defineComponent({
 		icon: {
 			type: String,
 			default: '',
-			validator: (name) => {
+			validator: (name: string): boolean => {
 				return ['', ...iconsList].includes(name)
 			}
 		},
@@ -29,32 +29,36 @@ export default defineComponent({
 			mixBlendMode
 		} = toRefs(props)
 
-		let children
-		let icon = icons[name.value]
+		let icon = computed(() => icons[name.value])
 
-		if (iconsList.includes(name.value)) {
-			children = h('path', icon.path)
-		} else {
-			children = slots.default()
-		}
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		return () => {
+			let defaultSlot = slots.default ? slots.default() : []
 
-		if (mixBlendMode.value) {
-			children = () => h('g', {
-				style: {
-					mixBlendMode: mixBlendMode.value
-				}
+			let children = iconsList.includes(name.value)
+				? h('path', icon.value.path)
+				: defaultSlot
+
+			if (mixBlendMode.value) {
+				children = h('g', {
+					style: [
+						{
+							mixBlendMode: mixBlendMode.value
+						}
+					]
+				}, children)
+			}
+
+			return h('svg', {
+				class: ['p-icon'],
+				role: 'img',
+				'aria-label': label.value || `${name.value} icon`,
+				'aria-hidden': !label.value,
+				viewBox: `0 0 ${icon.value.width || width.value} ${icon.value.height || height.value}`,
+				width: icon.value.width || width.value,
+				height: icon.value.height || height.value
 			}, children)
 		}
-
-		return () => h('svg', {
-			class: 'p-icon',
-			role: 'img',
-			'aria-label': label.value || `${name.value} icon`,
-			'aria-hidden': !label.value,
-			viewBox: `0 0 ${icon.width || width.value} ${icon.height || height.value}`,
-			width: icon.width || width.value,
-			height: icon.height || height.value
-		}, children)
 	}
 })
 </script>

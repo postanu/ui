@@ -3,13 +3,17 @@ const path = require('path')
 module.exports = {
   stories: [
     "../**/*.stories.mdx",
-    "../**/*.stories.@(js|jsx|ts|tsx)"
+    "../**/*.stories.@(js|ts)"
   ],
   addons: [
     "@storybook/addon-links",
+		"@storybook/addon-postcss",
     "@storybook/addon-essentials"
 	],
-	webpackFinal: async (config, { configType }) => {
+	core: {
+    builder: 'webpack4',
+  },
+	webpackFinal: async config => {
 		config.module.rules.push({
       test: /\.pug$/,
 			use: ['pug-plain-loader']
