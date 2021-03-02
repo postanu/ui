@@ -75,6 +75,9 @@ export default defineComponent({
 .p-button__text
 	padding: 5px 15px
 
+.p-button__text:empty
+	display: none
+
 .p-button__icon
 	padding: 5px
 	line-height: 0
