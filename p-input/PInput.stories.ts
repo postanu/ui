@@ -1,4 +1,3 @@
-/* eslint-disable vue/one-component-per-file */
 import { defineComponent, onMounted, ref } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
@@ -12,6 +11,31 @@ export default {
 			control: 'text',
 			defaultValue: ''
 		},
+		type: {
+			control: {
+				type: 'select',
+				options: ['text']
+			},
+			defaultValue: 'text'
+		},
+		maxlength: {
+			control: 'number',
+			defaultValue: 25
+		},
+		autocorrect: {
+			control: {
+				type: 'select',
+				options: ['on', 'off']
+			},
+			defaultValue: 'on'
+		},
+		autocapitalize: {
+			control: {
+				type: 'select',
+				options: ['on', 'off']
+			},
+			defaultValue: 'on'
+		},
 		placeholder: {
 			control: 'text',
 			defaultValue: 'Default Input'
@@ -19,26 +43,47 @@ export default {
 	}
 } as Meta
 
-export const Default: Story = () => defineComponent({
+const Template: Story = args => defineComponent({
 	components: { PInput },
-	data: () => ({ testValue: '' }),
-	template: '<p-input placeholder="Default Input" v-model:value="testValue"/>'
-})
-
-export const Focus: Story = () => defineComponent({
-	components: { PInput },
-	setup () {
+	setup: () => {
 		let input = ref<HTMLInputElement | null>(null)
+		let focused = false
 
-		onMounted(() => {
-			input.value?.focus()
-			setTimeout(() => {
-				input.value?.blur()
-			}, 2000)
-		})
+		if (args.testAutoFocus) {
+			onMounted(() => {
+				if (!focused) {
+					input.value?.focus()
+					focused = true
+				}
+			})
+		}
 
-		return { input }
+		return {
+			args,
+			input,
+			type: args.type,
+			maxlength: args.maxlength,
+			autocorrect: args.autocorrect,
+			autocapitalize: args.autocapitalize,
+			placeholder: args.placeholder,
+			value: args.value
+		}
 	},
-	template: '<p-input ref="input" placeholder="Default Input"/>'
+	template: `
+		<p-input
+			ref='input'
+			:type="args.type"
+			:maxlength="args.maxlength"
+			:autocorrect="args.autocorrect"
+			:autocapitalize="args.autocapitalize"
+			:placeholder="args.placeholder"
+			v-model:value="value"
+		/>
+	`
 })
-Focus.storyName = 'Default: Focus then Blur'
+
+export const Default = Template.bind({})
+
+export const AutoFocus = Template.bind({})
+AutoFocus.args = { testAutoFocus: true }
+AutoFocus.storyName = 'Default: Autofocus'

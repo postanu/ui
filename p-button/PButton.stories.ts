@@ -23,7 +23,7 @@ export default {
 		icon: {
 			control: {
 				type: 'select',
-				options: [...Object.keys(icons)]
+				options: [undefined, ...Object.keys(icons)]
 			},
 			description: 'Icon name'
 		},
