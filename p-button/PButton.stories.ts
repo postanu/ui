@@ -17,7 +17,8 @@ export default {
 			control: {
 				type: 'select',
 				options: ['default', 'text']
-			}
+			},
+			defaultValue: 'default'
 		},
 		icon: {
 			control: {
@@ -64,12 +65,14 @@ DefaultWithIcon.args = {
 	default: 'Default Button with Icon',
 	icon: 'facebook'
 }
+DefaultWithIcon.storyName = 'Default with Icon'
 
-export const DefaultWithImage = Template.bind({})
-DefaultWithImage.args = {
-	default: 'Default Button with Image',
+export const DefaultWithAvatar = Template.bind({})
+DefaultWithAvatar.args = {
+	default: 'Default Button with Avatar',
 	image: 'https://scontent-hel3-1.xx.fbcdn.net/v/t1.0-1/p480x480/109056710_10215404289135149_5761895205596401501_n.jpg?_nc_cat=109&ccb=2&_nc_sid=7206a8&_nc_eui2=AeETX0MVFSFaawd2u90MrgrwQo82CMCHBBxCjzYIwIcEHBQ4ujzZj9XibD4oWYxgrG4&_nc_ohc=wsV1VTM4OlMAX_H8sIc&_nc_ht=scontent-hel3-1.xx&tp=6&oh=f20c116324bda3a8d0304640db6cd138&oe=60438FDE'
 }
+DefaultWithAvatar.storyName = 'Default with Avatar'
 
 export const Text = Template.bind({})
 Text.args = {
