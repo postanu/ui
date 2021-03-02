@@ -16,16 +16,14 @@ export default defineComponent({
 			}
 		},
 		label: { type: String, default: '' },
-		width: { type: Number, default: 20 },
-		height: { type: Number, default: 20 },
+		scale: { type: Number, default: 1 },
 		mixBlendMode: { type: String, default: '' }
 	},
 	setup (props, { slots }) {
 		let {
 			icon: name,
 			label,
-			width,
-			height,
+			scale,
 			mixBlendMode
 		} = toRefs(props)
 
@@ -54,9 +52,9 @@ export default defineComponent({
 				role: 'img',
 				'aria-label': label.value || `${name.value} icon`,
 				'aria-hidden': !label.value,
-				viewBox: `0 0 ${icon.value.width || width.value} ${icon.value.height || height.value}`,
-				width: icon.value.width || width.value,
-				height: icon.value.height || height.value
+				viewBox: `0 0 ${icon.value.width} ${icon.value.height}`,
+				width: `${icon.value.width * scale.value}px`,
+				height: `${icon.value.height * scale.value}px`
 			}, children)
 		}
 	}

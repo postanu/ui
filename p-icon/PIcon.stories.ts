@@ -14,6 +14,10 @@ export default {
 		label: {
 			control: 'text',
 			defaultValue: 'Icon Label'
+		},
+		scale: {
+			control: 'number',
+			defaultValue: 1
 		}
 	}
 } as Meta
@@ -23,15 +27,13 @@ const Template: Story = args => defineComponent({
 	setup: () => ({
 		icon: args.icon,
 		label: args.label,
-		width: args.width,
-		height: args.height
+		scale: args.scale
 	}),
 	template: `
 		<p-icon
 			:icon="icon"
 			:label="label"
-			:width="width"
-			:height="height"
+			:scale="scale"
 		/>
 	`
 })
