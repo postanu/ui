@@ -8,7 +8,6 @@ export default {
 	component: PBadge,
 	argTypes: {
 		default: {
-			type: 'string',
 			control: 'text',
 			description: 'Slot content',
 			defaultValue: 'Badge'
