@@ -29,7 +29,7 @@ export default {
 		},
 		image: {
 			control: 'text',
-			description: 'Image url'
+			description: 'Image URL'
 		},
 		disabled: {
 			control: 'boolean',
