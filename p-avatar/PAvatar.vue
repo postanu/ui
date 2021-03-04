@@ -12,7 +12,10 @@
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from 'vue'
 
-const medianLetters = ['q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm']
+const medianLetters = [
+	'q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm', 'w', 'y', 'u', 'o', 'p', 'g', 'v',
+	'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'ю'
+]
 
 export default defineComponent({
 	name: 'PAvatar',
