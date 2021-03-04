@@ -2,7 +2,7 @@
 button(
 	:class="{\
 		'p-button': true,\
-		'p-button--text': isText,\
+		'p-button--link': isLink,\
 		'p-button--icon': showIcon,\
 		'p-button--image': showImage\
 	}"
@@ -31,10 +31,7 @@ export default defineComponent({
 			type: String,
 			default: 'default',
 			validate: (type: string): boolean => {
-				return [
-					'default',
-					'text'
-				].includes(type)
+				return ['default', 'link'].includes(type)
 			}
 		},
 		icon: {
@@ -56,7 +53,7 @@ export default defineComponent({
 			image
 		} = toRefs(props)
 		return {
-			isText: type.value === 'text',
+			isLink: type.value === 'link',
 			showIcon: icon.value && !image.value,
 			showImage: image.value && !icon.value
 		}
@@ -102,12 +99,12 @@ export default defineComponent({
 	.p-button__image
 		opacity: 0.6
 
-.p-button--text
+.p-button--link
 	background: none
 	transition: color 0.05s ease-in
 	border-radius: 0
 
-.p-button--text:not(:disabled):hover
+.p-button--link:not(:disabled):hover
 	color: var(--p-color-white-05)
 	background: none
 
