@@ -1,12 +1,12 @@
 <template lang="pug">
 .p-avatar(:class="{ 'p-avatar--median': isMedian }")
-	img(
-		v-if="isImage"
+	.p-avatar__l {{ l }}
+	img.p-avatar__i(
+		v-if="showImage"
 		:src="image"
 		@load="onLoad"
 		@error="onError"
 	)
-	.p-avatar__l(v-else) {{ l }}
 </template>
 
 <script lang="ts">
@@ -32,7 +32,7 @@ export default defineComponent({
 
 		let l = computed(() => letter.value.charAt(0))
 
-		let isImage = computed(() => {
+		let showImage = computed(() => {
 			return !error.value && image.value.length > 0
 		})
 
@@ -50,8 +50,8 @@ export default defineComponent({
 		}
 
 		return {
+			showImage,
 			isMedian,
-			isImage,
 			onError,
 			onLoad,
 			l
@@ -66,12 +66,6 @@ export default defineComponent({
 	height: 20px
 	position: relative
 
-	img
-		width: 100%
-		height: 100%
-		object-fit: cover
-		border-radius: 50%
-
 .p-avatar:before
 	top: -1px
 	left: -1px
@@ -85,10 +79,19 @@ export default defineComponent({
 
 .p-avatar--median
 	.p-avatar__l
-		height: 20px
 		line-height: 1.18
 
+.p-avatar__i
+	width: 100%
+	height: 100%
+	position: absolute
+	object-fit: cover
+	border-radius: 50%
+
 .p-avatar__l
+	width: 20px
+	height: 20px
+	position: absolute
 	text-align: center
 	background: var(--p-color-black)
 	font-weight: 700
