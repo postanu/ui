@@ -33,7 +33,7 @@ export default defineComponent({
 		let error = ref(false)
 		let { image, letter } = toRefs(props)
 
-		let l = computed(() => letter.value.charAt(0))
+		let l = computed(() => letter.value.charAt(0).toLowerCase())
 
 		let showImage = computed(() => {
 			return !error.value && image.value.length > 0
