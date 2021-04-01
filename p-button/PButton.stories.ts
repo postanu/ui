@@ -5,7 +5,7 @@ import { icons } from '../p-icon/icons.js'
 import PButton from './PButton.vue'
 
 export default {
-	title: 'PButton',
+	title: 'Button/PButton',
 	component: PButton,
 	argTypes: {
 		default: {
