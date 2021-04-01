@@ -11,8 +11,11 @@ export default {
 		icon: {
 			control: {
 				type: 'select',
-				options: [undefined, ...Object.keys(icons)]
+				labels: {
+					undefined: 'No icon'
+				}
 			},
+			options: [undefined, ...Object.keys(icons)],
 			defaultValue: 'facebook',
 			description: 'Icon name'
 		},

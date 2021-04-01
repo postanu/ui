@@ -19,7 +19,12 @@ export default {
 			defaultValue: 'default'
 		},
 		icon: {
-			control: 'select',
+			control: {
+				type: 'select',
+				labels: {
+					undefined: 'No icon'
+				}
+			},
 			options: [undefined, ...Object.keys(icons)],
 			defaultValue: 'undefined',
 			description: 'Icon name'
