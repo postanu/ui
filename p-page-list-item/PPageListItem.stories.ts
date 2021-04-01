@@ -12,10 +12,10 @@ export default {
 			control: {
 				type: 'select',
 				labels: {
-					undefined: 'No icon'
+					null: 'No icon'
 				}
 			},
-			options: [undefined, ...Object.keys(icons)],
+			options: [null, ...Object.keys(icons)],
 			defaultValue: 'facebook',
 			description: 'Icon name'
 		},
@@ -57,5 +57,5 @@ export const Letter = Template.bind({})
 
 export const NoIcon = Template.bind({})
 NoIcon.args = {
-	icon: ''
+	icon: null
 }

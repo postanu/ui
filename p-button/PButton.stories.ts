@@ -22,11 +22,11 @@ export default {
 			control: {
 				type: 'select',
 				labels: {
-					undefined: 'No icon'
+					null: 'No icon'
 				}
 			},
-			options: [undefined, ...Object.keys(icons)],
-			defaultValue: 'undefined',
+			options: [null, ...Object.keys(icons)],
+			defaultValue: null,
 			description: 'Icon name'
 		},
 		image: {

@@ -36,14 +36,14 @@ export default defineComponent({
 		},
 		icon: {
 			type: String,
-			default: undefined,
+			default: null,
 			validate: (iconName: string): boolean => {
-				return [undefined, ...Object.keys(icons)].includes(iconName)
+				return [null, ...Object.keys(icons)].includes(iconName)
 			}
 		},
 		image: {
 			type: String,
-			default: undefined
+			default: null
 		}
 	},
 	setup (props) {

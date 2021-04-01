@@ -23,7 +23,7 @@ export default defineComponent({
 			type: String,
 			required: true,
 			validate: (iconName: string): boolean => {
-				return [undefined, ...Object.keys(icons)].includes(iconName)
+				return [null, ...Object.keys(icons)].includes(iconName)
 			}
 		},
 		url: {
