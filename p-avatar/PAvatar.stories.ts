@@ -9,13 +9,13 @@ export default {
 	argTypes: {
 		image: {
 			control: 'text',
-			description: 'Image URL',
-			defaultValue: ''
+			defaultValue: '',
+			description: 'Image URL'
 		},
 		letter: {
 			control: 'text',
-			description: 'First letter of user’s name',
-			defaultValue: 'A'
+			defaultValue: 'A',
+			description: 'First letter of user’s name'
 		}
 	}
 } as Meta

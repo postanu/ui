@@ -9,7 +9,8 @@ export default {
 	component: PIcon,
 	argTypes: {
 		icon: {
-			control: { type: 'select', options: Object.keys(icons) }
+			control: 'select',
+			options: Object.keys(icons)
 		},
 		label: {
 			control: 'text',

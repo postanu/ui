@@ -14,17 +14,14 @@ export default {
 			defaultValue: 'Button'
 		},
 		type: {
-			control: {
-				type: 'select',
-				options: ['default', 'link']
-			},
+			control: 'select',
+			options: ['default', 'link'],
 			defaultValue: 'default'
 		},
 		icon: {
-			control: {
-				type: 'select',
-				options: [undefined, ...Object.keys(icons)]
-			},
+			control: 'select',
+			options: [undefined, ...Object.keys(icons)],
+			defaultValue: 'undefined',
 			description: 'Icon name'
 		},
 		image: {

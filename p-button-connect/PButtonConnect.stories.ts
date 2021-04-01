@@ -10,21 +10,19 @@ export default {
 	argTypes: {
 		default: {
 			control: 'text',
-			description: 'Slot content',
-			defaultValue: 'Facebook'
+			defaultValue: 'Facebook',
+			description: 'Slot content'
 		},
 		icon: {
-			control: {
-				type: 'select',
-				options: Object.keys(icons)
-			},
-			description: 'Icon name',
-			defaultValue: 'facebook'
+			control: 'select',
+			options: Object.keys(icons),
+			defaultValue: 'facebook',
+			description: 'Icon name'
 		},
 		url: {
 			control: 'text',
-			description: 'URL',
-			defaultValue: '#'
+			defaultValue: '#',
+			description: 'URL'
 		}
 	}
 } as Meta

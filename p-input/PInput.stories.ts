@@ -12,10 +12,8 @@ export default {
 			defaultValue: ''
 		},
 		type: {
-			control: {
-				type: 'select',
-				options: ['text']
-			},
+			control: 'text',
+			options: ['text'],
 			defaultValue: 'text'
 		},
 		maxlength: {
@@ -23,17 +21,13 @@ export default {
 			defaultValue: 25
 		},
 		autocorrect: {
-			control: {
-				type: 'select',
-				options: ['on', 'off']
-			},
+			control: 'select',
+			options: ['on', 'off'],
 			defaultValue: 'on'
 		},
 		autocapitalize: {
-			control: {
-				type: 'select',
-				options: ['on', 'off']
-			},
+			control: 'select',
+			options: ['on', 'off'],
 			defaultValue: 'on'
 		},
 		placeholder: {

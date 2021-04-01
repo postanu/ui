@@ -13,18 +13,18 @@ export default {
 				type: 'select',
 				options: [undefined, ...Object.keys(icons)]
 			},
-			description: 'Icon name',
-			defaultValue: 'facebook'
+			defaultValue: 'facebook',
+			description: 'Icon name'
 		},
 		avatar: {
 			control: 'text',
-			description: 'Image URL',
-			defaultValue: ''
+			defaultValue: '',
+			description: 'Image URL'
 		},
 		letter: {
 			control: 'text',
-			description: 'First letter of user’s name',
-			defaultValue: 'e'
+			defaultValue: 'e',
+			description: 'First letter of user’s name'
 		},
 		fullname: {
 			control: 'text',

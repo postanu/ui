@@ -9,8 +9,8 @@ export default {
 	argTypes: {
 		default: {
 			control: 'text',
-			description: 'Slot content',
-			defaultValue: 'Badge'
+			defaultValue: 'Badge',
+			description: 'Slot content'
 		}
 	}
 } as Meta
