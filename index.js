@@ -4,6 +4,7 @@ import PInput from './p-input/PInput.vue'
 import PBadge from './p-badge/PBadge.vue'
 import PAvatar from './p-button/PAvatar.vue'
 import PButton from './p-button/PButton.vue'
+import PTableRow from './p-table-row/PTableRow.vue'
 import PButtonConnect from './p-button/PButtonConnect.vue'
 
 export { icons } from './p-icon/icons.js'
@@ -14,5 +15,6 @@ export {
 	PBadge,
 	PAvatar,
 	PButton,
+	PTableRow,
 	PButtonConnect
 }
