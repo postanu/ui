@@ -82,6 +82,12 @@ Link.args = {
 	type: 'link'
 }
 
+export const Icon = Template.bind({})
+Icon.args = {
+	default: undefined,
+	icon: 'close'
+}
+
 export const Avatar = Template.bind({})
 Avatar.args = {
 	default: undefined,
