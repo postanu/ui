@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
+import { members } from '../data'
 import PTableGroup from './PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 
@@ -10,13 +11,11 @@ export default {
 	argTypes: {
 		name: {
 			control: 'text',
-			description: 'Group content',
-			defaultValue: 'Facebook'
+			description: 'Group content'
 		},
 		content: {
 			control: 'text',
-			description: 'Group name',
-			defaultValue: 'Feed'
+			description: 'Group name'
 		}
 	}
 } as Meta
@@ -29,16 +28,16 @@ const Template: Story = args => defineComponent({
 	setup: () => {
 		return {
 			name: args.name,
-			content: args.content.split(/\r?\n/).filter((item: string) => item.length)
+			groups: JSON.parse(args.content)
 		}
 	},
 	template: `
-		<p-table-group>
-			<template v-slot:name>{{ name }}</template>
+		<p-table-group v-for="g in groups">
+			<template v-slot:name>{{ name || g.name }}</template>
 			<template v-slot:content>
 				<ul>
-					<li v-for="item in content">
-						<p-table-row>{{ item }}</p-table-row>
+					<li v-for="i in g.items">
+						<p-table-row>{{ i.name }} — {{ i.years }}</p-table-row>
 					</li>
 				</ul>
 			</template>
@@ -49,18 +48,53 @@ const Template: Story = args => defineComponent({
 export const OneLine = Template.bind({})
 OneLine.args = {
 	name: 'Lead vocals',
-	content: 'Marilyn Manson'
+	content: JSON.stringify(
+		[{
+			items: [{
+				name: members[0].name,
+				years: members[0].years
+			}]
+		}],
+		null,
+		'\t'
+	)
 }
 
 export const OneGroup = Template.bind({})
 OneGroup.args = {
 	name: 'Members',
-	content: `
-		Marilyn Manson
-		Paul Wiley
-		Juan Alderete
-		Brandon Pertzborn
-		Tyler Bates
-		Gil Sharone
-		Fred Sablan`
+	content: JSON.stringify(
+		[{
+			items: members
+				.filter(member => member.type === 'Current')
+				.map(member => ({
+					name: member.name,
+					years: member.years
+				}))
+		}],
+		null,
+		'\t'
+	)
+}
+
+export const MultiGroup = Template.bind({})
+MultiGroup.args = {
+	content: JSON.stringify(
+		// eslint-disable-next-line unicorn/no-array-reduce
+		members.reduce<Array<{
+			name: string
+			items: Array<{ name: string; years: string }>
+		}>>((previous, current) => {
+			let groupIndex = previous.findIndex(group => group.name === current.type)
+			if (groupIndex === -1) groupIndex = previous.length
+			previous[groupIndex] = previous[groupIndex] || { name: current.type, items: [] }
+			previous[groupIndex].items.push({
+				name: current.name,
+				years: current.years
+			})
+			return previous
+		}, []),
+		null,
+		'\t'
+	)
 }
