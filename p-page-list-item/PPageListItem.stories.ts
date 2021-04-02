@@ -26,7 +26,7 @@ export default {
 		},
 		letter: {
 			control: 'text',
-			defaultValue: 'e',
+			defaultValue: 'M',
 			description: 'First letter of user’s name'
 		},
 		fullname: {

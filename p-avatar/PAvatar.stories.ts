@@ -14,7 +14,7 @@ export default {
 		},
 		letter: {
 			control: 'text',
-			defaultValue: 'A',
+			defaultValue: 'M',
 			description: 'First letter of user’s name'
 		}
 	}
