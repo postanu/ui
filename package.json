@@ -7,7 +7,7 @@
   "homepage": "https://postanu.com/",
   "repository": "postanu/ui",
   "scripts": {
-    "dev": "start-storybook -s public -p 6006",
+    "dev": "start-storybook -s public -p 6006 --ci",
     "build": "build-storybook -s public -o ./dist"
   },
   "engines": {
