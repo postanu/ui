@@ -27,19 +27,11 @@ module.exports = {
 				use: ['pug-plain-loader']
 			},
 			{
-				test: /\.stylus$/,
+				test: /\.(stylus|styl)$/,
 				use: [
 					'style-loader',
 					'css-loader',
-					{
-						loader: 'stylus-loader',
-						options: {
-							stylusOptions: {
-								use: ['nib'],
-								import: ['nib', path.join(__dirname, '../styles/base')]
-							}
-						}
-					}
+					'stylus-loader'
 				]
 			}
 		)
