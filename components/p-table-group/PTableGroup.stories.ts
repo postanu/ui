@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
-import { members } from '../data'
+import { members } from '../../data'
 import PTableGroup from './PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 

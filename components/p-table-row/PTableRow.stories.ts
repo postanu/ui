@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
-import { getRandomInRange } from '../utils'
-import { discography } from '../data'
+import { getRandomInRange } from '../../utils'
+import { discography } from '../../data'
 import PTableRow from './PTableRow.vue'
 
 export default {
