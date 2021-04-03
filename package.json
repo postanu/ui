@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "core-js": "^3.10.0",
-    "vue": "^3.0.10"
+    "vue": "^3.0.11"
   },
   "devDependencies": {
     "@babel/core": "^7.13.14",
@@ -28,7 +28,7 @@
     "@storybook/vue3": "^6.2.2",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
-    "@vue/compiler-sfc": "^3.0.10",
+    "@vue/compiler-sfc": "^3.0.11",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "eslint": "^7.23.0",
