@@ -97,6 +97,7 @@ export default defineComponent({
 
 .p-settings-pages__buttons
 	display: flex
+	padding: 10px 0
 
 .p-settings-pages__item:hover
 	.p-settings-pages__buttons
