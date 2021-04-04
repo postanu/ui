@@ -1,11 +1,12 @@
 <template lang="pug">
 button(
-	:class="{\
-		'p-button': true,\
-		'p-button--link': isLink,\
-		'p-button--icon': showIcon,\
-		'p-button--image': showImage\
-	}"
+	:class=`{
+		'p-button': true,
+		'p-button--icon': showIcon,
+		'p-button--image': showImage,
+		'p-button--link': isLink,
+		'p-button--danger': isDanger
+	}`
 )
 	span.p-button__text
 		slot
@@ -44,18 +45,24 @@ export default defineComponent({
 		image: {
 			type: String,
 			default: null
+		},
+		danger: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup (props) {
 		let {
 			type,
 			icon,
-			image
+			image,
+			danger
 		} = toRefs(props)
 		return {
-			isLink: type.value === 'link',
 			showIcon: icon.value && !image.value,
-			showImage: image.value && !icon.value
+			showImage: image.value && !icon.value,
+			isLink: type.value === 'link',
+			isDanger: danger.value
 		}
 	}
 })
@@ -111,4 +118,10 @@ export default defineComponent({
 .p-button--icon, .p-button--image
 	.p-button__text
 		padding-right: 5px
+
+.p-button--danger
+	color: var(--p-color-red-08)
+
+.p-button--danger:not(:disabled):hover
+	color: var(--p-color-red-04)
 </style>
