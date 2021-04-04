@@ -1,3 +1,37 @@
+import { PagesList, PageType } from '@postanu/types'
+import { nanoid } from 'nanoid'
+
+import { getRandomInRange, usernameFromName } from '../utils'
+
+export function generatePages (count: number, networkTypes = 1): PagesList {
+	// generate a limited number of network types
+	let types = [...networks]
+	let removeCount = types.length - networkTypes
+	for (let index = 0; index < removeCount; index++) {
+		types.splice(getRandomInRange(0, types.length - 1), 1)
+	}
+
+	// generate pages
+	return Array.from({ length: count })
+		.map(() => {
+			let member = members[getRandomInRange(0, members.length - 1)]
+			return {
+				id: nanoid(),
+				type: types[getRandomInRange(0, types.length - 1)],
+				name: member.name,
+				username: usernameFromName(member.name),
+				avatar_url: member.avatar_url
+			}
+		})
+}
+
+export const networks: PageType[] = [
+	'facebook',
+	'instagram',
+	'twitter',
+	'vk'
+]
+
 export const discography = [
 	'Portrait of an American Family (1994)',
 	'Antichrist Superstar (1996)',
