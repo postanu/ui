@@ -3,6 +3,7 @@ module.exports = {
 		'../components/**/*.stories.@(js|ts)'
 	],
 	addons: [
+		'storybook-dark-mode',
 		'@storybook/addon-links',
 		{
 			name: '@storybook/addon-postcss',
