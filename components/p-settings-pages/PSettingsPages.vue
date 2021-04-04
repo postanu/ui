@@ -29,6 +29,13 @@ import PTableRow from '../p-table-row/PTableRow.vue'
 import PButton from '../p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
+const SORT_ORDER = {
+	'facebook': 0,
+	'instagram': 1,
+	'twitter': 2,
+	'vk': 3
+}
+
 export default defineComponent({
 	name: 'PSettingPages',
 	components: {
@@ -52,13 +59,18 @@ export default defineComponent({
 		let { pages } = toRefs(props)
 		let groupedPages = computed(() => {
 			// eslint-disable-next-line unicorn/no-array-reduce
-			return pages.value.reduce<GroupedPages>((previous, current) => {
+			let grouped = pages.value.reduce<GroupedPages>((previous, current) => {
 				let groupIndex = previous.findIndex(group => group.name === current.type)
 				if (groupIndex === -1) groupIndex = previous.length
 				previous[groupIndex] = previous[groupIndex] || { name: current.type, pages: [] }
 				previous[groupIndex].pages.push(current)
 				return previous
 			}, [])
+			// sort by sortOrder
+			let sorted = grouped.sort((a, b) => {
+				return SORT_ORDER[a.name] - SORT_ORDER[b.name]
+			})
+			return sorted
 		})
 		return { groupedPages }
 	}
