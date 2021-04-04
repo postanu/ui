@@ -1,5 +1,5 @@
 <template lang="pug">
-.p-page-list-item-view
+.p-page
 	p-icon(
 		v-if="icon"
 		:icon="icon"
@@ -8,8 +8,8 @@
 		:image="avatar"
 		:letter="letter"
 	)
-	.p-page-list-item-view__fn {{ fullname }}
-	.p-page-list-item-view__un.p-caption {{ username }}
+	.p-page__fn {{ fullname }}
+	.p-page__un.p-caption {{ username }}
 </template>
 
 <script lang="ts">
@@ -19,7 +19,7 @@ import PAvatar from '../p-avatar/PAvatar.vue'
 import PIcon from '../p-icon/PIcon.vue'
 
 export default defineComponent({
-	name: 'PPageListItem',
+	name: 'PPage',
 	components: {
 		PAvatar,
 		PIcon
@@ -50,11 +50,11 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-.p-page-list-item-view
+.p-page
 	gap: 10px
 	display: flex
 
-.p-page-list-item-view__un
+.p-page__un
 	color: var(--p-color-white-05)
 	line-height: 1
 	padding-top: 0.29rem

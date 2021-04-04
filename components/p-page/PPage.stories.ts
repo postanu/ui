@@ -1,12 +1,12 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
-import PPageListItem from './PPageListItem.vue'
+import PPage from './PPage.vue'
 import { icons } from '../p-icon/icons.js'
 
 export default {
-	title: 'PPageListItem',
-	component: PPageListItem,
+	title: 'PPage',
+	component: PPage,
 	argTypes: {
 		icon: {
 			control: {
@@ -43,9 +43,9 @@ export default {
 } as Meta
 
 const Template: Story = args => defineComponent({
-	components: { PPageListItem },
+	components: { PPage },
 	setup: () => ({ args }),
-	template: '<p-page-list-item v-bind="args" />'
+	template: '<p-page v-bind="args" />'
 })
 
 export const Default = Template.bind({})

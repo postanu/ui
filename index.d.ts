@@ -1,5 +1,6 @@
 import PIcon from './components/p-icon/PIcon.vue'
 import PLogo from './components/p-logo/PLogo.vue'
+import PPage from './components/p-page/PPage.vue'
 import PInput from './components/p-input/PInput.vue'
 import PBadge from './components/p-badge/PBadge.vue'
 import PAvatar from './components/p-button/PAvatar.vue'
@@ -14,6 +15,7 @@ export { icons } from './components/p-icon/icons.js'
 export {
 	PIcon,
 	PLogo,
+	PPage,
 	PInput,
 	PBadge,
 	PAvatar,

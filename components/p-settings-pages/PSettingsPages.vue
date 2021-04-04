@@ -6,13 +6,13 @@
 			ul
 				li(v-for="page in group.pages")
 					p-table-row.p-settings-pages__item
-						p-page-list-item.p-settings-pages__item-page(
+						p-page.p-settings-pages__page(
 							:avatar="page.avatar_url"
 							:letter="page.name"
 							:fullname="page.name"
 							:username="page.username"
 						)
-						p-button.p-settings-pages__item-btn(
+						p-button.p-settings-pages__remove(
 							type="link"
 							danger
 						) Remove
@@ -22,18 +22,18 @@
 import { computed, defineComponent, PropType, toRefs } from 'vue'
 import { GroupedPages, PagesList } from '@postanu/types'
 
-import PPageListItem from '../p-page-list-item/PPageListItem.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 import PButton from '../p-button/PButton.vue'
+import PPage from '../p-page/PPage.vue'
 
 export default defineComponent({
 	name: 'PSettingPages',
 	components: {
-		PPageListItem,
 		PTableGroup,
 		PTableRow,
-		PButton
+		PButton,
+		PPage
 	},
 	props: {
 		pages: {
@@ -67,13 +67,13 @@ export default defineComponent({
 	justify-content: space-between
 
 .p-settings-pages__item:hover
-	.p-settings-pages__item-btn
+	.p-settings-pages__remove
 		opacity: 1
 
-.p-settings-pages__item-page
+.p-settings-pages__page
 	padding: 15px 0
 
-.p-settings-pages__item-btn
+.p-settings-pages__remove
 	opacity: 0
 	transition: opacity 0.05s ease-in
 </style>
