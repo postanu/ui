@@ -34,8 +34,9 @@ const Template: Story = args => defineComponent({
 		<p-table-row
 			v-if="lines > 1"
 			v-for="n in lines"
+			style="line-height: 50px;"
 		>{{ discography[getRandomInRange(0, discography.length - 1)] }}</p-table-row>
-		<p-table-row v-else>{{ content }}</p-table-row>
+		<p-table-row style="line-height: 50px;" v-else>{{ content }}</p-table-row>
 	`
 })
 

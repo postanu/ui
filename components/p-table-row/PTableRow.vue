@@ -15,7 +15,6 @@ export default defineComponent({
 .p-table-row
 	position relative
 	min-height 50px
-	line-height 50px
 
 .p-table-row:before,
 .p-table-row:after

@@ -37,7 +37,7 @@ const Template: Story = args => defineComponent({
 			<template v-slot:content>
 				<ul>
 					<li v-for="i in g.items">
-						<p-table-row>{{ i.name }} — {{ i.years }}</p-table-row>
+						<p-table-row style="line-height: 50px;">{{ i.name }} — {{ i.years }}</p-table-row>
 					</li>
 				</ul>
 			</template>
