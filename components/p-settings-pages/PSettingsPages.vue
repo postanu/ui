@@ -16,6 +16,7 @@
 							v-if="removable"
 							type="link"
 							danger
+							@click="$emit('remove', { id: page.id })"
 						) Remove
 </template>
 
@@ -46,6 +47,7 @@ export default defineComponent({
 			default: true
 		}
 	},
+	emits: ['remove'],
 	setup (props) {
 		let { pages } = toRefs(props)
 		let groupedPages = computed(() => {

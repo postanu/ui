@@ -25,6 +25,10 @@ export default {
 		pages: {
 			control: 'text',
 			description: 'Pages object in JSON'
+		},
+		remove: {
+			action: true,
+			description: 'Triggers on clicking the `Remove` button and passes the page id.'
 		}
 	}
 } as Meta
@@ -33,13 +37,20 @@ const Template: Story = args => defineComponent({
 	components: { PSettingsPages },
 	setup: () => {
 		return {
+			args,
 			pages: args.pages
 				? JSON.parse(args.pages)
 				: generatePages(args.count, args.networks),
 			removable: args.removable
 		}
 	},
-	template: '<p-settings-pages :pages="pages" :removable="removable" />'
+	template: `
+		<p-settings-pages
+			:pages="pages"
+			:removable="removable"
+			@remove="args.remove"
+		/>
+	`
 })
 
 export const OnePage = Template.bind({})
