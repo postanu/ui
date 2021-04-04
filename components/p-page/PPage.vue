@@ -57,6 +57,5 @@ export default defineComponent({
 
 .p-page__un
 	color: var(--p-color-white-05)
-	line-height: 1
-	padding-top: 0.29rem
+	padding-top: 0.07em
 </style>
