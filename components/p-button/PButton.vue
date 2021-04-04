@@ -107,13 +107,16 @@ export default defineComponent({
 		opacity: 0.6
 
 .p-button--link
+	color: var(--p-color-blue)
 	background: none
-	transition: color 0.05s ease-in
-	border-radius: 0
+	transition: background 0.05s ease-in
+	border-radius: 6px
+
+	.p-button__text
+		padding: 5px 10px
 
 .p-button--link:not(:disabled):hover
-	color: var(--p-color-white-05)
-	background: none
+	background: var(--p-color-white-01)
 
 .p-button--icon, .p-button--image
 	.p-button__text
@@ -121,7 +124,4 @@ export default defineComponent({
 
 .p-button--danger
 	color: var(--p-color-red-08)
-
-.p-button--danger:not(:disabled):hover
-	color: var(--p-color-red-04)
 </style>
