@@ -18,13 +18,21 @@ export default {
 			defaultValue: '4',
 			description: 'Property of generative view'
 		},
+		updatable: {
+			control: 'boolean',
+			description: 'Show `Update` button for each page.'
+		},
 		removable: {
 			control: 'boolean',
-			description: 'Show remove button for each page.'
+			description: 'Show `Remove` button for each page.'
 		},
 		pages: {
 			control: 'text',
 			description: 'Pages object in JSON'
+		},
+		update: {
+			action: true,
+			description: 'Triggers on clicking the `Update` button and passes the page id.'
 		},
 		remove: {
 			action: true,
@@ -40,14 +48,15 @@ const Template: Story = args => defineComponent({
 			args,
 			pages: args.pages
 				? JSON.parse(args.pages)
-				: generatePages(args.count, args.networks),
-			removable: args.removable
+				: generatePages(args.count, args.networks)
 		}
 	},
 	template: `
 		<p-settings-pages
 			:pages="pages"
-			:removable="removable"
+			:updatable="args.updatable"
+			:removable="args.removable"
+			@update="args.update"
 			@remove="args.remove"
 		/>
 	`

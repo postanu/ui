@@ -12,12 +12,18 @@
 							:fullname="page.name"
 							:username="page.username"
 						)
-						p-button.p-settings-pages__remove(
-							v-if="removable"
-							type="link"
-							danger
-							@click="$emit('remove', { id: page.id })"
-						) Remove
+						.p-settings-pages__buttons
+							p-button(
+								v-if="updatable"
+								type="link"
+								@click="$emit('update', { id: page.id })"
+							) Update
+							p-button(
+								v-if="removable"
+								type="link"
+								danger
+								@click="$emit('remove', { id: page.id })"
+							) Remove
 </template>
 
 <script lang="ts">
@@ -49,12 +55,16 @@ export default defineComponent({
 			type: Array as PropType<PagesList>,
 			required: true
 		},
+		updatable: {
+			type: Boolean,
+			default: true
+		},
 		removable: {
 			type: Boolean,
 			default: true
 		}
 	},
-	emits: ['remove'],
+	emits: ['update', 'remove'],
 	setup (props) {
 		let { pages } = toRefs(props)
 		let groupedPages = computed(() => {
@@ -85,14 +95,17 @@ export default defineComponent({
 	display: flex
 	justify-content: space-between
 
+.p-settings-pages__buttons
+	display: flex
+
 .p-settings-pages__item:hover
-	.p-settings-pages__remove
+	.p-settings-pages__buttons
 		opacity: 1
 
 .p-settings-pages__page
 	padding: 15px 0
 
-.p-settings-pages__remove
+.p-settings-pages__buttons
 	opacity: 0
 	transition: opacity 0.05s ease-in
 </style>
