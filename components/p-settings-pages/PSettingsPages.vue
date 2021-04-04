@@ -5,13 +5,17 @@
 		template(v-slot:content)
 			ul
 				li(v-for="page in group.pages")
-					p-table-row
-						p-page-list-item.p-settings-pages__item(
+					p-table-row.p-settings-pages__item
+						p-page-list-item.p-settings-pages__item-page(
 							:avatar="page.avatar_url"
 							:letter="page.name"
 							:fullname="page.name"
 							:username="page.username"
 						)
+						p-button.p-settings-pages__item-btn(
+							type="link"
+							danger
+						) Remove
 </template>
 
 <script lang="ts">
@@ -21,13 +25,15 @@ import { GroupedPages, PagesList } from '@postanu/types'
 import PPageListItem from '../p-page-list-item/PPageListItem.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
+import PButton from '../p-button/PButton.vue'
 
 export default defineComponent({
 	name: 'PSettingPages',
 	components: {
 		PPageListItem,
 		PTableGroup,
-		PTableRow
+		PTableRow,
+		PButton
 	},
 	props: {
 		pages: {
@@ -57,5 +63,17 @@ export default defineComponent({
 	//
 
 .p-settings-pages__item
+	display: flex
+	justify-content: space-between
+
+.p-settings-pages__item:hover
+	.p-settings-pages__item-btn
+		opacity: 1
+
+.p-settings-pages__item-page
 	padding: 15px 0
+
+.p-settings-pages__item-btn
+	opacity: 0
+	transition: opacity 0.05s ease-in
 </style>
