@@ -18,6 +18,10 @@ export default {
 			defaultValue: '4',
 			description: 'Property of generative view'
 		},
+		removable: {
+			control: 'boolean',
+			description: 'Show remove button for each page.'
+		},
 		pages: {
 			control: 'text',
 			description: 'Pages object in JSON'
@@ -31,10 +35,11 @@ const Template: Story = args => defineComponent({
 		return {
 			pages: args.pages
 				? JSON.parse(args.pages)
-				: generatePages(args.count, args.networks)
+				: generatePages(args.count, args.networks),
+			removable: args.removable
 		}
 	},
-	template: '<p-settings-pages :pages="pages" />'
+	template: '<p-settings-pages :pages="pages" :removable="removable" />'
 })
 
 export const OnePage = Template.bind({})

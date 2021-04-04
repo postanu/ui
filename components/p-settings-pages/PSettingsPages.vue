@@ -13,6 +13,7 @@
 							:username="page.username"
 						)
 						p-button.p-settings-pages__remove(
+							v-if="removable"
 							type="link"
 							danger
 						) Remove
@@ -39,6 +40,10 @@ export default defineComponent({
 		pages: {
 			type: Array as PropType<PagesList>,
 			required: true
+		},
+		removable: {
+			type: Boolean,
+			default: true
 		}
 	},
 	setup (props) {
