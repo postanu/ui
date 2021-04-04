@@ -53,6 +53,7 @@ export default defineComponent({
 .p-page
 	gap: 10px
 	display: flex
+	cursor: default
 
 .p-page__un
 	color: var(--p-color-white-05)
