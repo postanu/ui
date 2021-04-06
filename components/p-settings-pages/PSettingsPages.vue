@@ -94,11 +94,17 @@ export default defineComponent({
 		})
 
 		let removeId = ref<string | null>(null)
+		let removeTimer = ref<ReturnType<typeof setTimeout> | null>(null)
 		function showRemove (id: string): void {
 			hideRemove()
 			removeId.value = id
+			removeTimer.value = setTimeout(hideRemove, 4000)
 		}
 		function hideRemove (): void {
+			if (removeTimer.value) {
+				clearTimeout(removeTimer.value)
+				removeTimer.value = null
+			}
 			removeId.value = null
 		}
 
