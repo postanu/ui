@@ -5,7 +5,9 @@
 		template(v-slot:content)
 			ul
 				li(v-for="page in group.pages")
-					p-table-row.p-settings-pages__item
+					p-table-row.p-settings-pages__item(
+						:class="{ 'p-settings-pages__item--remove': isRemovable(page.id) }"
+					)
 						p-page.p-settings-pages__page(
 							:avatar="page.avatar_url"
 							:letter="page.name"
@@ -13,21 +15,35 @@
 							:username="page.username"
 						)
 						.p-settings-pages__buttons
-							p-button(
-								v-if="updatable"
-								type="link"
-								@click="$emit('update', { id: page.id })"
-							) Update
-							p-button(
-								v-if="removable"
-								type="link"
-								danger
-								@click="$emit('remove', { id: page.id })"
-							) Remove
+							template(v-if="!isRemovable(page.id)")
+								p-button(
+									v-if="updatable"
+									type="link"
+									@click="$emit('update', { id: page.id })"
+									target
+								) Update
+								p-button(
+									v-if="removable"
+									type="link"
+									danger
+									@click="showRemove(page.id)"
+								) Remove
+							template(v-else)
+								.p-settings-pages__remove-q Delete?
+								p-button(
+									type="link"
+									@click="hideRemove"
+									muted
+								) Cancel
+								p-button(
+									type="link"
+									danger
+									@click="remove(page.id)"
+								) Confirm
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs } from 'vue'
+import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { GroupedPages, PagesList } from '@postanu/types'
 
 import PTableGroup from '../p-table-group/PTableGroup.vue'
@@ -55,17 +71,11 @@ export default defineComponent({
 			type: Array as PropType<PagesList>,
 			required: true
 		},
-		updatable: {
-			type: Boolean,
-			default: true
-		},
-		removable: {
-			type: Boolean,
-			default: true
-		}
+		updatable: { type: Boolean, default: true },
+		removable: { type: Boolean, default: true }
 	},
 	emits: ['update', 'remove'],
-	setup (props) {
+	setup (props, { emit }) {
 		let { pages } = toRefs(props)
 		let groupedPages = computed(() => {
 			// eslint-disable-next-line unicorn/no-array-reduce
@@ -82,7 +92,32 @@ export default defineComponent({
 			})
 			return sorted
 		})
-		return { groupedPages }
+
+		let removeId = ref<string | null>(null)
+		function showRemove (id: string): void {
+			hideRemove()
+			removeId.value = id
+		}
+		function hideRemove (): void {
+			removeId.value = null
+		}
+
+		function isRemovable (id: string): boolean {
+			return id === removeId.value
+		}
+
+		function remove (id: string): void {
+			emit('remove', { id })
+			hideRemove()
+		}
+
+		return {
+			groupedPages,
+			isRemovable,
+			showRemove,
+			hideRemove,
+			remove
+		}
 	}
 })
 </script>
@@ -99,14 +134,19 @@ export default defineComponent({
 	display: flex
 	padding: 10px 0
 
-.p-settings-pages__item:hover
+.p-settings-pages__item:hover,
+.p-settings-pages__item--remove
 	.p-settings-pages__buttons
 		opacity: 1
+		transition: opacity 0.05s ease-in
 
 .p-settings-pages__page
 	padding: 15px 0
 
 .p-settings-pages__buttons
 	opacity: 0
-	transition: opacity 0.05s ease-in
+
+.p-settings-pages__remove-q
+	line-height: 30px
+	padding-right: 30px
 </style>
