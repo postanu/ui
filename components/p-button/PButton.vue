@@ -108,7 +108,7 @@ export default defineComponent({
 		opacity: 0.6
 
 .p-button--link
-	color: var(--p-color-blue)
+	font-weight: 500
 	background: none
 	transition: background 0.05s ease-in
 	border-radius: 6px
