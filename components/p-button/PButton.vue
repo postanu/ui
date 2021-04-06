@@ -102,6 +102,7 @@ export default defineComponent({
 
 .p-button:disabled
 	color: var(--p-color-white-05)
+	cursor: default
 
 	.p-button__image
 		opacity: 0.6
