@@ -40,6 +40,10 @@ export default {
 		danger: {
 			control: 'boolean',
 			defaultValue: false
+		},
+		target: {
+			control: 'boolean',
+			defaultValue: false
 		}
 	}
 } as Meta
@@ -52,7 +56,9 @@ const Template: Story = args => defineComponent({
 		icon: args.icon,
 		image: args.image,
 		disabled: args.disabled,
-		danger: args.danger
+		danger: args.danger,
+		target: args.target,
+		muted: args.muted
 	}),
 	template: `
 		<p-button
@@ -61,6 +67,8 @@ const Template: Story = args => defineComponent({
 			:image="image"
 			:disabled="disabled"
 			:danger="danger"
+			:target="target"
+			:muted="muted"
 		>{{ args.default }}</p-button>
 	`
 })
@@ -88,11 +96,25 @@ Link.args = {
 	type: 'link'
 }
 
+export const LinkTarget = Template.bind({})
+LinkTarget.args = {
+	default: 'Link Button',
+	type: 'link',
+	target: true
+}
+
 export const LinkDanger = Template.bind({})
 LinkDanger.args = {
 	default: 'Link Button',
 	type: 'link',
 	danger: true
+}
+
+export const LinkMuted = Template.bind({})
+LinkMuted.args = {
+	default: 'Link Button',
+	type: 'link',
+	muted: true
 }
 
 export const Icon = Template.bind({})

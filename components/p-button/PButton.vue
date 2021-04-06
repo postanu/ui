@@ -5,7 +5,9 @@ button(
 		'p-button--icon': showIcon,
 		'p-button--image': showImage,
 		'p-button--link': isLink,
-		'p-button--danger': isDanger
+		'p-button--danger': danger,
+		'p-button--target': target,
+		'p-button--muted': muted
 	}`
 )
 	span.p-button__text
@@ -46,23 +48,20 @@ export default defineComponent({
 			type: String,
 			default: null
 		},
-		danger: {
-			type: Boolean,
-			default: false
-		}
+		danger: { type: Boolean, default: false },
+		target: { type: Boolean, default: false },
+		muted: { type: Boolean, default: false }
 	},
 	setup (props) {
 		let {
 			type,
 			icon,
-			image,
-			danger
+			image
 		} = toRefs(props)
 		return {
 			showIcon: icon.value && !image.value,
 			showImage: image.value && !icon.value,
-			isLink: type.value === 'link',
-			isDanger: danger.value
+			isLink: type.value === 'link'
 		}
 	}
 })
@@ -125,4 +124,10 @@ export default defineComponent({
 
 .p-button--danger
 	color: var(--p-color-red-08)
+
+.p-button--target
+	color: var(--p-color-blue)
+
+.p-button--muted
+	color: var(--p-color-white-06)
 </style>
