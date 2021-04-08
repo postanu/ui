@@ -12,10 +12,10 @@
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from 'vue'
 
-const medianLetters = [
+const medianLetters = new Set([
 	'q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm', 'w', 'y', 'u', 'o', 'p', 'g', 'v',
 	'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'ю', 'в'
-]
+])
 
 export default defineComponent({
 	name: 'PAvatar',
@@ -41,7 +41,7 @@ export default defineComponent({
 
 		let isMedian = computed(() => {
 			let fistLetter = l.value.charAt(0)
-			return medianLetters.includes(fistLetter)
+			return medianLetters.has(fistLetter)
 		})
 
 		function onLoad (): void {
