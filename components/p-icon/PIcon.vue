@@ -1,5 +1,5 @@
 <script lang="ts">
-import { computed, defineComponent, h, toRefs } from 'vue'
+import { computed, defineComponent, h, toRefs, VNodeChild } from 'vue'
 
 import { icons } from './icons.js'
 
@@ -29,13 +29,18 @@ export default defineComponent({
 
 		let icon = computed(() => icons[name.value])
 
-		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-		return () => {
+		return (): VNodeChild => {
 			let defaultSlot = slots.default ? slots.default() : []
 
-			let children = iconsList.includes(name.value)
-				? h('path', icon.value.path)
-				: defaultSlot
+			let children
+			if (iconsList.includes(name.value)) {
+				let { path } = icon.value
+				children = Array.isArray(path)
+					? path.map(pathProps => h('path', pathProps))
+					: h('path', path)
+			} else {
+				children = defaultSlot
+			}
 
 			if (mixBlendMode.value) {
 				children = h('g', {
