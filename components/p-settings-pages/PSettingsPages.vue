@@ -52,10 +52,10 @@ import PButton from '../p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
 const SORT_ORDER = {
-	'facebook': 0,
-	'instagram': 1,
-	'twitter': 2,
-	'vk': 3
+	facebook: 0,
+	instagram: 1,
+	twitter: 2,
+	vk: 3
 }
 
 export default defineComponent({
