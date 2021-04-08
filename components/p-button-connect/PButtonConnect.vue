@@ -12,7 +12,7 @@ a.p-button-connect(
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import { icons } from '../p-icon/icons.js'
+import { icons } from '../../icons'
 import PIcon from '../p-icon/PIcon.vue'
 
 export default defineComponent({

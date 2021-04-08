@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
-import { icons } from './icons.js'
+import { icons } from '../../icons'
 import PIcon from './PIcon.vue'
 
 export default {

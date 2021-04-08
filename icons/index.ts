@@ -1,4 +1,16 @@
-export let icons = {
+export type PIconsStorePath = {
+	d: string
+}
+
+export type PIconsStore = {
+	[key: string]: {
+		height: number
+		width: number
+		path: PIconsStorePath | PIconsStorePath[]
+	}
+}
+
+export let icons: PIconsStore = {
 	postanu: {
 		height: 13,
 		width: 27,

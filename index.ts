@@ -12,7 +12,7 @@ import PSettingPages from './components/p-setting-pages/PSettingPages.vue'
 import PButtonConnect from './components/p-button/PButtonConnect.vue'
 import PInputProjectName from './components/p-input-project-name/PInputProjectName.vue'
 
-export { icons } from './components/p-icon/icons.js'
+export { icons } from './icons'
 export {
 	PIcon,
 	PLogo,
