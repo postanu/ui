@@ -9,7 +9,7 @@
 						:class="{ 'p-settings-pages__item--remove': isRemovable(page.id) }"
 					)
 						p-page.p-settings-pages__page(
-							:avatar="page.avatar_url"
+							:avatar="page.avatarUrl"
 							:letter="page.name"
 							:fullname="page.name"
 							:username="page.username"
