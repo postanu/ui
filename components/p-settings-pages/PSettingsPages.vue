@@ -6,7 +6,7 @@
 			ul
 				li(v-for="page in group.pages")
 					p-table-row.p-settings-pages__item(
-						:class="{ 'p-settings-pages__item--remove': isRemovable(page.id) }"
+						:class="{ 'p-settings-pages__item--removing': isRemoving(page.id) }"
 					)
 						p-page.p-settings-pages__page(
 							:avatar="page.avatarUrl"
@@ -15,37 +15,25 @@
 							:username="page.username"
 						)
 						.p-settings-pages__buttons
-							template(v-if="!isRemovable(page.id)")
-								p-button(
-									v-if="updatable"
-									type="link"
-									@click="$emit('update', { id: page.id })"
-									target
-								) Update
-								p-button(
-									v-if="removable"
-									type="link"
-									danger
-									@click="showRemove(page.id)"
-								) Remove
-							template(v-else)
-								.p-settings-pages__remove-q Delete?
-								p-button(
-									type="link"
-									@click="hideRemove"
-									muted
-								) Cancel
-								p-button(
-									type="link"
-									danger
-									@click="remove(page.id)"
-								) Confirm
+							p-button(
+								v-if="updatable && !isRemoving(page.id) "
+								type="link"
+								@click="$emit('update', { id: page.id })"
+								target
+							) Update
+							p-button-remove(
+								v-if="removable"
+								:ref="el => setRemovingRef(el, page.id)"
+								@removing="setRemoving($event, page.id)"
+								@remove="remove(page.id)"
+							)
 </template>
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
 import { GroupedPages, PagesList } from '@postanu/types'
 
+import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 import PButton from '../p-button/PButton.vue'
@@ -58,9 +46,13 @@ const SORT_ORDER = {
 	vk: 3
 }
 
+// eslint-disable-next-line unicorn/prevent-abbreviations
+type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
+
 export default defineComponent({
 	name: 'PSettingPages',
 	components: {
+		PButtonRemove,
 		PTableGroup,
 		PTableRow,
 		PButton,
@@ -93,35 +85,42 @@ export default defineComponent({
 			return sorted
 		})
 
-		let removeId = ref<string | null>(null)
-		let removeTimer = ref<ReturnType<typeof setTimeout> | null>(null)
-		function showRemove (id: string): void {
-			hideRemove()
-			removeId.value = id
-			removeTimer.value = setTimeout(hideRemove, 4000)
-		}
-		function hideRemove (): void {
-			if (removeTimer.value) {
-				clearTimeout(removeTimer.value)
-				removeTimer.value = null
-			}
-			removeId.value = null
-		}
-
-		function isRemovable (id: string): boolean {
-			return id === removeId.value
-		}
-
 		function remove (id: string): void {
 			emit('remove', { id })
-			hideRemove()
+		}
+
+		// eslint-disable-next-line unicorn/prevent-abbreviations
+		let removingRef = ref<{ [pageId: string]: ButtonRemoveRef }>({})
+		// eslint-disable-next-line unicorn/prevent-abbreviations
+		function setRemovingRef (element: ButtonRemoveRef, pageId: string): void {
+			removingRef.value[pageId] = element
+		}
+
+		let removingIds = ref<Set<string>>(new Set())
+		function setRemoving (value: boolean, pageId: string): void {
+			if (value) {
+				// eslint-disable-next-line unicorn/no-array-for-each
+				removingIds.value.forEach(id => {
+					if (id !== pageId) {
+						removingRef.value[id].cancel()
+					}
+				})
+				removingIds.value = new Set([pageId])
+			} else {
+				removingIds.value.delete(pageId)
+			}
+		}
+
+		function isRemoving (pageId: string): boolean {
+			return removingIds.value.has(pageId)
 		}
 
 		return {
+			setRemovingRef,
 			groupedPages,
-			isRemovable,
-			showRemove,
-			hideRemove,
+			removingIds,
+			setRemoving,
+			isRemoving,
 			remove
 		}
 	}
@@ -141,7 +140,7 @@ export default defineComponent({
 	padding: 10px 0
 
 .p-settings-pages__item:hover,
-.p-settings-pages__item--remove
+.p-settings-pages__item--removing
 	.p-settings-pages__buttons
 		opacity: 1
 		transition: opacity 0.05s ease-in

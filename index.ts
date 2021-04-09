@@ -7,6 +7,7 @@ import PAvatar from './components/p-button/PAvatar.vue'
 import PButton from './components/p-button/PButton.vue'
 import PTableRow from './components/p-table-row/PTableRow.vue'
 import PTableGroup from './components/p-table-group/PTableGroup.vue'
+import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
 import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
 import PSettingPages from './components/p-setting-pages/PSettingPages.vue'
 import PButtonConnect from './components/p-button/PButtonConnect.vue'
@@ -23,6 +24,7 @@ export {
 	PButton,
 	PTableRow,
 	PTableGroup,
+	PButtonRemove,
 	PQueueHeading,
 	PSettingPages,
 	PButtonConnect,
