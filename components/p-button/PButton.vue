@@ -115,8 +115,14 @@ export default defineComponent({
 	.p-button__text
 		padding: 5px 10px
 
+.p-button--link:focus
+	box-shadow: none
+
 .p-button--link:not(:disabled):hover
 	background: var(--p-color-white-01)
+
+.p-button--link:not(:disabled):active
+	background: var(--p-color-white-02)
 
 .p-button--icon, .p-button--image
 	.p-button__text
