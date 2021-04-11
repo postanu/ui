@@ -14,9 +14,16 @@
   "engines": {
     "node": ">=14.0.0"
   },
+  "peerDependencies": {
+    "date-fns": "^2.20.1"
+  },
+  "peerDependenciesMeta": {
+    "date-fns": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@postanu/types": "postanu/types",
-    "date-fns": "^2.20.1",
     "vue": "^3.0.11"
   },
   "devDependencies": {
@@ -34,6 +41,7 @@
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
     "core-js": "^3.10.1",
+    "date-fns": "^2.20.1",
     "eslint": "^7.24.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
