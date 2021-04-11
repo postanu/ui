@@ -6,7 +6,6 @@ import PBadge from './components/p-badge/PBadge.vue'
 import PAvatar from './components/p-avatar/PAvatar.vue'
 import PButton from './components/p-button/PButton.vue'
 import PTableRow from './components/p-table-row/PTableRow.vue'
-import PQueuePost from './components/p-queue-post/PQueuePost.vue'
 import PTableGroup from './components/p-table-group/PTableGroup.vue'
 import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
 import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
@@ -24,7 +23,6 @@ export {
 	PAvatar,
 	PButton,
 	PTableRow,
-	PQueuePost,
 	PTableGroup,
 	PButtonRemove,
 	PQueueHeading,
