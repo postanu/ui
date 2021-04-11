@@ -5,6 +5,7 @@ import PInput from './components/p-input/PInput.vue'
 import PBadge from './components/p-badge/PBadge.vue'
 import PAvatar from './components/p-avatar/PAvatar.vue'
 import PButton from './components/p-button/PButton.vue'
+import PHeading from './components/p-heading/PHeading.vue'
 import PTableRow from './components/p-table-row/PTableRow.vue'
 import PTableGroup from './components/p-table-group/PTableGroup.vue'
 import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
@@ -22,6 +23,7 @@ export {
 	PBadge,
 	PAvatar,
 	PButton,
+	PHeading,
 	PTableRow,
 	PTableGroup,
 	PButtonRemove,
