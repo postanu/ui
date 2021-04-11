@@ -1,21 +1,18 @@
 <template lang="pug">
 .p-queue-heading(:class="{ 'p-queue-heading--muted': muted }")
-	.p-queue-heading__title {{ title }}
+	p-heading.p-queue-heading__title(tag="div" hero) {{ title }}
 	.p-queue-heading__subtitle {{ subtitle }}
 </template>
 
 <script lang="ts">
-import {
-	format,
-	isToday,
-	isTomorrow,
-	isThisYear,
-	isYesterday
-} from 'date-fns'
+import { format, isToday, isTomorrow, isThisYear, isYesterday } from 'date-fns'
 import { computed, defineComponent, toRefs } from 'vue'
+
+import PHeading from '../p-heading/PHeading.vue'
 
 export default defineComponent({
 	name: 'PQueueHeading',
+	components: { PHeading },
 	props: {
 		date: {
 			type: Number,
@@ -68,11 +65,11 @@ export default defineComponent({
 		color: var(--p-color-white-04)
 
 .p-queue-heading__title
-	color: var(--p-color-white-08)
-	font-size: 68px
-	font-weight: 500
-	line-height: 0.7353
-	text-transform: uppercase
+	// color: var(--p-color-white-08)
+	// font-size: 68px
+	// font-weight: 500
+	// line-height: 0.7353
+	// text-transform: uppercase
 
 .p-queue-heading__subtitle
 	color: var(--p-color-white-04)
