@@ -1,7 +1,7 @@
 <script lang="ts">
 import { computed, defineComponent, h, toRefs, VNodeChild } from 'vue'
 
-import { icons } from '../../icons'
+import { icons } from '../../icons/index.js'
 
 const iconsList = Object.keys(icons)
 

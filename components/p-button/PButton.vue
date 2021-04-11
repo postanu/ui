@@ -23,7 +23,7 @@ button(
 <script lang="ts">
 import { defineComponent, toRefs } from 'vue'
 
-import { icons } from '../../icons'
+import { icons } from '../../index.js'
 import PIcon from '../p-icon/PIcon.vue'
 
 export default defineComponent({
