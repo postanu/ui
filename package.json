@@ -15,7 +15,7 @@
     "node": ">=14.0.0"
   },
   "peerDependencies": {
-    "date-fns": "^2.20.1"
+    "date-fns": "^2.21.1"
   },
   "peerDependenciesMeta": {
     "date-fns": {
@@ -27,30 +27,30 @@
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.13.15",
+    "@babel/core": "^7.13.16",
     "@babel/preset-env": "^7.13.15",
-    "@postanu/eslint-config": "^2.2.1",
-    "@storybook/addon-actions": "^6.2.7",
-    "@storybook/addon-essentials": "^6.2.7",
-    "@storybook/addon-links": "^6.2.7",
+    "@postanu/eslint-config": "^3.0.0",
+    "@storybook/addon-actions": "^6.2.8",
+    "@storybook/addon-essentials": "^6.2.8",
+    "@storybook/addon-links": "^6.2.8",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/vue3": "^6.2.7",
-    "@typescript-eslint/eslint-plugin": "^4.21.0",
-    "@typescript-eslint/parser": "^4.21.0",
+    "@storybook/vue3": "^6.2.8",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
     "@vue/compiler-sfc": "^3.0.11",
     "autoprefixer": "^10.2.5",
     "babel-loader": "^8.2.2",
-    "core-js": "^3.10.1",
-    "date-fns": "^2.20.1",
+    "core-js": "^3.10.2",
+    "date-fns": "^2.21.1",
     "eslint": "^7.24.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-let": "^1.1.0",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-security": "^1.4.0",
-    "eslint-plugin-unicorn": "^29.0.0",
-    "eslint-plugin-vue": "^7.8.0",
+    "eslint-plugin-unicorn": "^30.0.0",
+    "eslint-plugin-vue": "^7.9.0",
     "nanoid": "^3.1.22",
     "nib": "^1.1.2",
     "postcss": "^8.2.10",

@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
-import { GroupedPages, PagesList } from '@postanu/types'
+import type { PagesList, GroupedPages } from '@postanu/types'
 
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
@@ -72,9 +72,9 @@ export default defineComponent({
 		let groupedPages = computed(() => {
 			// eslint-disable-next-line unicorn/no-array-reduce
 			let grouped = pages.value.reduce<GroupedPages>((previous, current) => {
-				let groupIndex = previous.findIndex(group => group.name === current.type)
+				let groupIndex = previous.findIndex(group => group.name === current.network)
 				if (groupIndex === -1) groupIndex = previous.length
-				previous[groupIndex] = previous[groupIndex] || { name: current.type, pages: [] }
+				previous[groupIndex] = previous[groupIndex] || { name: current.network, pages: [] }
 				previous[groupIndex].pages.push(current)
 				return previous
 			}, [])
