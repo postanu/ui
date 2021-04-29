@@ -8,7 +8,7 @@ export default defineComponent({
 			type: String,
 			required: true,
 			validator: (value: string) => {
-				return ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(value)
+				return ['div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(value)
 			}
 		},
 		hero: {
