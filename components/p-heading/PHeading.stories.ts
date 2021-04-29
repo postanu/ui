@@ -18,6 +18,9 @@ export default {
 		},
 		hero: {
 			control: 'boolean'
+		},
+		headline: {
+			control: 'boolean'
 		}
 	}
 } as Meta
@@ -25,13 +28,25 @@ export default {
 const Template: Story = args => defineComponent({
 	components: { PHeading },
 	setup: () => ({ args }),
-	template: '<p-heading :tag="args.tag" :hero="args.hero">{{ args.default }}</p-heading>'
+	template: `
+		<p-heading
+			:tag="args.tag"
+			:hero="args.hero"
+			:headline="args.headline"
+		>{{ args.default }}</p-heading>
+	`
 })
 
 export const Hero = Template.bind({})
 Hero.args = {
 	default: 'Hero heading',
 	hero: true
+}
+
+export const Headline = Template.bind({})
+Headline.args = {
+	default: 'Headline heading',
+	headline: true
 }
 
 // export const H1 = Template.bind({})

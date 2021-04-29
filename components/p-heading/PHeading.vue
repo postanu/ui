@@ -14,17 +14,22 @@ export default defineComponent({
 		hero: {
 			type: Boolean,
 			default: false
+		},
+		headline: {
+			type: Boolean,
+			default: false
 		}
 	},
 	setup (props, { slots }) {
-		let { tag, hero } = toRefs(props)
+		let { tag, hero, headline } = toRefs(props)
 		let children = slots.default ? slots.default() : []
 		return (): VNodeChild => {
 			return h(tag.value, {
 				class: [
 					`p-${tag.value}`,
 					'p-heading',
-					{ 'p-heading--hero': hero.value }
+					{ 'p-heading--hero': hero.value },
+					{ 'p-heading--headline': headline.value }
 				]
 			}, children)
 		}
@@ -38,5 +43,12 @@ export default defineComponent({
 	font-size: var(--p-hero-font-size)
 	font-weight: var(--p-hero-font-weight)
 	line-height: var(--p-hero-line-height)
+	text-transform: uppercase
+
+.p-heading--headline
+	color: var(--p-color-white-04)
+	font-size: var(--p-headline-font-size)
+	font-weight: var(--p-headline-font-weight)
+	line-height: var(--p-headline-line-height)
 	text-transform: uppercase
 </style>
