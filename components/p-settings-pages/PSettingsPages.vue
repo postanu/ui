@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref, toRefs } from 'vue'
+import { computed, DeepReadonly, defineComponent, PropType, ref, toRefs } from 'vue'
 import type { PagesList, GroupedPages } from '@postanu/types'
 
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
@@ -60,7 +60,7 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<PagesList>,
+			type: Array as PropType<DeepReadonly<PagesList>>,
 			required: true
 		},
 		updatable: { type: Boolean, default: true },
