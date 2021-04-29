@@ -35,8 +35,8 @@ export default defineComponent({
 <style lang="stylus">
 .p-heading--hero
 	color: var(--p-color-white-08)
-	font-size: 68px
-	font-weight: 500
-	line-height: 0.7353
+	font-size: var(--p-hero-font-size)
+	font-weight: var(--p-hero-font-weight)
+	line-height: var(--p-hero-line-height)
 	text-transform: uppercase
 </style>
