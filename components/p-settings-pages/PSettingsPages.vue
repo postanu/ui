@@ -150,6 +150,7 @@ export default defineComponent({
 
 .p-settings-pages__buttons
 	opacity: 0
+	margin-right: 20px
 
 .p-settings-pages__remove-q
 	line-height: 30px
