@@ -41,6 +41,7 @@ export default defineComponent({
 	padding: 10px
 	display: block
 	position: relative
+	box-sizing: border-box
 	border-radius: 5px
 	text-decoration: none
 	background-color: var(--p-color-white-01)
