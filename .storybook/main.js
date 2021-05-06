@@ -17,22 +17,5 @@ module.exports = {
 	],
 	core: {
 		builder: 'storybook-builder-vite'
-	},
-	webpackFinal: async config => {
-		config.module.rules.push(
-			{
-				test: /\.pug$/,
-				use: ['pug-plain-loader']
-			},
-			{
-				test: /\.(stylus|styl)$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'stylus-loader'
-				]
-			}
-		)
-		return config
 	}
 }
