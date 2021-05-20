@@ -1383,10 +1383,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
   integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
-"@postanu/eslint-config@^3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@postanu/eslint-config/-/eslint-config-3.1.0.tgz#c403c80923496647ffc7df3fa62d2b18f59ebe72"
-  integrity sha512-Ygpns0vQyUgQNYg0cICnPOitJSB+c60J7Dm/5G7vGzHVT3A4qGgZcIhhBu9VAddjar2m7KcvsnnpjQCtsDfe/A==
+"@postanu/eslint-config@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@postanu/eslint-config/-/eslint-config-3.1.1.tgz#5fcdc31307e3d462db896f285705a2ea1023b9e4"
+  integrity sha512-KP5PUg8rbvFCUrTGtF8t2ZcnzY2JDl1j0siMFERzNNowB1+7/X99WiKs/KcH3xIdbSVBbED1dEkz2eerzfAaOw==
 
 "@postanu/types@postanu/types":
   version "1.0.0"

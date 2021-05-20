@@ -27,7 +27,7 @@
     "vue": "^3.0.11"
   },
   "devDependencies": {
-    "@postanu/eslint-config": "^3.1.0",
+    "@postanu/eslint-config": "^3.1.1",
     "@storybook/addon-actions": "^6.3.0-alpha.34",
     "@storybook/addon-essentials": "^6.3.0-alpha.34",
     "@storybook/addon-links": "^6.3.0-alpha.34",
