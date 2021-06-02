@@ -1,10 +1,11 @@
 <template lang="pug">
-button(
+component(
+	:is="tag"
 	:class=`{
 		'p-button': true,
 		'p-button--icon': showIcon,
 		'p-button--image': showImage,
-		'p-button--link': isLink,
+		'p-button--type--text': isText,
 		'p-button--danger': danger,
 		'p-button--target': target,
 		'p-button--muted': muted
@@ -30,11 +31,18 @@ export default defineComponent({
 	name: 'PButton',
 	components: { PIcon },
 	props: {
+		tag: {
+			type: String,
+			default: 'button',
+			validate: (tag: string): boolean => {
+				return ['button', 'a'].includes(tag)
+			}
+		},
 		type: {
 			type: String,
 			default: 'default',
 			validate: (type: string): boolean => {
-				return ['default', 'link'].includes(type)
+				return ['default', 'text'].includes(type)
 			}
 		},
 		icon: {
@@ -44,10 +52,7 @@ export default defineComponent({
 				return [null, ...Object.keys(icons)].includes(iconName)
 			}
 		},
-		image: {
-			type: String,
-			default: null
-		},
+		image: { type: String, default: null },
 		danger: { type: Boolean, default: false },
 		target: { type: Boolean, default: false },
 		muted: { type: Boolean, default: false }
@@ -59,9 +64,9 @@ export default defineComponent({
 			image
 		} = toRefs(props)
 		return {
+			isText: type.value === 'text',
 			showIcon: icon.value && !image.value,
-			showImage: image.value && !icon.value,
-			isLink: type.value === 'link'
+			showImage: image.value && !icon.value
 		}
 	}
 })
@@ -74,6 +79,13 @@ export default defineComponent({
 	border-radius: 15px
 	background: var(--p-color-white-01)
 	transition: background 0.05s ease-in
+
+a.p-button
+	display: inline-flex
+
+a.p-button:hover
+	cursor: pointer
+	color: var(--p-color-white-09)
 
 .p-button__text
 	padding: 5px 15px
@@ -106,7 +118,7 @@ export default defineComponent({
 	.p-button__image
 		opacity: 0.6
 
-.p-button--link
+.p-button--type--text
 	font-weight: 500
 	background: none
 	transition: background 0.05s ease-in
@@ -115,13 +127,13 @@ export default defineComponent({
 	.p-button__text
 		padding: 5px 10px
 
-.p-button--link:focus
+.p-button--type--text:focus
 	box-shadow: none
 
-.p-button--link:not(:disabled):hover
+.p-button--type--text:not(:disabled):hover
 	background: var(--p-color-white-01)
 
-.p-button--link:not(:disabled):active
+.p-button--type--text:not(:disabled):active
 	background: var(--p-color-white-02)
 
 .p-button--icon, .p-button--image

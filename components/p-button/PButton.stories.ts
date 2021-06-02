@@ -13,9 +13,14 @@ export default {
 			description: 'Slot content',
 			defaultValue: 'Button'
 		},
+		tag: {
+			control: 'select',
+			options: ['button', 'a'],
+			defaultValue: 'button'
+		},
 		type: {
 			control: 'select',
-			options: ['default', 'link'],
+			options: ['default', 'text'],
 			defaultValue: 'default'
 		},
 		icon: {
@@ -52,6 +57,7 @@ const Template: Story = args => defineComponent({
 	components: { PButton },
 	setup: () => ({
 		args,
+		tag: args.tag,
 		type: args.type,
 		icon: args.icon,
 		image: args.image,
@@ -62,6 +68,7 @@ const Template: Story = args => defineComponent({
 	}),
 	template: `
 		<p-button
+			:tag="tag"
 			:type="type"
 			:icon="icon"
 			:image="image"
@@ -73,46 +80,61 @@ const Template: Story = args => defineComponent({
 	`
 })
 
-export const Text = Template.bind({})
-Text.args = { default: 'Text Button' }
+export const Default = Template.bind({})
+Default.args = { default: 'Default Button' }
 
-export const TextIcon = Template.bind({})
-TextIcon.args = {
-	default: 'Text Button with Icon',
+export const DefaultLink = Template.bind({})
+DefaultLink.args = {
+	default: 'Default as Link',
+	tag: 'a'
+}
+DefaultLink.storyName = 'Default as Link'
+
+export const DefaultIcon = Template.bind({})
+DefaultIcon.args = {
+	default: 'Default with Icon',
 	icon: 'facebook'
 }
-TextIcon.storyName = 'Text with Icon'
+DefaultIcon.storyName = 'Default with Icon'
 
-export const TextAvatar = Template.bind({})
-TextAvatar.args = {
-	default: 'Text Button with Avatar',
+export const DefaultAvatar = Template.bind({})
+DefaultAvatar.args = {
+	default: 'Default Button with Avatar',
 	image: 'mm.jpg'
 }
-TextAvatar.storyName = 'Text with Avatar'
+DefaultAvatar.storyName = 'Default with Avatar'
 
-export const Link = Template.bind({})
-Link.args = {
-	default: 'Link Button',
+export const Text = Template.bind({})
+Text.args = {
+	default: 'Text Button',
 	type: 'link'
 }
 
-export const LinkTarget = Template.bind({})
-LinkTarget.args = {
-	default: 'Link Button',
+export const TextLink = Template.bind({})
+TextLink.args = {
+	default: 'Text as Link',
+	type: 'link',
+	tag: 'a'
+}
+TextLink.storyName = 'Text as Link'
+
+export const TextTarget = Template.bind({})
+TextTarget.args = {
+	default: 'Target Text Button',
 	type: 'link',
 	target: true
 }
 
-export const LinkDanger = Template.bind({})
-LinkDanger.args = {
-	default: 'Link Button',
+export const TextDanger = Template.bind({})
+TextDanger.args = {
+	default: 'Dander Text Button',
 	type: 'link',
 	danger: true
 }
 
-export const LinkMuted = Template.bind({})
-LinkMuted.args = {
-	default: 'Link Button',
+export const TextMuted = Template.bind({})
+TextMuted.args = {
+	default: 'Muted Text Button',
 	type: 'link',
 	muted: true
 }
