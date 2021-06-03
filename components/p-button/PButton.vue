@@ -82,6 +82,7 @@ export default defineComponent({
 
 a.p-button
 	display: inline-flex
+	text-decoration: none
 
 a.p-button:hover
 	cursor: pointer

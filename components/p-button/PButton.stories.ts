@@ -38,10 +38,6 @@ export default {
 			control: 'text',
 			description: 'Image URL'
 		},
-		disabled: {
-			control: 'boolean',
-			defaultValue: false
-		},
 		danger: {
 			control: 'boolean',
 			defaultValue: false
@@ -49,6 +45,14 @@ export default {
 		target: {
 			control: 'boolean',
 			defaultValue: false
+		},
+		disabled: {
+			control: 'boolean',
+			defaultValue: false
+		},
+		href: {
+			control: 'text',
+			defaultValue: undefined
 		}
 	}
 } as Meta
@@ -61,10 +65,11 @@ const Template: Story = args => defineComponent({
 		type: args.type,
 		icon: args.icon,
 		image: args.image,
-		disabled: args.disabled,
 		danger: args.danger,
 		target: args.target,
-		muted: args.muted
+		muted: args.muted,
+		disabled: args.disabled,
+		href: args.href
 	}),
 	template: `
 		<p-button
@@ -72,10 +77,11 @@ const Template: Story = args => defineComponent({
 			:type="type"
 			:icon="icon"
 			:image="image"
-			:disabled="disabled"
 			:danger="danger"
 			:target="target"
 			:muted="muted"
+			:disabled="disabled"
+			:href="href"
 		>{{ args.default }}</p-button>
 	`
 })
@@ -86,6 +92,7 @@ Default.args = { default: 'Default Button' }
 export const DefaultLink = Template.bind({})
 DefaultLink.args = {
 	default: 'Default as Link',
+	href: '#',
 	tag: 'a'
 }
 DefaultLink.storyName = 'Default as Link'
@@ -110,14 +117,6 @@ Text.args = {
 	type: 'link'
 }
 
-export const TextLink = Template.bind({})
-TextLink.args = {
-	default: 'Text as Link',
-	type: 'link',
-	tag: 'a'
-}
-TextLink.storyName = 'Text as Link'
-
 export const TextTarget = Template.bind({})
 TextTarget.args = {
 	default: 'Target Text Button',
@@ -138,6 +137,15 @@ TextMuted.args = {
 	type: 'link',
 	muted: true
 }
+
+export const TextLink = Template.bind({})
+TextLink.args = {
+	default: 'Text as Link',
+	type: 'link',
+	href: '#',
+	tag: 'a'
+}
+TextLink.storyName = 'Text as Link'
 
 export const Icon = Template.bind({})
 Icon.args = {
