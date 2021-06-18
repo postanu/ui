@@ -84,10 +84,6 @@ export default defineComponent({
 			return sorted
 		})
 
-		function capitalizeFirstLetter (string: string): string {
-			return string.charAt(0).toUpperCase() + string.slice(1)
-		}
-
 		function remove (id: string): void {
 			emit('remove', { id })
 		}
@@ -127,6 +123,10 @@ export default defineComponent({
 		}
 	}
 })
+
+function capitalizeFirstLetter (string: string): string {
+	return string.charAt(0).toUpperCase() + string.slice(1)
+}
 </script>
 
 <style lang="stylus">
