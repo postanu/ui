@@ -125,9 +125,6 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-.p-pages-table
-	//
-
 .p-pages-table__item
 	display: flex
 	justify-content: space-between
@@ -148,8 +145,4 @@ export default defineComponent({
 .p-pages-table__buttons
 	opacity: 0
 	margin-right: 20px
-
-.p-pages-table__remove-q
-	line-height: 30px
-	padding-right: 30px
 </style>
