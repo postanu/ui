@@ -39,12 +39,12 @@ import PTableRow from '../p-table-row/PTableRow.vue'
 import PButton from '../p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
-const SORT_ORDER = {
-	facebook: 0,
-	instagram: 1,
-	twitter: 2,
-	vk: 3
-}
+const SORT_ORDER = [
+	'facebook',
+	'instagram',
+	'twitter',
+	'vk'
+]
 
 // eslint-disable-next-line unicorn/prevent-abbreviations
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
@@ -80,7 +80,7 @@ export default defineComponent({
 			}, [])
 			// sort by sortOrder
 			let sorted = grouped.sort((a, b) => {
-				return SORT_ORDER[a.name] - SORT_ORDER[b.name]
+				return SORT_ORDER.indexOf(a.name) - SORT_ORDER.indexOf(b.name)
 			})
 			return sorted
 		})
