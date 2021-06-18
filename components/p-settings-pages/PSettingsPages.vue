@@ -1,7 +1,7 @@
 <template lang="pug">
 .p-settings-pages
 	p-table-group(v-for="group in groupedPages")
-		template(v-slot:name) {{ capitalizeFirstLetter(group.name) }}
+		template(v-slot:name) {{ group.name.toUpperCase() }}
 		template(v-slot:content)
 			ul
 				li(v-for="page in group.pages")
@@ -85,10 +85,6 @@ export default defineComponent({
 			return sorted
 		})
 
-		function capitalizeFirstLetter (string: string): string {
-			return string.charAt(0).toUpperCase() + string.slice(1)
-		}
-
 		function remove (id: string): void {
 			emit('remove', { id })
 		}
@@ -120,7 +116,6 @@ export default defineComponent({
 		}
 
 		return {
-			capitalizeFirstLetter,
 			setRemovingRef,
 			groupedPages,
 			removingIds,
