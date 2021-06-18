@@ -5,7 +5,7 @@
 )
 	p-button(
 		v-if="!removing"
-		type="link"
+		type="text"
 		danger
 		@click="showQuestion"
 	)
@@ -14,13 +14,13 @@
 		.p-button-remove__question
 			slot(name="question") Delete?
 		p-button(
-			type="link"
+			type="text"
 			muted
 			@click="hideQuestion"
 		)
 			slot(name="disagree") Cancel
 		p-button(
-			type="link"
+			type="text"
 			danger
 			@click="remove"
 		)

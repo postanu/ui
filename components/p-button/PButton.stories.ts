@@ -114,34 +114,34 @@ DefaultAvatar.storyName = 'Default with Avatar'
 export const Text = Template.bind({})
 Text.args = {
 	default: 'Text Button',
-	type: 'link'
+	type: 'text'
 }
 
 export const TextTarget = Template.bind({})
 TextTarget.args = {
 	default: 'Target Text Button',
-	type: 'link',
+	type: 'text',
 	target: true
 }
 
 export const TextDanger = Template.bind({})
 TextDanger.args = {
 	default: 'Dander Text Button',
-	type: 'link',
+	type: 'text',
 	danger: true
 }
 
 export const TextMuted = Template.bind({})
 TextMuted.args = {
 	default: 'Muted Text Button',
-	type: 'link',
+	type: 'text',
 	muted: true
 }
 
 export const TextLink = Template.bind({})
 TextLink.args = {
 	default: 'Text as Link',
-	type: 'link',
+	type: 'text',
 	href: '#',
 	tag: 'a'
 }
