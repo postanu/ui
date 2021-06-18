@@ -46,7 +46,6 @@ const SORT_ORDER = [
 	'vk'
 ]
 
-// eslint-disable-next-line unicorn/prevent-abbreviations
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 
 export default defineComponent({
@@ -89,17 +88,15 @@ export default defineComponent({
 			emit('remove', { id })
 		}
 
-		// eslint-disable-next-line unicorn/prevent-abbreviations
 		let removingRef = ref<{ [pageId: string]: ButtonRemoveRef }>({})
-		// eslint-disable-next-line unicorn/prevent-abbreviations
-		function setRemovingRef (element: ButtonRemoveRef, pageId: string): void {
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		function setRemovingRef (element: ButtonRemoveRef | any, pageId: string): void {
 			removingRef.value[pageId] = element
 		}
 
 		let removingIds = ref<Set<string>>(new Set())
 		function setRemoving (value: boolean, pageId: string): void {
 			if (value) {
-				// eslint-disable-next-line unicorn/no-array-for-each
 				removingIds.value.forEach(id => {
 					if (id !== pageId) {
 						removingRef.value[id].cancel()
