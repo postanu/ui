@@ -2,11 +2,11 @@ import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
 import { generatePages } from '../../data'
-import PSettingsPages from './PSettingsPages.vue'
+import PPagesTable from './PPagesTable.vue'
 
 export default {
-	title: 'PSettingsPages',
-	component: PSettingsPages,
+	title: 'PPagesTable',
+	component: PPagesTable,
 	argTypes: {
 		count: {
 			control: 'number',
@@ -42,7 +42,7 @@ export default {
 } as Meta
 
 const Template: Story = args => defineComponent({
-	components: { PSettingsPages },
+	components: { PPagesTable },
 	setup: () => {
 		return {
 			args,
@@ -52,7 +52,7 @@ const Template: Story = args => defineComponent({
 		}
 	},
 	template: `
-		<p-settings-pages
+		<p-pages-table
 			:pages="pages"
 			:updatable="args.updatable"
 			:removable="args.removable"

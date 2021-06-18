@@ -1,20 +1,20 @@
 <template lang="pug">
-.p-settings-pages
+.p-pages-table
 	p-table-group(v-for="group in groupedPages")
 		template(v-slot:name) {{ group.name.toUpperCase() }}
 		template(v-slot:content)
 			ul
 				li(v-for="page in group.pages")
-					p-table-row.p-settings-pages__item(
+					p-table-row.p-pages-table__item(
 						:class="{ 'p-settings-pages__item--removing': isRemoving(page.id) }"
 					)
-						p-page.p-settings-pages__page(
+						p-page.p-pages-table__page(
 							:avatar="page.avatarUrl"
 							:letter="page.name"
 							:fullname="page.name"
 							:username="page.username"
 						)
-						.p-settings-pages__buttons
+						.p-pages-table__buttons
 							p-button(
 								v-if="updatable && !isRemoving(page.id) "
 								type="link"
@@ -49,7 +49,7 @@ const SORT_ORDER = [
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 
 export default defineComponent({
-	name: 'PSettingPages',
+	name: 'PPagesTable',
 	components: {
 		PButtonRemove,
 		PTableGroup,
@@ -125,31 +125,31 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-.p-settings-pages
+.p-pages-table
 	//
 
-.p-settings-pages__item
+.p-pages-table__item
 	display: flex
 	justify-content: space-between
 
-.p-settings-pages__buttons
+.p-pages-table__buttons
 	display: flex
 	padding: 10px 0
 
-.p-settings-pages__item:hover,
-.p-settings-pages__item--removing
-	.p-settings-pages__buttons
+.p-pages-table__item:hover,
+.p-pages-table__item--removing
+	.p-pages-table__buttons
 		opacity: 1
 		transition: opacity 0.05s ease-in
 
-.p-settings-pages__page
+.p-pages-table__page
 	padding: 15px 0
 
-.p-settings-pages__buttons
+.p-pages-table__buttons
 	opacity: 0
 	margin-right: 20px
 
-.p-settings-pages__remove-q
+.p-pages-table__remove-q
 	line-height: 30px
 	padding-right: 30px
 </style>
