@@ -22,8 +22,8 @@ export default defineComponent({
 	},
 	setup (props, { slots }) {
 		let { tag, hero, headline } = toRefs(props)
-		let children = slots.default ? slots.default() : []
 		return (): VNodeChild => {
+			let children = slots.default ? slots.default() : []
 			return h(tag.value, {
 				class: [
 					`p-${tag.value}`,
