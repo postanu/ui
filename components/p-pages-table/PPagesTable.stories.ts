@@ -10,12 +10,10 @@ export default {
 	argTypes: {
 		count: {
 			control: 'number',
-			defaultValue: '13',
 			description: 'Property of generative view'
 		},
 		networks: {
 			control: 'number',
-			defaultValue: '4',
 			description: 'Property of generative view'
 		},
 		updatable: {
@@ -73,3 +71,7 @@ MultiPage.args = {
 }
 
 export const Generative = Template.bind({})
+Generative.args = {
+	networks: 4,
+	count: 13
+}

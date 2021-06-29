@@ -1,8 +1,9 @@
 <template lang="pug">
 input.p-input(
 	ref="input"
+	:type="type"
 	:value="value"
-	@input="$emit('update:value', $event.target.value)"
+	@input="updateValue"
 )
 </template>
 
@@ -12,16 +13,24 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
 	name: 'PInput',
 	props: {
+		type: {
+			type: String,
+			default: 'text'
+		},
 		value: {
 			type: String,
 			default: ''
 		}
 	},
 	emits: ['update:value'],
-	setup () {
+	setup (props, { emit }) {
 		let input = ref<HTMLInputElement | null>(null)
+		function updateValue (e: Event): void {
+			emit('update:value', (e.target as HTMLInputElement).value)
+		}
 
 		return {
+			updateValue,
 			focus: (): void => input.value?.focus(),
 			blur: (): void => input.value?.blur(),
 			input

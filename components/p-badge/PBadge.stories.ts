@@ -8,9 +8,7 @@ export default {
 	component: PBadge,
 	argTypes: {
 		default: {
-			control: 'text',
-			defaultValue: 'Badge',
-			description: 'Slot content'
+			control: 'text'
 		}
 	}
 } as Meta
@@ -20,3 +18,6 @@ export const Default: Story = args => defineComponent({
 	setup: () => ({ args }),
 	template: '<p-badge>{{ args.default }}</p-badge>'
 })
+Default.args = {
+	default: 'Badge'
+}

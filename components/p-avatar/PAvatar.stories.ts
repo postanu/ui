@@ -9,12 +9,10 @@ export default {
 	argTypes: {
 		image: {
 			control: 'text',
-			defaultValue: '',
 			description: 'Image URL'
 		},
 		letter: {
 			control: 'text',
-			defaultValue: 'M',
 			description: 'First letter of user’s name'
 		}
 	}
@@ -28,7 +26,11 @@ const Template: Story = args => defineComponent({
 
 export const Image = Template.bind({})
 Image.args = {
-	image: 'mm.jpg'
+	image: 'mm.jpg',
+	letter: 'M'
 }
 
 export const Letter = Template.bind({})
+Letter.args = {
+	letter: 'M'
+}

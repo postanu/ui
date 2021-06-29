@@ -9,12 +9,10 @@ export default {
 	argTypes: {
 		default: {
 			control: 'text',
-			defaultValue: 'Heading',
 			description: 'Heading text'
 		},
 		tag: {
-			control: 'text',
-			defaultValue: 'h1'
+			control: 'text'
 		},
 		hero: {
 			control: 'boolean'
@@ -39,14 +37,16 @@ const Template: Story = args => defineComponent({
 
 export const Hero = Template.bind({})
 Hero.args = {
-	default: 'Hero heading',
-	hero: true
+	default: 'Hero',
+	hero: true,
+	tag: 'h1'
 }
 
 export const Headline = Template.bind({})
 Headline.args = {
-	default: 'Headline heading',
-	headline: true
+	default: 'Headline',
+	headline: true,
+	tag: 'h1'
 }
 
 // export const H1 = Template.bind({})

@@ -13,23 +13,19 @@ export default {
 		},
 		default: {
 			control: 'text',
-			description: 'Buttons text.',
-			defaultValue: 'Remove'
+			description: 'Buttons text.'
 		},
 		question: {
 			control: 'text',
-			description: 'Confirmation quetion.',
-			defaultValue: 'Delete?'
+			description: 'Confirmation quetion.'
 		},
 		agree: {
 			control: 'text',
-			description: 'Confirmation agree.',
-			defaultValue: 'Confirm'
+			description: 'Confirmation agree.'
 		},
 		disagree: {
 			control: 'text',
-			description: 'Confirmation disagree.',
-			defaultValue: 'Cancel'
+			description: 'Confirmation disagree.'
 		},
 		removing: {
 			action: true,
@@ -59,4 +55,9 @@ const Template: Story = args => defineComponent({
 })
 
 export const Default = Template.bind({})
-Default.argTypes = {}
+Default.args = {
+	default: 'Remove',
+	question: 'Delete?',
+	agree: 'Confirm',
+	disagree: 'Cancel'
+}

@@ -16,27 +16,22 @@ export default {
 				}
 			},
 			options: [null, ...Object.keys(icons)],
-			defaultValue: 'facebook',
 			description: 'Icon name'
 		},
 		avatar: {
 			control: 'text',
-			defaultValue: '',
 			description: 'Image URL'
 		},
 		letter: {
 			control: 'text',
-			defaultValue: 'M',
 			description: 'First letter of user’s name'
 		},
 		fullname: {
 			control: 'text',
-			defaultValue: 'Marilyn Manson',
 			description: 'Page Full Name'
 		},
 		username: {
 			control: 'text',
-			defaultValue: 'marilynmanson',
 			description: 'Page Username / Nickname / URL'
 		}
 	}
@@ -50,12 +45,25 @@ const Template: Story = args => defineComponent({
 
 export const Default = Template.bind({})
 Default.args = {
-	avatar: 'mm.jpg'
+	icon: 'facebook',
+	letter: 'M',
+	avatar: 'mm.jpg',
+	fullname: 'Marilyn Manson',
+	username: 'marilynmanson'
 }
 
 export const Letter = Template.bind({})
+Letter.args = {
+	icon: 'facebook',
+	letter: 'M',
+	fullname: 'Marilyn Manson',
+	username: 'marilynmanson'
+}
 
 export const NoIcon = Template.bind({})
 NoIcon.args = {
-	icon: null
+	letter: 'M',
+	avatar: 'mm.jpg',
+	fullname: 'Marilyn Manson',
+	username: 'marilynmanson'
 }

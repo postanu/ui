@@ -8,31 +8,13 @@ export default {
 	component: PInput,
 	argTypes: {
 		value: {
-			control: 'text',
-			defaultValue: ''
+			control: 'text'
 		},
 		type: {
-			control: 'text',
-			options: ['text'],
-			defaultValue: 'text'
-		},
-		maxlength: {
-			control: 'number',
-			defaultValue: 25
-		},
-		autocorrect: {
-			control: 'select',
-			options: ['on', 'off'],
-			defaultValue: 'on'
-		},
-		autocapitalize: {
-			control: 'select',
-			options: ['on', 'off'],
-			defaultValue: 'on'
+			control: 'text'
 		},
 		placeholder: {
-			control: 'text',
-			defaultValue: 'Default Input'
+			control: 'text'
 		}
 	}
 } as Meta
@@ -67,9 +49,6 @@ const Template: Story = args => defineComponent({
 		<p-input
 			ref='input'
 			:type="args.type"
-			:maxlength="args.maxlength"
-			:autocorrect="args.autocorrect"
-			:autocapitalize="args.autocapitalize"
 			:placeholder="args.placeholder"
 			v-model:value="value"
 		/>
@@ -77,7 +56,13 @@ const Template: Story = args => defineComponent({
 })
 
 export const Default = Template.bind({})
+Default.args = {
+	placeholder: 'Default Input'
+}
 
 export const AutoFocus = Template.bind({})
-AutoFocus.args = { testAutoFocus: true }
 AutoFocus.storyName = 'Default: Autofocus'
+AutoFocus.args = {
+	testAutoFocus: true,
+	placeholder: 'Default Input'
+}

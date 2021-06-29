@@ -96,12 +96,14 @@ a.p-button:hover
 
 .p-button__icon
 	padding: 5px
+	box-sizing: content-box
 	line-height: 0
 
 .p-button__image
 	width: 24px
 	height: 24px
 	padding: 3px
+	box-sizing: content-box
 
 	img
 		width: 100%

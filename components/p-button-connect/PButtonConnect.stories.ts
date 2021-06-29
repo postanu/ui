@@ -9,19 +9,15 @@ export default {
 	component: PButtonConnect,
 	argTypes: {
 		default: {
-			control: 'text',
-			defaultValue: 'Facebook',
-			description: 'Slot content'
+			control: 'text'
 		},
 		icon: {
 			control: 'select',
 			options: Object.keys(icons),
-			defaultValue: 'facebook',
 			description: 'Icon name'
 		},
 		url: {
 			control: 'text',
-			defaultValue: '#',
 			description: 'URL'
 		}
 	}
@@ -36,3 +32,8 @@ const Template: Story = args => defineComponent({
 })
 
 export const Default = Template.bind({})
+Default.args = {
+	default: 'Facebook',
+	icon: 'facebook',
+	url: '#'
+}

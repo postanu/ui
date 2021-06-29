@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
+import { Story, Meta } from '@storybook/vue3'
 
 import { getRandomInRange } from '../../utils'
 import { discography } from '../../data'
@@ -9,41 +9,41 @@ export default {
 	title: 'Table/PTableRow',
 	component: PTableRow,
 	argTypes: {
-		default: {
-			control: 'text',
-			defaultValue: discography[getRandomInRange(0, discography.length - 1)],
-			description: 'Slot content'
-		},
-		lines: {
-			control: 'number',
-			defaultValue: '1',
-			description: 'Lines count'
+		content: {
+			control: 'text'
 		}
 	}
 } as Meta
 
 const Template: Story = args => defineComponent({
 	components: { PTableRow },
-	setup: () => ({
-		lines: args.lines,
-		content: args.default,
-		discography,
-		getRandomInRange
-	}),
+	setup: () => {
+		return {
+			items: args.content.split('\n')
+		}
+	},
 	template: `
 		<p-table-row
-			v-if="lines > 1"
-			v-for="n in lines"
+			v-for="text in items"
 			style="line-height: 50px;"
-		>{{ discography[getRandomInRange(0, discography.length - 1)] }}</p-table-row>
-		<p-table-row style="line-height: 50px;" v-else>{{ content }}</p-table-row>
+		>
+			{{ text }}
+		</p-table-row>
 	`
 })
 
+function generateContent (count: number): string {
+	return Array.from({ length: count }).map(() => {
+		return discography[getRandomInRange(0, discography.length - 1)]
+	}).join('\n')
+}
+
 export const OneLine = Template.bind({})
+OneLine.args = {
+	content: generateContent(1)
+}
 
 export const MultiLine = Template.bind({})
 MultiLine.args = {
-	lines: 66,
-	default: undefined
+	content: generateContent(66)
 }

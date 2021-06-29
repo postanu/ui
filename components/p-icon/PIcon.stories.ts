@@ -13,12 +13,10 @@ export default {
 			options: Object.keys(icons)
 		},
 		label: {
-			control: 'text',
-			defaultValue: 'Icon Label'
+			control: 'text'
 		},
 		scale: {
-			control: 'number',
-			defaultValue: 1
+			control: 'number'
 		}
 	}
 } as Meta

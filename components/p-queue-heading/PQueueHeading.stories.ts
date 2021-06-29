@@ -8,8 +8,7 @@ export default {
 	component: PQueueHeading,
 	argTypes: {
 		date: {
-			control: 'date',
-			defaultValue: Date.now()
+			control: 'date'
 		}
 	}
 } as Meta
@@ -19,3 +18,7 @@ export const Default: Story = args => defineComponent({
 	setup: () => ({ args }),
 	template: '<p-queue-heading :date="args.date" :muted="args.muted" />'
 })
+
+Default.args = {
+	date: Date.now()
+}

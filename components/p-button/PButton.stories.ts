@@ -9,19 +9,15 @@ export default {
 	component: PButton,
 	argTypes: {
 		default: {
-			control: 'text',
-			description: 'Slot content',
-			defaultValue: 'Button'
+			control: 'text'
 		},
 		tag: {
 			control: 'select',
-			options: ['button', 'a'],
-			defaultValue: 'button'
+			options: ['button', 'a']
 		},
 		type: {
 			control: 'select',
-			options: ['default', 'text'],
-			defaultValue: 'default'
+			options: ['default', 'text']
 		},
 		icon: {
 			control: {
@@ -31,7 +27,6 @@ export default {
 				}
 			},
 			options: [null, ...Object.keys(icons)],
-			defaultValue: null,
 			description: 'Icon name'
 		},
 		image: {
@@ -39,20 +34,16 @@ export default {
 			description: 'Image URL'
 		},
 		danger: {
-			control: 'boolean',
-			defaultValue: false
+			control: 'boolean'
 		},
 		target: {
-			control: 'boolean',
-			defaultValue: false
+			control: 'boolean'
 		},
 		disabled: {
-			control: 'boolean',
-			defaultValue: false
+			control: 'boolean'
 		},
 		href: {
-			control: 'text',
-			defaultValue: undefined
+			control: 'text'
 		}
 	}
 } as Meta
