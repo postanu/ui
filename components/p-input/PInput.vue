@@ -24,7 +24,7 @@ export default defineComponent({
 	},
 	emits: ['update:value'],
 	setup (props, { emit }) {
-		let input = ref<HTMLInputElement | null>(null)
+		let input = ref<HTMLInputElement>()
 		function updateValue (e: Event): void {
 			emit('update:value', (e.target as HTMLInputElement).value)
 		}
