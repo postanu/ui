@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
 
+import { ALLOWED_TAGS } from './allowed-tags'
 import PHeading from './PHeading.vue'
 
 export default {
@@ -12,7 +13,8 @@ export default {
 			description: 'Heading text'
 		},
 		tag: {
-			control: 'text'
+			control: 'select',
+			options: ALLOWED_TAGS
 		},
 		hero: {
 			control: 'boolean'

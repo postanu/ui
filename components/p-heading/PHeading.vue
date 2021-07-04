@@ -1,6 +1,8 @@
 <script lang="ts">
 import { defineComponent, h, toRefs, VNodeChild } from 'vue'
 
+import { ALLOWED_TAGS } from './allowed-tags'
+
 export default defineComponent({
 	name: 'PHeading',
 	props: {
@@ -8,7 +10,7 @@ export default defineComponent({
 			type: String,
 			required: true,
 			validator: (value: string) => {
-				return ['div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(value)
+				return ALLOWED_TAGS.includes(value)
 			}
 		},
 		hero: {
