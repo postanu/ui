@@ -2,13 +2,14 @@
 input.p-input(
 	ref="input"
 	:type="type"
-	:value="value"
+	:value="modelValue"
 	@input="updateValue"
+	@change="emitValue"
 )
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, toRefs, unref } from 'vue'
 
 export default defineComponent({
 	name: 'PInput',
@@ -17,20 +18,30 @@ export default defineComponent({
 			type: String,
 			default: 'text'
 		},
-		value: {
+		modelValue: {
 			type: String,
 			default: ''
 		}
 	},
-	emits: ['update:value'],
+	emits: [
+		'update:modelValue',
+		'change'
+	],
 	setup (props, { emit }) {
+		let { modelValue } = toRefs(props)
 		let input = ref<HTMLInputElement>()
-		function updateValue (e: Event): void {
-			emit('update:value', (e.target as HTMLInputElement).value)
+
+		function updateValue (): void {
+			emit('update:modelValue', unref(input)?.value)
+		}
+
+		function emitValue (): void {
+			emit('change', unref(modelValue))
 		}
 
 		return {
 			updateValue,
+			emitValue,
 			focus: (): void => input.value?.focus(),
 			blur: (): void => input.value?.blur(),
 			input

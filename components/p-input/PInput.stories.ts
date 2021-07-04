@@ -15,6 +15,9 @@ export default {
 		},
 		placeholder: {
 			control: 'text'
+		},
+		modelValue: {
+			control: null
 		}
 	}
 } as Meta

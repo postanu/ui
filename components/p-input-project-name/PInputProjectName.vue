@@ -8,13 +8,13 @@ p-input.p-h2.p-input-project-name(
 	autocorrect="off"
 	autocapitalize="off"
 	placeholder="Type the name of the project"
-	v-model:value="value"
-	@keyup.enter="$emit('create', value)"
+	v-model="value"
+	@keyup.enter="emitCreate"
 )
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref } from 'vue'
+import { computed, defineComponent, ref, unref } from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 
@@ -22,14 +22,20 @@ export default defineComponent({
 	name: 'PInputProjectName',
 	components: { PInput },
 	emits: ['create'],
-	setup () {
+	setup (props, { emit }) {
 		let input = ref(null)
 		let value = ref('')
 		let showLabel = computed(() => value.value.length > 1)
+
+		function emitCreate (): void {
+			emit('create', unref(value))
+		}
+
 		return {
 			input,
 			value,
-			showLabel
+			showLabel,
+			emitCreate
 		}
 	}
 })
