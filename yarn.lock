@@ -9472,10 +9472,10 @@ storybook-addon-outline@^1.4.1:
     "@storybook/core-events" "^6.3.0"
     ts-dedent "^2.1.1"
 
-storybook-dark-mode@^1.0.9-canary.156.3473.0:
-  version "1.0.9-canary.156.3473.0"
-  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-1.0.9-canary.156.3473.0.tgz#cd6e6b00a149bcfc7e91ed4bf889203eba6588fe"
-  integrity sha512-9vApRRCGe/sUMyU7kOmoBaM5LX3fujGe3WkBWUQ81CxpU1uISp++p9iYmF5i2wzx6MnsE7qaQzDGQ8eolXWSRA==
+storybook-dark-mode@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-1.0.8.tgz#bbd64b382fd62d38685fdd769e2cac4e32ec293d"
+  integrity sha512-uY6yTSd1vYE0YwlON50u+iIoNF/fmMj59ww1cpd/naUcmOmCjwawViKFG5YjichwdR/yJ5ybWRUF0tnRQfaSiw==
   dependencies:
     fast-deep-equal "^3.0.0"
     memoizerific "^1.11.3"
