@@ -38,9 +38,6 @@ const Template: Story = args => defineComponent({
 			args,
 			input,
 			type: args.type,
-			maxlength: args.maxlength,
-			autocorrect: args.autocorrect,
-			autocapitalize: args.autocapitalize,
 			placeholder: args.placeholder,
 			value: args.value
 		}
