@@ -9,7 +9,10 @@ export default {
 	title: 'Table/PTableRow',
 	component: PTableRow,
 	argTypes: {
-		content: {
+		default: {
+			control: 'text'
+		},
+		common: {
 			control: 'text'
 		}
 	}
@@ -19,7 +22,15 @@ const Template: Story = args => defineComponent({
 	components: { PTableRow },
 	setup: () => {
 		return {
-			items: args.content.split('\n')
+			items: args.default.split('\n'),
+			columns: args.columns,
+			getCommon: (text: string): string | null => {
+				if (args.common) {
+					return args.common
+				}
+				let common = text.match(/\((\D+)\)/)
+				return common ? common[1] : null
+			}
 		}
 	},
 	template: `
@@ -28,6 +39,9 @@ const Template: Story = args => defineComponent({
 			style="line-height: 50px;"
 		>
 			{{ text }}
+			<template v-if="getCommon(text)" v-slot:common>
+				{{ getCommon(text) }}
+			</template>
 		</p-table-row>
 	`
 })
@@ -40,10 +54,16 @@ function generateContent (count: number): string {
 
 export const OneLine = Template.bind({})
 OneLine.args = {
-	content: generateContent(1)
+	default: generateContent(1)
+}
+
+export const OneLineWithCommon = Template.bind({})
+OneLineWithCommon.args = {
+	default: generateContent(1),
+	common: 'Marilyn Manson'
 }
 
 export const MultiLine = Template.bind({})
 MultiLine.args = {
-	content: generateContent(66)
+	default: generateContent(66)
 }

@@ -1,13 +1,28 @@
-<template lang="pug">
-.p-table-row
-	slot
-</template>
-
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, h, VNodeChild } from 'vue'
 
 export default defineComponent({
-	name: 'PTableRow'
+	name: 'PTableRow',
+	setup (props, { slots }) {
+		return (): VNodeChild => {
+			let defaultSlot = slots.default ? slots.default() : []
+
+			if (slots.common) {
+				return h(
+					'div',
+					{
+						class: ['p-table-row', '--has-common']
+					},
+					[
+						h('div', defaultSlot),
+						h('div', slots.common())
+					]
+				)
+			}
+
+			return h('div', { class: ['p-table-row'] }, defaultSlot)
+		}
+	}
 })
 </script>
 
@@ -15,6 +30,11 @@ export default defineComponent({
 .p-table-row
 	position relative
 	min-height 50px
+
+	&.--has-common
+		gap: 20px
+		display: grid
+		grid-template-columns: 420px 1fr
 
 .p-table-row:before,
 .p-table-row:after
