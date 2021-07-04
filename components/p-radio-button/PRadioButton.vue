@@ -14,8 +14,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, getCurrentInstance, toRefs, unref } from 'vue'
-import { nanoid } from 'nanoid'
+import {
+	getCurrentInstance,
+	defineComponent,
+	computed,
+	toRefs,
+	unref
+} from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 
@@ -25,7 +30,7 @@ export default defineComponent({
 	props: {
 		modelValue: {
 			type: String,
-			default: undefined
+			required: true
 		},
 		value: {
 			type: String,
@@ -40,7 +45,6 @@ export default defineComponent({
 	setup (props, { emit }) {
 		let { value, modelValue } = toRefs(props)
 
-		let id = nanoid()
 		let isChecked = computed(() => value.value === modelValue.value)
 		let currentInstance = getCurrentInstance()
 
@@ -50,7 +54,6 @@ export default defineComponent({
 		}
 
 		return {
-			id,
 			isChecked,
 			emitValue
 		}
