@@ -8,30 +8,27 @@
 			:name="name"
 			:checked="isChecked"
 			:model-value="value"
-			@change="emitValue"
+			@change="changeValue"
 		)
 		slot
 </template>
 
 <script lang="ts">
 import {
-	getCurrentInstance,
 	defineComponent,
 	computed,
+	inject,
 	toRefs,
 	unref
 } from 'vue'
 
+import { PRadioChangeKey, PRadioValueKey } from './injectionKeys'
 import PInput from '../p-input/PInput.vue'
 
 export default defineComponent({
 	name: 'PRadioButton',
 	components: { PInput },
 	props: {
-		modelValue: {
-			type: String,
-			required: true
-		},
 		value: {
 			type: String,
 			required: true
@@ -41,21 +38,24 @@ export default defineComponent({
 			required: true
 		}
 	},
-	emits: ['update:modelValue'],
-	setup (props, { emit }) {
-		let { value, modelValue } = toRefs(props)
+	setup (props) {
+		let { value } = toRefs(props)
+		let modelValue = inject(PRadioValueKey)
+		let modelChange = inject(PRadioChangeKey)
 
-		let isChecked = computed(() => value.value === modelValue.value)
-		let currentInstance = getCurrentInstance()
+		if (!modelValue || !modelChange) {
+			throw new Error('Wrap `PRadioButton` componenets in `PRadioGroup`.')
+		}
 
-		function emitValue (): void {
-			emit('update:modelValue', unref(value))
-			currentInstance?.parent?.emit('change', unref(value))
+		let isChecked = computed(() => value.value === modelValue?.value)
+
+		function changeValue (): void {
+			modelChange?.(unref(value))
 		}
 
 		return {
 			isChecked,
-			emitValue
+			changeValue
 		}
 	}
 })
@@ -72,7 +72,6 @@ export default defineComponent({
 		color: var(--p-color-white-09)
 
 .p-radio-button__input
-	test()
 	visually-hidden()
 
 .p-radio-button__label

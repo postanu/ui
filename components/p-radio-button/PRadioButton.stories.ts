@@ -15,12 +15,12 @@ export default {
 			control: 'text'
 		},
 		modelValue: {
-			control: null
+			control: 'text'
 		},
 		default: {
 			control: 'text'
 		},
-		change: {
+		onUpdate: {
 			action: true
 		}
 	}
@@ -33,16 +33,16 @@ const Template: Story = args => defineComponent({
 			name: args.name,
 			value: args.value,
 			content: args.default,
-			modelValue: ref(args.modelValue || undefined),
-			onChange: args.change
+			modelValue: ref(args.modelValue || ''),
+			onUpdate: args.onUpdate
 		}
 	},
 	template: `
-		<p-radio-group @change="onChange">
-			<p-radio-button :name="name" value="fehu" v-model="modelValue">fehu</p-radio-button>
-			<p-radio-button :name="name" :value="value" v-model="modelValue">{{ content }}</p-radio-button>
-			<p-radio-button :name="name" value="gebu" v-model="modelValue">gebu</p-radio-button>
-			<p-radio-button :name="name" value="oþila" v-model="modelValue">oþila</p-radio-button>
+		<p-radio-group v-model="modelValue" @update:model-value="onUpdate">
+			<p-radio-button :name="name" value="fehu">fehu</p-radio-button>
+			<p-radio-button :name="name" :value="value">{{ content }}</p-radio-button>
+			<p-radio-button :name="name" value="gebu">gebu</p-radio-button>
+			<p-radio-button :name="name" value="oþila">oþila</p-radio-button>
 		</p-radio-group>
 	`
 })

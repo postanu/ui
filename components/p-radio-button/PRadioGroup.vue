@@ -4,11 +4,26 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, provide, readonly, toRefs } from 'vue'
+
+import { PRadioValueKey, PRadioChangeKey } from './injectionKeys'
 
 export default defineComponent({
 	name: 'PRadioGroup',
-	emits: ['change']
+	props: {
+		modelValue: {
+			type: String,
+			required: true
+		}
+	},
+	emits: ['update:modelValue'],
+	setup (props, { emit }) {
+		let { modelValue } = toRefs(props)
+		provide(PRadioValueKey, readonly(modelValue))
+		provide(PRadioChangeKey, newValue => {
+			emit('update:modelValue', newValue)
+		})
+	}
 })
 </script>
 
