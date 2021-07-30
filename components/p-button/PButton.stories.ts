@@ -17,7 +17,11 @@ export default {
 		},
 		type: {
 			control: 'select',
-			options: ['default', 'text']
+			options: [
+				'default',
+				'common',
+				'text'
+			]
 		},
 		icon: {
 			control: {
@@ -101,6 +105,12 @@ DefaultAvatar.args = {
 	image: 'mm.jpg'
 }
 DefaultAvatar.storyName = 'Default with Avatar'
+
+export const Common = Template.bind({})
+Common.args = {
+	default: 'Common Button',
+	type: 'common'
+}
 
 export const Text = Template.bind({})
 Text.args = {

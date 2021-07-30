@@ -6,6 +6,7 @@ component(
 		'p-button--icon': showIcon,
 		'p-button--image': showImage,
 		'p-button--type--text': isText,
+		'p-button--type--common': isCommon,
 		'p-button--danger': danger,
 		'p-button--target': target,
 		'p-button--muted': muted
@@ -42,7 +43,11 @@ export default defineComponent({
 			type: String,
 			default: 'default',
 			validate: (type: string): boolean => {
-				return ['default', 'text'].includes(type)
+				return [
+					'default',
+					'common',
+					'text'
+				].includes(type)
 			}
 		},
 		icon: {
@@ -63,10 +68,17 @@ export default defineComponent({
 			icon,
 			image
 		} = toRefs(props)
+
+		let isText = type.value === 'text'
+		let isCommon = type.value === 'common'
+		let showIcon = icon.value && !image.value && !isCommon
+		let showImage = image.value && !icon.value && !isCommon
+
 		return {
-			isText: type.value === 'text',
-			showIcon: icon.value && !image.value,
-			showImage: image.value && !icon.value
+			isText,
+			isCommon,
+			showIcon,
+			showImage
 		}
 	}
 })
@@ -120,6 +132,15 @@ a.p-button:hover
 
 	.p-button__image
 		opacity: 0.6
+
+.p-button--type--common
+	font-size: var(--p-caption-font-size)
+	font-weight: var(--p-caption-font-weight)
+	line-height: var(--p-caption-line-height)
+	border-radius: 7.5px
+
+	.p-button__text
+		padding: 3px 15px
 
 .p-button--type--text
 	font-weight: 500
