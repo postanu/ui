@@ -5,7 +5,7 @@ import PRadioButton from './PRadioButton.vue'
 import PRadioGroup from './PRadioGroup.vue'
 
 export default {
-	title: 'PRadioButton',
+	title: 'PRadio',
 	component: PRadioButton,
 	argTypes: {
 		name: {
