@@ -61,6 +61,7 @@ export default defineComponent({
 	padding: 10px
 	border-radius: 7.5px
 	cursor: pointer
+	transition: background 0.05s ease-in
 
 	&:hover
 		background: var(--p-color-white-01)
