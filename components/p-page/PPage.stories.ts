@@ -22,10 +22,6 @@ export default {
 			control: 'text',
 			description: 'Image URL'
 		},
-		letter: {
-			control: 'text',
-			description: 'First letter of user’s name'
-		},
 		fullname: {
 			control: 'text',
 			description: 'Page Full Name'
@@ -46,7 +42,6 @@ const Template: Story = args => defineComponent({
 export const Default = Template.bind({})
 Default.args = {
 	icon: 'facebook',
-	letter: 'M',
 	avatar: 'mm.jpg',
 	fullname: 'Marilyn Manson',
 	username: 'marilynmanson'
@@ -55,7 +50,6 @@ Default.args = {
 export const Hoverable = Template.bind({})
 Hoverable.args = {
 	icon: 'facebook',
-	letter: 'M',
 	avatar: 'mm.jpg',
 	fullname: 'Marilyn Manson',
 	username: 'marilynmanson',
@@ -65,14 +59,12 @@ Hoverable.args = {
 export const Letter = Template.bind({})
 Letter.args = {
 	icon: 'facebook',
-	letter: 'M',
 	fullname: 'Marilyn Manson',
 	username: 'marilynmanson'
 }
 
 export const NoIcon = Template.bind({})
 NoIcon.args = {
-	letter: 'M',
 	avatar: 'mm.jpg',
 	fullname: 'Marilyn Manson',
 	username: 'marilynmanson'

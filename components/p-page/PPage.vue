@@ -8,7 +8,7 @@
 	)
 	p-avatar(
 		:image="avatar"
-		:letter="letter"
+		:letter="fullname"
 	)
 	.p-page__fn {{ fullname }}
 	.p-page__un.p-caption {{ username }}
@@ -34,10 +34,6 @@ export default defineComponent({
 		avatar: {
 			type: String,
 			default: ''
-		},
-		letter: {
-			type: String,
-			required: true
 		},
 		fullname: {
 			type: String,
