@@ -40,6 +40,9 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
+.p-heading
+	user-select: none
+
 .p-heading--hero
 	color: var(--p-color-white-08)
 	font-size: var(--p-hero-font-size)
