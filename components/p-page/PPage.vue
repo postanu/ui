@@ -1,5 +1,7 @@
 <template lang="pug">
-.p-page
+.p-page(
+	:class="{ 'p-page--hoverable': hoverable }"
+)
 	p-icon(
 		v-if="icon"
 		:icon="icon"
@@ -44,6 +46,10 @@ export default defineComponent({
 		username: {
 			type: String,
 			required: true
+		},
+		hoverable: {
+			type: Boolean,
+			default: false
 		}
 	}
 })
@@ -52,8 +58,16 @@ export default defineComponent({
 <style lang="stylus">
 .p-page
 	gap: 10px
-	display: flex
+	display: inline-flex
 	cursor: default
+
+.p-page--hoverable
+	padding: 10px
+	border-radius: 7.5px
+	cursor: pointer
+
+	&:hover
+		background: var(--p-color-white-01)
 
 .p-page__un
 	color: var(--p-color-white-05)

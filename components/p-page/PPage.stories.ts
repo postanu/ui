@@ -52,6 +52,16 @@ Default.args = {
 	username: 'marilynmanson'
 }
 
+export const Hoverable = Template.bind({})
+Hoverable.args = {
+	icon: 'facebook',
+	letter: 'M',
+	avatar: 'mm.jpg',
+	fullname: 'Marilyn Manson',
+	username: 'marilynmanson',
+	hoverable: true
+}
+
 export const Letter = Template.bind({})
 Letter.args = {
 	icon: 'facebook',
