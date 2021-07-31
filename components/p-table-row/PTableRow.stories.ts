@@ -6,7 +6,7 @@ import { discography } from '../../data'
 import PTableRow from './PTableRow.vue'
 
 export default {
-	title: 'Table/PTableRow',
+	title: 'PTable/PTableRow',
 	component: PTableRow,
 	argTypes: {
 		default: {

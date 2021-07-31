@@ -4,7 +4,7 @@ import { defineComponent } from 'vue'
 import PQueueHeading from './PQueueHeading.vue'
 
 export default {
-	title: 'Queue/PQueueHeading',
+	title: 'PQueue/PQueueHeading',
 	component: PQueueHeading,
 	argTypes: {
 		date: {

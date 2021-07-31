@@ -4,7 +4,7 @@ import { defineComponent } from 'vue'
 import PButtonRemove from './PButtonRemove.vue'
 
 export default {
-	title: 'Button/PButtonRemove',
+	title: 'PButton/PButtonRemove',
 	component: PButtonRemove,
 	argTypes: {
 		timeout: {
