@@ -75,7 +75,6 @@ export default defineComponent({
 	right: -1px
 	bottom: -1px
 	content: ""
-	z-index: -1
 	position: absolute
 	background: var(--p-color-white-02)
 	border-radius: 50%
