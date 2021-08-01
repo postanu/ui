@@ -8,7 +8,7 @@
 			ul
 				li(v-for="(page, index) in selectedPages" :key="page.id")
 					p-button-page(
-						:hide-icon="hideIcon(page)"
+						:icon="showPageIcon(page)"
 						@click="unselectPage(page, index)"
 					)
 						p-page(
@@ -30,7 +30,7 @@
 			ul
 				li(v-for="(page, index) in selectablePages" :key="page.id")
 					p-button-page(
-						:hide-icon="hideIcon(page)"
+						:icon="showPageIcon(page)"
 						@click="selectPage(page, index)"
 					)
 						p-page(
@@ -91,8 +91,8 @@ export default defineComponent({
 		}
 
 		// eslint-disable-next-line unicorn/consistent-function-scoping
-		function hideIcon (page: Page): boolean {
-			return page.meta?.hideIcon
+		function showPageIcon (page: Page): boolean {
+			return !page.meta?.hideIcon
 		}
 
 		return {
@@ -102,9 +102,9 @@ export default defineComponent({
 			showSelected,
 			showSelectable,
 			showSelectableNote,
-			hideIcon,
 			selectPage,
-			unselectPage
+			unselectPage,
+			showPageIcon
 		}
 	}
 })

@@ -1,7 +1,7 @@
 <template lang="pug">
 component.p-button-page(
 	:is="tag"
-	:class="{ 'p-button-page--hide-icon': hideIcon }"
+	:class="{ 'p-button-page--show-icon': icon }"
 )
 	slot
 </template>
@@ -19,7 +19,7 @@ export default defineComponent({
 				return ['button', 'a'].includes(tag)
 			}
 		},
-		hideIcon: {
+		icon: {
 			type: Boolean,
 			default: false
 		}
@@ -38,8 +38,8 @@ export default defineComponent({
 	&:hover
 		background: var(--p-color-white-01)
 
-	.p-page
-		cursor: pointer
+		.p-page .p-icon
+			opacity: 1
 
 	&:focus
 		box-shadow: none
@@ -48,18 +48,20 @@ export default defineComponent({
 		.p-page .p-icon
 			opacity: 1
 
+	.p-page
+		cursor: pointer
+
+		.p-icon
+			opacity: 0
+			transition: opacity 0.05s ease-in
+
 a.p-button-page
 	display: inline-flex
 
 	&:hover
 		color: var(--p-color-white-09)
 
-.p-button-page--hide-icon
+.p-button-page--show-icon
 	.p-page .p-icon
-		opacity: 0
-		transition: opacity 0.05s ease-in
-
-	&:hover
-		.p-page .p-icon
-			opacity: 1
+		opacity: 1
 </style>
