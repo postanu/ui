@@ -1269,11 +1269,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@logux/actions@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@logux/actions/-/actions-0.2.0.tgz#ba09a8b6e73f7c303f1103000ae455ceb09c6c95"
-  integrity sha512-i1occXt0XcJXHI2wsq/soZiMGd+CpyeKfxnF0WCY0VfMJiYSObBl7v0jEXQuFgBVWcK1CR2b6DLkdVOYvWC45Q==
-
 "@logux/actions@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@logux/actions/-/actions-0.2.1.tgz#7b04e89975befd0e5f3aea31bdb843f1bd26cf20"
@@ -1377,7 +1372,7 @@
 
 "@postanu/types@postanu/types":
   version "1.0.0"
-  resolved "https://codeload.github.com/postanu/types/tar.gz/1618922346789044aaa7b11dbcc32ef9dc10e81e"
+  resolved "https://codeload.github.com/postanu/types/tar.gz/2b523fb5b5506d9ca81d138799be794c8ed7050b"
   dependencies:
     "@logux/actions" "^0.2.1"
 
