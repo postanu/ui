@@ -92,7 +92,7 @@ export default defineComponent({
 
 		// eslint-disable-next-line unicorn/consistent-function-scoping
 		function hideIcon (page: Page): boolean {
-			return page.meta?.hideIcon || false
+			return page.meta?.hideIcon
 		}
 
 		return {
