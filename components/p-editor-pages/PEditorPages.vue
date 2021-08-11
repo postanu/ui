@@ -53,7 +53,7 @@
 				li(v-for="(page, index) in updatablePages" :key="page.id")
 					p-button-page(
 						:icon="showPageIcon(page)"
-						@click=""
+						@click="updatePage(page)"
 					)
 						p-page(
 							:icon="page.network"
@@ -62,7 +62,7 @@
 							:username="page.username"
 						)
 		.p-editor-pages__connect
-			p-button(icon="plus")
+			p-button(icon="plus" @click="connectPage")
 </template>
 
 <script lang="ts">
@@ -87,20 +87,29 @@ export default defineComponent({
 		pages: {
 			type: Array as PropType<PagesList>,
 			required: true
+		},
+		selected: {
+			type: Array as PropType<PagesList>,
+			default: () => []
 		}
 	},
-	setup (props) {
-		let { pages: initPages } = toRefs(props)
+	emits: [
+		'update',
+		'connect',
+		'update:selected'
+	],
+	setup (props, { emit }) {
+		let { pages, selected } = toRefs(props)
 
-		let selectedPages = usePagesListRef([])
+		let selectedPages = usePagesListRef(unref(selected))
 		let updatablePages = usePagesListRef(
-			initPages.value.filter(page => page.status === 200)
+			pages.value.filter(page => page.status === 200)
 		)
 		let selectablePages = usePagesListRef(
-			initPages.value.filter(page => page.status === 100)
+			pages.value.filter(page => page.status === 100)
 		)
 
-		let isZeroPages = computed(() => initPages.value.length === 0)
+		let isZeroPages = computed(() => pages.value.length === 0)
 		let showSelected = computed(() => selectedPages.value.length > 0)
 		let showUpdatable = computed(() => updatablePages.value.length > 0)
 		let showSelectable = computed(() => selectablePages.value.length > 0)
@@ -111,6 +120,7 @@ export default defineComponent({
 				return i !== index
 			})
 			selectedPages.value = [...unref(selectedPages), page]
+			emit('update:selected', unref(selectedPages))
 		}
 
 		function unselectPage (page: Page, index: number): void {
@@ -118,12 +128,16 @@ export default defineComponent({
 				return i !== index
 			})
 			selectablePages.value = [...unref(selectablePages), page]
+			emit('update:selected', unref(selectedPages))
 		}
 
 		// eslint-disable-next-line unicorn/consistent-function-scoping
 		function showPageIcon (page: Page): boolean {
 			return !page.meta?.hideIcon
 		}
+
+		let updatePage = (page: Page): void => { emit('update', page) }
+		let connectPage = (): void => { emit('connect') }
 
 		return {
 			selectedPages,
@@ -136,7 +150,9 @@ export default defineComponent({
 			showSelectableNote,
 			selectPage,
 			unselectPage,
-			showPageIcon
+			showPageIcon,
+			updatePage,
+			connectPage
 		}
 	}
 })

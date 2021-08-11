@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 
 import { getRandomInRange, usernameFromName } from '../utils'
 
-export function generatePages (count: number, networkTypes = 1): PagesList {
+export function generatePages (count: number, networkTypes = 1, updatables = 0): PagesList {
 	// generate a limited number of network types
 	let types = [...networks]
 	let removeCount = types.length - networkTypes
@@ -11,15 +11,27 @@ export function generatePages (count: number, networkTypes = 1): PagesList {
 		types.splice(getRandomInRange(0, types.length - 1), 1)
 	}
 
+	let updatableCount = 0
+
+	function getStatus (): 100 | 200 {
+		if (updatableCount < updatables) {
+			updatableCount++
+			return 200
+		}
+		return 100
+	}
+
 	// generate pages
 	return Array.from<undefined, Page>({ length: count }, (): Page => {
 		let member = members[getRandomInRange(0, members.length - 1)]
 		return {
 			id: nanoid(),
+			projectId: 'project-666',
 			name: member.name,
 			network: types[getRandomInRange(0, types.length - 1)],
 			username: usernameFromName(member.name),
-			avatarUrl: member.avatarUrl
+			avatarUrl: member.avatarUrl,
+			status: getStatus()
 		}
 	})
 }
