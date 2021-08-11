@@ -61,6 +61,8 @@
 							:fullname="page.name"
 							:username="page.username"
 						)
+		.p-editor-pages__connect
+			p-button(icon="plus")
 </template>
 
 <script lang="ts">
@@ -146,6 +148,11 @@ export default defineComponent({
 	display: inline-flex
 	flex-direction: column
 
+	&:hover
+		.p-editor-pages__connect .p-button
+			opacity: 1
+			transition: opacity 0.05s ease-in
+
 .p-editor-pages__heading
 	padding-left: 40px
 	padding-bottom: 10px
@@ -166,4 +173,16 @@ export default defineComponent({
 	font-size: var(--p-caption-font-size)
 	font-weight: var(--p-caption-font-weight)
 	line-height: var(--p-caption-line-height)
+
+.p-editor-pages__connect
+	padding-bottom: 20px
+
+	.p-button
+		opacity: 0
+		margin-top: -20px
+		margin-left: 35px
+		transition: opacity 0.1s ease-out 2s
+
+		&:focus
+			opacity: 1
 </style>
