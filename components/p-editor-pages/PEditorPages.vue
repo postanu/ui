@@ -39,6 +39,28 @@
 							:fullname="page.name"
 							:username="page.username"
 						)
+		.p-editor-pages__updatable(v-if="showUpdatable")
+			.p-editor-pages__heading
+				p-heading(
+					tag="h3"
+					headline
+				) Update
+				p.p-editor-pages__caption
+					| Before you can publish to these pages,
+					br
+					| you need to update their connection.
+			ul
+				li(v-for="(page, index) in updatablePages" :key="page.id")
+					p-button-page(
+						:icon="showPageIcon(page)"
+						@click=""
+					)
+						p-page(
+							:icon="page.network"
+							:avatar="page.avatarUrl"
+							:fullname="page.name"
+							:username="page.username"
+						)
 </template>
 
 <script lang="ts">
@@ -69,10 +91,16 @@ export default defineComponent({
 		let { pages: initPages } = toRefs(props)
 
 		let selectedPages = usePagesListRef([])
-		let selectablePages = usePagesListRef(unref(initPages))
+		let updatablePages = usePagesListRef(
+			initPages.value.filter(page => page.status === 200)
+		)
+		let selectablePages = usePagesListRef(
+			initPages.value.filter(page => page.status === 100)
+		)
 
 		let isZeroPages = computed(() => initPages.value.length === 0)
 		let showSelected = computed(() => selectedPages.value.length > 0)
+		let showUpdatable = computed(() => updatablePages.value.length > 0)
 		let showSelectable = computed(() => selectablePages.value.length > 0)
 		let showSelectableNote = computed(() => selectedPages.value.length === 0)
 
@@ -97,9 +125,11 @@ export default defineComponent({
 
 		return {
 			selectedPages,
+			updatablePages,
 			selectablePages,
 			isZeroPages,
 			showSelected,
+			showUpdatable,
 			showSelectable,
 			showSelectableNote,
 			selectPage,
@@ -113,7 +143,7 @@ export default defineComponent({
 <style lang="stylus">
 .p-editor-pages
 	gap: 50px
-	display: flex
+	display: inline-flex
 	flex-direction: column
 
 .p-editor-pages__heading
@@ -129,4 +159,11 @@ export default defineComponent({
 
 	& > p
 		margin-bottom: 30px
+
+.p-editor-pages__caption
+	color: var(--p-color-white-04)
+	padding: 10px 0
+	font-size: var(--p-caption-font-size)
+	font-weight: var(--p-caption-font-weight)
+	line-height: var(--p-caption-line-height)
 </style>
