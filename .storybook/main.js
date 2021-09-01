@@ -16,7 +16,7 @@ module.exports = {
 		'@storybook/addon-essentials'
 	],
 	core: {
-		builder: 'webpack4'
+		builder: 'webpack5'
 	},
 	webpackFinal: async config => {
 		config.module.rules.push(
