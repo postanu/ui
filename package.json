@@ -6,7 +6,6 @@
   "license": "MIT",
   "homepage": "https://postanu.com/",
   "repository": "postanu/ui",
-  "sideEffects": false,
   "types": "./index.d.ts",
   "scripts": {
     "dev": "start-storybook -s public -p 6006 --ci",
