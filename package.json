@@ -51,6 +51,7 @@
     "eslint-plugin-vue": "^7.17.0",
     "nanoid": "^3.1.25",
     "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "storybook-dark-mode": "^1.0.8",
