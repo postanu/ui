@@ -10,6 +10,7 @@ import PHeading from './components/p-heading/PHeading.vue'
 import PTableRow from './components/p-table-row/PTableRow.vue'
 import PTableGroup from './components/p-table-group/PTableGroup.vue'
 import PPagesTable from './components/p-pages-table/PPagesTable.vue'
+import PAttachment from './components/p-attachment/PAttachment.vue'
 import PRadioGroup from './components/p-radio/PRadioGroup.vue'
 import PRadioButton from './components/p-radio/PRadioButton.vue'
 import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
@@ -32,6 +33,7 @@ export {
 	PTableRow,
 	PTableGroup,
 	PPagesTable,
+	PAttachment,
 	PRadioGroup,
 	PRadioButton,
 	PButtonRemove,
