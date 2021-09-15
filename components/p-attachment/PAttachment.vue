@@ -1,15 +1,14 @@
 <template lang="pug">
-.p-attachment
+.p-attachment(:class="{ '--loading': loading }")
 	img.p-attachment__i(
-		v-if="showImage"
 		:src="image"
+		loading="eager"
 		@load="onLoad"
-		@error="onError"
 	)
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs } from 'vue'
+import { defineComponent, nextTick, ref } from 'vue'
 
 export default defineComponent({
 	props: {
@@ -18,27 +17,16 @@ export default defineComponent({
 			required: true
 		}
 	},
-	setup (props) {
-		let error = ref(false)
-		let { image } = toRefs(props)
-
-		let showImage = computed(() => {
-			return !error.value && image.value.length > 0
-		})
+	setup () {
+		let loading = ref(true)
 
 		function onLoad (): void {
-			error.value = false
+			nextTick(() => {
+				loading.value = false
+			})
 		}
 
-		function onError (): void {
-			error.value = true
-		}
-
-		return {
-			showImage,
-			onError,
-			onLoad
-		}
+		return { loading, onLoad }
 	}
 })
 </script>
@@ -48,6 +36,13 @@ export default defineComponent({
 	width: 20px
 	height: 20px
 	position: relative
+
+	&.--loading
+		border: 1px solid var(--p-color-white-02)
+		border-radius: 3px
+
+		.p-attachment__i
+			opacity: 0
 
 .p-attachment__i
 	width: 100%
@@ -59,4 +54,6 @@ export default defineComponent({
 	border-radius: 3px
 	border: 1px solid var(--p-color-white-02)
 	box-sizing: content-box
+	opacity: 1
+	transition: opacity 0.05s ease-in
 </style>
