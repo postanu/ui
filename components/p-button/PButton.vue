@@ -160,7 +160,8 @@ a.p-button:hover
 .p-button--type--text:not(:disabled):active
 	background: var(--p-color-white-02)
 
-.p-button--icon, .p-button--image
+.p-button--icon,
+.p-button--image
 	.p-button__text
 		padding-right: 5px
 

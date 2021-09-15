@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent, h, toRefs, VNodeChild } from 'vue'
+import { defineComponent, h, toRefs } from 'vue'
+import type { VNodeChild } from 'vue'
 
 import { ALLOWED_TAGS } from './allowed-tags'
 

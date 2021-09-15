@@ -1,5 +1,5 @@
-import { Story, Meta } from '@storybook/vue3'
 import { defineComponent } from 'vue'
+import { Story, Meta } from '@storybook/vue3'
 
 import PLogo from './PLogo.vue'
 

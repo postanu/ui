@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import PPage from '../p-page/PPage.vue'
 import PButtonPage from './PButtonPage.vue'
+import PPage from '../p-page/PPage.vue'
 
 export default {
 	title: 'PButton/PButtonPage',

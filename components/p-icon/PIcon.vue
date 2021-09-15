@@ -1,5 +1,6 @@
 <script lang="ts">
-import { computed, defineComponent, h, toRefs, VNodeChild } from 'vue'
+import { computed, defineComponent, h, toRefs } from 'vue'
+import type { VNodeChild } from 'vue'
 
 import { icons } from '../../icons/index.js'
 

@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/vue3'
 import { defineComponent } from 'vue'
+import { Meta, Story } from '@storybook/vue3'
 
 import PButtonConnect from './PButtonConnect.vue'
 import { icons } from '../../index.js'

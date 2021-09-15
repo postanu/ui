@@ -66,8 +66,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, toRefs, unref } from 'vue'
+import { computed, defineComponent, toRefs, unref } from 'vue'
 import type { Page, PagesList } from '@postanu/types'
+import type { PropType } from 'vue'
 
 import { usePagesListRef } from '../../composables/usePagesListRef'
 import PButtonPage from '../p-button-page/PButtonPage.vue'

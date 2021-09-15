@@ -1,4 +1,4 @@
-import { DeepReadonly, InjectionKey, Ref } from 'vue'
+import type { DeepReadonly, InjectionKey, Ref } from 'vue'
 
 export const PRadioValueKey: InjectionKey<DeepReadonly<Ref<string>>> =
 	process.env.NODE_ENV !== 'production'

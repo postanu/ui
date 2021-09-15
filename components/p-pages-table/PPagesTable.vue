@@ -30,8 +30,9 @@
 </template>
 
 <script lang="ts">
-import { computed, DeepReadonly, defineComponent, PropType, ref, toRefs } from 'vue'
+import { computed, defineComponent, ref, toRefs } from 'vue'
 import type { PagesList, GroupedPages } from '@postanu/types'
+import type { DeepReadonly, PropType } from 'vue'
 
 import { NETWORKS_ORDER } from '../../constants'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
