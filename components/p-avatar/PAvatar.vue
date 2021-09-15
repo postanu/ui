@@ -96,6 +96,7 @@ export default defineComponent({
 	position: absolute
 	text-align: center
 	background: var(--p-color-black)
+	line-height: var(--p-body-line-height)
 	font-weight: 700
 	border-radius: 50%
 	text-transform: lowercase
