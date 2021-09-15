@@ -33,18 +33,12 @@
 import { computed, DeepReadonly, defineComponent, PropType, ref, toRefs } from 'vue'
 import type { PagesList, GroupedPages } from '@postanu/types'
 
+import { NETWORKS_ORDER } from '../../constants'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 import PButton from '../p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
-
-const SORT_ORDER = [
-	'facebook',
-	'instagram',
-	'twitter',
-	'vk'
-]
 
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 
@@ -79,7 +73,7 @@ export default defineComponent({
 			}, [])
 			// sort by sortOrder
 			let sorted = grouped.sort((a, b) => {
-				return SORT_ORDER.indexOf(a.name) - SORT_ORDER.indexOf(b.name)
+				return NETWORKS_ORDER.indexOf(a.name) - NETWORKS_ORDER.indexOf(b.name)
 			})
 			return sorted
 		})
