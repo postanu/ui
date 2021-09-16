@@ -18,6 +18,7 @@ import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
 import PButtonConnect from './components/p-button-connect/PButtonConnect.vue'
 import PTableHeadline from './components/p-table-headline/PTableHeadline.vue'
 import PInputProjectName from './components/p-input-project-name/PInputProjectName.vue'
+import PQueueItemAttachments from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
 
 export { icons } from './icons/index.js'
 export {
@@ -40,5 +41,6 @@ export {
 	PQueueHeading,
 	PButtonConnect,
 	PTableHeadline,
-	PInputProjectName
+	PInputProjectName,
+	PQueueItemAttachments
 }
