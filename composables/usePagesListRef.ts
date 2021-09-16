@@ -1,12 +1,8 @@
-import { customRef, Ref } from 'vue'
+import { customRef } from 'vue'
 import type { PagesList } from '@postanu/types'
+import type { Ref } from 'vue'
 
-const ORDER = [
-	'facebook',
-	'instagram',
-	'twitter',
-	'vk'
-]
+import { NETWORKS_ORDER as ORDER } from '../constants'
 
 function sort (pages: PagesList): PagesList {
 	return pages.sort((a, b) => {
