@@ -27,6 +27,10 @@ function hideIcons (pages: PagesList): PagesList {
 	})
 }
 
+/**
+ * Prepares pages for showing as selectable and updatable list.
+ * Sorts pages in special order and hides the repeating network icon.
+ */
 export function usePagesListRef (value: PagesList): Ref<PagesList> {
 	let isFirstGet = true
 	return customRef<PagesList>((track, trigger) => {
