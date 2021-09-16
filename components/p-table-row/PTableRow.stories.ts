@@ -1,8 +1,7 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import { getRandomInRange } from '../../utils'
-import { discography } from '../../data'
+import { discography, randomInRange } from '../../generator'
 import PTableRow from './PTableRow.vue'
 
 export default {
@@ -48,7 +47,7 @@ const Template: Story = args => defineComponent({
 
 function generateContent (count: number): string {
 	return Array.from({ length: count }).map(() => {
-		return discography[getRandomInRange(0, discography.length - 1)]
+		return discography[randomInRange(0, discography.length - 1)]
 	}).join('\n')
 }
 

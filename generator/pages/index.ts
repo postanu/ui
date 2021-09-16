@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import type { PagesList, Page } from '@postanu/types'
 
-import { getRandomInRange, usernameFromName } from '../../utils'
+import { randomInRange, usernameFromName } from '../utils'
 import { networks, members } from '../data'
 
 export function generatePages (
@@ -13,7 +13,7 @@ export function generatePages (
 	let types = [...networks]
 	let removeCount = types.length - networkTypes
 	for (let index = 0; index < removeCount; index++) {
-		types.splice(getRandomInRange(0, types.length - 1), 1)
+		types.splice(randomInRange(0, types.length - 1), 1)
 	}
 
 	let updatableCount = 0
@@ -27,12 +27,12 @@ export function generatePages (
 	}
 
 	return Array.from({ length: count }, (): Page => {
-		let member = members[getRandomInRange(0, members.length - 1)]
+		let member = members[randomInRange(0, members.length - 1)]
 		return {
 			id: nanoid(),
 			projectId: 'project-666',
 			name: member.name,
-			network: types[getRandomInRange(0, types.length - 1)],
+			network: types[randomInRange(0, types.length - 1)],
 			username: usernameFromName(member.name),
 			avatarUrl: member.avatarUrl,
 			status: getStatus()

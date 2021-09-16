@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import { generatePages } from '../../data'
+import { generatePages } from '../../generator'
 import PPagesTable from './PPagesTable.vue'
 
 export default {
