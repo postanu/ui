@@ -1,47 +1,4 @@
-import type { PagesList, PageNetwork, Page } from '@postanu/types'
-import { nanoid } from 'nanoid'
-
-import { getRandomInRange, usernameFromName } from '../utils'
-
-export function generatePages (count: number, networkTypes = 1, updatables = 0): PagesList {
-	// generate a limited number of network types
-	let types = [...networks]
-	let removeCount = types.length - networkTypes
-	for (let index = 0; index < removeCount; index++) {
-		types.splice(getRandomInRange(0, types.length - 1), 1)
-	}
-
-	let updatableCount = 0
-
-	function getStatus (): 100 | 200 {
-		if (updatableCount < updatables) {
-			updatableCount++
-			return 200
-		}
-		return 100
-	}
-
-	// generate pages
-	return Array.from<undefined, Page>({ length: count }, (): Page => {
-		let member = members[getRandomInRange(0, members.length - 1)]
-		return {
-			id: nanoid(),
-			projectId: 'project-666',
-			name: member.name,
-			network: types[getRandomInRange(0, types.length - 1)],
-			username: usernameFromName(member.name),
-			avatarUrl: member.avatarUrl,
-			status: getStatus()
-		}
-	})
-}
-
-export const networks: PageNetwork[] = [
-	'facebook',
-	'instagram',
-	'twitter',
-	'vk'
-]
+import type { PageNetwork } from '@postanu/types'
 
 export const discography = [
 	'Portrait of an American Family (1994)',
@@ -55,6 +12,40 @@ export const discography = [
 	'The Pale Emperor (2015)',
 	'Heaven Upside Down (2017)',
 	'We Are Chaos (2020)'
+]
+
+export const lyrics = [
+	'Some resist the future, some refuse the past',
+	'Either way, it’s messed up if we can’t unplug the fact',
+	'That a world covered in cables was never wired to last',
+	'So, don’t act so surprised when the program starts to crash',
+	'How do I form a connection when we can’t even shake hands?',
+	'You’re like a phantom greeting me',
+	'We plot in the shadows, hang out in the gallows',
+	'Stuck in a loop for eternity',
+	'Do you know why the flowers never bloom?',
+	'Will you retry or let the pain resume?',
+	'I need a new leader, we need a new Luden',
+	'(A new Luden, new Luden, yeah)',
+	'So, come outside, it’s time to see the tide',
+	'It’s out of sight, but never out of mind',
+	'I need a new leader, we need a new Luden',
+	'Sticks and stones may break my bones',
+	'But soon the sting will pass',
+	'But names can dig so many graves',
+	'You won’t know where to stand',
+	'And I don’t feel secure no more',
+	'Unless I’m being followed',
+	'And the only way to hide myself',
+	'Is to give ’em one hell of a show!',
+	'Yeah!',
+	'Alright, you call this a connection?',
+	'You call this a connection?',
+	'You call this a connection? Okay',
+	'Oh, give me a break',
+	'Oh, give me a break! (Okay)',
+	'Ugh, oh',
+	''
 ]
 
 export const members = [
@@ -214,4 +205,11 @@ export const members = [
 		type: 'Former',
 		avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Daisy_%22SMP%22_Berkowitz_and_THEE_PAUSE_of_The_Daisy_Kids.jpg'
 	}
+]
+
+export const networks: PageNetwork[] = [
+	'facebook',
+	'instagram',
+	'twitter',
+	'vk'
 ]
