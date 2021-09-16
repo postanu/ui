@@ -30,11 +30,11 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs } from 'vue'
-import type { PagesList, GroupedPages } from '@postanu/types'
-import type { DeepReadonly, PropType } from 'vue'
+import { defineComponent, ref, toRefs } from 'vue'
+import type { PagesList } from '@postanu/types'
+import type { PropType } from 'vue'
 
-import { NETWORKS_ORDER } from '../../constants'
+import { useGroupedPagesList } from '../../composables/useGroupedPagesList'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
@@ -54,7 +54,7 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<DeepReadonly<PagesList>>,
+			type: Array as PropType<PagesList>,
 			required: true
 		},
 		updatable: { type: Boolean, default: true },
@@ -63,21 +63,7 @@ export default defineComponent({
 	emits: ['update', 'remove'],
 	setup (props, { emit }) {
 		let { pages } = toRefs(props)
-		let groupedPages = computed(() => {
-			// eslint-disable-next-line unicorn/no-array-reduce
-			let grouped = pages.value.reduce<GroupedPages>((previous, current) => {
-				let groupIndex = previous.findIndex(group => group.name === current.network)
-				if (groupIndex === -1) groupIndex = previous.length
-				previous[groupIndex] = previous[groupIndex] || { name: current.network, pages: [] }
-				previous[groupIndex].pages.push(current)
-				return previous
-			}, [])
-			// sort by sortOrder
-			let sorted = grouped.sort((a, b) => {
-				return NETWORKS_ORDER.indexOf(a.name) - NETWORKS_ORDER.indexOf(b.name)
-			})
-			return sorted
-		})
+		let groupedPages = useGroupedPagesList(pages)
 
 		function remove (id: string): void {
 			emit('remove', { id })
