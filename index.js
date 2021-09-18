@@ -17,8 +17,8 @@ import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
 import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
 import PButtonConnect from './components/p-button-connect/PButtonConnect.vue'
 import PTableHeadline from './components/p-table-headline/PTableHeadline.vue'
+import PQueueAttachments from './components/p-queue-attachments/PQueueAttachments.vue'
 import PInputProjectName from './components/p-input-project-name/PInputProjectName.vue'
-import PQueueItemAttachments from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
 
 export { icons } from './icons/index.js'
 export {
@@ -41,6 +41,6 @@ export {
 	PQueueHeading,
 	PButtonConnect,
 	PTableHeadline,
-	PInputProjectName,
-	PQueueItemAttachments
+	PQueueAttachments,
+	PInputProjectName
 }
