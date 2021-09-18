@@ -1,18 +1,18 @@
 import { computed } from 'vue'
-import type { GroupedPages, PagesList } from '@postanu/types'
+import type { Page, PagesGroup } from '@postanu/types'
 import type { ComputedRef, Ref } from 'vue'
 
 import { NETWORKS_ORDER } from '../constants'
 
 /**
- * Groups pages by network and sorts them in special order.
+ * Groups pages by network, sorts them in special order and marks solo groups.
  */
 export function useGroupedPagesList (
-	pages: Ref<PagesList>
-): ComputedRef<GroupedPages> {
+	pages: Ref<Page[]> | ComputedRef<Page[]>
+): ComputedRef<PagesGroup[]> {
 	return computed(() => {
 		// eslint-disable-next-line unicorn/no-array-reduce
-		let grouped = pages.value.reduce<GroupedPages>((previous, current) => {
+		let grouped = pages.value.reduce<PagesGroup[]>((previous, current) => {
 			let groupIndex = previous.findIndex(group => {
 				return group.name === current.network
 			})
@@ -21,8 +21,12 @@ export function useGroupedPagesList (
 				previous[groupIndex] ||
 				{
 					name: current.network,
-					pages: []
+					pages: [],
+					isSolo: false
 				}
+			if (current.isSolo) {
+				previous[groupIndex].isSolo = true
+			}
 			previous[groupIndex].pages.push(current)
 			return previous
 		}, [])
