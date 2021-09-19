@@ -1404,7 +1404,7 @@
 
 "@postanu/types@postanu/types":
   version "1.0.0"
-  resolved "https://codeload.github.com/postanu/types/tar.gz/667c61625b41370a0a5b151b6c56a4d91ffd2b39"
+  resolved "https://codeload.github.com/postanu/types/tar.gz/eb7a50e69908dbb6e503201cadb737a07b233202"
   dependencies:
     "@logux/actions" "^0.2.1"
 

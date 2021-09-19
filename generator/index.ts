@@ -1,3 +1,5 @@
+export { getRandomImage } from './random'
 export { randomInRange, randomFromArray, usernameFromName } from './utils'
 export { discography, lyrics, members, networks } from './data'
+export { generateAttachments } from './attachments'
 export { generatePages } from './pages'

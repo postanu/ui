@@ -10,9 +10,9 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
+import type { Attachment } from '@postanu/types'
 import type { PropType } from 'vue'
 
-import { PostAttachment } from '../../types'
 import PAttachment from '../p-attachment/PAttachment.vue'
 
 const MAX_VISIBLE_COUNT = 4
@@ -23,7 +23,7 @@ export default defineComponent({
 	},
 	props: {
 		items: {
-			type: Array as PropType<PostAttachment[]>,
+			type: Array as PropType<Attachment[]>,
 			required: true
 		}
 	},
