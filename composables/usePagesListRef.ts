@@ -1,17 +1,17 @@
 import { customRef } from 'vue'
-import type { PagesList } from '@postanu/types'
+import type { Page } from '@postanu/types'
 import type { Ref } from 'vue'
 
 import { NETWORKS_ORDER as ORDER } from '../constants'
 
-function sort (pages: PagesList): PagesList {
+function sort (pages: Page[]): Page[] {
 	return pages.sort((a, b) => {
 		return ORDER.indexOf(a.network) - ORDER.indexOf(b.network) ||
 			a.name.localeCompare(b.name)
 	})
 }
 
-function hideIcons (pages: PagesList): PagesList {
+function hideIcons (pages: Page[]): Page[] {
 	let lastNetwork: string
 	return pages.map(page => {
 		if (page.meta?.hideIcon) {
@@ -31,11 +31,11 @@ function hideIcons (pages: PagesList): PagesList {
  * Prepares pages for showing as selectable and updatable list.
  * Sorts pages in special order and hides the repeating network icon.
  */
-export function usePagesListRef (value: PagesList): Ref<PagesList> {
+export function usePagesListRef (value: Page[]): Ref<Page[]> {
 	let isFirstGet = true
-	return customRef<PagesList>((track, trigger) => {
+	return customRef<Page[]>((track, trigger) => {
 		return {
-			get (): PagesList {
+			get (): Page[] {
 				track()
 				if (isFirstGet) {
 					isFirstGet = false

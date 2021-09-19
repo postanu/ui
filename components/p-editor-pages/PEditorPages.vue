@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs, unref } from 'vue'
-import type { Page, PagesList } from '@postanu/types'
+import type { Page } from '@postanu/types'
 import type { PropType } from 'vue'
 
 import { usePagesListRef } from '../../composables/usePagesListRef'
@@ -86,11 +86,11 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<PagesList>,
+			type: Array as PropType<Page[]>,
 			required: true
 		},
 		selected: {
-			type: Array as PropType<PagesList>,
+			type: Array as PropType<Page[]>,
 			default: () => []
 		}
 	},

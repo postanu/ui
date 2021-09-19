@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import type { PagesList, Page } from '@postanu/types'
+import type { Page } from '@postanu/types'
 
 import { randomInRange, usernameFromName } from '../utils'
 import { networks, members } from '../data'
@@ -8,7 +8,7 @@ export function generatePages (
 	count: number,
 	networkTypes = 1,
 	updatables = 0
-): PagesList {
+): Page[] {
 	// generate a limited number of network types
 	let types = [...networks]
 	let removeCount = types.length - networkTypes
@@ -35,7 +35,8 @@ export function generatePages (
 			network: types[randomInRange(0, types.length - 1)],
 			username: usernameFromName(member.name),
 			avatarUrl: member.avatarUrl,
-			status: getStatus()
+			status: getStatus(),
+			isSolo: false
 		}
 	})
 }
