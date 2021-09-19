@@ -8,13 +8,9 @@ export default {
 	title: 'PPagesTable',
 	component: PPagesTable,
 	argTypes: {
-		count: {
-			control: 'number',
-			description: 'Property of generative view'
-		},
-		networks: {
-			control: 'number',
-			description: 'Property of generative view'
+		pattern: {
+			control: 'text',
+			description: 'Pattern to generate pages'
 		},
 		updatable: {
 			control: 'boolean',
@@ -46,7 +42,7 @@ const Template: Story = args => defineComponent({
 			args,
 			pages: args.pages
 				? JSON.parse(args.pages)
-				: generatePages(args.count, args.networks)
+				: generatePages(JSON.parse(args.pattern))
 		}
 	},
 	template: `
@@ -62,16 +58,15 @@ const Template: Story = args => defineComponent({
 
 export const OnePage = Template.bind({})
 OnePage.args = {
-	pages: JSON.stringify(generatePages(1), null, '\t')
+	pages: JSON.stringify(generatePages([[1]]), null, '\t')
 }
 
 export const MultiPage = Template.bind({})
 MultiPage.args = {
-	pages: JSON.stringify(generatePages(10, 3), null, '\t')
+	pages: JSON.stringify(generatePages([[0], [0], [0]]), null, '\t')
 }
 
 export const Generative = Template.bind({})
 Generative.args = {
-	networks: 4,
-	count: 13
+	pattern: '[[0], [1], [3], [2]]'
 }

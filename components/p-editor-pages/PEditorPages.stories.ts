@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import { generatePages } from '../../generator'
+import { generatePages, randomFromArray } from '../../generator'
 import PEditorPages from './PEditorPages.vue'
 
 export default {
@@ -32,7 +32,8 @@ export const NoPages = Template.bind({})
 NoPages.args = { pages: [] }
 
 export const Full = Template.bind({})
-Full.args = {
-	pages: generatePages(10, 4, 3),
-	selected: generatePages(2, 1)
-}
+let pages = generatePages([[0], [0], [0], [0]], { updatables: 3 })
+let selected = randomFromArray(pages, 3, {
+	filter: item => item.status !== 200
+})
+Full.args = { pages, selected }

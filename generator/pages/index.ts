@@ -4,39 +4,73 @@ import type { Page } from '@postanu/types'
 import { randomInRange, usernameFromName } from '../utils'
 import { networks, members } from '../data'
 
+interface GeneratePagesOptions {
+	updatables?: number
+}
+
+/**
+ * @param pattern Array in which arrays are groups
+ *   and an element is a page count. Zero is random.
+ */
 export function generatePages (
-	count: number,
-	networkTypes = 1,
-	updatables = 0
+	pattern: Array<[number]>,
+	options: GeneratePagesOptions = {}
 ): Page[] {
-	// generate a limited number of network types
-	let types = [...networks]
-	let removeCount = types.length - networkTypes
-	for (let index = 0; index < removeCount; index++) {
-		types.splice(randomInRange(0, types.length - 1), 1)
+	let groupsCount = pattern.length
+	let updatables = options.updatables
+	let data = {
+		members: [...members],
+		networks: [...networks]
 	}
 
-	let updatableCount = 0
-
-	function getStatus (): 100 | 200 {
-		if (updatableCount < updatables) {
-			updatableCount++
-			return 200
-		}
-		return 100
+	let getRandomData = <
+		K extends 'networks' | 'members'
+	>(key: K): typeof data[K][0] => {
+		let index = randomInRange(0, data[key].length - 1)
+		let entry = data[key][index]
+		data[key].splice(index, 1)
+		return entry
 	}
 
-	return Array.from({ length: count }, (): Page => {
-		let member = members[randomInRange(0, members.length - 1)]
-		return {
-			id: nanoid(),
-			projectId: 'project-666',
-			name: member.name,
-			network: types[randomInRange(0, types.length - 1)],
-			username: usernameFromName(member.name),
-			avatarUrl: member.avatarUrl,
-			status: getStatus(),
-			isSolo: false
+	let groups = Array.from<Page[], Page[]>(
+		{ length: groupsCount },
+		(group, index) => {
+			let [pagesCount] = pattern[index]
+			let network = getRandomData('networks')
+			let isSolo = pagesCount === 1
+
+			if (pagesCount === 0) {
+				pagesCount = randomInRange(2, 6) // think about pages max count
+			}
+
+			return Array.from<Page, Page>({ length: pagesCount }, () => {
+				let { name, avatarUrl } = getRandomData('members')
+				return {
+					id: nanoid(),
+					projectId: `project-${nanoid()}`,
+					name,
+					network,
+					username: usernameFromName(name),
+					avatarUrl,
+					status: 100,
+					isSolo
+				}
+			})
 		}
-	})
+	)
+
+	let list = groups.flat(2)
+
+	if (updatables) {
+		let counter = updatables
+		while (counter !== 0) {
+			let index = randomInRange(0, list.length - 1)
+			if (list[index].status !== 200) {
+				list[index].status = 200
+				counter--
+			}
+		}
+	}
+
+	return list
 }
