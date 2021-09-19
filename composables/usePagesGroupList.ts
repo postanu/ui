@@ -7,7 +7,7 @@ import { NETWORKS_ORDER } from '../constants'
 /**
  * Groups pages by network, sorts them in special order and marks solo groups.
  */
-export function useGroupedPagesList (
+export function usePagesGroupList (
 	pages: Ref<Page[]> | ComputedRef<Page[]>
 ): ComputedRef<PagesGroup[]> {
 	return computed(() => {

@@ -34,7 +34,7 @@ import { defineComponent, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { Page } from '@postanu/types'
 
-import { useGroupedPagesList } from '../../composables/useGroupedPagesList'
+import { usePagesGroupList } from '../../composables/usePagesGroupList'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 import PTableGroup from '../p-table-group/PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
@@ -63,7 +63,7 @@ export default defineComponent({
 	emits: ['update', 'remove'],
 	setup (props, { emit }) {
 		let { pages } = toRefs(props)
-		let groupedPages = useGroupedPagesList(pages)
+		let groupedPages = usePagesGroupList(pages)
 
 		function remove (id: string): void {
 			emit('remove', { id })
