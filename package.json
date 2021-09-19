@@ -69,6 +69,7 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*.(js|ts|vue)": "eslint"
+    "*.(js|ts|vue)": "eslint",
+    "*.(vue|styl)": "stylelint --custom-syntax stylelint-plugin-stylus/custom-syntax"
   }
 }
