@@ -7,4 +7,3 @@ Postanu UI components and styles library
 ```sh
 yarn add @postanu/ui
 ```
-
