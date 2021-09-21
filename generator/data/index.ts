@@ -45,6 +45,10 @@ export const lyrics = [
 	'Oh, give me a break',
 	'Oh, give me a break! (Okay)',
 	'Ugh, oh',
+	'',
+	'',
+	'',
+	'',
 	''
 ]
 
