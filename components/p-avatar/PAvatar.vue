@@ -1,5 +1,8 @@
 <template lang="pug">
-.p-avatar(:class="{ 'p-avatar--median': isMedian }")
+.p-avatar(
+	:class="{ 'p-avatar--median': isMedian }"
+	:title="letter"
+)
 	.p-avatar__l {{ l }}
 	img.p-avatar__i(
 		v-if="showImage"
