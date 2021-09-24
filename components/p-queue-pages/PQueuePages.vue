@@ -1,5 +1,5 @@
 <template lang="pug">
-.p-queue-pages
+.p-queue-pages(:class="{ '--solo': isFullSolo }")
 	.p-queue-pages__group(v-for="group in pagesGroupList" :key="group.name")
 		.p-queue-pages__type
 			p-icon(:icon="group.name")
@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs } from 'vue'
+import { computed, defineComponent, toRefs } from 'vue'
 import type { PropType } from 'vue'
 import type { Page } from '@postanu/types'
 
@@ -34,8 +34,17 @@ export default defineComponent({
 	},
 	setup (props) {
 		let { pages } = toRefs(props)
+
+		let isFullSolo = computed(
+			() => pages.value.every(page => page.isSolo)
+		)
+
 		let pagesGroupList = usePagesGroupList(pages)
-		return { pagesGroupList }
+
+		return {
+			isFullSolo,
+			pagesGroupList
+		}
 	}
 })
 </script>
@@ -44,7 +53,10 @@ export default defineComponent({
 .p-queue-pages
 	height: 100%
 	display: flex
-	gap: 20px // 15px
+	gap: 20px
+
+	&.--solo
+		gap: 10px
 
 .p-queue-pages__group
 	display: flex
