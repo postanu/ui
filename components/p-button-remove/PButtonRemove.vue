@@ -82,8 +82,10 @@ export default defineComponent({
 		}
 
 		function hideQuestion (): void {
-			removing.value = false
-			emit('removing', removing.value)
+			emit('removing', false)
+			setTimeout(() => {
+				removing.value = false
+			}, 100)
 		}
 
 		function remove (): void {
