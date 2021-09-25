@@ -2,17 +2,17 @@ import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
 import { generateAttachments, randomInRange } from '../../generator'
-import PQueueAttachments from './PQueueAttachments.vue'
+import PQueueItemAttachments from './PQueueItemAttachments.vue'
 
 export default {
-	title: 'PQueue/PQueueAttachments',
-	component: PQueueAttachments
+	title: 'PQueue/PQueueItemAttachments',
+	component: PQueueItemAttachments
 } as Meta
 
 const Template: Story = args => defineComponent({
-	components: { PQueueAttachments },
+	components: { PQueueItemAttachments },
 	setup: () => ({ args }),
-	template: '<p-queue-attachments :items="args.items" />'
+	template: '<p-queue-item-attachments :items="args.items" />'
 })
 
 export const One = Template.bind({})

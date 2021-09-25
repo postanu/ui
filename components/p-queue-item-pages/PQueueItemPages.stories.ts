@@ -1,12 +1,12 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import PQueuePages from './PQueuePages.vue'
+import PQueueItemPages from './PQueueItemPages.vue'
 import { generatePages } from '../../generator'
 
 export default {
-	title: 'PQueue/PQueuePages',
-	component: PQueuePages,
+	title: 'PQueue/PQueueItemPages',
+	component: PQueueItemPages,
 	argTypes: {
 		pattern: {
 			control: 'text'
@@ -15,14 +15,14 @@ export default {
 } as Meta
 
 const Template: Story = args => defineComponent({
-	components: { PQueuePages },
+	components: { PQueueItemPages },
 	setup: () => ({
 		args,
 		pages: args.pattern
 			? generatePages(JSON.parse(args.pattern))
 			: args.pages
 	}),
-	template: '<p-queue-pages :pages="pages" />'
+	template: '<p-queue-item-pages :pages="pages" />'
 })
 
 export const Solo = Template.bind({})
