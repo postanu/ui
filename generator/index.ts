@@ -1,4 +1,4 @@
-export { getRandomImage } from './random'
+export { getRandomImage, getRandomSentence, getRandomTime } from './random'
 export { randomInRange, randomFromArray, usernameFromName } from './utils'
 export { discography, lyrics, members, networks } from './data'
 export { generateAttachments } from './attachments'
