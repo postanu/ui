@@ -53,15 +53,18 @@ export default defineComponent({
 				}, children)
 			}
 
+			let title = label.value || `${name.value} icon`
+
 			return h('svg', {
 				class: ['p-icon'],
 				role: 'img',
-				'aria-label': label.value || `${name.value} icon`,
-				'aria-hidden': !label.value,
 				viewBox: `0 0 ${icon.value.width} ${icon.value.height}`,
 				width: `${icon.value.width * scale.value}px`,
 				height: `${icon.value.height * scale.value}px`
-			}, children)
+			}, [
+				h('title', title),
+				children
+			])
 		}
 	}
 })
