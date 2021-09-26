@@ -75,10 +75,10 @@ export default defineComponent({
 	visually-hidden()
 
 .p-radio-button__label
-	color: var(--p-color-white-05)
-	cursor: pointer
 	display: block
 	line-height: 50px
+	color: var(--p-color-white-05)
+	cursor: pointer
 
 	&:hover
 		color: var(--p-color-white-06)

@@ -47,11 +47,11 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-page
-	gap: 10px
 	display: flex
+	gap: 10px
 	cursor: default
 
 .p-page__un
-	color: var(--p-color-white-05)
 	padding-top: 0.07em
+	color: var(--p-color-white-05)
 </style>

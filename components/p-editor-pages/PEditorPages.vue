@@ -161,9 +161,9 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-editor-pages
-	gap: 50px
 	display: inline-flex
 	flex-direction: column
+	gap: 50px
 
 	&:hover
 		.p-editor-pages__connect .p-button
@@ -171,12 +171,12 @@ export default defineComponent({
 			transition: opacity 0.05s ease-in
 
 .p-editor-pages__heading
-	padding-left: 40px
 	padding-bottom: 10px
+	padding-left: 40px
 
 .p-editor-pages__note
-	color: var(--p-color-white-04)
 	margin-bottom: 30px
+	color: var(--p-color-white-04)
 
 .p-editor-pages__nopages
 	padding-left: 40px
@@ -185,19 +185,19 @@ export default defineComponent({
 		margin-bottom: 30px
 
 .p-editor-pages__caption
-	color: var(--p-color-white-04)
 	padding: 10px 0
 	font-size: var(--p-caption-font-size)
 	font-weight: var(--p-caption-font-weight)
 	line-height: var(--p-caption-line-height)
+	color: var(--p-color-white-04)
 
 .p-editor-pages__connect
 	padding-bottom: 20px
 
 	.p-button
-		opacity: 0
 		margin-top: -20px
 		margin-left: 35px
+		opacity: 0
 		transition: opacity 0.1s ease-out 2s
 
 		&:focus

@@ -26,6 +26,6 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-table-headline
-	line-height: 50px
 	margin-left: 280px
+	line-height: 50px
 </style>

@@ -88,8 +88,8 @@ export default defineComponent({
 .p-button
 	display: flex
 	align-items: center
-	border-radius: 15px
 	background: var(--p-color-white-01)
+	border-radius: 15px
 	transition: background 0.05s ease-in
 
 a.p-button
@@ -97,8 +97,8 @@ a.p-button
 	text-decoration: none
 
 a.p-button:hover
-	cursor: pointer
 	color: var(--p-color-white-09)
+	cursor: pointer
 
 .p-button__text
 	padding: 5px 15px
@@ -107,21 +107,21 @@ a.p-button:hover
 	display: none
 
 .p-button__icon
-	padding: 5px
 	box-sizing: content-box
+	padding: 5px
 	line-height: 0
 
 .p-button__image
+	box-sizing: content-box
 	width: 24px
 	height: 24px
 	padding: 3px
-	box-sizing: content-box
 
 	img
 		width: 100%
 		height: 100%
-		object-fit: cover
 		border-radius: 50%
+		object-fit: cover
 
 .p-button:not(:disabled):hover
 	background: var(--p-color-blue)
@@ -145,8 +145,8 @@ a.p-button:hover
 .p-button--type--text
 	font-weight: 500
 	background: none
-	transition: background 0.05s ease-in
 	border-radius: 6px
+	transition: background 0.05s ease-in
 
 	.p-button__text
 		padding: 5px 10px

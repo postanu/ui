@@ -33,9 +33,9 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-attachment
+	position: relative
 	width: 20px
 	height: 20px
-	position: relative
 
 	&.--loading
 		border: 1px solid var(--p-color-white-02)
@@ -45,15 +45,15 @@ export default defineComponent({
 			opacity: 0
 
 .p-attachment__i
-	width: 100%
-	height: 100%
 	position: absolute
 	top: -1px
 	left: -1px
-	object-fit: cover
-	border-radius: 3px
-	border: 1px solid var(--p-color-white-02)
 	box-sizing: content-box
+	width: 100%
+	height: 100%
+	border: 1px solid var(--p-color-white-02)
+	border-radius: 3px
 	opacity: 1
 	transition: opacity 0.05s ease-in
+	object-fit: cover
 </style>

@@ -29,7 +29,7 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-radio-group
-	gap: 20px
 	display: flex
+	gap: 20px
 	user-select: none
 </style>

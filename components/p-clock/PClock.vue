@@ -52,9 +52,9 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-clock span
-	animation p-clock-flash 2s step-start infinite
+	animation: p-clock-flash 2s step-start infinite
 
 @keyframes p-clock-flash
 	50%
-		opacity 0
+		opacity: 0
 </style>

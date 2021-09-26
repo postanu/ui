@@ -4,19 +4,19 @@
 @import './transitions'
 
 :root
-	--p-color-blue: #0A84FF
+	--p-color-blue: #0a84ff
 	--p-color-black: #000000
 	--p-color-red-04: #661313
 	--p-color-red-05: #801818
-	--p-color-red-08: #CC2626
-	--p-color-white-005: #0C0C0C
+	--p-color-red-08: #cc2626
+	--p-color-white-005: #0c0c0c
 	--p-color-white-01: #191919
 	--p-color-white-02: #333333
-	--p-color-white-03: #4C4C4C
+	--p-color-white-03: #4c4c4c
 	--p-color-white-04: #666666
 	--p-color-white-05: #808080
 	--p-color-white-06: #999999
-	--p-color-white-09: #E5E5E5
+	--p-color-white-09: #e5e5e5
 
 	--p-body-font-size: 15px
 	--p-body-line-height: 1.3334
@@ -44,7 +44,7 @@
 	--p-badge-font-weight: 600
 	--p-badge-line-height: 1.538
 
-	@media (max-width: 414px)
+	@media (max-width 414px)
 		--p-headline-font-size: 12px
 		--p-headline-font-weight: 500
 		--p-headline-line-height: 1.6667
@@ -58,14 +58,17 @@
 
 html
 	font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif
-	line-height: var(--p-body-line-height)
 	font-size: var(--p-body-font-size)
-	background: var(--p-color-black)
+	line-height: var(--p-body-line-height)
+
 	color: var(--p-color-white-09)
+
+	text-underline-offset: 0.25rem
+
+	background: var(--p-color-black)
 
 	color-scheme: light dark
 	text-size-adjust: 100%
-	text-underline-offset: 0.25rem
 
 	scroll-behavior: smooth
 	scroll-padding-top: 220px
@@ -83,34 +86,34 @@ a:hover
 	color: var(--p-color-white-05)
 
 a:focus
-	outline: none
 	background-color: var(--p-color-white-01)
+	outline: none
 
 ul
 	list-style: none
 
 button
 	font: inherit
-	color: inherit
-	cursor: pointer
-	border: 0
-	background: none
-	text-align: inherit
 	line-height: var(--p-body-line-height)
+	color: inherit
+	text-align: inherit
+	cursor: pointer
+	background: none
+	border: 0
 
 button:focus
 	outline: none
 	box-shadow: 0 0 0 2px var(--p-color-blue)
 
 input
-	font: inherit
-	color: inherit
 	width: 100%
-	border: 0
-	background: none
+	font: inherit
 	font-weight: inherit
 	line-height: inherit
+	color: inherit
 	letter-spacing: inherit
+	background: none
+	border: 0
 
 input:focus
 	outline: none

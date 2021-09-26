@@ -30,10 +30,10 @@ export default defineComponent({
 <style lang="stylus">
 .p-button-page
 	padding: 10px
-	border-radius: 7.5px
 	cursor: pointer
-	transition: background 0.05s ease-in
 	user-select: none
+	border-radius: 7.5px
+	transition: background 0.05s ease-in
 
 	&:hover
 		background: var(--p-color-white-01)
@@ -42,8 +42,8 @@ export default defineComponent({
 			opacity: 1
 
 	&:focus
-		box-shadow: none
 		background: var(--p-color-white-01)
+		box-shadow: none
 
 		.p-page .p-icon
 			opacity: 1

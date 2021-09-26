@@ -45,16 +45,16 @@ export default defineComponent({
 	user-select: none
 
 .p-heading--hero
-	color: var(--p-color-white-08)
 	font-size: var(--p-hero-font-size)
 	font-weight: var(--p-hero-font-weight)
 	line-height: var(--p-hero-line-height)
+	color: var(--p-color-white-08)
 	text-transform: uppercase
 
 .p-heading--headline
-	color: var(--p-color-white-04)
 	font-size: var(--p-headline-font-size)
 	font-weight: var(--p-headline-font-weight)
 	line-height: var(--p-headline-line-height)
+	color: var(--p-color-white-04)
 	text-transform: uppercase
 </style>

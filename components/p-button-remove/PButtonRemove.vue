@@ -114,6 +114,6 @@ export default defineComponent({
 	display: flex
 
 .p-button-remove__question
-	line-height: 30px
 	padding-right: 30px
+	line-height: 30px
 </style>

@@ -68,17 +68,17 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-avatar
+	position: relative
 	width: 20px
 	height: 20px
-	position: relative
 
 .p-avatar:before
+	position: absolute
 	top: -1px
-	left: -1px
 	right: -1px
 	bottom: -1px
+	left: -1px
 	content: ""
-	position: absolute
 	background: var(--p-color-white-02)
 	border-radius: 50%
 
@@ -87,20 +87,20 @@ export default defineComponent({
 		line-height: 1.18
 
 .p-avatar__i
+	position: absolute
 	width: 100%
 	height: 100%
-	position: absolute
-	object-fit: cover
 	border-radius: 50%
+	object-fit: cover
 
 .p-avatar__l
+	position: absolute
 	width: 20px
 	height: 20px
-	position: absolute
-	text-align: center
-	background: var(--p-color-black)
-	line-height: var(--p-body-line-height)
 	font-weight: 700
-	border-radius: 50%
+	line-height: var(--p-body-line-height)
+	text-align: center
 	text-transform: lowercase
+	background: var(--p-color-black)
+	border-radius: 50%
 </style>

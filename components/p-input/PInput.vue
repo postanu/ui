@@ -52,6 +52,6 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-input
-	padding: 20px 15px
 	box-sizing: border-box
+	padding: 20px 15px
 </style>

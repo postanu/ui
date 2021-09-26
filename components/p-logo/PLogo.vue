@@ -19,7 +19,7 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-logo
-	height: 20px
 	display: flex
 	align-items: center
+	height: 20px
 </style>

@@ -96,11 +96,11 @@ export default defineComponent({
 .p-queue-item
 	position: relative
 	display: grid
-	line-height: 50px
 	grid-template-columns: 50% 50%
+	line-height: 50px
+	white-space: nowrap
 	cursor: pointer
 	user-select: none
-	white-space: nowrap
 
 	&.--removing
 		.p-queue-item__controls
@@ -115,38 +115,38 @@ export default defineComponent({
 
 .p-queue-item:before,
 .p-queue-item:after
-	content: ""
 	position: absolute
 	z-index: -1
+	content: ""
 
 .p-queue-item:before
 	top: -1px
+	right: -20px
 	bottom: 0px
 	left: -20px
-	right: -20px
 	border-top: 1px solid var(--p-color-white-01)
 	border-bottom: 1px solid var(--p-color-white-01)
 
 .p-queue-item:after
 	top: 0px
+	right: -20px
 	bottom: 1px
 	left: -20px
-	right: -20px
 	background-color: var(--p-color-white-005)
 	opacity: 0
 	transition: opacity 0.05s ease-in
 
 .p-queue-item__meta
 	display: grid
-	gap: 20px
-	padding-right: 20px
-	justify-content: space-between
 	grid-template-columns: 120px minmax(360px, 50%) 80px
+	gap: 20px
+	justify-content: space-between
+	padding-right: 20px
 
 .p-queue-item__main
 	display: grid
-	gap: 20px
 	grid-template-columns: 420px 150px auto 190px
+	gap: 20px
 
 .p-queue-item__state
 	display: flex
@@ -163,8 +163,8 @@ export default defineComponent({
 	align-items: center
 
 .p-queue-item__controls
-	grid-area: 1 / 4
 	display: flex
+	grid-area: 1 / 4
 	align-items: center
 	justify-content: flex-end
 	opacity: 0

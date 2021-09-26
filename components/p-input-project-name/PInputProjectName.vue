@@ -43,8 +43,8 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-input-project-name
-	font-weight: 700
 	padding: 15px 0 5px 0
+	font-weight: 700
 
 .p-input-project-name:focus
 	box-shadow: none

@@ -64,16 +64,16 @@ export default defineComponent({
 	.p-queue-heading__title
 		color: var(--p-color-white-04)
 
-.p-queue-heading__title
-	// color: var(--p-color-white-08)
-	// font-size: 68px
-	// font-weight: 500
-	// line-height: 0.7353
-	// text-transform: uppercase
+// .p-queue-heading__title
+// color: var(--p-color-white-08)
+// font-size: 68px
+// font-weight: 500
+// line-height: 0.7353
+// text-transform: uppercase
 
 .p-queue-heading__subtitle
-	color: var(--p-color-white-04)
+	margin-left: 20px
 	font-size: var(--p-h2-regular-font-size)
 	line-height: 0.7334
-	margin-left: 20px
+	color: var(--p-color-white-04)
 </style>

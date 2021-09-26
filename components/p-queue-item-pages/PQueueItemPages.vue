@@ -51,9 +51,9 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-queue-pages
-	height: 100%
 	display: flex
 	gap: 20px
+	height: 100%
 
 	&.--solo
 		gap: 10px

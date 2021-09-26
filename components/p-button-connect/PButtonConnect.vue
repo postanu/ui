@@ -33,15 +33,15 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-button-connect
-	width: 100px
-	cursor: pointer
-	padding: 10px
-	display: block
 	position: relative
 	box-sizing: border-box
-	border-radius: 5px
+	display: block
+	width: 100px
+	padding: 10px
 	text-decoration: none
+	cursor: pointer
 	background-color: var(--p-color-white-01)
+	border-radius: 5px
 	transition: background 0.05s ease-out
 
 .p-button-connect:hover
@@ -49,16 +49,16 @@ export default defineComponent({
 	background-color: var(--p-color-blue)
 
 .p-button-connect__arrow
+	position: absolute
 	top: 12px
 	right: 12px
-	position: absolute
 
 .p-button-connect__icon
 	display: block
 
 .p-button-connect__label
 	display: block
-	text-align: left
 	margin-top: 25px
 	margin-bottom: -5px
+	text-align: left
 </style>
