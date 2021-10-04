@@ -1,6 +1,6 @@
 <template lang="pug">
-a.p-button-connect(:href="url")
-	p-icon.p-button-connect__arrow(icon="arrowNorthEast")
+a.p-button-connect(:href="url" target="_blank")
+	PIcon.p-button-connect__arrow(icon="arrowNorthEast")
 	p-icon.p-button-connect__icon(:icon="icon")
 	span.p-button-connect__label
 		slot
