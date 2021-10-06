@@ -4,3 +4,10 @@ export const NETWORKS_ORDER = [
 	'twitter',
 	'vk'
 ]
+
+export const NETWORKS_ABBR = {
+	facebook: 'fb',
+	instagram: 'ig',
+	twitter: 'tw',
+	vk: 'vk'
+}

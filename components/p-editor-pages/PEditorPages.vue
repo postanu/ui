@@ -5,10 +5,14 @@
 		p-button(type="common") Connect
 	template(v-else)
 		.p-editor-pages__selected(v-if="showSelected")
-			ul
-				li(v-for="(page, index) in selectedPages" :key="page.id")
+			ul.p-editor-pages__list
+				li(
+					v-for="(page, index) in selectedPages"
+					:key="page.id"
+					:[networkAbbr(page.network)]
+				)
 					p-button-page(
-						:icon="showPageIcon(page)"
+						:icon="true"
 						@click="unselectPage(page, index)"
 					)
 						p-page(
@@ -27,10 +31,14 @@
 					tag="h3"
 					headline
 				) Select
-			ul
-				li(v-for="(page, index) in selectablePages" :key="page.id")
+			ul.p-editor-pages__list
+				li(
+					v-for="(page, index) in selectablePages"
+					:key="page.id"
+					:[networkAbbr(page.network)]
+				)
 					p-button-page(
-						:icon="showPageIcon(page)"
+						:icon="true"
 						@click="selectPage(page, index)"
 					)
 						p-page(
@@ -49,10 +57,14 @@
 					| Before you can publish to these pages,
 					br
 					| you need to update their connection.
-			ul
-				li(v-for="(page, index) in updatablePages" :key="page.id")
+			ul.p-editor-pages__list
+				li(
+					v-for="page in updatablePages"
+					:key="page.id"
+					:[networkAbbr(page.network)]
+				)
 					p-button-page(
-						:icon="showPageIcon(page)"
+						:icon="true"
 						@click="updatePage(page)"
 					)
 						p-page(
@@ -67,10 +79,11 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs, unref } from 'vue'
-import type { Page } from '@postanu/types'
+import type { Page, PageNetwork } from '@postanu/types'
 import type { PropType } from 'vue'
 
-import { usePagesListRef } from '../../composables/usePagesListRef'
+import { NETWORKS_ABBR } from '../../constants'
+import { usePagesList } from '../../composables/usePagesList'
 import PButtonPage from '../p-button-page/PButtonPage.vue'
 import PHeading from '../p-heading/PHeading.vue'
 import PButton from '../p-button/PButton.vue'
@@ -102,11 +115,11 @@ export default defineComponent({
 	setup (props, { emit }) {
 		let { pages, selected } = toRefs(props)
 
-		let selectedPages = usePagesListRef(unref(selected))
-		let updatablePages = usePagesListRef(
+		let selectedPages = usePagesList(unref(selected))
+		let updatablePages = usePagesList(
 			pages.value.filter(page => page.status === 200)
 		)
-		let selectablePages = usePagesListRef(
+		let selectablePages = usePagesList(
 			pages.value.filter(page => page.status === 100)
 		)
 
@@ -132,13 +145,13 @@ export default defineComponent({
 			emit('update:selected', unref(selectedPages))
 		}
 
-		// eslint-disable-next-line unicorn/consistent-function-scoping
-		function showPageIcon (page: Page): boolean {
-			return !page.meta?.hideIcon
-		}
-
 		let updatePage = (page: Page): void => { emit('update', page) }
 		let connectPage = (): void => { emit('connect') }
+
+		// eslint-disable-next-line unicorn/consistent-function-scoping
+		function networkAbbr (network: PageNetwork): string {
+			return `data-${NETWORKS_ABBR[network]}`
+		}
 
 		return {
 			selectedPages,
@@ -151,9 +164,9 @@ export default defineComponent({
 			showSelectableNote,
 			selectPage,
 			unselectPage,
-			showPageIcon,
 			updatePage,
-			connectPage
+			connectPage,
+			networkAbbr
 		}
 	}
 })
@@ -169,6 +182,15 @@ export default defineComponent({
 		.p-editor-pages__connect .p-button
 			opacity: 1
 			transition: opacity 0.05s ease-in
+
+// all but the first
+.p-editor-pages__list > li[data-fb] ~ li[data-fb],
+.p-editor-pages__list > li[data-ig] ~ li[data-ig],
+.p-editor-pages__list > li[data-tw] ~ li[data-tw],
+.p-editor-pages__list > li[data-vk] ~ li[data-vk]
+	> .p-button-page:not(:hover):not(:focus)
+		> .p-page > .p-icon
+			opacity: 0
 
 .p-editor-pages__heading
 	padding-bottom: 10px

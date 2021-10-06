@@ -11,27 +11,11 @@ function sort (pages: Page[]): Page[] {
 	})
 }
 
-function hideIcons (pages: Page[]): Page[] {
-	let lastNetwork: string
-	return pages.map(page => {
-		if (page.meta?.hideIcon) {
-			page.meta.hideIcon = false
-		}
-		if (lastNetwork === page.network) {
-			page.meta = {
-				hideIcon: true
-			}
-		}
-		lastNetwork = page.network
-		return page
-	})
-}
-
 /**
  * Prepares pages for showing as selectable and updatable list.
- * Sorts pages in special order and hides the repeating network icon.
+ * Sorts in special order.
  */
-export function usePagesListRef (value: Page[]): Ref<Page[]> {
+export function usePagesList (value: Page[]): Ref<Page[]> {
 	let isFirstGet = true
 	return customRef<Page[]>((track, trigger) => {
 		return {
@@ -39,12 +23,12 @@ export function usePagesListRef (value: Page[]): Ref<Page[]> {
 				track()
 				if (isFirstGet) {
 					isFirstGet = false
-					return hideIcons(sort(value))
+					return sort(value)
 				}
 				return value
 			},
 			set (newValue): void {
-				value = hideIcons(sort(newValue))
+				value = sort(newValue)
 				trigger()
 			}
 		}

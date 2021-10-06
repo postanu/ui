@@ -32,7 +32,7 @@ export const NoPages = Template.bind({})
 NoPages.args = { pages: [] }
 
 export const Full = Template.bind({})
-let pages = generatePages([[0], [0], [0], [0]], { updatables: 3 })
+let pages = generatePages([[10], [3], [3], [3]], { updatables: 3 })
 let selected = randomFromArray(pages, 3, {
 	filter: item => item.status !== 200
 })

@@ -1411,10 +1411,8 @@
     stylelint-plugin-stylus "^0.11.0"
 
 "@postanu/types@postanu/types":
-  version "1.0.0"
-  resolved "https://codeload.github.com/postanu/types/tar.gz/849245c270751907cb2b08700bf19b00eb430448"
-  dependencies:
-    "@logux/actions" "^0.2.1"
+  version "0.1.0"
+  resolved "https://codeload.github.com/postanu/types/tar.gz/dc664d6b96023430fb9e37775d3a8685f0aa94aa"
 
 "@reach/router@^1.3.4":
   version "1.3.4"
