@@ -9,7 +9,7 @@
 				li(
 					v-for="(page, index) in selectedPages"
 					:key="page.id"
-					:[networkAbbr(page.network)]
+					:[networkAbbr(page.network)]="true"
 				)
 					p-button-page(
 						:icon="true"
@@ -35,7 +35,7 @@
 				li(
 					v-for="(page, index) in selectablePages"
 					:key="page.id"
-					:[networkAbbr(page.network)]
+					:[networkAbbr(page.network)]="true"
 				)
 					p-button-page(
 						:icon="true"
@@ -61,7 +61,7 @@
 				li(
 					v-for="page in updatablePages"
 					:key="page.id"
-					:[networkAbbr(page.network)]
+					:[networkAbbr(page.network)]="true"
 				)
 					p-button-page(
 						:icon="true"
