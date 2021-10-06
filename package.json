@@ -15,7 +15,7 @@
     "node": ">=14.0.0"
   },
   "peerDependencies": {
-    "date-fns": "^2.24.0"
+    "date-fns": "^2.25.0"
   },
   "peerDependenciesMeta": {
     "date-fns": {
@@ -27,7 +27,7 @@
     "vue": "^3.2.19"
   },
   "devDependencies": {
-    "@postanu/eslint-config": "^3.1.5",
+    "@postanu/eslint-config": "^3.1.7",
     "@postanu/stylelint-config": "^0.2.0",
     "@storybook/addon-actions": "^6.4.0-beta.4",
     "@storybook/addon-essentials": "^6.4.0-beta.4",
@@ -40,7 +40,7 @@
     "@typescript-eslint/parser": "^4.33.0",
     "@vue/compiler-sfc": "^3.2.19",
     "autoprefixer": "^10.3.7",
-    "date-fns": "^2.24.0",
+    "date-fns": "^2.25.0",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.2",
@@ -49,9 +49,9 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-unicorn": "^36.0.0",
-    "eslint-plugin-vue": "^7.18.0",
+    "eslint-plugin-vue": "^7.19.1",
     "lint-staged": "^11.2.0",
-    "nanoid": "^3.1.28",
+    "nanoid": "^3.1.29",
     "postcss": "^8.3.9",
     "postcss-html": "^0.36.0",
     "postcss-loader": "^6.1.1",
@@ -63,7 +63,7 @@
     "stylus": "^0.55.0",
     "stylus-loader": "^6.1.0",
     "typescript": "^4.4.3",
-    "webpack": "^5.56.1"
+    "webpack": "^5.57.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
