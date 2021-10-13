@@ -8,6 +8,10 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "lib": ["esnext", "dom"]
-  }
+    "lib": ["esnext", "dom"],
+    "types": []
+  },
+  "exclude": [
+    "./components/**/*.stories.ts",
+  ]
 }
