@@ -21,6 +21,7 @@ import PQueueItemPages from './components/p-queue-item-pages/PQueueItemPages.vue
 import PInputProjectName from './components/p-input-project-name/PInputProjectName.vue'
 import PQueueItemAttachments from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
 
+export { Refable, MaybeRef, MaybeReadonly } from './types/index.js'
 export { icons } from './icons/index.js'
 export {
 	PIcon,
