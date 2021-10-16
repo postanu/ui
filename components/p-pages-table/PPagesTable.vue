@@ -1,10 +1,16 @@
 <template lang="pug">
 .p-pages-table
-	p-table-group(v-for="group in groupedPages")
+	p-table-group(
+		v-for="group in groupedPages"
+		:key="group.name"
+	)
 		template(v-slot:name) {{ capitalizeFirstLetter(group.name) }}
 		template(v-slot:content)
 			ul
-				li(v-for="page in group.pages")
+				li(
+					v-for="page in group.pages"
+					:key="page.id"
+				)
 					p-table-row.p-pages-table__item(
 						:class="{ 'p-settings-pages__item--removing': isRemoving(page.id) }"
 					)

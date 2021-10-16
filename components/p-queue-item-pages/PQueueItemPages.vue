@@ -1,6 +1,9 @@
 <template lang="pug">
 .p-queue-pages(:class="{ '--solo': isFullSolo }")
-	.p-queue-pages__group(v-for="group in pagesGroupList" :key="group.name")
+	.p-queue-pages__group(
+		v-for="group in pagesGroupList"
+		:key="group.name"
+	)
 		.p-queue-pages__type
 			p-icon(:icon="group.name")
 		.p-queue-pages__item(
