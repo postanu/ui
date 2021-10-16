@@ -1398,10 +1398,10 @@
     stylelint-config-recess-order "^2.5.0"
     stylelint-plugin-stylus "^0.11.0"
 
-"@postanu/types@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@postanu/types/-/types-0.1.0.tgz#daf8306c3ac77252e3e0abeb06d2cd16abb7e3b7"
-  integrity sha512-zUfukj12xxZ+kGZRC9ust2B9Qax6eIr6YUfvVgOISNBflUgHnefnD3jUhnazR4qDmzpo4BhFHaLF+3UvdthaHA==
+"@postanu/types@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@postanu/types/-/types-0.2.0.tgz#4bf6f2ec5ee5e7641fe2ecd36a84d10100420a1c"
+  integrity sha512-HM5tFlTpOxm/dH0rM8qZB3eO2O4XIx+k3DeE+F5VMXvvZyRntd9hBul0LSBwJkHDDQtNxT4nWKErN/6nzN5GcQ==
 
 "@reach/router@^1.3.4":
   version "1.3.4"
