@@ -79,7 +79,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs, unref } from 'vue'
-import type { Page, PageNetwork } from '@postanu/types'
+import type { ClientPage, PageNetwork } from '@postanu/types'
 import type { PropType } from 'vue'
 
 import { NETWORKS_ABBR } from '../../constants'
@@ -99,11 +99,11 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<Page[]>,
+			type: Array as PropType<ClientPage[]>,
 			required: true
 		},
 		selected: {
-			type: Array as PropType<Page[]>,
+			type: Array as PropType<ClientPage[]>,
 			default: () => []
 		}
 	},
@@ -129,7 +129,7 @@ export default defineComponent({
 		let showSelectable = computed(() => selectablePages.value.length > 0)
 		let showSelectableNote = computed(() => selectedPages.value.length === 0)
 
-		function selectPage (page: Page, index: number): void {
+		function selectPage (page: ClientPage, index: number): void {
 			selectablePages.value = unref(selectablePages).filter((p, i) => {
 				return i !== index
 			})
@@ -137,7 +137,7 @@ export default defineComponent({
 			emit('update:selected', unref(selectedPages))
 		}
 
-		function unselectPage (page: Page, index: number): void {
+		function unselectPage (page: ClientPage, index: number): void {
 			selectedPages.value = unref(selectedPages).filter((p, i) => {
 				return i !== index
 			})
@@ -145,7 +145,7 @@ export default defineComponent({
 			emit('update:selected', unref(selectedPages))
 		}
 
-		let updatePage = (page: Page): void => { emit('update', page) }
+		let updatePage = (page: ClientPage): void => { emit('update', page) }
 		let connectPage = (): void => { emit('connect') }
 
 		// eslint-disable-next-line unicorn/consistent-function-scoping

@@ -38,7 +38,7 @@
 <script lang="ts">
 import { defineComponent, ref, toRefs } from 'vue'
 import type { PropType } from 'vue'
-import type { Page } from '@postanu/types'
+import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
@@ -60,7 +60,7 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<Page[]>,
+			type: Array as PropType<ClientPage[]>,
 			required: true
 		},
 		updatable: { type: Boolean, default: true },

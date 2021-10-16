@@ -17,7 +17,7 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs } from 'vue'
 import type { PropType } from 'vue'
-import type { Page } from '@postanu/types'
+import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList'
 import PAvatar from '../p-avatar/PAvatar.vue'
@@ -31,7 +31,7 @@ export default defineComponent({
 	},
 	props: {
 		pages: {
-			type: Array as PropType<Page[]>,
+			type: Array as PropType<ClientPage[]>,
 			required: true
 		}
 	},

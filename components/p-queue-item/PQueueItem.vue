@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref, toRefs } from 'vue'
-import type { Attachment, Page, PostState } from '@postanu/types'
+import type { Attachment, ClientPage, PostState } from '@postanu/types'
 import type { PropType } from 'vue'
 
 import { useQueueItemDescription } from '../../composables/useQueueItemDescription'
@@ -41,7 +41,7 @@ export default defineComponent({
 			required: true
 		},
 		pages: {
-			type: Object as PropType<Page[]>,
+			type: Object as PropType<ClientPage[]>,
 			required: true
 		},
 		title: {
