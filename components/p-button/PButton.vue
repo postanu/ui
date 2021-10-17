@@ -86,9 +86,11 @@ export default defineComponent({
 
 <style lang="stylus">
 .p-button
+	position: relative
 	display: flex
 	align-items: center
 	background: var(--p-color-white-01)
+	background-clip: content-box
 	border-radius: 15px
 	transition: background 0.05s ease-in
 
@@ -124,7 +126,7 @@ a.p-button:hover
 		object-fit: cover
 
 .p-button:not(:disabled):hover
-	background: var(--p-color-blue)
+	background-color: var(--p-color-blue)
 
 .p-button:disabled
 	color: var(--p-color-white-05)
@@ -159,6 +161,9 @@ a.p-button:hover
 
 .p-button--type--text:not(:disabled):active
 	background: var(--p-color-white-02)
+
+.p-button--icon
+	border-radius: 50%
 
 .p-button--icon,
 .p-button--image
