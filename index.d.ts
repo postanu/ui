@@ -21,6 +21,7 @@ import PQueueItem from './components/p-queue-item/PQueueItem.vue'
 import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
 import PQueueItemPages from './components/p-queue-item-pages/PQueueItemPages.vue'
 import PQueueItemAttachments from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
+import PEditorPages from './components/p-editor-pages/PEditorPages.vue'
 
 export { icons } from './icons/index.js'
 export {
@@ -46,5 +47,6 @@ export {
 	PQueueItem,
 	PQueueHeading,
 	PQueueItemPages,
-	PQueueItemAttachments
+	PQueueItemAttachments,
+	PEditorPages
 }
