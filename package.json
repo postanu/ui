@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@postanu/eslint-config": "^3.1.7",
-    "@postanu/stylelint-config": "^0.2.0",
+    "@postanu/stylelint-config": "^0.3.2",
     "@storybook/addon-actions": "^6.4.0-beta.23",
     "@storybook/addon-essentials": "^6.4.0-beta.23",
     "@storybook/addon-links": "^6.4.0-beta.23",
@@ -53,13 +53,12 @@
     "lint-staged": "^11.2.3",
     "nanoid": "^3.1.30",
     "postcss": "^8.3.9",
-    "postcss-html": "^0.36.0",
     "postcss-loader": "^6.2.0",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "simple-git-hooks": "^2.6.1",
     "storybook-dark-mode": "^1.0.8",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.0.1",
     "stylus": "^0.55.0",
     "stylus-loader": "^6.2.0",
     "typescript": "^4.4.4",
@@ -70,6 +69,6 @@
   },
   "lint-staged": {
     "*.(js|ts|vue)": "eslint",
-    "*.(vue|styl)": "stylelint --custom-syntax stylelint-plugin-stylus/custom-syntax"
+    "*.(vue|styl)": "stylelint"
   }
 }
