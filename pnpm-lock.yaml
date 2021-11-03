@@ -15,6 +15,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.3.0
   '@vue/compiler-sfc': ^3.2.21
   autoprefixer: ^10.4.0
+  css-loader: ^6.5.0
   date-fns: ^2.25.0
   eslint: ^8.1.0
   eslint-config-standard: ^16.0.3
@@ -56,6 +57,7 @@ devDependencies:
   '@typescript-eslint/parser': 5.3.0_eslint@8.1.0+typescript@4.4.4
   '@vue/compiler-sfc': 3.2.21
   autoprefixer: 10.4.0_postcss@8.3.11
+  css-loader: 6.5.0_webpack@5.61.0
   date-fns: 2.25.0
   eslint: 8.1.0
   eslint-config-standard: 16.0.3_0e7aa85332991e897b6a90eef80a6a17
@@ -6038,6 +6040,23 @@ packages:
       postcss-modules-values: 4.0.0_postcss@8.3.11
       postcss-value-parser: 4.1.0
       schema-utils: 3.1.1
+      semver: 7.3.5
+      webpack: 5.61.0
+    dev: true
+
+  /css-loader/6.5.0_webpack@5.61.0:
+    resolution: {integrity: sha512-VmuSdQa3K+wJsl39i7X3qGBM5+ZHmtTnv65fqMGI+fzmHoYmszTVvTqC1XN8JwWDViCB1a8wgNim5SV4fb37xg==}
+    engines: {node: '>= 12.13.0'}
+    peerDependencies:
+      webpack: ^5.0.0
+    dependencies:
+      icss-utils: 5.1.0_postcss@8.3.11
+      postcss: 8.3.11
+      postcss-modules-extract-imports: 3.0.0_postcss@8.3.11
+      postcss-modules-local-by-default: 4.0.0_postcss@8.3.11
+      postcss-modules-scope: 3.0.0_postcss@8.3.11
+      postcss-modules-values: 4.0.0_postcss@8.3.11
+      postcss-value-parser: 4.1.0
       semver: 7.3.5
       webpack: 5.61.0
     dev: true
