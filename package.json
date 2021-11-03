@@ -9,7 +9,7 @@
   "types": "./index.d.ts",
   "scripts": {
     "dev": "node --openssl-legacy-provider ./node_modules/.bin/start-storybook -s public -p 6006 --ci",
-    "build": "build-storybook -s public -o ./dist"
+    "build": "node --openssl-legacy-provider ./node_modules/.bin/start-storybookbuild-storybook -s public -o ./dist"
   },
   "engines": {
     "node": ">=14.0.0"
