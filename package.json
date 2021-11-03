@@ -8,8 +8,8 @@
   "repository": "postanu/ui",
   "types": "./index.d.ts",
   "scripts": {
-    "dev": "node --openssl-legacy-provider ./node_modules/.bin/start-storybook -s public -p 6006 --ci",
-    "build": "node --openssl-legacy-provider ./node_modules/.bin/build-storybook -s public -o ./dist",
+    "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -s public -p 6006 --ci",
+    "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -s public -o ./dist",
     "ci:build": "build-storybook -s public -o ./dist"
   },
   "engines": {
