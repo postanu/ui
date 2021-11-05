@@ -12,9 +12,6 @@
     "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist",
     "ci:build": "build-storybook -o ./dist"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  },
   "peerDependencies": {
     "date-fns": "^2.25.0",
     "vue": "^3.2.21"
