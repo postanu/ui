@@ -24,3 +24,4 @@ export { default as PQueueItemPages } from './components/p-queue-item-pages/PQue
 export { default as PQueueItemAttachments } from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
 export { default as PEditorText } from './components/p-editor-text/PEditorText.vue'
 export { default as PEditorPages } from './components/p-editor-pages/PEditorPages.vue'
+export { default as PEditorAttachments } from './components/p-editor-attachments/PEditorAttachments.vue'
