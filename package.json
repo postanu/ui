@@ -14,6 +14,7 @@
   },
   "peerDependencies": {
     "date-fns": "^2.25.0",
+    "@postanu/twitter-text": "^0.1.0",
     "vue": "^3.2.21"
   },
   "peerDependenciesMeta": {
@@ -32,6 +33,7 @@
     "@storybook/builder-webpack5": "^6.4.0-beta.28",
     "@storybook/manager-webpack5": "^6.4.0-beta.28",
     "@storybook/vue3": "^6.4.0-beta.28",
+    "@types/twitter-text": "^3.1.1",
     "@typescript-eslint/eslint-plugin": "^5.3.0",
     "@typescript-eslint/parser": "^5.3.0",
     "@vue/compiler-sfc": "^3.2.21",
@@ -47,6 +49,7 @@
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-unicorn": "^38.0.0",
     "eslint-plugin-vue": "^8.0.3",
+    "hashtag-regex": "^2.1.0",
     "lint-staged": "^11.2.6",
     "nanoid": "^3.1.30",
     "postcss": "^8.3.11",
@@ -59,6 +62,7 @@
     "stylelint": "^14.0.1",
     "stylus": "^0.55.0",
     "stylus-loader": "^6.2.0",
+    "@postanu/twitter-text": "^0.1.0",
     "typescript": "^4.4.4",
     "vue": "^3.2.21",
     "webpack": "^5.62.0"

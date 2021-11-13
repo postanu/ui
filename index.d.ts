@@ -1,52 +1,26 @@
-import PIcon from './components/p-icon/PIcon.vue'
-import PLogo from './components/p-logo/PLogo.vue'
-import PBadge from './components/p-badge/PBadge.vue'
-import PClock from './components/p-clock/PClock.vue'
-import PAvatar from './components/p-avatar/PAvatar.vue'
-import PHeading from './components/p-heading/PHeading.vue'
-import PAttachment from './components/p-attachment/PAttachment.vue'
-import PInput from './components/p-input/PInput.vue'
-import PInputProjectName from './components/p-input-project-name/PInputProjectName.vue'
-import PPage from './components/p-page/PPage.vue'
-import PPagesTable from './components/p-pages-table/PPagesTable.vue'
-import PRadioGroup from './components/p-radio/PRadioGroup.vue'
-import PRadioButton from './components/p-radio/PRadioButton.vue'
-import PButton from './components/p-button/PButton.vue'
-import PButtonRemove from './components/p-button-remove/PButtonRemove.vue'
-import PButtonConnect from './components/p-button-connect/PButtonConnect.vue'
-import PTableRow from './components/p-table-row/PTableRow.vue'
-import PTableGroup from './components/p-table-group/PTableGroup.vue'
-import PTableHeadline from './components/p-table-headline/PTableHeadline.vue'
-import PQueueItem from './components/p-queue-item/PQueueItem.vue'
-import PQueueHeading from './components/p-queue-heading/PQueueHeading.vue'
-import PQueueItemPages from './components/p-queue-item-pages/PQueueItemPages.vue'
-import PQueueItemAttachments from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
-import PEditorPages from './components/p-editor-pages/PEditorPages.vue'
-
 export { icons } from './icons/index.js'
-export {
-	PIcon,
-	PLogo,
-	PBadge,
-	PClock,
-	PAvatar,
-	PHeading,
-	PAttachment,
-	PInput,
-	PInputProjectName,
-	PPage,
-	PPagesTable,
-	PRadioGroup,
-	PRadioButton,
-	PButton,
-	PButtonRemove,
-	PButtonConnect,
-	PTableRow,
-	PTableGroup,
-	PTableHeadline,
-	PQueueItem,
-	PQueueHeading,
-	PQueueItemPages,
-	PQueueItemAttachments,
-	PEditorPages
-}
+export { default as PIcon } from './components/p-icon/PIcon.vue'
+export { default as PLogo } from './components/p-logo/PLogo.vue'
+export { default as PBadge } from './components/p-badge/PBadge.vue'
+export { default as PClock } from './components/p-clock/PClock.vue'
+export { default as PAvatar } from './components/p-avatar/PAvatar.vue'
+export { default as PHeading } from './components/p-heading/PHeading.vue'
+export { default as PAttachment } from './components/p-attachment/PAttachment.vue'
+export { default as PInput } from './components/p-input/PInput.vue'
+export { default as PInputProjectName } from './components/p-input-project-name/PInputProjectName.vue'
+export { default as PPage } from './components/p-page/PPage.vue'
+export { default as PPagesTable } from './components/p-pages-table/PPagesTable.vue'
+export { default as PRadioGroup } from './components/p-radio/PRadioGroup.vue'
+export { default as PRadioButton } from './components/p-radio/PRadioButton.vue'
+export { default as PButton } from './components/p-button/PButton.vue'
+export { default as PButtonRemove } from './components/p-button-remove/PButtonRemove.vue'
+export { default as PButtonConnect } from './components/p-button-connect/PButtonConnect.vue'
+export { default as PTableRow } from './components/p-table-row/PTableRow.vue'
+export { default as PTableGroup } from './components/p-table-group/PTableGroup.vue'
+export { default as PTableHeadline } from './components/p-table-headline/PTableHeadline.vue'
+export { default as PQueueItem } from './components/p-queue-item/PQueueItem.vue'
+export { default as PQueueHeading } from './components/p-queue-heading/PQueueHeading.vue'
+export { default as PQueueItemPages } from './components/p-queue-item-pages/PQueueItemPages.vue'
+export { default as PQueueItemAttachments } from './components/p-queue-item-attachments/PQueueItemAttachments.vue'
+export { default as PEditorText } from './components/p-editor-text/PEditorText.vue'
+export { default as PEditorPages } from './components/p-editor-pages/PEditorPages.vue'
