@@ -14,16 +14,20 @@ module.exports = {
 	core: {
 		builder: 'storybook-builder-vite'
 	},
-	async viteFinal(config, payload) {
+	async viteFinal (config) {
 		// https://github.com/eirslett/storybook-builder-vite/pull/92
 		// https://github.com/eirslett/storybook-builder-vite/issues/55
 		config.root = path.dirname(require.resolve('storybook-builder-vite'))
-		config.server.fsServe = undefined
+		if (config.server) {
+			config.server.fsServe = undefined
+		}
 
 		// https://github.com/eirslett/storybook-builder-vite/issues/50
 		config.resolve.dedupe = ['@storybook/client-api']
 
-		config.server.fs.allow = [searchForWorkspaceRoot(process.cwd())]
+		if (config.server) {
+			config.server.fs.allow = [searchForWorkspaceRoot(process.cwd())]
+		}
 
 		return config
 	}
