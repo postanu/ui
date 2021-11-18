@@ -1,3 +1,6 @@
+const path = require('path')
+const { searchForWorkspaceRoot } = require('vite')
+
 module.exports = {
 	staticDirs: ['../public'],
 	stories: [
@@ -6,35 +9,22 @@ module.exports = {
 	addons: [
 		'storybook-dark-mode',
 		'@storybook/addon-links',
-		{
-			name: '@storybook/addon-postcss',
-			options: {
-				postcssLoaderOptions: {
-					implementation: require('postcss')
-				}
-			}
-		},
 		'@storybook/addon-essentials'
 	],
 	core: {
-		builder: 'webpack5'
+		builder: 'storybook-builder-vite'
 	},
-	webpackFinal: async config => {
-		config.module.rules.push(
-			{
-				test: /\.pug$/,
-				use: ['pug-plain-loader']
-			},
-			{
-				test: /\.(stylus|styl)$/,
-				use: [
-					'style-loader',
-					'css-loader',
-					'postcss-loader',
-					'stylus-loader'
-				]
-			}
-		)
+	async viteFinal(config, payload) {
+		// https://github.com/eirslett/storybook-builder-vite/pull/92
+		// https://github.com/eirslett/storybook-builder-vite/issues/55
+		config.root = path.dirname(require.resolve('storybook-builder-vite'))
+		config.server.fsServe = undefined
+
+		// https://github.com/eirslett/storybook-builder-vite/issues/50
+		config.resolve.dedupe = ['@storybook/client-api']
+
+		config.server.fs.allow = [searchForWorkspaceRoot(process.cwd())]
+
 		return config
 	}
 }

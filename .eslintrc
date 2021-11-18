@@ -1,3 +1,6 @@
 {
-	"extends": "@postanu/eslint-config/vue"
+	"extends": "@postanu/eslint-config/vue",
+	"rules": {
+		"node/no-unpublished-require": "off"
+	}
 }
