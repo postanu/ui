@@ -22,9 +22,6 @@ module.exports = {
 			config.server.fsServe = undefined
 		}
 
-		// https://github.com/eirslett/storybook-builder-vite/issues/50
-		config.resolve.dedupe = ['@storybook/client-api']
-
 		if (config.server) {
 			config.server.fs.allow = [searchForWorkspaceRoot(process.cwd())]
 		}

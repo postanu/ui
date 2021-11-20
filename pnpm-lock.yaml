@@ -31,7 +31,7 @@ specifiers:
   postcss: ^8.3.11
   pug: ^3.0.2
   simple-git-hooks: ^2.7.0
-  storybook-builder-vite: ^0.1.8
+  storybook-builder-vite: ^0.1.9
   storybook-dark-mode: ^1.0.8
   stylelint: ^14.0.1
   stylus: ^0.55.0
@@ -71,7 +71,7 @@ devDependencies:
   postcss: 8.3.11
   pug: 3.0.2
   simple-git-hooks: 2.7.0
-  storybook-builder-vite: 0.1.8_vite@2.6.14
+  storybook-builder-vite: 0.1.9_vite@2.6.14
   storybook-dark-mode: 1.0.8
   stylelint: 14.0.1
   stylus: 0.55.0
@@ -12767,8 +12767,8 @@ packages:
     resolution: {integrity: sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==}
     dev: true
 
-  /storybook-builder-vite/0.1.8_vite@2.6.14:
-    resolution: {integrity: sha512-ws0yNRJ1DCBK4NzrMiUIEmuM3chnAaVnVPNJQRyvURnPvEVY/8AKcHBOA2YXC81eEkcAg/APFRGteIukeBXvNQ==}
+  /storybook-builder-vite/0.1.9_vite@2.6.14:
+    resolution: {integrity: sha512-MYWjfZSjF/bkLAh1MWZdmUl4mTyDMVQQsOX3D3r2qdglhGManpDMtJ9dTDVMGKWc4QTmD4UVnCC05nwmG0lZhA==}
     peerDependencies:
       vite: '>=2.6.7'
     dependencies:

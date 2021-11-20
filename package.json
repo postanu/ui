@@ -64,7 +64,7 @@
     "postcss": "^8.3.11",
     "pug": "^3.0.2",
     "simple-git-hooks": "^2.7.0",
-    "storybook-builder-vite": "^0.1.8",
+    "storybook-builder-vite": "^0.1.9",
     "storybook-dark-mode": "^1.0.8",
     "stylelint": "^14.0.1",
     "stylus": "^0.55.0",
