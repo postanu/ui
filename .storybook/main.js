@@ -30,14 +30,17 @@ module.exports = {
 		}
 
 		// pre-bundle @postanu/ui dependencies to speed up development
-		config.optimizeDeps.include.push(
-			'@postanu/twitter-text',
-			'@postanu/twitter-text/regexp',
-			'hashtag-regex',
-			'vuedraggable',
-			'date-fns',
-			'nanoid'
-		)
+		if (config.optimizeDeps) {
+			config.optimizeDeps.include.push(
+				'@postanu/twitter-text',
+				'@postanu/twitter-text/regexp',
+				'hashtag-regex',
+				'vuedraggable',
+				'date-fns',
+				'nanoid'
+			)
+		}
+
 
 		return config
 	}
