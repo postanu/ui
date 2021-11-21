@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@postanu/eslint-config': ^3.3.0
   '@postanu/stylelint-config': ^0.3.3
-  '@postanu/twitter-text': ^0.1.0
+  '@postanu/twitter-text': ^0.2.0
   '@postanu/types': ^0.3.0
   '@storybook/addon-actions': ^6.4.0-rc.5
   '@storybook/addon-essentials': ^6.4.0-rc.5
@@ -43,7 +43,7 @@ specifiers:
 devDependencies:
   '@postanu/eslint-config': 3.3.0_79f90a34c6e3f6109eb500f5ecef6b04
   '@postanu/stylelint-config': 0.3.3_stylelint@14.0.1
-  '@postanu/twitter-text': 0.1.0
+  '@postanu/twitter-text': 0.2.0
   '@postanu/types': 0.3.0_vue@3.2.22
   '@storybook/addon-actions': 6.4.0-rc.5
   '@storybook/addon-essentials': 6.4.0-rc.5_923df474d8cc9d7dc4e7d7284515c48e
@@ -2854,8 +2854,8 @@ packages:
       - supports-color
     dev: true
 
-  /@postanu/twitter-text/0.1.0:
-    resolution: {integrity: sha512-YMg9C6dmKPVOOTO2gbZl0FtPNwdeLKlh7CGQHmbXpIvD3ECwLWkI1zolfN0Co+Q9Xar3FQ4xpNs2jkwHsN/q8A==}
+  /@postanu/twitter-text/0.2.0:
+    resolution: {integrity: sha512-sPBnpNcheBdyqt2hT3rexQxXag37P4TCN1YO56+YYqV1QnrOLxmYlgH8Qdsjs80Jz29At0H6MYTMpmf0xX49+w==}
     dependencies:
       '@types/twitter-text': 3.1.1
       punycode: 2.1.1
