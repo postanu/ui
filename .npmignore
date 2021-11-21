@@ -1,0 +1,12 @@
+node_modules/
+dist/
+
+.storybook/
+public/
+
+.browserslistrc
+.stylelintrc
+
+postcss.config.js
+pnpm-lock.yaml
+tsconfig.json
