@@ -79,10 +79,10 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs, unref } from 'vue'
+import { NETWORKS_ABBR } from '@postanu/core'
 import type { ClientPage, PageNetwork } from '@postanu/types'
 import type { PropType } from 'vue'
 
-import { NETWORKS_ABBR } from '../../constants'
 import { usePagesList } from '../../composables/usePagesList'
 import PButtonPage from '../p-button-page/PButtonPage.vue'
 import PHeading from '../p-heading/PHeading.vue'

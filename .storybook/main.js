@@ -32,6 +32,7 @@ module.exports = {
 		// pre-bundle @postanu/ui dependencies to speed up development
 		if (config.optimizeDeps) {
 			config.optimizeDeps.include.push(
+				'@postanu/core',
 				'@postanu/twitter-text',
 				'@postanu/twitter-text/regexp',
 				'hashtag-regex',

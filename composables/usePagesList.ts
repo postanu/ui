@@ -1,8 +1,7 @@
+import { NETWORKS_ORDER as ORDER } from '@postanu/core'
 import { customRef } from 'vue'
 import type { ClientPage } from '@postanu/types'
 import type { Ref } from 'vue'
-
-import { NETWORKS_ORDER as ORDER } from '../constants'
 
 function sort (pages: ClientPage[]): ClientPage[] {
 	return pages.sort((a, b) => {

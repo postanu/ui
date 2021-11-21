@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@postanu/core': ^0.1.0
   '@postanu/eslint-config': ^3.3.0
   '@postanu/stylelint-config': ^0.3.3
   '@postanu/twitter-text': ^0.2.0
@@ -41,6 +42,7 @@ specifiers:
   vuedraggable: ^2.24.3
 
 devDependencies:
+  '@postanu/core': 0.1.0
   '@postanu/eslint-config': 3.3.0_79f90a34c6e3f6109eb500f5ecef6b04
   '@postanu/stylelint-config': 0.3.3_stylelint@14.0.1
   '@postanu/twitter-text': 0.2.0
@@ -2806,6 +2808,10 @@ packages:
 
   /@popperjs/core/2.10.2:
     resolution: {integrity: sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==}
+    dev: true
+
+  /@postanu/core/0.1.0:
+    resolution: {integrity: sha512-3r/116TWnR9iYN8noj8aO/iNhToyTJCHBGjq/7xrxDbWjMKAx0rb1+osLgE34qWTojqHr2tHYytgcRw3NOYVWQ==}
     dev: true
 
   /@postanu/eslint-config/3.3.0_79f90a34c6e3f6109eb500f5ecef6b04:
