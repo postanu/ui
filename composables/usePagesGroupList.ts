@@ -1,8 +1,7 @@
+import { NETWORKS_ORDER } from '@postanu/core'
 import { computed } from 'vue'
 import type { ClientPage, PagesGroup, Refable } from '@postanu/types'
 import type { ComputedRef } from 'vue'
-
-import { NETWORKS_ORDER } from '../constants'
 
 /**
  * Groups pages by network, sorts them in special order and marks solo groups.
