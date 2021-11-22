@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@postanu/core': ^0.1.0
+  '@postanu/core': ^0.1.1
   '@postanu/eslint-config': ^3.5.0
   '@postanu/stylelint-config': ^0.3.3
   '@postanu/twitter-text': ^0.2.0
@@ -42,7 +42,7 @@ specifiers:
   vuedraggable: ^2.24.3
 
 devDependencies:
-  '@postanu/core': 0.1.0
+  '@postanu/core': 0.1.1
   '@postanu/eslint-config': 3.5.0_b15c686db1b83ee62a87e4ccfc96fbba
   '@postanu/stylelint-config': 0.3.3_stylelint@14.1.0
   '@postanu/twitter-text': 0.2.0
@@ -2810,8 +2810,8 @@ packages:
     resolution: {integrity: sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==}
     dev: true
 
-  /@postanu/core/0.1.0:
-    resolution: {integrity: sha512-3r/116TWnR9iYN8noj8aO/iNhToyTJCHBGjq/7xrxDbWjMKAx0rb1+osLgE34qWTojqHr2tHYytgcRw3NOYVWQ==}
+  /@postanu/core/0.1.1:
+    resolution: {integrity: sha512-6LcdOGG70EoPoAyE6pyGO4qIS/PB8O0w9FM1RCH252BeNRNt7LQcLVCVl0krFetmPHV6YqQrsKF07BVfBCGlyw==}
     dev: true
 
   /@postanu/eslint-config/3.5.0_b15c686db1b83ee62a87e4ccfc96fbba:

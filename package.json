@@ -13,7 +13,7 @@
     "ci:build": "build-storybook -o ./dist"
   },
   "peerDependencies": {
-    "@postanu/core": "^0.1.0",
+    "@postanu/core": "^0.1.1",
     "@postanu/twitter-text": "^0.2.0",
     "date-fns": "^2.25.0",
     "hashtag-regex": "^2.1.0",
@@ -35,7 +35,7 @@
     }
   },
   "devDependencies": {
-    "@postanu/core": "^0.1.0",
+    "@postanu/core": "^0.1.1",
     "@postanu/eslint-config": "^3.5.0",
     "@postanu/stylelint-config": "^0.3.3",
     "@postanu/twitter-text": "^0.2.0",
