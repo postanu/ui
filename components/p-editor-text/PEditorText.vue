@@ -50,14 +50,8 @@ export default defineComponent({
 
 			await updateTextareaHeight()
 
-			if (isLarge.value) {
-				if (hl.value.offsetHeight > 200) {
-					isLarge.value = false
-				}
-			} else if (hl.value.offsetHeight < 100) {
-				isLarge.value = true
-			}
-
+			let lineBreaks = highlighted.value.split('<br>').length
+			isLarge.value = counter.value.text < 280 && lineBreaks < 8
 			await updateTextareaHeight()
 		}
 
