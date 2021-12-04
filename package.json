@@ -18,7 +18,7 @@
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
     "vue": "^3.2.23",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^4.1.0"
   },
   "peerDependenciesMeta": {
     "@postanu/twitter-text": {
@@ -73,6 +73,6 @@
     "typescript": "^4.5.2",
     "vite": "^2.6.14",
     "vue": "^3.2.23",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^4.1.0"
   }
 }
