@@ -8,5 +8,6 @@ public/
 .stylelintrc
 
 postcss.config.js
+nano-staged.json
 pnpm-lock.yaml
 tsconfig.json
