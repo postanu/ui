@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006",
     "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist",
-    "ci:build": "build-storybook -o ./dist"
+    "build:ci": "build-storybook -o ./dist"
   },
   "peerDependencies": {
     "@postanu/core": "^0.1.1",
