@@ -7,7 +7,6 @@ module.exports = {
 		'../components/**/*.stories.@(js|ts)'
 	],
 	addons: [
-		'storybook-dark-mode',
 		'@storybook/addon-links',
 		'@storybook/addon-essentials'
 	],
