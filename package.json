@@ -9,16 +9,10 @@
   "type": "module",
   "types": "./index.d.ts",
   "sideEffects": false,
-  "exports": {
-    ".": "./dist/index.js",
-    "./src": "./index.js",
-    "./package.json": "./package.json"
-  },
   "scripts": {
     "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006",
-    "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist-storybook",
-    "build:ci": "build-storybook -o ./dist",
-    "compile": "vite build"
+    "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist",
+    "build:ci": "build-storybook -o ./dist"
   },
   "engines": {
     "node": ">=14.0.0"
