@@ -25,7 +25,7 @@ component(
 <script lang="ts">
 import { defineComponent, toRefs } from 'vue'
 
-import { icons } from '../../index.js'
+import { icons } from '../../icons/index.js'
 import PIcon from '../p-icon/PIcon.vue'
 
 export default defineComponent({

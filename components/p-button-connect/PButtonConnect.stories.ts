@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { Meta, Story } from '@storybook/vue3'
 
 import PButtonConnect from './PButtonConnect.vue'
-import { icons } from '../../index.js'
+import { icons } from '../../icons/index.js'
 
 export default {
 	title: 'PButton/PButtonConnect',
