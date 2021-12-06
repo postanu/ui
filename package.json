@@ -6,13 +6,22 @@
   "license": "MIT",
   "homepage": "https://postanu.com/",
   "repository": "postanu/ui",
-  "sideEffects": false,
-  "types": "./index.d.ts",
   "type": "module",
+  "types": "./index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./src": "./index.js",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006",
-    "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist",
-    "build:ci": "build-storybook -o ./dist"
+    "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist-storybook",
+    "build:ci": "build-storybook -o ./dist",
+    "compile": "vite build"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "peerDependencies": {
     "@postanu/core": "^0.1.1",
@@ -23,6 +32,9 @@
     "vuedraggable": "^4.1.0"
   },
   "peerDependenciesMeta": {
+    "@postanu/core": {
+      "optional": true
+    },
     "@postanu/twitter-text": {
       "optional": true
     },
