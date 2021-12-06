@@ -43,7 +43,7 @@ export function generatePosts (count: number): GeneratedPost[] {
 function selectPostPages (projectPages: Page[]): Page[] {
 	let pages = [...projectPages]
 	let counter = randomInRange(1, pages.length - 1)
-	let selected = []
+	let selected: Page[] = []
 	while (counter !== 0) {
 		let index = randomInRange(0, pages.length - 1)
 		selected.push(pages[index])

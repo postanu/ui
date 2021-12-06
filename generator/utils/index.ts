@@ -26,7 +26,7 @@ export function randomFromArray<T> (
 		let filter = options?.filter || ((): boolean => true)
 		let items = copy ? [...collection] : collection
 		let counter = count
-		let collected = []
+		let collected: T[] = []
 		while (counter !== 0) {
 			let index = randomInRange(0, items.length - 1)
 			let item = items[index]
