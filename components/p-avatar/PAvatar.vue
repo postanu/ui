@@ -12,58 +12,45 @@
 	)
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, ref, toRefs } from 'vue'
+<script lang="ts" setup>
+import { computed, defineProps, ref, toRefs, withDefaults } from 'vue'
 
 const medianLetters = new Set([
 	'q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm', 'w', 'y', 'u', 'o', 'p', 'g', 'v',
 	'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'ю', 'в'
 ])
 
-export default defineComponent({
-	name: 'PAvatar',
-	props: {
-		image: {
-			type: String,
-			default: ''
-		},
-		letter: {
-			type: String,
-			required: true
-		}
-	},
-	setup (props) {
-		let error = ref(false)
-		let { image, letter } = toRefs(props)
+interface Props {
+	image: string
+	letter: string
+}
 
-		let l = computed(() => letter.value.charAt(0).toLowerCase())
+let props = withDefaults(
+	defineProps<Props>(),
+	{ image: '' }
+)
 
-		let showImage = computed(() => {
-			return !error.value && image.value.length > 0
-		})
+let error = ref(false)
+let { image, letter } = toRefs(props)
 
-		let isMedian = computed(() => {
-			let fistLetter = l.value.charAt(0)
-			return medianLetters.has(fistLetter)
-		})
+let l = computed(() => letter.value.charAt(0).toLowerCase())
 
-		function onLoad (): void {
-			error.value = false
-		}
-
-		function onError (): void {
-			error.value = true
-		}
-
-		return {
-			showImage,
-			isMedian,
-			onError,
-			onLoad,
-			l
-		}
-	}
+let showImage = computed(() => {
+	return !error.value && image.value.length > 0
 })
+
+let isMedian = computed(() => {
+	let fistLetter = l.value.charAt(0)
+	return medianLetters.has(fistLetter)
+})
+
+function onLoad (): void {
+	error.value = false
+}
+
+function onError (): void {
+	error.value = true
+}
 </script>
 
 <style lang="stylus">
