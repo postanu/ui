@@ -60,7 +60,7 @@ export function timeRef (
 			let [from, to] = limits[type]
 			let isHours = type === 'hours'
 			if (isHours && !isMilitary) {
-				[from, to] = limits[`${type}12`]
+				[from, to] = type === 'hours' ? limits[`${type}12`] : limits.minutes
 			}
 			value = Number(value)
 			if (value < from) value = from
@@ -108,14 +108,14 @@ export function timeRef (
 		hours: extendRef(hours, {
 			set: set('hours'),
 			increase: add('hours'),
-			decrease: value => {
+			decrease: (value: number) => {
 				add('hours')(value * -1)
 			}
 		}),
 		minutes: extendRef(minutes, {
 			set: set('minutes'),
 			increase: add('minutes'),
-			decrease: value => {
+			decrease: (value: number) => {
 				add('minutes')(value * -1)
 			}
 		})
