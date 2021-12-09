@@ -7,28 +7,18 @@
 	)
 </template>
 
-<script lang="ts">
-import { defineComponent, nextTick, ref } from 'vue'
+<script lang="ts" setup>
+import { defineProps, nextTick, ref } from 'vue'
 
-export default defineComponent({
-	props: {
-		image: {
-			type: String,
-			required: true
-		}
-	},
-	setup () {
-		let loading = ref(true)
+let props = defineProps<{ image: string }>()
 
-		function onLoad (): void {
-			nextTick(() => {
-				loading.value = false
-			})
-		}
+let loading = ref(true)
 
-		return { loading, onLoad }
-	}
-})
+function onLoad (): void {
+	nextTick(() => {
+		loading.value = false
+	})
+}
 </script>
 
 <style lang="stylus">
