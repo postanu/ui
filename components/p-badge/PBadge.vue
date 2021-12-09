@@ -4,14 +4,6 @@
 		slot
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-	name: 'PBadge'
-})
-</script>
-
 <style lang="stylus">
 .p-badge
 	display: inline-block
