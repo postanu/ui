@@ -22,66 +22,40 @@ component(
 		img(:src="image")
 </template>
 
-<script lang="ts">
-import { defineComponent, toRefs } from 'vue'
+<script lang="ts" setup>
+import { defineProps, toRefs, withDefaults } from 'vue'
 
-import { icons } from '../../icons/index.js'
 import PIcon from '../p-icon/PIcon.vue'
 
-export default defineComponent({
-	name: 'PButton',
-	components: { PIcon },
-	props: {
-		tag: {
-			type: String,
-			default: 'button',
-			validate: (tag: string): boolean => {
-				return ['button', 'a'].includes(tag)
-			}
-		},
-		type: {
-			type: String,
-			default: 'default',
-			validate: (type: string): boolean => {
-				return [
-					'default',
-					'common',
-					'text'
-				].includes(type)
-			}
-		},
-		icon: {
-			type: String,
-			default: null,
-			validate: (iconName: string): boolean => {
-				return [null, ...Object.keys(icons)].includes(iconName)
-			}
-		},
-		image: { type: String, default: null },
-		danger: { type: Boolean, default: false },
-		target: { type: Boolean, default: false },
-		muted: { type: Boolean, default: false }
-	},
-	setup (props) {
-		let {
-			type,
-			icon,
-			image
-		} = toRefs(props)
+interface Props {
+	tag: 'button' | 'a'
+	type: 'default' | 'common' | 'text'
+	icon?: string
+	image?: string
+	danger: boolean
+	target: boolean
+	muted: boolean
+}
 
-		let isText = type.value === 'text'
-		let isCommon = type.value === 'common'
-		let showIcon = icon.value && !image.value && !isCommon
-		let showImage = image.value && !icon.value && !isCommon
-
-		return {
-			isText,
-			isCommon,
-			showIcon,
-			showImage
-		}
+let props = withDefaults(
+	defineProps<Props>(),
+	{
+		tag: 'button',
+		type: 'default',
+		icon: undefined,
+		image: undefined,
+		danger: false,
+		target: false,
+		muted: false
 	}
-})
+)
+
+let { type, icon, image } = toRefs(props)
+
+let isText = type.value === 'text'
+let isCommon = type.value === 'common'
+let showIcon = icon.value && !image.value && !isCommon
+let showImage = image.value && !icon.value && !isCommon
 </script>
 
 <style lang="stylus">
