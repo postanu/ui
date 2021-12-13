@@ -40,6 +40,7 @@ export default defineComponent({
 	padding: 10px
 	text-decoration: none
 	cursor: pointer
+	user-select: none
 	background-color: var(--p-color-white-01)
 	border-radius: 5px
 	transition: background 0.05s ease-out

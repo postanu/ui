@@ -89,6 +89,7 @@ export default defineComponent({
 	position: relative
 	display: flex
 	align-items: center
+	user-select: none
 	background: var(--p-color-white-01)
 	background-clip: content-box
 	border-radius: 15px
