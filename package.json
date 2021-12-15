@@ -17,7 +17,9 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["./exports/*"]
+      "*": [
+        "./exports/*"
+      ]
     }
   },
   "scripts": {
@@ -31,6 +33,7 @@
   "peerDependencies": {
     "@postanu/core": "^0.1.1",
     "@postanu/twitter-text": "^0.2.0",
+    "@postanu/types": "^0.3.0",
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
     "vue": "^3.2.23",
@@ -41,6 +44,9 @@
       "optional": true
     },
     "@postanu/twitter-text": {
+      "optional": true
+    },
+    "@postanu/types": {
       "optional": true
     },
     "date-fns": {
