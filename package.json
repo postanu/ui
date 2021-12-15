@@ -11,6 +11,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./exports/index.js",
+    "./style": "./styles/base.styl",
     "./queue": "./exports/queue/index.js",
     "./editor": "./exports/editor/index.js"
   },
