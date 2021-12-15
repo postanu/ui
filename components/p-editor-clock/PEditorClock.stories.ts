@@ -1,11 +1,11 @@
 import { defineComponent } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
-import PClock from './PClock.vue'
+import PEditorClock from './PEditorClock.vue'
 
 export default {
-	title: 'PClock',
-	component: PClock,
+	title: 'PEditor/PEditorClock',
+	component: PEditorClock,
 	argTypes: {
 		format: {
 			control: 'select',
@@ -15,9 +15,9 @@ export default {
 } as Meta
 
 const Template: Story = args => defineComponent({
-	components: { PClock },
+	components: { PEditorClock },
 	setup: () => ({ args }),
-	template: '<p-clock :format="args.format" />'
+	template: '<p-editor-clock :format="args.format" />'
 })
 
 export const One = Template.bind({})
