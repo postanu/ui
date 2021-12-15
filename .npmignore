@@ -3,11 +3,12 @@ dist/
 
 .storybook/
 public/
+@types/
 
 .browserslistrc
 .stylelintrc
 
-postcss.config.js
-nano-staged.json
+postcss.config.cjs
+.nano-staged.json
 pnpm-lock.yaml
 tsconfig.json
