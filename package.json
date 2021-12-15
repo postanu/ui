@@ -12,8 +12,13 @@
   "exports": {
     ".": "./exports/index.js",
     "./style": "./styles/base.styl",
-    "./queue": "./exports/queue/index.js",
-    "./editor": "./exports/editor/index.js"
+    "./queue": "./exports/queue.js",
+    "./editor": "./exports/editor.js"
+  },
+  "typesVersions": {
+    "*": {
+      "*": ["./exports/*"]
+    }
   },
   "scripts": {
     "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006",
