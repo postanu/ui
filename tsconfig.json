@@ -21,6 +21,7 @@
     "./components/**/*.vue",
     "./components/**/*.ts",
     "./generator/**/*.ts",
+    "./exports/**/*.ts",
     "./icons/**/*.ts",
     "./@types/react/index.d.ts"
   ]
