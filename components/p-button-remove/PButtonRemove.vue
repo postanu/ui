@@ -112,6 +112,7 @@ export default defineComponent({
 <style lang="stylus">
 .p-button-remove
 	display: flex
+	user-select: none
 
 .p-button-remove__question
 	padding-right: 30px

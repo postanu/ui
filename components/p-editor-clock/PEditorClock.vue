@@ -1,5 +1,5 @@
 <template lang="pug">
-.p-clock(v-html="clock")
+.p-editor-clock(v-html="clock")
 </template>
 
 <script lang="ts">
@@ -15,7 +15,7 @@ import {
 import { format as dateFnsFormat } from 'date-fns'
 
 export default defineComponent({
-	name: 'PClock',
+	name: 'PEditorClock',
 	props: {
 		format: {
 			type: String,
@@ -51,10 +51,10 @@ export default defineComponent({
 </script>
 
 <style lang="stylus">
-.p-clock span
-	animation: p-clock-flash 2s step-start infinite
+.p-editor-clock span
+	animation: p-editor-clock-flash 2s step-start infinite
 
-@keyframes p-clock-flash
+@keyframes p-editor-clock-flash
 	50%
 		opacity: 0
 </style>

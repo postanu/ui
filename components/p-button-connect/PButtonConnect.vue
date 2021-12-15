@@ -1,5 +1,5 @@
 <template lang="pug">
-a.p-button-connect(:href="url" target="_blank")
+a.p-button-connect(:href="url")
 	p-icon.p-button-connect__arrow(icon="arrowNorthEast")
 	p-icon.p-button-connect__icon(:icon="icon")
 	span.p-button-connect__label
@@ -40,6 +40,7 @@ export default defineComponent({
 	padding: 10px
 	text-decoration: none
 	cursor: pointer
+	user-select: none
 	background-color: var(--p-color-white-01)
 	border-radius: 5px
 	transition: background 0.05s ease-out
