@@ -12,6 +12,7 @@ export { default as PPagesTable } from '../components/p-pages-table/PPagesTable.
 export { default as PRadioGroup } from '../components/p-radio/PRadioGroup.vue'
 export { default as PRadioButton } from '../components/p-radio/PRadioButton.vue'
 export { default as PButton } from '../components/p-button/PButton.vue'
+export { default as PButtonClose } from '../components/p-button-close/PButtonClose.vue'
 export { default as PButtonRemove } from '../components/p-button-remove/PButtonRemove.vue'
 export { default as PButtonConnect } from '../components/p-button-connect/PButtonConnect.vue'
 export { default as PTableRow } from '../components/p-table-row/PTableRow.vue'
