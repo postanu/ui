@@ -1,51 +1,54 @@
 <template lang="pug">
-p-input.p-h2.p-input-project-name(
+p-input.p-input-project-name(
 	ref="input"
 	size="25"
 	type="text"
 	name="project-name"
-	autofocus="on"
 	autocorrect="off"
+	autocomplete="off"
 	autocapitalize="off"
-	placeholder="Type the name of the project"
-	v-model="value"
-	@keyup.enter="emitCreate"
+	placeholder="Type the name of the new project"
+	:model-value="modelValue"
+	@update:modelValue="emitUpdate"
+	@keyup.enter="emitChange"
 )
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, ref, unref } from 'vue'
+<script lang="ts" setup>
+import { defineEmits, defineExpose, defineProps, ref, toRefs } from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 
-export default defineComponent({
-	name: 'PInputProjectName',
-	components: { PInput },
-	emits: ['create'],
-	setup (props, { emit }) {
-		let input = ref(null)
-		let value = ref('')
-		let showLabel = computed(() => value.value.length > 1)
+const props = defineProps<{
+	modelValue: string
+}>()
 
-		function emitCreate (): void {
-			emit('create', unref(value))
-		}
+const emit = defineEmits<{
+	(event: 'update:modelValue', value: string): void
+	(event: 'change', value: string): void
+}>()
 
-		return {
-			input,
-			value,
-			showLabel,
-			emitCreate
-		}
-	}
-})
+const { modelValue } = toRefs(props)
+const input = ref<HTMLInputElement | null>(null)
+
+function emitUpdate (value: string): void {
+	emit('update:modelValue', value)
+}
+
+function emitChange ($event: KeyboardEvent): void {
+	emit('change', ($event.target as HTMLInputElement).value)
+}
+
+function focus (): void {
+	input.value?.focus()
+}
+
+defineExpose({ focus })
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .p-input-project-name
-	padding: 15px 0 5px 0
+	font-size: var(--p-h2-regular-font-size)
 	font-weight: 700
-
-.p-input-project-name:focus
-	box-shadow: none
+	mix-blend-mode: difference
 </style>

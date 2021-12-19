@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { Story, Meta } from '@storybook/vue3'
 
 import PInputProjectName from './PInputProjectName.vue'
@@ -7,7 +7,7 @@ export default {
 	title: 'PInputProjectName',
 	component: PInputProjectName,
 	argTypes: {
-		create: {
+		change: {
 			action: true,
 			description: 'Triggers on pressing `Enter` and passes the project name.'
 		}
@@ -16,6 +16,9 @@ export default {
 
 export const Default: Story = args => defineComponent({
 	components: { PInputProjectName },
-	setup: () => ({ args }),
-	template: '<p-input-project-name @create="args.create" />'
+	setup: () => ({
+		args,
+		model: ref('')
+	}),
+	template: '<p-input-project-name v-model="model" @change="args.change" />'
 })
