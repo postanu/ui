@@ -1,5 +1,5 @@
 import { defineComponent, ref } from 'vue'
-import { Story, Meta } from '@storybook/vue3'
+import type { Story, Meta } from '@storybook/vue3'
 
 import { generateAttachments } from '../../generator'
 import PEditorAttachments from './PEditorAttachments.vue'

@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { Meta, Story } from '@storybook/vue3'
+import type { Meta, Story } from '@storybook/vue3'
 
 import PButtonClose from './PButtonClose.vue'
 

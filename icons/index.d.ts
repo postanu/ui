@@ -1,8 +1,8 @@
-export type PIconsStorePath = {
+export interface PIconsStorePath {
 	d: string
 }
 
-export type PIconsStore = {
+export interface PIconsStore {
 	[key: string]: {
 		height: number
 		width: number

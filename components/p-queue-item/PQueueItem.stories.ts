@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { Story, Meta } from '@storybook/vue3'
+import type { Story, Meta } from '@storybook/vue3'
 
 import { generatePosts } from '../../generator/post'
 import PQueueItem from './PQueueItem.vue'

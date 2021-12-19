@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { Story, Meta } from '@storybook/vue3'
+import type { Story, Meta } from '@storybook/vue3'
 
 import { ALLOWED_TAGS } from '../p-heading/allowed-tags'
 import PTableHeadline from './PTableHeadline.vue'

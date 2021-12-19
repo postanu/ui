@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import { Story, Meta } from '@storybook/vue3'
+import type { Story, Meta } from '@storybook/vue3'
 
 import { discography, randomInRange } from '../../generator'
 import PTableRow from './PTableRow.vue'

@@ -1,5 +1,5 @@
 import { defineComponent, onMounted, ref } from 'vue'
-import { Story, Meta } from '@storybook/vue3'
+import type { Story, Meta } from '@storybook/vue3'
 
 import PInput from './PInput.vue'
 
