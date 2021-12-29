@@ -17,10 +17,9 @@
 			)
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, ref, toRefs } from 'vue'
+<script lang="ts" setup>
+import { computed, ref, toRefs } from 'vue'
 import type { Attachment, ClientPage, PostState } from '@postanu/types'
-import type { PropType } from 'vue'
 
 import { useQueueItemDescription } from '../../composables/useQueueItemDescription'
 import { useQueryItemTitle } from '../../composables/useQueryItemTitle'
@@ -28,68 +27,41 @@ import PQueueItemAttachments from '../p-queue-item-attachments/PQueueItemAttachm
 import PQueueItemPages from '../p-queue-item-pages/PQueueItemPages.vue'
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 
-export default defineComponent({
-	name: 'PQueueItem',
-	components: {
-		PButtonRemove,
-		PQueueItemPages,
-		PQueueItemAttachments
-	},
-	props: {
-		time: {
-			type: String,
-			required: true
-		},
-		pages: {
-			type: Object as PropType<ClientPage[]>,
-			required: true
-		},
-		title: {
-			type: String,
-			required: true
-		},
-		attachments: {
-			type: Object as PropType<Attachment[]>,
-			required: true
-		},
-		state: {
-			type: Number as PropType<PostState>,
-			required: true
-		}
-	},
-	emits: [
-		'removing',
-		'remove'
-	],
-	setup (props, { emit }) {
-		let { title, attachments } = toRefs(props)
+interface Props {
+	time: string
+	pages: ClientPage[]
+	title: string
+	attachments: Attachment[]
+	state: PostState
+}
 
-		title = useQueryItemTitle(title)
-		let description = useQueueItemDescription(attachments)
+const props = defineProps<Props>()
 
-		let isRemoving = ref(false)
-		let hasTitle = computed(() => title.value.length > 0)
+const emit = defineEmits<{
+	(e: 'removing', state: boolean): void
+	(e: 'remove'): void
+}>()
 
-		function emitRemoving (state: boolean): void {
-			isRemoving.value = state
-			emit('removing', state)
-		}
+const {
+	title: initTitle,
+	attachments
+} = toRefs(props)
 
-		function emitRemove (): void {
-			emit('remove')
-		}
+const title = useQueryItemTitle(initTitle)
+const description = useQueueItemDescription(attachments)
 
-		return {
-			// eslint-disable-next-line vue/no-dupe-keys
-			title,
-			description,
-			hasTitle,
-			isRemoving,
-			emitRemoving,
-			emitRemove
-		}
-	}
-})
+const isRemoving = ref(false)
+
+const hasTitle = computed(() => title.value.length > 0)
+
+function emitRemoving (state: boolean): void {
+	isRemoving.value = state
+	emit('removing', state)
+}
+
+function emitRemove (): void {
+	emit('remove')
+}
 </script>
 
 <style lang="stylus">
