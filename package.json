@@ -61,11 +61,11 @@
   },
   "devDependencies": {
     "@babel/core": "7",
-    "@postanu/core": "^0.1.1",
+    "@postanu/core": "^0.2.0",
     "@postanu/eslint-config": "^3.7.1",
     "@postanu/stylelint-config": "^0.4.0",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.3.1",
+    "@postanu/types": "^0.5.0",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",

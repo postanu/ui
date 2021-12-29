@@ -2,11 +2,11 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': '7'
-  '@postanu/core': ^0.1.1
+  '@postanu/core': ^0.2.0
   '@postanu/eslint-config': ^3.7.1
   '@postanu/stylelint-config': ^0.4.0
   '@postanu/twitter-text': ^0.2.0
-  '@postanu/types': ^0.3.1
+  '@postanu/types': ^0.5.0
   '@storybook/addon-actions': ^6.4.9
   '@storybook/addon-essentials': ^6.4.9
   '@storybook/addon-links': ^6.4.9
@@ -51,11 +51,11 @@ specifiers:
 
 devDependencies:
   '@babel/core': 7.16.5
-  '@postanu/core': 0.1.1
+  '@postanu/core': 0.2.0
   '@postanu/eslint-config': 3.7.1_8eb37a359dd7c511f93699b426fbce60
   '@postanu/stylelint-config': 0.4.0_stylelint@14.2.0
   '@postanu/twitter-text': 0.2.0
-  '@postanu/types': 0.3.1_vue@3.2.26
+  '@postanu/types': 0.5.0_@postanu+core@0.2.0+vue@3.2.26
   '@storybook/addon-actions': 6.4.9_react-dom@17.0.2+react@17.0.2
   '@storybook/addon-essentials': 6.4.9_b324959fb8585cf7eb2fcfcec7a58e32
   '@storybook/addon-links': 6.4.9_react-dom@17.0.2+react@17.0.2
@@ -2669,8 +2669,8 @@ packages:
     resolution: {integrity: sha512-zrsUxjLOKAzdewIDRWy9nsV1GQsKBCWaGwsZQlCgr6/q+vjyZhFgqedLfFBuI9anTPEUT4APq9Mu0SZBTzIcGQ==}
     dev: true
 
-  /@postanu/core/0.1.1:
-    resolution: {integrity: sha512-6LcdOGG70EoPoAyE6pyGO4qIS/PB8O0w9FM1RCH252BeNRNt7LQcLVCVl0krFetmPHV6YqQrsKF07BVfBCGlyw==}
+  /@postanu/core/0.2.0:
+    resolution: {integrity: sha512-IL75QXgdU/owmGvcwK7hhBW0N1p3lflCC3kJRibDxcOuuorTS/xra4VaM2akSttJb6dnm4J8lk5Pc8aR8aKrmg==}
     dev: true
 
   /@postanu/eslint-config/3.7.1_8eb37a359dd7c511f93699b426fbce60:
@@ -2726,14 +2726,16 @@ packages:
       twemoji-parser: 13.1.0
     dev: true
 
-  /@postanu/types/0.3.1_vue@3.2.26:
-    resolution: {integrity: sha512-RmEidQ/btx8SlhmWYT8IOWEAMG+Dc5lwPWPnD8zb43irLs36ZC07sFXMwrnxDgNz6IpaqJvy+UiHBECvCsKPow==}
+  /@postanu/types/0.5.0_@postanu+core@0.2.0+vue@3.2.26:
+    resolution: {integrity: sha512-9OfIk/kmyhQ5a5RoblKjo7ejfv64sGf6rx6xPjM8sFvIoPBlbeNcv67BLN4k7x2kg3r0OLX8gNQ9cp6sSuSTrA==}
     peerDependencies:
+      '@postanu/core': ^0.2.0
       vue: '>=3.2.20'
     peerDependenciesMeta:
       vue:
         optional: true
     dependencies:
+      '@postanu/core': 0.2.0
       vue: 3.2.26
     dev: true
 
