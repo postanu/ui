@@ -15,7 +15,7 @@ p-input.p-input-project-name(
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, defineExpose, defineProps, ref, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 

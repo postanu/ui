@@ -6,7 +6,7 @@ p-button.p-button-close(
 </template>
 
 <script lang="ts" setup>
-import { defineEmits, onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeUnmount, onMounted } from 'vue'
 
 import PButton from '../p-button/PButton.vue'
 
