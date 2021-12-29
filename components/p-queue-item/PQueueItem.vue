@@ -42,16 +42,12 @@ const emit = defineEmits<{
 	(e: 'remove'): void
 }>()
 
-const {
-	title: initTitle,
-	attachments
-} = toRefs(props)
+const { title: initTitle, attachments } = toRefs(props)
 
 const title = useQueryItemTitle(initTitle)
 const description = useQueueItemDescription(attachments)
 
 const isRemoving = ref(false)
-
 const hasTitle = computed(() => title.value.length > 0)
 
 function emitRemoving (state: boolean): void {
