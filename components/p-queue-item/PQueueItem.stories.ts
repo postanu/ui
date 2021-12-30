@@ -9,7 +9,8 @@ export default {
 	component: PQueueItem,
 	argTypes: {
 		removing: { action: true },
-		remove: { action: true }
+		remove: { action: true },
+		click: { action: true }
 	}
 } as Meta
 
@@ -23,7 +24,8 @@ export const Default: Story = args => defineComponent({
 		attachments: args.attachments,
 		state: args.state,
 		removing: args.removing,
-		remove: args.remove
+		remove: args.remove,
+		click: args.click
 	}),
 	template: `
 		<p-queue-item
@@ -34,6 +36,7 @@ export const Default: Story = args => defineComponent({
 			:state="state"
 			@removing="removing"
 			@remove="remove"
+			@click="click"
 		/>
 	`
 })

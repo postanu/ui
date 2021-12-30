@@ -1,20 +1,22 @@
 <template lang="pug">
 .p-queue-item(:class="{ '--removing': isRemoving }")
-	.p-queue-item__meta
-		.p-queue-item__time {{ time }}
-		.p-queue-item__pages
-			p-queue-item-pages(:pages="pages")
-		.p-queue-item__state
-	.p-queue-item__main
-		.p-queue-item__title(v-if="hasTitle") {{ title }}
-		.p-queue-item__description(v-else) {{ description }}
-		.p-queue-item__attachments
-			p-queue-item-attachments(:items="attachments")
-		.p-queue-item__controls
-			p-button-remove(
-				@removing="emitRemoving"
-				@remove="emitRemove"
-			)
+	button.p-queue-item__button(@click="emitClick")
+		.p-queue-item__meta
+			.p-queue-item__time {{ time }}
+			.p-queue-item__pages
+				p-queue-item-pages(:pages="pages")
+			.p-queue-item__state
+		.p-queue-item__main
+			.p-queue-item__title(v-if="hasTitle") {{ title }}
+			.p-queue-item__description(v-else) {{ description }}
+			.p-queue-item__attachments
+				p-queue-item-attachments(:items="attachments")
+	.p-queue-item__controls
+		p-button-remove(
+			ref="removeButtonRef"
+			@removing="emitRemoving"
+			@remove="emitRemove"
+		)
 </template>
 
 <script lang="ts" setup>
@@ -25,6 +27,7 @@ import { useQueueItemDescription } from '../../composables/useQueueItemDescripti
 import { useQueryItemTitle } from '../../composables/useQueryItemTitle'
 import PQueueItemAttachments from '../p-queue-item-attachments/PQueueItemAttachments.vue'
 import PQueueItemPages from '../p-queue-item-pages/PQueueItemPages.vue'
+// eslint-disable-next-line @typescript-eslint/consistent-type-imports
 import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
 
 interface Props {
@@ -40,6 +43,7 @@ const props = defineProps<Props>()
 const emit = defineEmits<{
 	(e: 'removing', state: boolean): void
 	(e: 'remove'): void
+	(e: 'click'): void
 }>()
 
 const { title: initTitle, attachments } = toRefs(props)
@@ -47,6 +51,7 @@ const { title: initTitle, attachments } = toRefs(props)
 const title = useQueryItemTitle(initTitle)
 const description = useQueueItemDescription(attachments)
 
+const removeButtonRef = ref<null | typeof PButtonRemove>(null)
 const isRemoving = ref(false)
 const hasTitle = computed(() => title.value.length > 0)
 
@@ -58,28 +63,26 @@ function emitRemoving (state: boolean): void {
 function emitRemove (): void {
 	emit('remove')
 }
+
+function emitClick (): void {
+	emit('click')
+}
+
+defineExpose({ removeButtonRef })
 </script>
 
 <style lang="stylus">
 .p-queue-item
 	position: relative
-	display: grid
-	grid-template-columns: 50% 50%
-	line-height: 50px
 	white-space: nowrap
-	cursor: pointer
 	user-select: none
 
-	&.--removing
-		.p-queue-item__controls
+	&:hover
+		&:after
 			opacity: 1
 
-.p-queue-item:hover
-	&:after
-		opacity: 1
-
-	.p-queue-item__controls
-		opacity: 1
+		.p-queue-item__controls
+			opacity: 1
 
 .p-queue-item:before,
 .p-queue-item:after
@@ -103,6 +106,12 @@ function emitRemove (): void {
 	background-color: var(--p-color-white-005)
 	opacity: 0
 	transition: opacity 0.05s ease-in
+
+.p-queue-item__button
+	display: grid
+	grid-template-columns: 50% 50%
+	width: 100%
+	line-height: 50px
 
 .p-queue-item__meta
 	display: grid
@@ -131,10 +140,14 @@ function emitRemove (): void {
 	align-items: center
 
 .p-queue-item__controls
+	position: absolute
+	top: 0
+	right: 0
 	display: flex
 	grid-area: 1 / 4
 	align-items: center
 	justify-content: flex-end
+	height: 100%
 	opacity: 0
 	transition: opacity 0.05s ease-in
 </style>
