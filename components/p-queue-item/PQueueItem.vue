@@ -81,6 +81,8 @@ defineExpose({ removeButtonRef })
 		&:after
 			opacity: 1
 
+	&:hover,
+	&.--removing
 		.p-queue-item__controls
 			opacity: 1
 
