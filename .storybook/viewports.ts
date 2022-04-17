@@ -1,4 +1,4 @@
-import { ViewportMap } from '@storybook/addon-viewport/dist/ts3.9/models/Viewport'
+import { ViewportMap } from '@storybook/addon-viewport/dist/ts3.9/models'
 
 export const viewports: ViewportMap = {
 	w320: {

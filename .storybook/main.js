@@ -11,7 +11,7 @@ module.exports = {
 		'@storybook/addon-essentials'
 	],
 	core: {
-		builder: 'storybook-builder-vite'
+		builder: '@storybook/builder-vite'
 	},
 	/**
 	 * @param config {import('vite').UserConfig}
@@ -19,7 +19,7 @@ module.exports = {
 	async viteFinal (config) {
 		// https://github.com/eirslett/storybook-builder-vite/pull/92
 		// https://github.com/eirslett/storybook-builder-vite/issues/55
-		config.root = path.dirname(require.resolve('storybook-builder-vite'))
+		config.root = path.dirname(require.resolve('@storybook/builder-vite'))
 		if (config.server) {
 			config.server.fsServe = undefined
 		}
