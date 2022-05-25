@@ -15,7 +15,7 @@ module.exports = {
 	 * @param config {import('vite').UserConfig}
 	 */
 	async viteFinal (config) {
-		// // https://github.com/eirslett/storybook-builder-vite/issues/50
+		// https://github.com/eirslett/storybook-builder-vite/issues/50
 		config.resolve.dedupe = ['@storybook/client-api']
 
 		// pre-bundle @postanu/ui dependencies to speed up development
