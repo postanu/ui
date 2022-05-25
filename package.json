@@ -23,7 +23,7 @@
     }
   },
   "scripts": {
-    "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006",
+    "dev": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/index.js -p 6006 --no-open",
     "build": "node --openssl-legacy-provider ./node_modules/@storybook/vue3/bin/build.js -o ./dist",
     "build:ci": "build-storybook -o ./dist"
   },
