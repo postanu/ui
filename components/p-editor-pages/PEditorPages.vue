@@ -74,7 +74,10 @@
 							:username="page.username"
 						)
 		.p-editor-pages__connect
-			p-button(icon="plus" @click="connectPage")
+			p-button(
+				icon="plus"
+				@click="connectPage"
+			)
 </template>
 
 <script lang="ts">

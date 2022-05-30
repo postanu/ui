@@ -1,6 +1,9 @@
 {
 	"extends": "@postanu/eslint-config/vue",
 	"rules": {
-		"node/no-unpublished-require": "off"
+		"node/no-unpublished-require": "off",
+		"vue/no-textarea-mustache": "off",
+		"vue/attributes-order": "off",
+		"vue/html-quotes": "off"
 	}
 }

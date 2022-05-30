@@ -15,11 +15,11 @@ component(
 	span.p-button__text
 		slot
 	p-icon.p-button__icon(
-		v-if='showIcon'
-		:icon='icon'
+		v-if="showIcon"
+		:icon="icon"
 	)
-	.p-button__image(v-if='showImage')
-		img(:src='image')
+	.p-button__image(v-if="showImage")
+		img(:src="image")
 </template>
 
 <script lang="ts">

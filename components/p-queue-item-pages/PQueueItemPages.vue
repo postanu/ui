@@ -6,12 +6,15 @@
 	)
 		.p-queue-pages__type
 			p-icon(:icon="group.name")
-		.p-queue-pages__item(
-			v-if="!group.isSolo"
-			v-for="page in group.pages"
-			:key="page.id"
-		)
-			p-avatar(:image="page.avatarUrl" :letter="page.name")
+		template(v-if="!group.isSolo")
+			.p-queue-pages__item(
+				v-for="page in group.pages"
+				:key="page.id"
+			)
+			p-avatar(
+				:image="page.avatarUrl"
+				:letter="page.name"
+			)
 </template>
 
 <script lang="ts">

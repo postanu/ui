@@ -1,7 +1,7 @@
 <template lang="pug">
 .p-logo
 	p-icon(
-		icon='postanu'
+		icon="postanu"
 		label="Postanu Logo"
 	)
 </template>

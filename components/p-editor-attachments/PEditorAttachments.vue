@@ -11,7 +11,7 @@ draggable.p-editor-attachments(
 	chosen-class="p-editor-attachments__chosen"
 	v-model="items"
 )
-	template(v-slot:item="{ element }")
+	template(#item="{ element }")
 		li
 			p-attachment.p-editor-attachments__item(:image="element.url")
 </template>

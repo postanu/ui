@@ -1,5 +1,8 @@
 <template lang="pug">
-p-heading.p-table-headline(:tag="tag" :headline="true")
+p-heading.p-table-headline(
+	:tag="tag"
+	:headline="true"
+)
 	slot
 </template>
 

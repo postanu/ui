@@ -4,8 +4,8 @@
 		v-for="group in groupedPages"
 		:key="group.name"
 	)
-		template(v-slot:name) {{ capitalizeFirstLetter(group.name) }}
-		template(v-slot:content)
+		template(#name) {{ capitalizeFirstLetter(group.name) }}
+		template(#content)
 			ul
 				li(
 					v-for="page in group.pages"

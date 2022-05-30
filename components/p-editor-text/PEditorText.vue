@@ -4,20 +4,20 @@
 		.p-editor-text__counter-text(v-show="counter.text") {{ counter.text }}
 		.p-editor-text__counter-tags(v-show="counter.tags") {{ counter.tags }} #
 	.p-editor-text__hl(
-		ref='hl'
+		ref="hl"
 		v-html="highlighted"
 	)
 	textarea.p-textarea.p-editor-text__area(
-		ref='textarea'
+		ref="textarea"
 		spellcheck="true"
 		:placeholder="placeholder"
 		:style="{ height: textareaHeight }"
 		@input="handleInput"
-	)
+	) {{ text }}
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, nextTick, ref } from 'vue'
+import { computed, defineComponent, nextTick, onMounted, ref, toRefs } from 'vue'
 import { parseTweet } from '@postanu/twitter-text'
 
 import { hashtagRegex, highlight } from './highlight'
@@ -28,15 +28,27 @@ export default defineComponent({
 		placeholder: {
 			type: String,
 			default: 'Start typing…'
+		},
+		text: {
+			type: String,
+			default: ''
 		}
 	},
-	setup () {
+	setup (props) {
+		let { text: initialText } = toRefs(props)
+
 		let hl = ref<null | HTMLElement>(null)
 		let highlighted = ref('')
 		let text = ref('')
 		let textarea = ref<null | HTMLTextAreaElement>(null)
 		let textareaHeight = ref()
 		let isLarge = ref(true)
+
+		onMounted(() => {
+			if (initialText.value.length > 0) {
+				handleInput()
+			}
+		})
 
 		async function updateTextareaHeight (): Promise<void> {
 			await nextTick()
