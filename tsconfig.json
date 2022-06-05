@@ -16,7 +16,6 @@
     "types": []
   },
   "include": [
-    "./env.d.ts",
     "./.storybook/**/*.ts",
     "./composables/**/*.ts",
     "./components/**/*.vue",
