@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { discography, randomInRange } from '../../generator'
 import PTableRow from './PTableRow.vue'
@@ -15,7 +15,7 @@ export default {
 			control: 'text'
 		}
 	}
-} as Meta
+}
 
 const Template: Story = args => defineComponent({
 	components: { PTableRow },

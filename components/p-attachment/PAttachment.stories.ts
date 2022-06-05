@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { StoryFn } from '@storybook/vue3'
 
 import PAttachment from './PAttachment.vue'
 
@@ -12,9 +11,9 @@ export default {
 			description: 'Image URL'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: StoryFn = args => ({
 	components: { PAttachment },
 	setup: () => ({ args }),
 	template: '<p-attachment :image="args.image" />'

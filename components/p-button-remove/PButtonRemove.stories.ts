@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PButtonRemove from './PButtonRemove.vue'
 
@@ -17,7 +16,7 @@ export default {
 		},
 		question: {
 			control: 'text',
-			description: 'Confirmation quetion.'
+			description: 'Confirmation question.'
 		},
 		agree: {
 			control: 'text',
@@ -36,9 +35,9 @@ export default {
 			description: 'Triggers on confirmation.'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PButtonRemove },
 	setup: () => ({ args }),
 	template: `

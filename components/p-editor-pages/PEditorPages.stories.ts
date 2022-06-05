@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { generatePages, randomFromArray } from '../../generator'
 import PEditorPages from './PEditorPages.vue'
@@ -12,9 +11,9 @@ export default {
 		connect: { action: true },
 		'update:selected': { action: true }
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PEditorPages },
 	setup: () => ({ args }),
 	template: `

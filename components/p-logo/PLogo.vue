@@ -2,19 +2,12 @@
 .p-logo
 	p-icon(
 		icon="postanu"
-		label="Postanu Logo"
+		title="Postanu Logo"
 	)
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script lang="ts" setup>
 import PIcon from '../p-icon/PIcon.vue'
-
-export default defineComponent({
-	name: 'PLogo',
-	components: { PIcon }
-})
 </script>
 
 <style lang="stylus">

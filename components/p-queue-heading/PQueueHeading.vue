@@ -1,58 +1,56 @@
 <template lang="pug">
 .p-queue-heading(:class="{ 'p-queue-heading--muted': muted }")
-	p-heading.p-queue-heading__title(tag="div" hero) {{ title }}
+	p-heading.p-queue-heading__title(
+		tag="div"
+		hero
+	) {{ title }}
 	.p-queue-heading__subtitle {{ subtitle }}
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { format, isToday, isTomorrow, isThisYear, isYesterday } from 'date-fns'
-import { computed, defineComponent, toRefs } from 'vue'
+import { computed, toRefs } from 'vue'
 
 import PHeading from '../p-heading/PHeading.vue'
 
-export default defineComponent({
-	name: 'PQueueHeading',
-	components: { PHeading },
-	props: {
-		date: {
-			type: Number,
-			required: true
-		},
-		muted: {
-			type: Boolean,
-			default: false
-		}
-	},
-	setup (props) {
-		let { date } = toRefs(props)
-		let title = computed(() => {
-			if (isYesterday(date.value)) {
-				return 'Yesterday'
-			}
-			if (isToday(date.value)) {
-				return 'Today'
-			}
-			if (isTomorrow(date.value)) {
-				return 'Tomorrow'
-			}
-			return isThisYear(date.value)
-				? format(date.value, 'MMMM dd')
-				: format(date.value, 'MMMM dd, yyyy')
-		})
-		let subtitle = computed(() => {
-			if (
-				isYesterday(date.value) ||
-				isToday(date.value) ||
-				isTomorrow(date.value)
-			) {
-				return isThisYear(date.value)
-					? format(date.value, 'dd.LL')
-					: format(date.value, 'dd.LL.yyyy')
-			}
-			return format(date.value, 'EEEE')
-		})
-		return { title, subtitle }
+interface Props {
+	date: number
+	muted?: boolean
+}
+
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		muted: false
 	}
+)
+
+const { date } = toRefs(props)
+const title = computed(() => {
+	if (isYesterday(date.value)) {
+		return 'Yesterday'
+	}
+	if (isToday(date.value)) {
+		return 'Today'
+	}
+	if (isTomorrow(date.value)) {
+		return 'Tomorrow'
+	}
+	return isThisYear(date.value)
+		? format(date.value, 'MMMM dd')
+		: format(date.value, 'MMMM dd, yyyy')
+})
+const subtitle = computed(() => {
+	if (
+		isYesterday(date.value) ||
+		isToday(date.value) ||
+		isTomorrow(date.value)
+	) {
+		return isThisYear(date.value)
+			? format(date.value, 'dd.LL')
+			: format(date.value, 'dd.LL.yyyy')
+	}
+	return format(date.value, 'EEEE')
 })
 </script>
 

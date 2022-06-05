@@ -6,25 +6,13 @@ p-heading.p-table-headline(
 	slot
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-import { ALLOWED_TAGS } from '../p-heading/allowed-tags'
+<script lang="ts" setup>
 import PHeading from '../p-heading/PHeading.vue'
+import type { ALLOWED_TAGS } from '../p-heading/allowed-tags.js'
 
-export default defineComponent({
-	name: 'PTableHeadline',
-	components: { PHeading },
-	props: {
-		tag: {
-			type: String,
-			required: true,
-			validator: (value: string) => {
-				return ALLOWED_TAGS.includes(value)
-			}
-		}
-	}
-})
+defineProps<{
+	tag: typeof ALLOWED_TAGS[number]
+}>()
 </script>
 
 <style lang="stylus">

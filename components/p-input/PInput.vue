@@ -5,48 +5,45 @@ input.p-input(
 	:value="modelValue"
 	@input="updateValue"
 	@change="emitValue"
-)
+	)
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, toRefs, unref } from 'vue'
+<script lang="ts" setup>
+import { ref, toRefs, unref } from 'vue'
 
-export default defineComponent({
-	name: 'PInput',
-	props: {
-		type: {
-			type: String,
-			default: 'text'
-		},
-		modelValue: {
-			type: String,
-			default: ''
-		}
-	},
-	emits: [
-		'update:modelValue',
-		'change'
-	],
-	setup (props, { emit }) {
-		let { modelValue } = toRefs(props)
-		let input = ref<HTMLInputElement>()
+interface Props {
+	type?: string
+	modelValue: string
+}
 
-		function updateValue (): void {
-			emit('update:modelValue', unref(input)?.value)
-		}
+interface Emits {
+	(event: 'update:modelValue', value: string | undefined): void
+	(event: 'change', value: string): void
+}
 
-		function emitValue (): void {
-			emit('change', unref(modelValue))
-		}
-
-		return {
-			updateValue,
-			emitValue,
-			focus: (): void => input.value?.focus(),
-			blur: (): void => input.value?.blur(),
-			input
-		}
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		type: 'text'
 	}
+)
+
+const emit = defineEmits<Emits>()
+
+let { modelValue } = toRefs(props)
+let input = ref<HTMLInputElement>()
+
+function updateValue (): void {
+	emit('update:modelValue', unref(input)?.value)
+}
+
+function emitValue (): void {
+	emit('change', unref(modelValue))
+}
+
+defineExpose({
+	focus: (): void => input.value?.focus(),
+	blur: (): void => input.value?.blur()
 })
 </script>
 

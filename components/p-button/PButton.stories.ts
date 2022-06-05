@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Meta, Story } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { icons } from '../../icons/index.js'
 import PButton from './PButton.vue'
@@ -50,9 +49,9 @@ export default {
 			control: 'text'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PButton },
 	setup: () => ({
 		args,

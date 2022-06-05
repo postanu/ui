@@ -9,7 +9,7 @@ p-input.p-input-project-name(
 	autocapitalize="off"
 	placeholder="Type the name of the new project"
 	:model-value="modelValue"
-	@update:modelValue="emitUpdate"
+	@update:model-value="emitUpdate"
 	@keyup.enter="emitChange"
 )
 </template>
@@ -24,14 +24,14 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-	(event: 'update:modelValue', value: string): void
+	(event: 'update:modelValue', value: string | undefined): void
 	(event: 'change', value: string): void
 }>()
 
 const { modelValue } = toRefs(props)
 const input = ref<HTMLInputElement | null>(null)
 
-function emitUpdate (value: string): void {
+function emitUpdate (value: string | undefined): void {
 	emit('update:modelValue', value)
 }
 

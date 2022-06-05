@@ -27,86 +27,78 @@
 			slot(name="agree") Confirm
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+<script lang="ts" setup>
+import { ref, watch } from 'vue'
 
 import PButton from '../p-button/PButton.vue'
 
-export default defineComponent({
-	name: 'PButtonRemove',
-	components: { PButton },
-	props: {
-		timeout: {
-			type: Number,
-			default: 4000
-		}
-	},
-	emits: [
-		'removing',
-		'remove'
-	],
-	setup (props, { emit }) {
-		let removing = ref(false)
-		let timeout = ref<ReturnType<typeof setTimeout> | null>(null)
-		let hover = ref(false)
+interface Props {
+	timeout?: number
+}
 
-		// eslint-disable-next-line no-shadow
-		watch([hover, removing, timeout], ([hover, removing, timeout]) => {
-			if (removing) {
-				if (hover) {
-					timeout && stopTimeout()
-				} else {
-					!timeout && startTimeout()
-				}
-			}
-		})
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		timeout: 4000
+	}
+)
 
-		function setHover (value: boolean): void {
-			hover.value = value
-		}
+const emit = defineEmits<{
+	(event: 'removing', state: boolean): void
+	(event: 'remove'): void
+}>()
 
-		function startTimeout (): void {
-			timeout.value = setTimeout(hideQuestion, props.timeout)
-		}
+const removing = ref(false)
+const timeout = ref<ReturnType<typeof setTimeout> | null>(null)
+const hover = ref(false)
 
-		function stopTimeout (): void {
-			if (timeout.value) {
-				clearTimeout(timeout.value)
-				timeout.value = null
-			}
-		}
-
-		function showQuestion (): void {
-			removing.value = true
-			emit('removing', removing.value)
-		}
-
-		function hideQuestion (): void {
-			emit('removing', false)
-			setTimeout(() => {
-				removing.value = false
-			}, 100)
-		}
-
-		function remove (): void {
-			emit('remove')
-			hideQuestion()
-		}
-
-		function cancel (): void {
-			hideQuestion()
-		}
-
-		return {
-			showQuestion,
-			hideQuestion,
-			setHover,
-			removing,
-			remove,
-			cancel
+watch([hover, removing, timeout], ([_hover, _removing, _timeout]) => {
+	if (_removing) {
+		if (_hover) {
+			_timeout && stopTimeout()
+		} else {
+			!_timeout && startTimeout()
 		}
 	}
 })
+
+function setHover (value: boolean): void {
+	hover.value = value
+}
+
+function startTimeout (): void {
+	timeout.value = setTimeout(hideQuestion, props.timeout)
+}
+
+function stopTimeout (): void {
+	if (timeout.value) {
+		clearTimeout(timeout.value)
+		timeout.value = null
+	}
+}
+
+function showQuestion (): void {
+	removing.value = true
+	emit('removing', removing.value)
+}
+
+function hideQuestion (): void {
+	emit('removing', false)
+	setTimeout(() => {
+		removing.value = false
+	}, 100)
+}
+
+function remove (): void {
+	emit('remove')
+	hideQuestion()
+}
+
+function cancel (): void {
+	hideQuestion()
+}
+
+defineExpose({ cancel })
 </script>
 
 <style lang="stylus">

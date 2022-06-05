@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { generatePosts } from '../../generator/post'
 import PQueueItem from './PQueueItem.vue'
@@ -12,9 +11,9 @@ export default {
 		remove: { action: true },
 		click: { action: true }
 	}
-} as Meta
+}
 
-export const Default: Story = args => defineComponent({
+export const Default: Story = args => ({
 	components: { PQueueItem },
 	setup: () => ({
 		args,

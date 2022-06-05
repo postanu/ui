@@ -1,71 +1,55 @@
-<script lang="ts">
-import { computed, defineComponent, h, toRefs } from 'vue'
-import type { VNodeChild } from 'vue'
+<template lang="pug">
+svg(
+	class="p-icon"
+	v-bind="attrs"
+)
+	title(v-if="title && !isDecorative") {{ title }}
+	template(v-if="Array.isArray(iconData.path)")
+		path(
+			v-for="(path, i) in iconData.path"
+			:key="i"
+			v-bind="path"
+		)
+	path(
+		v-else
+		v-bind="iconData.path"
+	)
+
+</template>
+
+<script lang="ts" setup>
+import { computed, reactive, toRefs } from 'vue'
 
 import { icons } from '../../icons/index.js'
 
-const iconsList = Object.keys(icons)
+interface Props {
+	icon: keyof typeof icons
+	title?: string
+	scale?: number
+	// area-hidden and no title needed
+	isDecorative?: boolean
+}
 
-export default defineComponent({
-	name: 'PIcon',
-	props: {
-		icon: {
-			type: String,
-			default: '',
-			validator: (name: string): boolean => {
-				return ['', ...iconsList].includes(name)
-			}
-		},
-		label: { type: String, default: '' },
-		scale: { type: Number, default: 1 },
-		mixBlendMode: { type: String, default: '' }
-	},
-	setup (props, { slots }) {
-		let {
-			icon: name,
-			label,
-			scale,
-			mixBlendMode
-		} = toRefs(props)
-
-		let icon = computed(() => icons[name.value])
-
-		return (): VNodeChild => {
-			let defaultSlot = slots.default ? slots.default() : []
-
-			let children
-			if (iconsList.includes(name.value)) {
-				let { path } = icon.value
-				children = Array.isArray(path)
-					? path.map(pathProps => h('path', pathProps))
-					: h('path', path)
-			} else {
-				children = defaultSlot
-			}
-
-			if (mixBlendMode.value) {
-				children = h('g', {
-					style: [
-						{
-							mixBlendMode: mixBlendMode.value
-						}
-					]
-				}, children)
-			}
-
-			let title = label.value || `${name.value} icon`
-
-			return h('svg', {
-				class: ['p-icon'],
-				role: 'img',
-				viewBox: `0 0 ${icon.value.width} ${icon.value.height}`,
-				width: `${icon.value.width * scale.value}px`,
-				height: `${icon.value.height * scale.value}px`
-			}, [
-				h('title', title),
-				children
-			])
-		}
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		title: undefined,
+		scale: 1,
+		isDecorative: false
 	}
+)
+
+const { icon, scale, isDecorative } = toRefs(props)
+
+const iconData = computed(() => icons[icon.value])
+
+const attrs = reactive({
+	'aria-hidden': computed(() => isDecorative.value || undefined),
+	role: computed(() => !isDecorative.value ? 'img' : undefined),
+	viewBox: computed(
+		() => `0 0 ${iconData.value.width} ${iconData.value.height}`
+	),
+	height: computed(() => `${iconData.value.height * scale.value}px`),
+	width: computed(() => `${iconData.value.width * scale.value}px`)
 })
 </script>

@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PAvatar from './PAvatar.vue'
 
@@ -16,9 +15,9 @@ export default {
 			description: 'First letter of user’s name'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PAvatar },
 	setup: () => ({ args }),
 	template: '<p-avatar v-bind="args" />'

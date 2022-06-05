@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { icons } from '../../icons/index.js'
 import PPage from './PPage.vue'
@@ -15,7 +14,7 @@ export default {
 					null: 'No icon'
 				}
 			},
-			options: [null, ...Object.keys(icons)],
+			options: [undefined, ...Object.keys(icons)],
 			description: 'Icon name'
 		},
 		avatar: {
@@ -31,9 +30,9 @@ export default {
 			description: 'Page Username / Nickname / URL'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PPage },
 	setup: () => ({ args }),
 	template: '<p-page v-bind="args" />'

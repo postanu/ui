@@ -80,11 +80,10 @@
 			)
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, toRefs, unref } from 'vue'
+<script lang="ts" setup>
+import { computed, toRefs, unref } from 'vue'
 import { NETWORKS_ABBR } from '@postanu/core'
 import type { ClientPage, PageNetwork } from '@postanu/types'
-import type { PropType } from 'vue'
 
 import { usePagesList } from '../../composables/usePagesList'
 import PButtonPage from '../p-button-page/PButtonPage.vue'
@@ -92,87 +91,65 @@ import PHeading from '../p-heading/PHeading.vue'
 import PButton from '../p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
-export default defineComponent({
-	name: 'PEditorPages',
-	components: {
-		PPage,
-		PButton,
-		PHeading,
-		PButtonPage
-	},
-	props: {
-		pages: {
-			type: Array as PropType<ClientPage[]>,
-			required: true
-		},
-		selected: {
-			type: Array as PropType<ClientPage[]>,
-			default: () => []
-		}
-	},
-	emits: [
-		'update',
-		'connect',
-		'update:selected'
-	],
-	setup (props, { emit }) {
-		let { pages, selected } = toRefs(props)
+interface Props {
+	pages: ClientPage[]
+	selected?: ClientPage[]
+}
 
-		let selectedPages = usePagesList(unref(selected))
-		let updatablePages = usePagesList(
-			pages.value.filter(page => page.status === 200)
-		)
-		let selectablePages = usePagesList(
-			pages.value.filter(page => page.status === 100)
-		)
+interface Emits {
+	(event: 'update', page: ClientPage): void
+	(event: 'connect'): void
+	(event: 'update:selected', pageList: ClientPage[]): void
+}
 
-		let isZeroPages = computed(() => pages.value.length === 0)
-		let showSelected = computed(() => selectedPages.value.length > 0)
-		let showUpdatable = computed(() => updatablePages.value.length > 0)
-		let showSelectable = computed(() => selectablePages.value.length > 0)
-		let showSelectableNote = computed(() => selectedPages.value.length === 0)
-
-		function selectPage (page: ClientPage, index: number): void {
-			selectablePages.value = unref(selectablePages).filter((p, i) => {
-				return i !== index
-			})
-			selectedPages.value = [...unref(selectedPages), page]
-			emit('update:selected', unref(selectedPages))
-		}
-
-		function unselectPage (page: ClientPage, index: number): void {
-			selectedPages.value = unref(selectedPages).filter((p, i) => {
-				return i !== index
-			})
-			selectablePages.value = [...unref(selectablePages), page]
-			emit('update:selected', unref(selectedPages))
-		}
-
-		let updatePage = (page: ClientPage): void => { emit('update', page) }
-		let connectPage = (): void => { emit('connect') }
-
-		// eslint-disable-next-line unicorn/consistent-function-scoping
-		function networkAbbr (network: PageNetwork): string {
-			return `data-${NETWORKS_ABBR[network]}`
-		}
-
-		return {
-			selectedPages,
-			updatablePages,
-			selectablePages,
-			isZeroPages,
-			showSelected,
-			showUpdatable,
-			showSelectable,
-			showSelectableNote,
-			selectPage,
-			unselectPage,
-			updatePage,
-			connectPage,
-			networkAbbr
-		}
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		selected: () => []
 	}
-})
+)
+
+const emit = defineEmits<Emits>()
+
+const { pages, selected } = toRefs(props)
+
+const selectedPages = usePagesList(unref(selected))
+const updatablePages = usePagesList(
+	pages.value.filter(page => page.status === 200)
+)
+const selectablePages = usePagesList(
+	pages.value.filter(page => page.status === 100)
+)
+
+const isZeroPages = computed(() => pages.value.length === 0)
+const showSelected = computed(() => selectedPages.value.length > 0)
+const showUpdatable = computed(() => updatablePages.value.length > 0)
+const showSelectable = computed(() => selectablePages.value.length > 0)
+const showSelectableNote = computed(() => selectedPages.value.length === 0)
+
+function selectPage (page: ClientPage, index: number): void {
+	selectablePages.value = unref(selectablePages).filter((p, i) => {
+		return i !== index
+	})
+	selectedPages.value = [...unref(selectedPages), page]
+	emit('update:selected', unref(selectedPages))
+}
+
+function unselectPage (page: ClientPage, index: number): void {
+	selectedPages.value = unref(selectedPages).filter((p, i) => {
+		return i !== index
+	})
+	selectablePages.value = [...unref(selectablePages), page]
+	emit('update:selected', unref(selectedPages))
+}
+
+let updatePage = (page: ClientPage): void => { emit('update', page) }
+let connectPage = (): void => { emit('connect') }
+
+// eslint-disable-next-line unicorn/consistent-function-scoping
+function networkAbbr (network: PageNetwork): string {
+	return `data-${NETWORKS_ABBR[network]}`
+}
 </script>
 
 <style lang="stylus">

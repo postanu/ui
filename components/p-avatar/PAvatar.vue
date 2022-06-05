@@ -13,11 +13,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, defineProps, ref, toRefs, withDefaults } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 
 const medianLetters = new Set([
-	'q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm', 'w', 'y', 'u', 'o', 'p', 'g', 'v',
-	'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'ю', 'в'
+	'q', 'e', 'r', 'a', 's', 'z', 'x', 'c', 'n', 'm', 'w', 'y', 'u', 'o', 'p',
+	'g', 'v',
+	'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', 'ф', 'ы', 'а', 'п',
+	'р', 'о', 'л', 'д', 'ж', 'э', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'ю', 'в'
 ])
 
 interface Props {
@@ -25,21 +27,21 @@ interface Props {
 	letter: string
 }
 
-let props = withDefaults(
+const props = withDefaults(
 	defineProps<Props>(),
 	{ image: '' }
 )
 
-let error = ref(false)
-let { image, letter } = toRefs(props)
+const error = ref(false)
+const { image, letter } = toRefs(props)
 
-let l = computed(() => letter.value.charAt(0).toLowerCase())
+const l = computed(() => letter.value.charAt(0).toLowerCase())
 
-let showImage = computed(() => {
+const showImage = computed(() => {
 	return !error.value && image.value.length > 0
 })
 
-let isMedian = computed(() => {
+const isMedian = computed(() => {
 	let fistLetter = l.value.charAt(0)
 	return medianLetters.has(fistLetter)
 })

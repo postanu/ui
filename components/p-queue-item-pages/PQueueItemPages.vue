@@ -11,48 +11,33 @@
 				v-for="page in group.pages"
 				:key="page.id"
 			)
-			p-avatar(
-				:image="page.avatarUrl"
-				:letter="page.name"
-			)
+				p-avatar(
+					:image="page.avatarUrl"
+					:letter="page.name"
+				)
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, toRefs } from 'vue'
-import type { PropType } from 'vue'
+<script lang="ts" setup>
+import { computed, toRefs } from 'vue'
 import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList'
 import PAvatar from '../p-avatar/PAvatar.vue'
 import PIcon from '../p-icon/PIcon.vue'
 
-export default defineComponent({
-	name: 'PQueuePages',
-	components: {
-		PIcon,
-		PAvatar
-	},
-	props: {
-		pages: {
-			type: Array as PropType<ClientPage[]>,
-			required: true
-		}
-	},
-	setup (props) {
-		let { pages } = toRefs(props)
+interface Props {
+	pages: ClientPage[]
+}
 
-		let isFullSolo = computed(
-			() => pages.value.every(page => page.isSolo)
-		)
+const props = defineProps<Props>()
 
-		let pagesGroupList = usePagesGroupList(pages)
+const { pages } = toRefs(props)
 
-		return {
-			isFullSolo,
-			pagesGroupList
-		}
-	}
-})
+const isFullSolo = computed(
+	() => pages.value.every(page => page.isSolo)
+)
+
+const pagesGroupList = usePagesGroupList(pages)
 </script>
 
 <style lang="stylus">

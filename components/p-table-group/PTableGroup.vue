@@ -6,14 +6,6 @@
 		slot(name="content")
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-	name: 'PTableGroup'
-})
-</script>
-
 <style lang="stylus">
 .p-table-group
 	position: relative

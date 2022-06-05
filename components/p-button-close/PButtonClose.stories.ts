@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Meta, Story } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PButtonClose from './PButtonClose.vue'
 
@@ -11,9 +10,9 @@ export default {
 			action: true
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PButtonClose },
 	setup: () => ({ args }),
 	template: `

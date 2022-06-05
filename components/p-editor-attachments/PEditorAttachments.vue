@@ -16,44 +16,41 @@ draggable.p-editor-attachments(
 			p-attachment.p-editor-attachments__item(:image="element.url")
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, toRefs, unref } from 'vue'
+<script lang="ts" setup>
+import { computed, toRefs, unref } from 'vue'
 import draggable from 'vuedraggable'
+import type { Attachment } from '@postanu/types'
 
 import PAttachment from '../p-attachment/PAttachment.vue'
 
-export default defineComponent({
-	name: 'PEditorAttachments',
-	components: {
-		PAttachment,
-		draggable
-	},
-	props: {
-		modelValue: {
-			type: Object,
-			required: true
-		},
-		disabled: {
-			type: Boolean,
-			default: false
-		}
-	},
-	emits: ['update:modelValue'],
-	setup (props, { emit }) {
-		let { modelValue } = toRefs(props)
+interface Props {
+	modelValue: Attachment[]
+	disabled?: boolean
+}
 
-		let items = computed({
-			get: () => unref(modelValue),
-			set: value => {
-				emit('update:modelValue', value)
-			}
-		})
-		let count = computed(() => modelValue.value.length)
-		let countClass = computed(() => `--${count.value}`)
+interface Emits {
+	(event: 'update:modelValue', value: Attachment[]): void
+}
 
-		return { items, count, countClass }
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		disabled: false
+	}
+)
+
+const emit = defineEmits<Emits>()
+
+const { modelValue } = toRefs(props)
+
+const items = computed({
+	get: () => unref(modelValue),
+	set: value => {
+		emit('update:modelValue', value)
 	}
 })
+const count = computed(() => modelValue.value.length)
+const countClass = computed(() => `--${count.value}`)
 </script>
 
 <style lang="stylus">

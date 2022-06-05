@@ -2,10 +2,9 @@
 .p-editor-clock(v-html="clock")
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import {
 	getCurrentInstance,
-	defineComponent,
 	onUnmounted,
 	computed,
 	toRefs,
@@ -14,40 +13,29 @@ import {
 } from 'vue'
 import { format as dateFnsFormat } from 'date-fns'
 
-export default defineComponent({
-	name: 'PEditorClock',
-	props: {
-		format: {
-			type: String,
-			required: true,
-			validator: (value: string) => {
-				return ['12', '24'].includes(value)
-			}
-		}
-	},
-	setup (props) {
-		let { format } = toRefs(props)
+interface Props {
+	format: '12h' | '24h'
+}
 
-		let now = ref(new Date())
-		let clock = computed(() => {
-			let token
-			token = format.value === '12' ? 'hh:mm a' : 'HH:mm'
-			return dateFnsFormat(unref(now), token).replace(':', '<span>:</span>')
-		})
+const props = defineProps<Props>()
 
-		let interval = setInterval(() => {
-			now.value = new Date()
-		}, 60 * 1000)
+const { format } = toRefs(props)
 
-		if (getCurrentInstance()) {
-			onUnmounted(() => {
-				clearInterval(interval)
-			})
-		}
-
-		return { clock }
-	}
+const now = ref(new Date())
+const clock = computed(() => {
+	let formatToken = format.value === '12h' ? 'hh:mm a' : 'HH:mm'
+	return dateFnsFormat(unref(now), formatToken).replace(':', '<span>:</span>')
 })
+
+const interval = setInterval(() => {
+	now.value = new Date()
+}, 60 * 1000)
+
+if (getCurrentInstance()) {
+	onUnmounted(() => {
+		clearInterval(interval)
+	})
+}
 </script>
 
 <style lang="stylus">

@@ -1,5 +1,5 @@
-import { defineComponent, ref } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import { ref } from 'vue'
+import type { Story } from '@storybook/vue3'
 
 import PRadioButton from './PRadioButton.vue'
 import PRadioGroup from './PRadioGroup.vue'
@@ -24,11 +24,11 @@ export default {
 			action: true
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PRadioButton, PRadioGroup },
-	setup: () => {
+	setup: (): object => {
 		return {
 			name: args.name,
 			value: args.value,

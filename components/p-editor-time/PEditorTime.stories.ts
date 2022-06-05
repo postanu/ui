@@ -1,5 +1,5 @@
-import { defineComponent, ref } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import { ref } from 'vue'
+import type { Story } from '@storybook/vue3'
 
 import PEditorTime from './PEditorTime.vue'
 
@@ -11,9 +11,9 @@ export default {
 			control: 'text'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PEditorTime },
 	setup: () => ({
 		args,

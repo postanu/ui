@@ -3,27 +3,26 @@
 	slot
 </template>
 
-<script lang="ts">
-import { defineComponent, provide, readonly, toRefs } from 'vue'
+<script lang="ts" setup>
+import { provide, readonly, toRefs } from 'vue'
 
-import { PRadioValueKey, PRadioChangeKey } from './injectionKeys'
+import { PRadioValueKey, PRadioChangeKey } from './injectionKeys.js'
 
-export default defineComponent({
-	name: 'PRadioGroup',
-	props: {
-		modelValue: {
-			type: String,
-			required: true
-		}
-	},
-	emits: ['update:modelValue'],
-	setup (props, { emit }) {
-		let { modelValue } = toRefs(props)
-		provide(PRadioValueKey, readonly(modelValue))
-		provide(PRadioChangeKey, newValue => {
-			emit('update:modelValue', newValue)
-		})
-	}
+interface Props {
+	modelValue: string
+}
+
+interface Emits {
+	(event: 'update:modelValue', value: string): void
+}
+
+const props = defineProps<Props>()
+const emit = defineEmits<Emits>()
+
+const { modelValue } = toRefs(props)
+provide(PRadioValueKey, readonly(modelValue))
+provide(PRadioChangeKey, newValue => {
+	emit('update:modelValue', newValue)
 })
 </script>
 

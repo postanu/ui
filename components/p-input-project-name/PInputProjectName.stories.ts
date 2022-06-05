@@ -1,5 +1,5 @@
-import { defineComponent, ref } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import { ref } from 'vue'
+import type { Story } from '@storybook/vue3'
 
 import PInputProjectName from './PInputProjectName.vue'
 
@@ -12,9 +12,9 @@ export default {
 			description: 'Triggers on pressing `Enter` and passes the project name.'
 		}
 	}
-} as Meta
+}
 
-export const Default: Story = args => defineComponent({
+export const Default: Story = args => ({
 	components: { PInputProjectName },
 	setup: () => ({
 		args,

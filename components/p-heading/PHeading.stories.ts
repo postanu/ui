@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { ALLOWED_TAGS } from './allowed-tags'
 import PHeading from './PHeading.vue'
@@ -23,9 +22,9 @@ export default {
 			control: 'boolean'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PHeading },
 	setup: () => ({ args }),
 	template: `

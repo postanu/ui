@@ -1,5 +1,5 @@
-import { defineComponent, onMounted, ref } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import { onMounted, ref } from 'vue'
+import type { Story } from '@storybook/vue3'
 
 import PInput from './PInput.vue'
 
@@ -20,11 +20,11 @@ export default {
 			control: null
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PInput },
-	setup: () => {
+	setup: (): object => {
 		let input = ref<HTMLInputElement | null>(null)
 		let focused = false
 

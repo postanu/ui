@@ -6,25 +6,19 @@ component.p-button-page(
 	slot
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+interface Props {
+	tag?: 'button' | 'a'
+	icon?: boolean
+}
 
-export default defineComponent({
-	name: 'PButtonPage',
-	props: {
-		tag: {
-			type: String,
-			default: 'button',
-			validate: (tag: string): boolean => {
-				return ['button', 'a'].includes(tag)
-			}
-		},
-		icon: {
-			type: Boolean,
-			default: false
-		}
+withDefaults(
+	defineProps<Props>(),
+	{
+		tag: 'button',
+		icon: false
 	}
-})
+)
 </script>
 
 <style lang="stylus">

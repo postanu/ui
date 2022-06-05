@@ -17,27 +17,29 @@ component(
 	p-icon.p-button__icon(
 		v-if="showIcon"
 		:icon="icon"
+		:is-decorative="true"
 	)
 	.p-button__image(v-if="showImage")
 		img(:src="image")
 </template>
 
 <script lang="ts" setup>
-import { defineProps, toRefs, withDefaults } from 'vue'
+import { toRefs } from 'vue'
 
 import PIcon from '../p-icon/PIcon.vue'
+import type { icons } from '../../icons/index.js'
 
 interface Props {
-	tag: 'button' | 'a'
-	type: 'default' | 'common' | 'text'
-	icon?: string
+	tag?: 'button' | 'a'
+	type?: 'default' | 'common' | 'text'
+	icon?: keyof typeof icons | undefined
 	image?: string
-	danger: boolean
-	target: boolean
-	muted: boolean
+	danger?: boolean
+	target?: boolean
+	muted?: boolean
 }
 
-let props = withDefaults(
+const props = withDefaults(
 	defineProps<Props>(),
 	{
 		tag: 'button',
@@ -50,12 +52,12 @@ let props = withDefaults(
 	}
 )
 
-let { type, icon, image } = toRefs(props)
+const { type, icon, image } = toRefs(props)
 
-let isText = type.value === 'text'
-let isCommon = type.value === 'common'
-let showIcon = icon.value && !image.value && !isCommon
-let showImage = image.value && !icon.value && !isCommon
+const isText = type.value === 'text'
+const isCommon = type.value === 'common'
+const showIcon = typeof icon.value !== 'undefined' && !image.value && !isCommon
+const showImage = image.value && typeof icon.value === 'undefined' && !isCommon
 </script>
 
 <style lang="stylus">
@@ -137,8 +139,8 @@ a.p-button:hover
 .p-button--type--text:not(:disabled):active
 	background: var(--p-color-white-02)
 
-.p-button--icon
-	border-radius: 50%
+// .p-button--icon
+// 	border-radius: 50%
 
 .p-button--icon,
 .p-button--image

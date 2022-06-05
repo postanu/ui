@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PBadge from './PBadge.vue'
 
@@ -11,9 +10,9 @@ export default {
 			control: 'text'
 		}
 	}
-} as Meta
+}
 
-export const Default: Story = args => defineComponent({
+export const Default: Story = args => ({
 	components: { PBadge },
 	setup: () => ({ args }),
 	template: '<p-badge>{{ args.default }}</p-badge>'

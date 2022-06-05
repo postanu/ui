@@ -1,5 +1,5 @@
-import { defineComponent, ref } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import { ref } from 'vue'
+import type { Story } from '@storybook/vue3'
 
 import { generateAttachments } from '../../generator'
 import PEditorAttachments from './PEditorAttachments.vue'
@@ -12,9 +12,9 @@ export default {
 			control: 'number'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PEditorAttachments },
 	setup: () => ({
 		args,

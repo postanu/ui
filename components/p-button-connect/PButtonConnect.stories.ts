@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Meta, Story } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PButtonConnect from './PButtonConnect.vue'
 import { icons } from '../../icons/index.js'
@@ -21,9 +20,9 @@ export default {
 			description: 'URL'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PButtonConnect },
 	setup: () => ({ args }),
 	template: `

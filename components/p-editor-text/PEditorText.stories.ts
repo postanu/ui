@@ -1,14 +1,13 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PEditorText from './PEditorText.vue'
 
 export default {
 	title: 'PEditor/PEditorText',
 	component: PEditorText
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PEditorText },
 	setup: () => ({ args }),
 	template: '<p-editor-text :text="args.text"/>'

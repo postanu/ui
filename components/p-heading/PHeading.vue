@@ -1,18 +1,15 @@
 <script lang="ts">
 import { defineComponent, h, toRefs } from 'vue'
-import type { VNodeChild } from 'vue'
+import type { PropType, VNodeChild } from 'vue'
 
-import { ALLOWED_TAGS } from './allowed-tags'
+import type { ALLOWED_TAGS } from './allowed-tags.js'
 
 export default defineComponent({
 	name: 'PHeading',
 	props: {
 		tag: {
-			type: String,
-			required: true,
-			validator: (value: string) => {
-				return ALLOWED_TAGS.includes(value)
-			}
+			type: String as PropType<typeof ALLOWED_TAGS[number]>,
+			required: true
 		},
 		hero: {
 			type: Boolean,

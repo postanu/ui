@@ -12,37 +12,25 @@
 	.p-page__un.p-caption {{ username }}
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script lang="ts" setup>
 import PAvatar from '../p-avatar/PAvatar.vue'
 import PIcon from '../p-icon/PIcon.vue'
+import type { icons } from '../../icons/index.js'
 
-export default defineComponent({
-	name: 'PPage',
-	components: {
-		PAvatar,
-		PIcon
-	},
-	props: {
-		icon: {
-			type: String,
-			default: ''
-		},
-		avatar: {
-			type: String,
-			default: ''
-		},
-		fullname: {
-			type: String,
-			required: true
-		},
-		username: {
-			type: String,
-			required: true
-		}
+interface Props {
+	icon?: keyof typeof icons
+	avatar?: string
+	fullname: string
+	username: string
+}
+
+withDefaults(
+	defineProps<Props>(),
+	{
+		icon: undefined,
+		avatar: undefined
 	}
-})
+)
 </script>
 
 <style lang="stylus">

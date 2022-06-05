@@ -16,7 +16,6 @@
 					)
 						p-page.p-pages-table__page(
 							:avatar="page.avatarUrl"
-							:letter="page.name"
 							:fullname="page.name"
 							:username="page.username"
 						)
@@ -35,9 +34,8 @@
 							)
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, toRefs } from 'vue'
-import type { PropType } from 'vue'
+<script lang="ts" setup>
+import { ref, toRefs } from 'vue'
 import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList'
@@ -49,67 +47,57 @@ import PPage from '../p-page/PPage.vue'
 
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 
-export default defineComponent({
-	name: 'PPagesTable',
-	components: {
-		PButtonRemove,
-		PTableGroup,
-		PTableRow,
-		PButton,
-		PPage
-	},
-	props: {
-		pages: {
-			type: Array as PropType<ClientPage[]>,
-			required: true
-		},
-		updatable: { type: Boolean, default: true },
-		removable: { type: Boolean, default: true }
-	},
-	emits: ['update', 'remove'],
-	setup (props, { emit }) {
-		let { pages } = toRefs(props)
-		let groupedPages = usePagesGroupList(pages)
+interface Props {
+	pages: ClientPage[]
+	updatable?: boolean
+	removable?: boolean
+}
 
-		function remove (id: string): void {
-			emit('remove', { id })
-		}
+interface Emits {
+	(event: 'update', data: { id: string }): void
+	(event: 'remove', data: { id: string }): void
+}
 
-		let removingRef = ref<{ [pageId: string]: ButtonRemoveRef }>({})
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		function setRemovingRef (element: ButtonRemoveRef | any, pageId: string): void {
-			removingRef.value[pageId] = element
-		}
-
-		let removingIds = ref<Set<string>>(new Set())
-		function setRemoving (value: boolean, pageId: string): void {
-			if (value) {
-				removingIds.value.forEach(id => {
-					if (id !== pageId) {
-						removingRef.value[id].cancel()
-					}
-				})
-				removingIds.value = new Set([pageId])
-			} else {
-				removingIds.value.delete(pageId)
-			}
-		}
-
-		function isRemoving (pageId: string): boolean {
-			return removingIds.value.has(pageId)
-		}
-
-		return {
-			capitalizeFirstLetter,
-			setRemovingRef,
-			groupedPages,
-			removingIds,
-			setRemoving,
-			isRemoving,
-			remove
-		}
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		updatable: true,
+		removable: true
 	}
-})
+)
+
+const emit = defineEmits<Emits>()
+
+const { pages } = toRefs(props)
+const groupedPages = usePagesGroupList(pages)
+
+function remove (id: string): void {
+	emit('remove', { id })
+}
+
+const removingRef = ref<{ [pageId: string]: ButtonRemoveRef }>({})
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function setRemovingRef (element: ButtonRemoveRef | any, pageId: string): void {
+	removingRef.value[pageId] = element
+}
+
+const removingIds = ref<Set<string>>(new Set())
+function setRemoving (value: boolean, pageId: string): void {
+	if (value) {
+		removingIds.value.forEach(id => {
+			if (id !== pageId) {
+				removingRef.value[id].cancel()
+			}
+		})
+		removingIds.value = new Set([pageId])
+	} else {
+		removingIds.value.delete(pageId)
+	}
+}
+
+function isRemoving (pageId: string): boolean {
+	return removingIds.value.has(pageId)
+}
 
 function capitalizeFirstLetter (string: string): string {
 	return string.charAt(0).toUpperCase() + string.slice(1)

@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PButtonPage from './PButtonPage.vue'
 import PPage from '../p-page/PPage.vue'
@@ -13,9 +12,9 @@ export default {
 			options: ['button', 'a']
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PButtonPage, PPage },
 	setup: () => ({ args }),
 	template: `

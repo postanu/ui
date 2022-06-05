@@ -13,52 +13,32 @@
 		slot
 </template>
 
-<script lang="ts">
-import {
-	defineComponent,
-	computed,
-	inject,
-	toRefs,
-	unref
-} from 'vue'
+<script lang="ts" setup>
+import { computed, inject, toRefs, unref } from 'vue'
 
-import { PRadioChangeKey, PRadioValueKey } from './injectionKeys'
+import { PRadioChangeKey, PRadioValueKey } from './injectionKeys.js'
 import PInput from '../p-input/PInput.vue'
 
-export default defineComponent({
-	name: 'PRadioButton',
-	components: { PInput },
-	props: {
-		value: {
-			type: String,
-			required: true
-		},
-		name: {
-			type: String,
-			required: true
-		}
-	},
-	setup (props) {
-		let { value } = toRefs(props)
-		let modelValue = inject(PRadioValueKey)
-		let modelChange = inject(PRadioChangeKey)
+interface Props {
+	name: string
+	value: string
+}
 
-		if (!modelValue || !modelChange) {
-			throw new Error('Wrap `PRadioButton` componenets in `PRadioGroup`.')
-		}
+const props = defineProps<Props>()
 
-		let isChecked = computed(() => value.value === modelValue?.value)
+const { value } = toRefs(props)
+const modelValue = inject(PRadioValueKey)
+const modelChange = inject(PRadioChangeKey)
 
-		function changeValue (): void {
-			modelChange?.(unref(value))
-		}
+if (!modelValue || !modelChange) {
+	throw new Error('Wrap `PRadioButton` components in `PRadioGroup`.')
+}
 
-		return {
-			isChecked,
-			changeValue
-		}
-	}
-})
+const isChecked = computed(() => value.value === modelValue.value)
+
+function changeValue (): void {
+	modelChange?.(unref(value))
+}
 </script>
 
 <style lang="stylus">

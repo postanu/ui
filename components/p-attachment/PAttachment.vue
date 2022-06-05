@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps, nextTick, ref } from 'vue'
+import { nextTick, ref } from 'vue'
 
-let props = defineProps<{ image: string }>()
+defineProps<{ image: string }>()
 
-let loading = ref(true)
+const loading = ref(true)
 
 function onLoad (): void {
 	nextTick(() => {

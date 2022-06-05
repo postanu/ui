@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { StoryFn } from '@storybook/vue3'
 
 import { icons } from '../../icons/index.js'
 import PIcon from './PIcon.vue'
@@ -12,36 +11,32 @@ export default {
 			control: 'select',
 			options: Object.keys(icons)
 		},
-		label: {
+		title: {
 			control: 'text'
 		},
 		scale: {
 			control: 'number'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: StoryFn = args => ({
 	components: { PIcon },
-	setup: () => ({
-		icon: args.icon,
-		label: args.label,
-		scale: args.scale
-	}),
-	template: `
-		<p-icon
-			:icon="icon"
-			:label="label"
-			:scale="scale"
-		/>
-	`
+	setup: () => ({ args }),
+	template: '<p-icon v-bind="args"/>'
 })
 
 export const Postanu = Template.bind({})
-Postanu.args = { icon: 'postanu' }
+Postanu.args = { icon: 'postanu', title: 'Postanu Icon' }
 
 export const Facebook = Template.bind({})
-Facebook.args = { icon: 'facebook' }
+Facebook.args = { icon: 'facebook', title: 'Facebook Icon' }
 
 export const Twitter = Template.bind({})
-Twitter.args = { icon: 'twitter' }
+Twitter.args = { icon: 'twitter', title: 'Twitter Icon' }
+
+export const NoTitle = Template.bind({})
+NoTitle.args = { icon: 'facebook' }
+
+export const Decorative = Template.bind({})
+Decorative.args = { icon: 'facebook', isDecorative: true }

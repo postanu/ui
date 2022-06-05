@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { ALLOWED_TAGS } from '../p-heading/allowed-tags'
 import PTableHeadline from './PTableHeadline.vue'
@@ -16,9 +15,9 @@ export default {
 			options: ALLOWED_TAGS
 		}
 	}
-} as Meta
+}
 
-export const Default: Story = args => defineComponent({
+export const Default: Story = args => ({
 	components: { PTableHeadline },
 	setup: () => ({ args }),
 	template: `

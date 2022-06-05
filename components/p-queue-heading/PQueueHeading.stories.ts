@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import PQueueHeading from './PQueueHeading.vue'
 
@@ -11,7 +11,7 @@ export default {
 			control: 'date'
 		}
 	}
-} as Meta
+}
 
 export const Default: Story = args => defineComponent({
 	components: { PQueueHeading },

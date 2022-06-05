@@ -16,73 +16,61 @@
 	) {{ text }}
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, nextTick, onMounted, ref, toRefs } from 'vue'
+<script lang="ts" setup>
+import { computed, nextTick, onMounted, ref, toRefs } from 'vue'
 import { parseTweet } from '@postanu/twitter-text'
 
 import { hashtagRegex, highlight } from './highlight'
 
-export default defineComponent({
-	name: 'PEditorText',
-	props: {
-		placeholder: {
-			type: String,
-			default: 'Start typing…'
-		},
-		text: {
-			type: String,
-			default: ''
-		}
-	},
-	setup (props) {
-		let { text: initialText } = toRefs(props)
+interface Props {
+	placeholder: string
+	text: string
+}
 
-		let hl = ref<null | HTMLElement>(null)
-		let highlighted = ref('')
-		let text = ref('')
-		let textarea = ref<null | HTMLTextAreaElement>(null)
-		let textareaHeight = ref()
-		let isLarge = ref(true)
+const props = withDefaults(
+	defineProps<Props>(),
+	{
+		placeholder: 'Start typing…',
+		text: ''
+	}
+)
 
-		onMounted(() => {
-			if (initialText.value.length > 0) {
-				handleInput()
-			}
-		})
+const { text: initialText } = toRefs(props)
 
-		async function updateTextareaHeight (): Promise<void> {
-			await nextTick()
-			textareaHeight.value = `${hl.value?.offsetHeight}px`
-		}
+const hl = ref<null | HTMLElement>(null)
+const highlighted = ref('')
+const text = ref('')
+const textarea = ref<null | HTMLTextAreaElement>(null)
+const textareaHeight = ref()
+const isLarge = ref(true)
 
-		async function handleInput (): Promise<void> {
-			if (!textarea.value || !hl.value) return
-			text.value = textarea.value.value
-			highlighted.value = highlight(text.value)
+onMounted(() => {
+	if (initialText.value.length > 0) {
+		handleInput()
+	}
+})
 
-			await updateTextareaHeight()
+async function updateTextareaHeight (): Promise<void> {
+	await nextTick()
+	textareaHeight.value = `${hl.value?.offsetHeight}px`
+}
 
-			let lineBreaks = highlighted.value.split('<br>').length
-			isLarge.value = counter.value.text < 280 && lineBreaks < 8
-			await updateTextareaHeight()
-		}
+async function handleInput (): Promise<void> {
+	if (!textarea.value || !hl.value) return
+	text.value = textarea.value.value
+	highlighted.value = highlight(text.value)
 
-		let counter = computed(() => {
-			return {
-				text: parseTweet(text.value).weightedLength,
-				tags: text.value.match(hashtagRegex)?.length
-			}
-		})
+	await updateTextareaHeight()
 
-		return {
-			textareaHeight,
-			highlighted,
-			textarea,
-			counter,
-			isLarge,
-			hl,
-			handleInput
-		}
+	let lineBreaks = highlighted.value.split('<br>').length
+	isLarge.value = counter.value.text < 280 && lineBreaks < 8
+	await updateTextareaHeight()
+}
+
+const counter = computed(() => {
+	return {
+		text: parseTweet(text.value).weightedLength,
+		tags: text.value.match(hashtagRegex)?.length
 	}
 })
 </script>

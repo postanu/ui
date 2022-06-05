@@ -1,5 +1,4 @@
-import { defineComponent } from 'vue'
-import type { Story, Meta } from '@storybook/vue3'
+import type { Story } from '@storybook/vue3'
 
 import { generatePages } from '../../generator'
 import PPagesTable from './PPagesTable.vue'
@@ -33,11 +32,11 @@ export default {
 			description: 'Triggers on clicking the `Remove` button and passes the page id.'
 		}
 	}
-} as Meta
+}
 
-const Template: Story = args => defineComponent({
+const Template: Story = args => ({
 	components: { PPagesTable },
-	setup: () => {
+	setup: (): object => {
 		return {
 			args,
 			pages: args.pages
