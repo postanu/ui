@@ -1,6 +1,5 @@
 import type { Story } from '@storybook/vue3'
 
-import { icons } from '../../icons/index.js'
 import PButton from './PButton.vue'
 
 export default {
@@ -8,6 +7,9 @@ export default {
 	component: PButton,
 	argTypes: {
 		default: {
+			control: 'text'
+		},
+		icon: {
 			control: 'text'
 		},
 		tag: {
@@ -21,16 +23,6 @@ export default {
 				'common',
 				'text'
 			]
-		},
-		icon: {
-			control: {
-				type: 'select',
-				labels: {
-					null: 'No icon'
-				}
-			},
-			options: [null, ...Object.keys(icons)],
-			description: 'Icon name'
 		},
 		image: {
 			control: 'text',
@@ -57,7 +49,6 @@ const Template: Story = args => ({
 		args,
 		tag: args.tag,
 		type: args.type,
-		icon: args.icon,
 		image: args.image,
 		danger: args.danger,
 		target: args.target,
@@ -69,14 +60,16 @@ const Template: Story = args => ({
 		<p-button
 			:tag="tag"
 			:type="type"
-			:icon="icon"
 			:image="image"
 			:danger="danger"
 			:target="target"
 			:muted="muted"
 			:disabled="disabled"
 			:href="href"
-		>{{ args.default }}</p-button>
+		>
+			<template #default v-if="args.default">${args.default}</template>
+			<template #icon v-if="args.icon">${args.icon}</template>
+		</p-button>
 	`
 })
 
@@ -94,7 +87,7 @@ DefaultLink.storyName = 'Default as Link'
 export const DefaultIcon = Template.bind({})
 DefaultIcon.args = {
 	default: 'Default with Icon',
-	icon: 'facebook'
+	icon: '<p-icon-facebook />'
 }
 DefaultIcon.storyName = 'Default with Icon'
 
@@ -150,7 +143,7 @@ TextLink.storyName = 'Text as Link'
 export const Icon = Template.bind({})
 Icon.args = {
 	default: undefined,
-	icon: 'close'
+	icon: '<p-icon-facebook />'
 }
 
 export const Avatar = Template.bind({})

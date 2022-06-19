@@ -1,13 +1,13 @@
 <template lang="pug">
-p-button.p-button-close(
-	icon="close"
-	@click="close"
-)
+p-button.p-button-close(@click="close")
+	template(#icon)
+		p-icon-close
 </template>
 
 <script lang="ts" setup>
 import { onBeforeUnmount, onMounted } from 'vue'
 
+import PIconClose from '../icons/p-icon-close/PIconClose.vue'
 import PButton from '../p-button/PButton.vue'
 
 const emit = defineEmits<{

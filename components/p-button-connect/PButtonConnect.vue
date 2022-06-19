@@ -1,26 +1,23 @@
 <template lang="pug">
 a.p-button-connect(:href="url")
-	p-icon.p-button-connect__arrow(
-		icon="arrowNorthEast"
-		:title="title"
-	)
-	p-icon.p-button-connect__icon(
-		:icon="icon"
-		:title="title"
-	)
+	p-icon-arrow-north-east.p-button-connect__arrow
+	component.p-button-connect__icon(:is="icon")
 	span.p-button-connect__label
 		slot
 </template>
 
 <script lang="ts" setup>
-import PIcon from '../p-icon/PIcon.vue'
-import type { icons } from '../../icons/index.js'
+import { computed } from 'vue'
+import type { NETWORKS_ORDER } from '@postanu/core'
 
-defineProps<{
-	icon: keyof typeof icons
-	title: string
+import PIconArrowNorthEast from '../icons/p-icon-arrow-north-east/PIconArrowNorthEast.vue'
+
+const props = defineProps<{
+	network: typeof NETWORKS_ORDER[number]
 	url: string
 }>()
+
+const icon = computed(() => `p-icon-${props.network}`)
 </script>
 
 <style lang="stylus">

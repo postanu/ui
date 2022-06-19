@@ -1,23 +1,23 @@
 import type { Story } from '@storybook/vue3'
+import { NETWORKS_ORDER } from '@postanu/core'
 
 import PButtonConnect from './PButtonConnect.vue'
-import { icons } from '../../icons/index.js'
+// import { icons } from '../../icons/index.js'
 
 export default {
 	title: 'PButton/PButtonConnect',
 	component: PButtonConnect,
 	argTypes: {
-		default: {
-			control: 'text'
-		},
-		icon: {
+		network: {
 			control: 'select',
-			options: Object.keys(icons),
-			description: 'Icon name'
+			options: NETWORKS_ORDER
 		},
 		url: {
 			control: 'text',
 			description: 'URL'
+		},
+		default: {
+			control: 'text'
 		}
 	}
 }
@@ -33,6 +33,6 @@ const Template: Story = args => ({
 export const Default = Template.bind({})
 Default.args = {
 	default: 'Facebook',
-	icon: 'facebook',
+	network: 'facebook',
 	url: '#'
 }

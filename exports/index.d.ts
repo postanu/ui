@@ -1,5 +1,4 @@
-export { icons } from '../icons/index.js'
-export { default as PIcon } from '../components/p-icon/PIcon.vue'
+export * from '../components/icons/index.js'
 export { default as PLogo } from '../components/p-logo/PLogo.vue'
 export { default as PBadge } from '../components/p-badge/PBadge.vue'
 export { default as PAvatar } from '../components/p-avatar/PAvatar.vue'

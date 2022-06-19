@@ -1,13 +1,10 @@
 <template lang="pug">
 .p-logo
-	p-icon(
-		icon="postanu"
-		title="Postanu Logo"
-	)
+	p-icon-postanu
 </template>
 
 <script lang="ts" setup>
-import PIcon from '../p-icon/PIcon.vue'
+import PIconPostanu from '../icons/p-icon-postanu/PIconPostanu.vue'
 </script>
 
 <style lang="stylus">

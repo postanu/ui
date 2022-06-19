@@ -14,25 +14,18 @@ component(
 )
 	span.p-button__text
 		slot
-	p-icon.p-button__icon(
-		v-if="showIcon"
-		:icon="icon"
-		:is-decorative="true"
-	)
+	.p-button__icon(v-if="showIcon")
+		slot(name="icon")
 	.p-button__image(v-if="showImage")
 		img(:src="image")
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
-
-import PIcon from '../p-icon/PIcon.vue'
-import type { icons } from '../../icons/index.js'
+import { toRefs, useSlots } from 'vue'
 
 interface Props {
 	tag?: 'button' | 'a'
 	type?: 'default' | 'common' | 'text'
-	icon?: keyof typeof icons | undefined
 	image?: string
 	danger?: boolean
 	target?: boolean
@@ -44,7 +37,6 @@ const props = withDefaults(
 	{
 		tag: 'button',
 		type: 'default',
-		icon: undefined,
 		image: undefined,
 		danger: false,
 		target: false,
@@ -52,12 +44,13 @@ const props = withDefaults(
 	}
 )
 
-const { type, icon, image } = toRefs(props)
+const slots = useSlots()
+const { type, image } = toRefs(props)
 
 const isText = type.value === 'text'
 const isCommon = type.value === 'common'
-const showIcon = typeof icon.value !== 'undefined' && !image.value && !isCommon
-const showImage = image.value && typeof icon.value === 'undefined' && !isCommon
+const showIcon = slots.icon && !image.value && !isCommon
+const showImage = image.value && !slots.icon && !isCommon
 </script>
 
 <style lang="stylus">
@@ -82,8 +75,8 @@ a.p-button:hover
 .p-button__text
 	padding: 5px 15px
 
-.p-button__text:empty
-	display: none
+	&:empty
+		display: none
 
 .p-button__icon
 	box-sizing: content-box

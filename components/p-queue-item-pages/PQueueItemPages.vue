@@ -5,7 +5,7 @@
 		:key="group.name"
 	)
 		.p-queue-pages__type
-			p-icon(:icon="group.name")
+			component(:is="`p-icon-${group.name}`")
 		template(v-if="!group.isSolo")
 			.p-queue-pages__item(
 				v-for="page in group.pages"
@@ -23,7 +23,6 @@ import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList'
 import PAvatar from '../p-avatar/PAvatar.vue'
-import PIcon from '../p-icon/PIcon.vue'
 
 interface Props {
 	pages: ClientPage[]

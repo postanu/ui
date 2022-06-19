@@ -1,8 +1,8 @@
 <template lang="pug">
 .p-page
-	p-icon(
+	component(
 		v-if="icon"
-		:icon="icon"
+		:is="icon"
 	)
 	p-avatar(
 		:image="avatar"
@@ -13,24 +13,29 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+import type { NETWORKS_ORDER } from '@postanu/core'
+
 import PAvatar from '../p-avatar/PAvatar.vue'
-import PIcon from '../p-icon/PIcon.vue'
-import type { icons } from '../../icons/index.js'
 
 interface Props {
-	icon?: keyof typeof icons
+	icon?: typeof NETWORKS_ORDER[number]
 	avatar?: string
 	fullname: string
 	username: string
 }
 
-withDefaults(
+const props = withDefaults(
 	defineProps<Props>(),
 	{
 		icon: undefined,
 		avatar: undefined
 	}
 )
+
+const icon = computed(() => {
+	return typeof props.icon !== 'undefined' ? `p-icon-${props.icon}` : undefined
+})
 </script>
 
 <style lang="stylus">

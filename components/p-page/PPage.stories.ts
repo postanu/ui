@@ -1,6 +1,6 @@
+import { NETWORKS_ORDER } from '@postanu/core'
 import type { Story } from '@storybook/vue3'
 
-import { icons } from '../../icons/index.js'
 import PPage from './PPage.vue'
 
 export default {
@@ -11,10 +11,10 @@ export default {
 			control: {
 				type: 'select',
 				labels: {
-					null: 'No icon'
+					undefined: 'No icon'
 				}
 			},
-			options: [undefined, ...Object.keys(icons)],
+			options: [undefined, ...NETWORKS_ORDER],
 			description: 'Icon name'
 		},
 		avatar: {
