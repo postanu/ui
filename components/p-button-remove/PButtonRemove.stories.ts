@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PButtonRemove from './PButtonRemove.vue'
 
 export default {
-	title: 'PButton/PButtonRemove',
+	title: 'Buttons / PButtonRemove',
 	component: PButtonRemove,
 	argTypes: {
 		timeout: {

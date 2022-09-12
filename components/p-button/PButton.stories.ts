@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PButton from './PButton.vue'
 
 export default {
-	title: 'PButton/PButton',
+	title: 'Buttons / PButton',
 	component: PButton,
 	argTypes: {
 		default: {

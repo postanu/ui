@@ -4,7 +4,7 @@ import PButtonPage from './PButtonPage.vue'
 import PPage from '../p-page/PPage.vue'
 
 export default {
-	title: 'PButton/PButtonPage',
+	title: 'Buttons / PButtonPage',
 	component: PButtonPage,
 	argTypes: {
 		tag: {

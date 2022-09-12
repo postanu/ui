@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PButtonClose from './PButtonClose.vue'
 
 export default {
-	title: 'PButton/PButtonClose',
+	title: 'Buttons / PButtonClose',
 	component: PButtonClose,
 	argTypes: {
 		close: {
