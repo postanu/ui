@@ -5,7 +5,7 @@ import { discography, randomInRange } from '../../generator'
 import PTableRow from './PTableRow.vue'
 
 export default {
-	title: 'PTable/PTableRow',
+	title: 'Table / PTableRow',
 	component: PTableRow,
 	argTypes: {
 		default: {

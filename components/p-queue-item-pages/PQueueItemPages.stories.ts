@@ -5,7 +5,7 @@ import PQueueItemPages from './PQueueItemPages.vue'
 import { generatePages } from '../../generator'
 
 export default {
-	title: 'PQueue/PQueueItemPages',
+	title: 'Queue / PQueueItemPages',
 	component: PQueueItemPages,
 	argTypes: {
 		pattern: {

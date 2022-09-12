@@ -4,7 +4,7 @@ import { ALLOWED_TAGS } from '../p-heading/allowed-tags'
 import PTableHeadline from './PTableHeadline.vue'
 
 export default {
-	title: 'PTable/PTableHeadline',
+	title: 'Table / PTableHeadline',
 	component: PTableHeadline,
 	argTypes: {
 		default: {

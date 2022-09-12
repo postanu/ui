@@ -5,7 +5,7 @@ import { generateAttachments, randomInRange } from '../../generator'
 import PQueueItemAttachments from './PQueueItemAttachments.vue'
 
 export default {
-	title: 'PQueue/PQueueItemAttachments',
+	title: 'Queue / PQueueItemAttachments',
 	component: PQueueItemAttachments
 }
 

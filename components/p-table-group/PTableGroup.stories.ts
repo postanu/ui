@@ -6,7 +6,7 @@ import PTableGroup from './PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
 
 export default {
-	title: 'PTable/PTableGroup',
+	title: 'Table / PTableGroup',
 	component: PTableGroup,
 	argTypes: {
 		name: {

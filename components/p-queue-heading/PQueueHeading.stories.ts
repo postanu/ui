@@ -4,7 +4,7 @@ import type { Story } from '@storybook/vue3'
 import PQueueHeading from './PQueueHeading.vue'
 
 export default {
-	title: 'PQueue/PQueueHeading',
+	title: 'Queue / PQueueHeading',
 	component: PQueueHeading,
 	argTypes: {
 		date: {

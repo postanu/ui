@@ -4,7 +4,7 @@ import { generatePosts } from '../../generator/post'
 import PQueueItem from './PQueueItem.vue'
 
 export default {
-	title: 'PQueue/PQueueItem',
+	title: 'Queue / PQueueItem',
 	component: PQueueItem,
 	argTypes: {
 		removing: { action: true },
