@@ -4,7 +4,7 @@ import { generatePages, randomFromArray } from '../../generator'
 import PEditorPages from './PEditorPages.vue'
 
 export default {
-	title: 'PEditor/PEditorPages',
+	title: 'Editor / PEditorPages',
 	component: PEditorPages,
 	argTypes: {
 		update: { action: true },

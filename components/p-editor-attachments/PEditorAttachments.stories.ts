@@ -5,7 +5,7 @@ import { generateAttachments } from '../../generator'
 import PEditorAttachments from './PEditorAttachments.vue'
 
 export default {
-	title: 'PEditor/PEditorAttachments',
+	title: 'Editor / PEditorAttachments',
 	component: PEditorAttachments,
 	argTypes: {
 		count: {

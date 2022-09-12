@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PEditorClock from './PEditorClock.vue'
 
 export default {
-	title: 'PEditor/PEditorClock',
+	title: 'Editor / PEditorClock',
 	component: PEditorClock,
 	argTypes: {
 		format: {

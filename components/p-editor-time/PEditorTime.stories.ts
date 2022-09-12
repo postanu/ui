@@ -4,7 +4,7 @@ import type { Story } from '@storybook/vue3'
 import PEditorTime from './PEditorTime.vue'
 
 export default {
-	title: 'PEditor/PEditorTime',
+	title: 'Editor / PEditorTime',
 	component: PEditorTime,
 	argTypes: {
 		locales: {

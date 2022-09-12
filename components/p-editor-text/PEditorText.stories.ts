@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PEditorText from './PEditorText.vue'
 
 export default {
-	title: 'PEditor/PEditorText',
+	title: 'Editor / PEditorText',
 	component: PEditorText
 }
 
