@@ -60,6 +60,7 @@
     "@babel/core": "^7.19.0",
     "@babel/preset-env": "^7.19.0",
     "@mdx-js/react": "^2.1.3",
+    "@postanu/browserslist-config": "^0.2.0",
     "@postanu/core": "^0.3.0",
     "@postanu/eslint-config": "^3.11.0",
     "@postanu/stylelint-config": "^0.4.0",
