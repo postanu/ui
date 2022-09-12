@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconFacebook from './PIconFacebook.vue'
 
 export default {
-	title: 'PIconFacebook',
+	title: 'Icons / PIconFacebook',
 	component: PIconFacebook
 }
 

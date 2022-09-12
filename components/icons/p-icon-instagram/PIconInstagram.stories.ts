@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconInstagram from './PIconInstagram.vue'
 
 export default {
-	title: 'PIconInstagram',
+	title: 'Icons / PIconInstagram',
 	component: PIconInstagram
 }
 

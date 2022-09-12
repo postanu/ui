@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconPlus from './PIconPlus.vue'
 
 export default {
-	title: 'PIconPlus',
+	title: 'Icons / PIconPlus',
 	component: PIconPlus
 }
 

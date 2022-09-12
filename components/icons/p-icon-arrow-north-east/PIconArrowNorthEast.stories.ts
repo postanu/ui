@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconArrowNorthEast from './PIconArrowNorthEast.vue'
 
 export default {
-	title: 'PIconArrowNorthEast',
+	title: 'Icons / PIconArrowNorthEast',
 	component: PIconArrowNorthEast
 }
 

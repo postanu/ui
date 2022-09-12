@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconVK from './PIconVK.vue'
 
 export default {
-	title: 'PIconVK',
+	title: 'Icons / PIconVK',
 	component: PIconVK
 }
 

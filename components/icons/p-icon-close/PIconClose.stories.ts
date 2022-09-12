@@ -3,7 +3,7 @@ import type { Story } from '@storybook/vue3'
 import PIconClose from './PIconClose.vue'
 
 export default {
-	title: 'PIconClose',
+	title: 'Icons / PIconClose',
 	component: PIconClose
 }
 
