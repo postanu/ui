@@ -4,9 +4,12 @@ specifiers:
   '@babel/core': ^7.19.0
   '@babel/preset-env': ^7.19.0
   '@mdx-js/react': ^2.1.3
+  '@nanostores/i18n': ^0.7.0
+  '@nanostores/vue': ^0.6.0
   '@postanu/browserslist-config': ^0.2.0
   '@postanu/core': ^0.3.0
   '@postanu/eslint-config': ^3.12.0
+  '@postanu/i18n': github:postanu/i18n
   '@postanu/stylelint-config': ^0.5.0
   '@postanu/twitter-text': ^0.2.0
   '@postanu/types': ^0.7.0
@@ -49,6 +52,7 @@ specifiers:
   hashtag-regex: ^2.1.0
   nano-staged: ^0.8.0
   nanoid: ^4.0.0
+  nanostores: ^0.7.0
   postcss: ^8.4.16
   pug: ^3.0.2
   react: ^18.2.0
@@ -67,9 +71,12 @@ devDependencies:
   '@babel/core': 7.19.0
   '@babel/preset-env': 7.19.0_@babel+core@7.19.0
   '@mdx-js/react': 2.1.3_react@18.2.0
+  '@nanostores/i18n': 0.7.0_nanostores@0.7.0
+  '@nanostores/vue': 0.6.0_hswlafrnslvidkmp33e2xqqycm
   '@postanu/browserslist-config': 0.2.0
   '@postanu/core': 0.3.0
   '@postanu/eslint-config': 3.12.0_su3txcnusphwssgr4h5rbwr2mm
+  '@postanu/i18n': github.com/postanu/i18n/503b22f0a85a042a5f42999ecb38cb941a0eae48_qfadtywg3fu2gglxy6pd4uddnu
   '@postanu/stylelint-config': 0.5.0_stylelint@14.11.0
   '@postanu/twitter-text': 0.2.0
   '@postanu/types': 0.7.0_mwiqfefgvtpkhx7vhw3u4wtzvq
@@ -112,6 +119,7 @@ devDependencies:
   hashtag-regex: 2.1.0
   nano-staged: 0.8.0
   nanoid: 4.0.0
+  nanostores: 0.7.0
   postcss: 8.4.16
   pug: 3.0.2
   react: 18.2.0
@@ -1852,6 +1860,30 @@ packages:
     dependencies:
       call-me-maybe: 1.0.1
       glob-to-regexp: 0.3.0
+    dev: true
+
+  /@nanostores/i18n/0.7.0_nanostores@0.7.0:
+    resolution: {integrity: sha512-Qi/YPmj4J6oFMmqH13YyH1QV+CWemg9Z/JDBZTaCYEpiVIG+yfWs22GsW+GbHQ3eNCp5RdQ+leYN5ZI1TFyDhw==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      nanostores: ^0.7.0
+    dependencies:
+      nanostores: 0.7.0
+    dev: true
+
+  /@nanostores/vue/0.6.0_hswlafrnslvidkmp33e2xqqycm:
+    resolution: {integrity: sha512-Co53bCDAA2hkBqpeYN975kchX/cTHMdS9qt6inqPGm8QAoB+wCoecxjmde8GSo/Arc6/JmQC5AFJGALYz0QMhw==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      '@vue/devtools-api': '>=6.1.4'
+      nanostores: '>=0.6.0'
+      vue: '>=3.2.30'
+    peerDependenciesMeta:
+      '@vue/devtools-api':
+        optional: true
+    dependencies:
+      nanostores: 0.7.0
+      vue: 3.2.39
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:
@@ -9359,6 +9391,11 @@ packages:
       - supports-color
     dev: true
 
+  /nanostores/0.7.0:
+    resolution: {integrity: sha512-y+ma9MVXuPzXKEXaRYW/iL/xG/HtMwB8fmFcMfUqt5fCNR/na2kDubbZGV4furUMTgmxfySJs0cQjORWhaPDyA==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    dev: true
+
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
@@ -13065,4 +13102,17 @@ packages:
     resolution: {directory: '@types/react', type: directory}
     name: react
     version: 0.0.0
+    dev: true
+
+  github.com/postanu/i18n/503b22f0a85a042a5f42999ecb38cb941a0eae48_qfadtywg3fu2gglxy6pd4uddnu:
+    resolution: {tarball: https://codeload.github.com/postanu/i18n/tar.gz/503b22f0a85a042a5f42999ecb38cb941a0eae48}
+    id: github.com/postanu/i18n/503b22f0a85a042a5f42999ecb38cb941a0eae48
+    name: '@postanu/i18n'
+    version: 0.0.0
+    peerDependencies:
+      '@nanostores/i18n': '>=0.7.0'
+      nanostores: '>=0.7.0'
+    dependencies:
+      '@nanostores/i18n': 0.7.0_nanostores@0.7.0
+      nanostores: 0.7.0
     dev: true
