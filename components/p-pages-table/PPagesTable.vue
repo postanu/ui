@@ -38,11 +38,11 @@
 import { ref, toRefs } from 'vue'
 import type { ClientPage } from '@postanu/types'
 
-import { usePagesGroupList } from '../../composables/usePagesGroupList'
-import PButtonRemove from '../p-button-remove/PButtonRemove.vue'
-import PTableGroup from '../p-table-group/PTableGroup.vue'
-import PTableRow from '../p-table-row/PTableRow.vue'
-import PButton from '../p-button/PButton.vue'
+import { usePagesGroupList } from '../../composables/usePagesGroupList.js'
+import PButtonRemove from '../buttons/p-button-remove/PButtonRemove.vue'
+import PTableGroup from '../table/p-table-group/PTableGroup.vue'
+import PTableRow from '../table/p-table-row/PTableRow.vue'
+import PButton from '../buttons/p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>

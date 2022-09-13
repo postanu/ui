@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import type { Attachment } from '@postanu/types'
 
-import { getRandomImage } from '../random'
+import { getRandomImage } from '../random/index.js'
 
 export function generateAttachments (count: number): Attachment[] {
 	return Array.from({ length: count }, (): Attachment => {

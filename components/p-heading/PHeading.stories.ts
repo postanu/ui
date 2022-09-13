@@ -1,6 +1,6 @@
 import type { Story } from '@storybook/vue3'
 
-import { ALLOWED_TAGS } from './allowed-tags'
+import { ALLOWED_TAGS } from './allowed-tags.js'
 import PHeading from './PHeading.vue'
 
 export default {

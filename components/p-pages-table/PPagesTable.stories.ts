@@ -1,6 +1,6 @@
 import type { Story } from '@storybook/vue3'
 
-import { generatePages } from '../../generator'
+import { generatePages } from '../../generator/index.js'
 import PPagesTable from './PPagesTable.vue'
 
 export default {

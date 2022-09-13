@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid'
 import type { Page } from '@postanu/types'
 
-import { randomInRange, usernameFromName } from '../utils'
-import { networks, members } from '../data'
+import { randomInRange, usernameFromName } from '../utils/index.js'
+import { networks, members } from '../data/index.js'
 
 interface GeneratePagesOptions {
 	updatables?: number
