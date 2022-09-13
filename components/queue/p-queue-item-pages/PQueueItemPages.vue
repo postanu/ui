@@ -9,15 +9,14 @@
 			.p-queue-pages__type
 				component(:is="`p-icon-${group.name}`")
 			template(v-if="!group.isSolo")
-				template(
+				.p-queue-pages__item(
 					v-for="page in group.pages.slice(0, 2)"
 					:key="page.id"
 				)
-					.p-queue-pages__item
-						p-avatar(
-							:image="page.avatarUrl"
-							:letter="page.name"
-						)
+					p-avatar(
+						:image="page.avatarUrl"
+						:letter="page.name"
+					)
 				.p-queue-pages__counter(v-if="group.pages.length > 2") +{{ group.pages.length - 2 }}
 </template>
 
