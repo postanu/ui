@@ -30,11 +30,11 @@
   "peerDependencies": {
     "@postanu/core": "^0.3.0",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.6.0",
+    "@postanu/types": "^0.7.0",
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
-    "vue": "^3.2.23",
-    "vuedraggable": "^4.1.0"
+    "vue": ">=3.2.23",
+    "vuedraggable": ">=4.1.0"
   },
   "peerDependenciesMeta": {
     "@nanostores/vue": {
