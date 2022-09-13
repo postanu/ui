@@ -10,14 +10,16 @@
 				component(:is="`p-icon-${group.name}`")
 			template(v-if="!group.isSolo")
 				.p-queue-pages__item(
-					v-for="page in group.pages.slice(0, 2)"
+					v-for="page in group.pages.slice(0, MAX_VISIBLE_GROUP_SIZE)"
 					:key="page.id"
 				)
 					p-avatar(
 						:image="page.avatarUrl"
 						:letter="page.name"
 					)
-				.p-queue-pages__counter(v-if="group.pages.length > 2") +{{ group.pages.length - 2 }}
+				.p-queue-pages__counter(
+					v-if="group.pages.length > MAX_VISIBLE_GROUP_SIZE"
+				) +{{ group.pages.length - MAX_VISIBLE_GROUP_SIZE }}
 </template>
 
 <script lang="ts" setup>
@@ -29,6 +31,8 @@ import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../../composables/usePagesGroupList.js'
 import PAvatar from '../../p-avatar/PAvatar.vue'
+
+const MAX_VISIBLE_GROUP_SIZE = 2
 
 interface Props {
 	pages: ClientPage[]
