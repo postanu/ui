@@ -127,19 +127,18 @@ defineExpose({ removeButtonRef })
 	grid-template-columns: 420px 150px auto 190px
 	gap: 20px
 
+.p-queue-item__pages,
+.p-queue-item__attachments
+	display: flex
+	align-items: center
+
 .p-queue-item__state
 	display: flex
 	align-items: center
 	justify-content: flex-end
 
-// .p-queue-item__title
-
 .p-queue-item__description
 	color: var(--p-color-white-05)
-
-.p-queue-item__attachments
-	display: flex
-	align-items: center
 
 .p-queue-item__controls
 	position: absolute

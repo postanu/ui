@@ -62,7 +62,6 @@ const pagesGroupList = usePagesGroupList(pages)
 .p-queue-pages
 	display: flex
 	gap: 20px
-	height: 100%
 
 	&.--solo
 		gap: 10px
