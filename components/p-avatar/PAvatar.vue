@@ -90,6 +90,8 @@ function onError (): void {
 	line-height: var(--p-body-line-height)
 	text-align: center
 	text-transform: lowercase
+	cursor: default
+	user-select: none
 	background: var(--p-color-black)
 	border-radius: 50%
 </style>
