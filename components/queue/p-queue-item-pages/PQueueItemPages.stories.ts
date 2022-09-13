@@ -25,6 +25,11 @@ const Template: Story = args => defineComponent({
 	template: '<p-queue-item-pages :pages="pages" />'
 })
 
+export const Single = Template.bind({})
+Single.args = {
+	pages: generatePages([[1]])
+}
+
 export const Solo = Template.bind({})
 Solo.args = {
 	pages: generatePages([[1], [1], [1], [1]])
