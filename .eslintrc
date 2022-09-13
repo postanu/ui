@@ -1,6 +1,13 @@
 {
 	"extends": "@postanu/eslint-config/vue",
 	"rules": {
+		"import/extensions": [
+			"error",
+			"always",
+			{
+				"ignorePackages": true
+			}
+		],
 		"node/no-unpublished-require": "off",
 		"vue/no-textarea-mustache": "off",
 		"vue/attributes-order": "off",
