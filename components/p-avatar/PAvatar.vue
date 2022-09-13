@@ -5,7 +5,7 @@
 )
 	.p-avatar__l {{ l }}
 	img.p-avatar__i(
-		v-if="showImage"
+		v-if="!error && image"
 		:src="image"
 		@load="onLoad"
 		@error="onError"
@@ -23,23 +23,19 @@ const medianLetters = new Set([
 ])
 
 interface Props {
-	image: string
+	image?: string | null
 	letter: string
 }
 
 const props = withDefaults(
 	defineProps<Props>(),
-	{ image: '' }
+	{ image: null }
 )
 
 const error = ref(false)
 const { image, letter } = toRefs(props)
 
 const l = computed(() => letter.value.charAt(0).toLowerCase())
-
-const showImage = computed(() => {
-	return !error.value && image.value.length > 0
-})
 
 const isMedian = computed(() => {
 	let fistLetter = l.value.charAt(0)
