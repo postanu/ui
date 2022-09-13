@@ -1,6 +1,4 @@
-# @postanu/ui
-
-Postanu UI components and styles library
+# Postanu UI components and styles library
 
 ## Install
 
