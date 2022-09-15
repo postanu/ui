@@ -7,6 +7,9 @@ export default {
 	title: 'PInputProjectName',
 	component: PInputProjectName,
 	argTypes: {
+		placeholder: {
+			control: 'text'
+		},
 		change: {
 			action: true,
 			description: 'Triggers on pressing `Enter` and passes the project name.'
@@ -20,5 +23,14 @@ export const Default: Story = args => ({
 		args,
 		model: ref('')
 	}),
-	template: '<p-input-project-name v-model="model" @change="args.change" />'
+	template: `
+		<p-input-project-name
+			v-model="model"
+			@change="args.change"
+			:placeholder="args.placeholder"
+		/>
+	`
 })
+Default.args = {
+	placeholder: 'Type the name of the new project'
+}

@@ -1,17 +1,23 @@
 <template lang="pug">
-p-input.p-input-project-name(
-	ref="input"
-	size="25"
-	type="text"
-	name="project-name"
-	autocorrect="off"
-	autocomplete="off"
-	autocapitalize="off"
-	placeholder="Type the name of the new project"
-	:model-value="modelValue"
-	@update:model-value="emitUpdate"
-	@keyup.enter="emitChange"
-)
+.p-input-project-name
+	p-input(
+		ref="input"
+		size="25"
+		type="text"
+		id="project-name"
+		name="project-name"
+		autocorrect="off"
+		autocomplete="off"
+		autocapitalize="off"
+		:placeholder="placeholder"
+		:model-value="modelValue"
+		@update:model-value="emitUpdate"
+		@keyup.enter="emitChange"
+	)
+	label.p-input-project-name__label(
+		for="project-name"
+		v-show="modelValue.length > 0"
+	) {{ placeholder }}
 </template>
 
 <script lang="ts" setup>
@@ -21,6 +27,7 @@ import PInput from '../p-input/PInput.vue'
 
 const props = defineProps<{
 	modelValue: string
+	placeholder: string
 }>()
 
 const emit = defineEmits<{
@@ -48,7 +55,14 @@ defineExpose({ focus })
 
 <style lang="stylus" scoped>
 .p-input-project-name
+	min-height: 70px
+
+.p-input-project-name > .p-input
+	padding: 2px 0 8px
 	font-size: var(--p-h2-regular-font-size)
 	font-weight: 700
-	mix-blend-mode: difference
+
+.p-input-project-name__label
+	padding-bottom: 3px
+	margin-top: -3px
 </style>
