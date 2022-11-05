@@ -34,6 +34,7 @@
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
     "vue": ">=3.2.23",
+    "vue-virtual-scroller": ">=2.0.0-beta.3",
     "vuedraggable": ">=4.1.0"
   },
   "peerDependenciesMeta": {
@@ -97,6 +98,7 @@
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "@typescript-eslint/parser": "^5.41.0",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@volar/vue-language-plugin-pug": "^1.0.9",
     "@vue/compiler-sfc": "^3.2.41",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.2.5",
@@ -126,6 +128,7 @@
     "vite": "3.2.2",
     "vue": "^3.2.41",
     "vue-eslint-parser": "^9.1.0",
+    "vue-virtual-scroller": "2.0.0-beta.3",
     "vuedraggable": "^4.1.0",
     "webpack": "^5.74.0"
   }

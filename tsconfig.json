@@ -24,5 +24,10 @@
     "./generator/**/*.ts",
     "./exports/**/*.ts",
     "./@types/react/index.d.ts"
-  ]
+  ],
+  "vueCompilerOptions": {
+    "plugins": [
+      "@volar/vue-language-plugin-pug"
+    ]
+  }
 }
