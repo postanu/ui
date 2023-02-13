@@ -13,8 +13,6 @@ import {
 	add
 } from 'date-fns'
 
-export type CalendarWeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6
-
 export interface LinearCalendarDay {
 	day: number
 	date: number
