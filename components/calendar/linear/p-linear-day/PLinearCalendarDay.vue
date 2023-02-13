@@ -45,11 +45,12 @@ const areaLabel = computed(
 <style lang="stylus">
 .p-linear-calendar-day
 	position: relative
+	box-sizing: border-box
 	display: flex
 	flex-direction: column
 	gap: 10px
 	align-items: center
-	width: 110px
+	min-width: 110px
 	height: 90px
 	padding-top: 20px
 	text-align: center

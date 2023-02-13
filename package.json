@@ -31,6 +31,8 @@
     "@postanu/core": "^0.3.0",
     "@postanu/twitter-text": "^0.2.0",
     "@postanu/types": "^0.7.0",
+    "@vueuse/components": "^9.12.0",
+    "@vueuse/core": "^9.12.0",
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
     "vue": ">=3.2.23",
@@ -53,6 +55,12 @@
     "@postanu/types": {
       "optional": true
     },
+    "@vueuse/components": {
+      "optional": true
+    },
+    "@vueuse/core": {
+      "optional": true
+    },
     "date-fns": {
       "optional": true
     },
@@ -70,7 +78,7 @@
     "@nanostores/i18n": "^0.8.0",
     "@nanostores/vue": "^0.7.0",
     "@postanu/browserslist-config": "^0.2.0",
-    "@postanu/core": "^0.3.0",
+    "@postanu/core": "github:postanu/core",
     "@postanu/eslint-config": "^3.12.0",
     "@postanu/i18n": "github:postanu/i18n",
     "@postanu/stylelint-config": "^0.5.0",
@@ -100,6 +108,8 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@volar/vue-language-plugin-pug": "^1.0.24",
     "@vue/compiler-sfc": "^3.2.47",
+    "@vueuse/components": "^9.12.0",
+    "@vueuse/core": "^9.12.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "date-fns": "^2.29.3",
@@ -122,6 +132,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "simple-git-hooks": "^2.8.1",
+    "storybook-addon-paddings": "^4.3.0",
     "stylelint": "^14.16.1",
     "stylus": "^0.59.0",
     "typescript": "^4.9.5",
