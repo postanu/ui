@@ -67,7 +67,6 @@ const {
 } = useScroll(root, selectedDate)
 
 let nextMonth = computed(
-	// @ts-ignore
 	() => t.value[MONTHS[parseMonthId(nextMonthId.value)[0]]]
 )
 </script>
