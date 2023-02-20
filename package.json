@@ -67,6 +67,9 @@
     "hashtag-regex": {
       "optional": true
     },
+    "vue-virtual-scroller": {
+      "optional": true
+    },
     "vuedraggable": {
       "optional": true
     }
