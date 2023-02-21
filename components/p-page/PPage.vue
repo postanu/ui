@@ -34,11 +34,11 @@ const props = withDefaults(
 )
 
 const icon = computed(() => {
-	return typeof props.icon !== 'undefined' ? `p-icon-${props.icon}` : undefined
+	return props.icon === undefined ? undefined : `p-icon-${props.icon}`
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-page
 	display: flex
 	gap: 10px

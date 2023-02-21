@@ -54,7 +54,7 @@ const subtitle = computed(() => {
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-queue-heading
 	display: flex
 

@@ -38,7 +38,7 @@ if (getCurrentInstance()) {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-editor-clock span
 	animation: p-editor-clock-flash 2s step-start infinite
 

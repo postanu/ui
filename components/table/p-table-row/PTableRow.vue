@@ -27,7 +27,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-table-row
 	position: relative
 	min-height: 50px

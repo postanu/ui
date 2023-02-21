@@ -41,7 +41,7 @@ function changeValue (): void {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 @import '../../styles/mixins/visually-hidden'
 
 .p-radio-button
@@ -52,7 +52,7 @@ function changeValue (): void {
 		color: var(--p-color-white-09)
 
 .p-radio-button__input
-	visually-hidden()
+	@include visually-hidden
 
 .p-radio-button__label
 	display: block

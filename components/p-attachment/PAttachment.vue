@@ -21,7 +21,7 @@ function onLoad (): void {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-attachment
 	position: relative
 	width: 20px

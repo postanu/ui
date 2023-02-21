@@ -4,7 +4,7 @@
 		slot
 </template>
 
-<style lang="stylus">
+<style lang="sass">
 .p-badge
 	display: inline-block
 	min-width: 20px

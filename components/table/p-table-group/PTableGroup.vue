@@ -6,7 +6,7 @@
 		slot(name="content")
 </template>
 
-<style lang="stylus">
+<style lang="sass">
 .p-table-group
 	position: relative
 	display: grid

@@ -20,7 +20,7 @@ const props = defineProps<{
 const icon = computed(() => `p-icon-${props.network}`)
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-button-connect
 	position: relative
 	box-sizing: border-box

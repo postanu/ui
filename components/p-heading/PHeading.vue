@@ -37,7 +37,7 @@ export default defineComponent({
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-heading
 	user-select: none
 

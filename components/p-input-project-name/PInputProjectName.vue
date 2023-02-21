@@ -53,7 +53,7 @@ function focus (): void {
 defineExpose({ focus })
 </script>
 
-<style lang="stylus" scoped>
+<style lang="sass" scoped>
 .p-input-project-name
 	min-height: 70px
 

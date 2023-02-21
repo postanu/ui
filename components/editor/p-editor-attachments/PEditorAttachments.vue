@@ -53,7 +53,7 @@ const count = computed(() => modelValue.value.length)
 const countClass = computed(() => `--${count.value}`)
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-editor-attachments
 	display: flex
 	flex-direction: row

@@ -42,7 +42,7 @@ const areaLabel = computed(
 )
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-linear-calendar-day
 	position: relative
 	box-sizing: border-box

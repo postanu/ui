@@ -21,7 +21,7 @@ withDefaults(
 )
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-button-page
 	padding: 10px
 	cursor: pointer

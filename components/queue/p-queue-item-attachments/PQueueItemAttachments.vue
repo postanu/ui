@@ -35,7 +35,7 @@ const count = computed(() => {
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-queue-item-attachments
 	display: flex
 	gap: 10px

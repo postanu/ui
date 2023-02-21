@@ -51,7 +51,7 @@ function onError (): void {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-avatar
 	position: relative
 	width: 20px

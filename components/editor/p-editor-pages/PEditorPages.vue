@@ -152,7 +152,7 @@ function networkAbbr (network: PageNetwork): string {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-editor-pages
 	display: inline-flex
 	flex-direction: column

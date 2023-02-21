@@ -15,7 +15,7 @@ defineProps<{
 }>()
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-table-headline
 	margin-left: 280px
 	line-height: 50px

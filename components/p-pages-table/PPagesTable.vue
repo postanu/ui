@@ -104,7 +104,7 @@ function capitalizeFirstLetter (string: string): string {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-pages-table__item
 	display: flex
 	justify-content: space-between

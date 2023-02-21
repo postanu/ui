@@ -26,7 +26,7 @@ provide(PRadioChangeKey, newValue => {
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-radio-group
 	display: flex
 	gap: 20px

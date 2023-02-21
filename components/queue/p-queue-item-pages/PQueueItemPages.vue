@@ -58,7 +58,7 @@ const singleNetwork = computed<string | false>(() => {
 const pagesGroupList = usePagesGroupList(pages)
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-queue-pages
 	display: flex
 	gap: 20px

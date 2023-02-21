@@ -7,7 +7,7 @@
 import PIconPostanu from '../icons/p-icon-postanu/PIconPostanu.vue'
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-logo
 	display: flex
 	align-items: center

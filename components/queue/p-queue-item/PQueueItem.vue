@@ -71,7 +71,7 @@ function emitClick (): void {
 defineExpose({ removeButtonRef })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-queue-item
 	position: relative
 	white-space: nowrap

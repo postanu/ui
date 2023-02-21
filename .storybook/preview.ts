@@ -6,8 +6,8 @@ import PIconFacebook from '../components/icons/p-icon-facebook/PIconFacebook.vue
 import PIconTwitter from '../components/icons/p-icon-twitter/PIconTwitter.vue'
 import PIconVK from '../components/icons/p-icon-vk/PIconVK.vue'
 
-import './styles.styl'
-import '../styles/base.styl'
+import './styles.sass'
+import '../styles/base.sass'
 import { viewports } from './viewports'
 
 export const parameters: Parameters = {

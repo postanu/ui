@@ -101,7 +101,7 @@ function cancel (): void {
 defineExpose({ cancel })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-button-remove
 	display: flex
 	user-select: none

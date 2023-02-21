@@ -75,7 +75,7 @@ const counter = computed(() => {
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-textarea
 	all: unset
 	width: 100%

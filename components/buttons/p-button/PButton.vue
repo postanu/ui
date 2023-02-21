@@ -53,7 +53,7 @@ const showIcon = slots.icon && !image.value && !isCommon
 const showImage = image.value && !slots.icon && !isCommon
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-button
 	position: relative
 	display: flex

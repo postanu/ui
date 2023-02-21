@@ -47,7 +47,7 @@ defineExpose({
 })
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-input
 	box-sizing: border-box
 	padding: 20px 15px

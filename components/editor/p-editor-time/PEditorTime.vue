@@ -193,7 +193,7 @@ function onKeypress (event: KeyboardEvent, input: InputType): void {
 }
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .p-editor-time
 	position: relative
 	display: inline-flex
@@ -214,9 +214,7 @@ function onKeypress (event: KeyboardEvent, input: InputType): void {
 	background-color: var(--p-color-white-01)
 	border-radius: 6px
 	opacity: 0
-	transition: opacity 0.1s ease-in,
-		width 0.1s ease-in,
-		margin-left 0.1s ease-in
+	transition: opacity 0.1s ease-in, width 0.1s ease-in, margin-left 0.1s ease-in
 
 .p-editor-time.--h
 	&:before
@@ -258,8 +256,7 @@ function onKeypress (event: KeyboardEvent, input: InputType): void {
 	width: 19px
 	padding: 5px 0px
 	caret-color: transparent
-	transition: margin-left 0.15s ease-in,
-		padding 0.15s ease-in
+	transition: margin-left 0.15s ease-in, padding 0.15s ease-in
 
 	&::selection
 		background-color: transparent
