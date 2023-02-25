@@ -168,7 +168,7 @@ function networkAbbr (network: PageNetwork): string {
 .p-editor-pages__list > li[data-ig] ~ li[data-ig],
 .p-editor-pages__list > li[data-tw] ~ li[data-tw],
 .p-editor-pages__list > li[data-vk] ~ li[data-vk]
-	> .p-button-page:not(:hover):not(:focus)
+	> .p-button-page:not(:hover, :focus)
 		> .p-page > .p-icon
 			opacity: 0
 

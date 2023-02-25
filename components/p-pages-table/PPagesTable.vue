@@ -112,6 +112,8 @@ function capitalizeFirstLetter (string: string): string {
 .p-pages-table__buttons
 	display: flex
 	padding: 10px 0
+	margin-right: 20px
+	opacity: 0
 
 .p-pages-table__item:hover,
 .p-pages-table__item--removing
@@ -121,8 +123,4 @@ function capitalizeFirstLetter (string: string): string {
 
 .p-pages-table__page
 	padding: 15px 0
-
-.p-pages-table__buttons
-	margin-right: 20px
-	opacity: 0
 </style>

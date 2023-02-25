@@ -56,8 +56,7 @@ const countClass = computed(() => `--${count.value}`)
 <style lang="sass">
 .p-editor-attachments
 	display: flex
-	flex-direction: row
-	flex-wrap: wrap
+	flex-flow: row wrap
 	gap: 20px
 	max-width: 420px
 
@@ -78,6 +77,7 @@ const countClass = computed(() => `--${count.value}`)
 		&:nth-child(-n+2)
 			flex-basis: calc(50% - 10px)
 			aspect-ratio: 2 / 1.3
+
 		&:nth-child(n+3)
 			aspect-ratio: 1.0236 / 1
 
@@ -89,6 +89,7 @@ const countClass = computed(() => `--${count.value}`)
 		&:nth-child(-n+3)
 			flex-basis: calc((100% - 40px) / 3)
 			aspect-ratio: 1.27 / 0.94
+
 		&:nth-child(n+4)
 			aspect-ratio: 1
 
@@ -98,8 +99,10 @@ const countClass = computed(() => `--${count.value}`)
 
 	&.--9 li
 		aspect-ratio: 1
+
 		&:nth-child(-n+4)
 			flex-basis: calc((100% - 60px) / 4)
+
 		&:nth-child(n+5)
 			flex-basis: calc((100% - 80px) / 5)
 

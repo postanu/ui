@@ -42,7 +42,7 @@ function changeValue (): void {
 </script>
 
 <style lang="sass">
-@import '../../styles/mixins/visually-hidden'
+@use '../../styles/mixins/visually-hidden'
 
 .p-radio-button
 	min-height: 50px
@@ -52,7 +52,7 @@ function changeValue (): void {
 		color: var(--p-color-white-09)
 
 .p-radio-button__input
-	@include visually-hidden
+	@include visually-hidden.visually-hidden
 
 .p-radio-button__label
 	display: block

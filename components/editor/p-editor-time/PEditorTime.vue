@@ -254,7 +254,7 @@ function onKeypress (event: KeyboardEvent, input: InputType): void {
 .p-editor-time__input
 	box-sizing: content-box
 	width: 19px
-	padding: 5px 0px
+	padding: 5px 0
 	caret-color: transparent
 	transition: margin-left 0.15s ease-in, padding 0.15s ease-in
 
@@ -276,5 +276,5 @@ function onKeypress (event: KeyboardEvent, input: InputType): void {
 	content: "\00a0 "
 
 .p-editor-time__colon
-	padding: 5px 0px
+	padding: 5px 0
 </style>

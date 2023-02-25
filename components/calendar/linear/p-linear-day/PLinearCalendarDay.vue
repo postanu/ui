@@ -67,10 +67,13 @@ const areaLabel = computed(
 	&:hover
 		.p-linear-calendar-day__border
 			background-color: var(--p-color-black) !important
+
 	.p-linear-calendar-day__border
 		background-color: var(--p-color-black) !important
+
 	.p-linear-calendar-day__bg
 		background-color: var(--p-color-white-07)
+
 	.p-linear-calendar-day__date,
 	.p-linear-calendar-day__day
 		color: var(--p-color-black)
@@ -78,6 +81,7 @@ const areaLabel = computed(
 .p-linear-calendar-day--weekend
 	.p-linear-calendar-day__border
 		background-color: var(--p-color-red-02)
+
 	&:hover
 		.p-linear-calendar-day__border
 			background-color: var(--p-color-red-05)
