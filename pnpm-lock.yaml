@@ -79,7 +79,7 @@ devDependencies:
   '@nanostores/i18n': 0.8.0_nanostores@0.7.4
   '@nanostores/vue': 0.7.0_5k5a5xuqaffd2s4dm6vugcn64i
   '@postanu/browserslist-config': 0.3.0
-  '@postanu/core': github.com/postanu/core/af1c84b863b4026cac9456b40fbc61675dfef4be
+  '@postanu/core': github.com/postanu/core/fc1168b55da6e5521481be663b6c8102dc96cb21
   '@postanu/eslint-config': 3.13.0_juog4fgzpffh3mbyienizsh3yi
   '@postanu/i18n': github.com/postanu/i18n/a494cc32dc8f62af8479acda5673dc1cb0f436ea_7aowhfz4ri522vhxafjkbfmile
   '@postanu/stylelint-config': 0.7.5_xczz5gvex7qa2pnzrs7ducdpai
@@ -2286,7 +2286,7 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@postanu/core': github.com/postanu/core/af1c84b863b4026cac9456b40fbc61675dfef4be
+      '@postanu/core': github.com/postanu/core/fc1168b55da6e5521481be663b6c8102dc96cb21
       vue: 3.2.47
     dev: true
 
@@ -13641,8 +13641,8 @@ packages:
     version: 0.0.0
     dev: true
 
-  github.com/postanu/core/af1c84b863b4026cac9456b40fbc61675dfef4be:
-    resolution: {tarball: https://codeload.github.com/postanu/core/tar.gz/af1c84b863b4026cac9456b40fbc61675dfef4be}
+  github.com/postanu/core/fc1168b55da6e5521481be663b6c8102dc96cb21:
+    resolution: {tarball: https://codeload.github.com/postanu/core/tar.gz/fc1168b55da6e5521481be663b6c8102dc96cb21}
     name: '@postanu/core'
     version: 0.3.0
     dev: true
