@@ -11,7 +11,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./exports/index.js",
-    "./style": "./styles/base.styl",
+    "./style": "./styles/base.sass",
     "./queue": "./exports/queue.js",
     "./editor": "./exports/editor.js"
   },
