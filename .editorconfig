@@ -1,6 +1,6 @@
 root = true
 
-[*.{js,vue,ts,styl}]
+[*.{js,vue,ts,sass}]
 indent_style = tab
 indent_size = 2
 end_of_line = lf
