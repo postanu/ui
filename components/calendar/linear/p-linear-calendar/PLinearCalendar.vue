@@ -71,7 +71,7 @@ let nextMonth = computed(
 )
 </script>
 
-<style lang="stylus">
+<style lang="sass">
 .fade-enter-active
 	transition: opacity 0.3s ease-in
 
@@ -83,7 +83,7 @@ let nextMonth = computed(
 	opacity: 0
 
 .p-linear-calendar
-	padding: 20px 20px 110px 20px
+	padding: 20px 20px 110px
 	overflow-x: auto
 
 .p-linear-calendar,
@@ -100,9 +100,7 @@ let nextMonth = computed(
 	font-weight: 700
 	color: var(--p-color-white-03)
 	background-color: var(--p-color-black)
-	box-shadow: \
-		-40px 0 20px 20px var(--p-color-black),
-		40px 0 20px 10px var(--p-color-black)
+	box-shadow: -40px 0 20px 20px var(--p-color-black), 40px 0 20px 10px var(--p-color-black)
 
 .p-linear-calendar__next-month:hover
 	color: var(--p-color-white-09)
@@ -150,9 +148,7 @@ let nextMonth = computed(
 	font-weight: 700
 	cursor: default
 	background-color: black
-	box-shadow: \
-		-40px 0 20px 20px var(--p-color-black),
-		40px 0 20px 10px var(--p-color-black)
+	box-shadow: -40px 0 20px 20px var(--p-color-black), 40px 0 20px 10px var(--p-color-black)
 
 .p-linear-calendar__week
 	margin-top: 50px
