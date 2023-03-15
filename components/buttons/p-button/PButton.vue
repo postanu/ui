@@ -42,7 +42,7 @@ a.p-button:hover
 	background: var(--p-button-background)
 	border: var(--p-button-border)
 	border-radius: var(--p-button-radius)
-	transition: background 0.05s ease-in
+	transition: background 0.05s ease-in, border 0.05s ease-in
 
 .p-button:disabled
 	color: var(--p-color-white-05)
