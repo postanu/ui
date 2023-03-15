@@ -21,6 +21,9 @@ const tag = computed(() => {
 	--p-button-background: var(--p-color-white-01)
 	--p-button-hover-background: var(--p-color-blue-09)
 	--p-button-active-background: var(--p-color-blue-06)
+	--p-button-border: none
+	--p-button-hover-border: none
+	--p-button-active-border: none
 
 	padding: var(--p-button-padding)
 
@@ -37,6 +40,7 @@ a.p-button:hover
 	min-width: 100%
 	padding: var(--p-button-content-padding)
 	background: var(--p-button-background)
+	border: var(--p-button-border)
 	border-radius: var(--p-button-radius)
 	transition: background 0.05s ease-in
 
@@ -46,7 +50,9 @@ a.p-button:hover
 
 .p-button:not(:disabled):hover .p-button__content
 	background-color: var(--p-button-hover-background)
+	border: var(--p-button-hover-border)
 
 .p-button:not(:disabled):active .p-button__content
 	background: var(--p-button-active-background)
+	border: var(--p-button-active-border)
 </style>
