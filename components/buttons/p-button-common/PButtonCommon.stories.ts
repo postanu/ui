@@ -4,7 +4,12 @@ import PButtonCommon from './PButtonCommon.vue'
 
 export default {
 	title: 'Buttons / PButtonCommon',
-	component: PButtonCommon
+	component: PButtonCommon,
+	argTypes: {
+		default: {
+			control: 'text'
+		}
+	}
 } as Meta<typeof PButtonCommon>
 
 const Template: StoryFn<typeof PButtonCommon> = args => ({
