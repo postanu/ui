@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryFn } from '@storybook/vue3'
 import { NETWORKS_ORDER } from '@postanu/core'
 
 import PButtonConnect from './PButtonConnect.vue'
@@ -12,21 +12,29 @@ export default {
 			control: 'select',
 			options: NETWORKS_ORDER
 		},
-		url: {
-			control: 'text',
-			description: 'URL'
+		href: {
+			control: 'text'
 		},
 		default: {
 			control: 'text'
 		}
 	}
-}
+} as Meta<typeof PButtonConnect>
 
-const Template: Story = args => ({
+const Template: StoryFn<typeof PButtonConnect> = args => ({
 	components: { PButtonConnect },
-	setup: () => ({ args }),
+	setup: () => ({
+		args,
+		network: args.network,
+		href: args.href
+	}),
 	template: `
-		<p-button-connect v-bind="args">{{ args.default }}</p-button-connect>
+		<p-button-connect
+			:href="href"
+			:network="network"
+		>
+			{{ args.default }}
+		</p-button-connect>
 	`
 })
 
@@ -34,5 +42,5 @@ export const Default = Template.bind({})
 Default.args = {
 	default: 'Facebook',
 	network: 'facebook',
-	url: '#'
+	href: '#'
 }

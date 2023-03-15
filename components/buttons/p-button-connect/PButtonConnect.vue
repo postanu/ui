@@ -1,5 +1,5 @@
 <template lang="pug">
-a.p-button-connect(:href="url")
+p-button.p-button-connect
 	p-icon-arrow-north-east.p-button-connect__arrow
 	component.p-button-connect__icon(:is="icon")
 	span.p-button-connect__label
@@ -11,32 +11,24 @@ import { computed } from 'vue'
 import type { NETWORKS_ORDER } from '@postanu/core'
 
 import PIconArrowNorthEast from '../../icons/p-icon-arrow-north-east/PIconArrowNorthEast.vue'
+import PButton from '../p-button/PButton.vue'
 
-const props = defineProps<{
+interface Props {
 	network: typeof NETWORKS_ORDER[number]
-	url: string
-}>()
+}
+
+const props = defineProps<Props>()
 
 const icon = computed(() => `p-icon-${props.network}`)
 </script>
 
 <style lang="sass">
 .p-button-connect
-	position: relative
-	box-sizing: border-box
-	display: block
-	width: 100px
-	padding: 10px
-	text-decoration: none
-	cursor: pointer
-	user-select: none
-	background-color: var(--p-color-white-01)
-	border-radius: 5px
-	transition: background 0.05s ease-out
+	--p-button-content-padding: 10px
+	--p-button-radius: 5px
 
-.p-button-connect:hover
-	color: inherit
-	background-color: var(--p-color-blue)
+	position: relative
+	width: 100px
 
 .p-button-connect__arrow
 	position: absolute
@@ -48,7 +40,7 @@ const icon = computed(() => `p-icon-${props.network}`)
 
 .p-button-connect__label
 	display: block
-	margin-top: 25px
-	margin-bottom: -5px
+	padding-top: 25px
+	line-height: calc(var(--p-body-line-height) * var(--p-body-font-size) - 5px)
 	text-align: left
 </style>

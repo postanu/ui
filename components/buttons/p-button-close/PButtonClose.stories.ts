@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 import PButtonClose from './PButtonClose.vue'
 
@@ -10,9 +10,9 @@ export default {
 			action: true
 		}
 	}
-}
+} as Meta<typeof PButtonClose>
 
-const Template: Story = args => ({
+const Template: StoryFn<typeof PButtonClose> = args => ({
 	components: { PButtonClose },
 	setup: () => ({ args }),
 	template: `

@@ -3,25 +3,22 @@
 	@mouseenter="setHover(true)"
 	@mouseleave="setHover(false)"
 )
-	p-button(
+	p-button-text(
 		v-if="!removing"
-		type="text"
-		danger
+		type="danger"
 		@click="showQuestion"
 	)
 		slot(name="default") Remove
 	template(v-else)
 		.p-button-remove__question
 			slot(name="question") Delete?
-		p-button(
-			type="text"
-			muted
+		p-button-text(
+			type="muted"
 			@click="hideQuestion"
 		)
 			slot(name="disagree") Cancel
-		p-button(
-			type="text"
-			danger
+		p-button-text(
+			type="danger"
 			@click="remove"
 		)
 			slot(name="agree") Confirm
@@ -30,7 +27,7 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
 
-import PButton from '../p-button/PButton.vue'
+import PButtonText from '../p-button-text/PButtonText.vue'
 
 interface Props {
 	timeout?: number

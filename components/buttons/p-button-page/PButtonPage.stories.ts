@@ -1,21 +1,18 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 import PButtonPage from './PButtonPage.vue'
 import PPage from '../../p-page/PPage.vue'
 
 export default {
 	title: 'Buttons / PButtonPage',
-	component: PButtonPage,
-	argTypes: {
-		tag: {
-			control: 'select',
-			options: ['button', 'a']
-		}
-	}
-}
+	component: PButtonPage
+} as Meta<typeof PButtonPage>
 
-const Template: Story = args => ({
-	components: { PButtonPage, PPage },
+const Template: StoryFn<typeof PButtonPage> = args => ({
+	components: {
+		PButtonPage,
+		PPage
+	},
 	setup: () => ({ args }),
 	template: `
 		<p-button-page v-bind="args">
