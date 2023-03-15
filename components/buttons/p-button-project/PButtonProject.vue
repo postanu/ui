@@ -23,6 +23,8 @@ import PButtonOutline from '../p-button-outline/PButtonOutline.vue'
 
 .p-button-project svg
 	display: block
+	color: var(--p-color-white-04)
+	transition: color 0.15s ease-out
 
 .p-button-project:after
 	box-sizing: border-box
@@ -33,7 +35,11 @@ import PButtonOutline from '../p-button-outline/PButtonOutline.vue'
 	background: var(--p-button-project-line-color)
 	transition: margin-top 0.15s ease-out, height 0.15s ease-out
 
-.p-button-project:hover:after
-	height: calc(var(--p-button-project-line-height) - 50px)
-	margin-top: 50px
+.p-button-project:hover
+	svg
+		color: var(--p-color-white-09)
+
+	&:after
+		height: calc(var(--p-button-project-line-height) - 50px)
+		margin-top: 50px
 </style>
