@@ -1,11 +1,11 @@
 import type { Story } from '@storybook/vue3'
 
 import { generatePages, randomFromArray } from '../../../generator/index.js'
-import PEditorPages from './PEditorPages.vue'
+import PEditorPageList from './PEditorPageList.vue'
 
 export default {
-	title: 'Editor / PEditorPages',
-	component: PEditorPages,
+	title: 'Editor / PEditorPageList',
+	component: PEditorPageList,
 	argTypes: {
 		update: { action: true },
 		connect: { action: true },
@@ -14,10 +14,10 @@ export default {
 }
 
 const Template: Story = args => ({
-	components: { PEditorPages },
+	components: { PEditorPageList },
 	setup: () => ({ args }),
 	template: `
-		<p-editor-pages
+		<p-editor-page-list
 			:pages="args.pages"
 			:selected="args.selected"
 			@update="args.update"

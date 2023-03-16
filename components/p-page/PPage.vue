@@ -1,6 +1,6 @@
 <template lang="pug">
 .p-page
-	component(
+	component.p-page__icon(
 		v-if="icon"
 		:is="icon"
 	)
@@ -40,9 +40,15 @@ const icon = computed(() => {
 
 <style lang="sass">
 .p-page
+	--p-page-show-icon: 1
+
 	display: flex
 	gap: 10px
 	cursor: default
+
+.p-page__icon
+	opacity: var(--p-page-show-icon)
+	transition: opacity 0.05s ease-in
 
 .p-page__un
 	padding-top: 0.07em
