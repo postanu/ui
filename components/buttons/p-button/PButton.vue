@@ -28,7 +28,7 @@ const tag = computed(() => {
 	padding: var(--p-button-padding)
 
 a.p-button
-	display: inline-flex
+	display: inline-block
 	text-decoration: none
 	user-select: none
 
@@ -37,7 +37,6 @@ a.p-button:hover
 	cursor: pointer
 
 .p-button__content
-	min-width: 100%
 	padding: var(--p-button-content-padding)
 	background: var(--p-button-background)
 	border: var(--p-button-border)
