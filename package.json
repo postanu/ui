@@ -87,7 +87,7 @@
     "@postanu/i18n": "github:postanu/i18n",
     "@postanu/stylelint-config": "^0.7.5",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.7.0",
+    "@postanu/types": "github:postanu/types",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-backgrounds": "^6.5.16",
     "@storybook/addon-docs": "^6.5.16",
