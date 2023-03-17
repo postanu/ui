@@ -93,18 +93,12 @@ defineExpose({ removeButtonRef })
 	content: ""
 
 .p-queue-item:before
-	top: -1px
-	right: -20px
-	bottom: 0
-	left: -20px
+	inset: -1px -20px 0
 	border-top: 1px solid var(--p-color-white-01)
 	border-bottom: 1px solid var(--p-color-white-01)
 
 .p-queue-item:after
-	top: 0
-	right: -20px
-	bottom: 1px
-	left: -20px
+	inset: 0 -20px 1px
 	background-color: var(--p-color-white-005)
 	opacity: 0
 	transition: opacity 0.05s ease-in

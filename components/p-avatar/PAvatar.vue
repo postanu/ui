@@ -59,10 +59,7 @@ function onError (): void {
 
 .p-avatar:before
 	position: absolute
-	top: -1px
-	right: -1px
-	bottom: -1px
-	left: -1px
+	inset: -1px
 	content: ""
 	background: var(--p-color-white-02)
 	border-radius: 50%
