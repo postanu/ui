@@ -3,27 +3,27 @@ import {
 	getDaysInMonth,
 	isWeekend,
 	getMonth,
-	isToday,
 	getYear,
 	getDate,
 	setDate,
 	isPast,
 	getDay,
 	sub,
-	add
+	add,
+	getTime
 } from 'date-fns'
 
 export interface LinearCalendarDay {
 	day: number
 	date: number
+	dayOfWeek: 0 | 1 | 2 | 3 | 4 | 5 | 6
 	isPast: boolean
-	isToday: boolean
 	isWeekend: boolean
-	isSelected: boolean
 }
 
 export interface LinearCalendarMonth {
 	days: Map<number, LinearCalendarDay>
+	// todo: cleanup unnecessary
 	isToday: boolean
 	isHovered: boolean
 	isSelected: boolean
@@ -51,45 +51,51 @@ export function createLinearCalendar (options: CreateLinearCalendarOptions): Lin
 	)
 
 	for (let monthDate of monthsList) {
-		let month: LinearCalendarMonth = {
-			days: new Map<number, LinearCalendarDay>(),
-			isToday: false,
-			isHovered: false,
-			isSelected: false
-		}
-		let yearKey = getYear(monthDate)
-		let monthKey = getMonth(monthDate) + 1
-
-		let days = Array.from(
-			{ length: getDaysInMonth(monthDate) },
-			(value, index) => setDate(monthDate, 1 + index)
-		)
-
-		for (let date of days) {
-			let dateOfMonth = getDate(date)
-			month.days.set(
-				dateOfMonth,
-				{
-					day: getDay(date),
-					date: dateOfMonth,
-					isPast: isPast(date),
-					isToday: isToday(date),
-					isWeekend: isWeekend(date),
-					// todo
-					isSelected: date.getTime() === selectedDate
-				}
-			)
-		}
-
-		let year = calendar.get(yearKey)
-		if (year) {
-			calendar.set(yearKey, year.set(monthKey, month))
-		} else {
-			let months = new Map()
-			months.set(monthKey, month)
-			calendar.set(yearKey, months)
-		}
+		addMonth(calendar, monthDate)
 	}
 
 	return calendar
+}
+
+export function addMonth (
+	calendar: LinearCalendar,
+	monthDate: Date
+): void {
+	let month: LinearCalendarMonth = {
+		days: new Map<number, LinearCalendarDay>(),
+		isToday: false,
+		isHovered: false,
+		isSelected: false
+	}
+
+	let days = Array.from(
+		{ length: getDaysInMonth(monthDate) },
+		(value, index) => setDate(monthDate, 1 + index)
+	)
+
+	for (let date of days) {
+		let dateOfMonth = getDate(date)
+		month.days.set(
+			dateOfMonth,
+			{
+				day: dateOfMonth,
+				date: getTime(date),
+				dayOfWeek: getDay(date),
+				isPast: isPast(date),
+				isWeekend: isWeekend(date)
+			}
+		)
+	}
+
+	let yearKey = getYear(monthDate)
+	let monthKey = getMonth(monthDate) + 1
+
+	let year = calendar.get(yearKey)
+	if (year) {
+		calendar.set(yearKey, year.set(monthKey, month))
+	} else {
+		let months = new Map()
+		months.set(monthKey, month)
+		calendar.set(yearKey, months)
+	}
 }

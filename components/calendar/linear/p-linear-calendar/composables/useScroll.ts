@@ -1,11 +1,11 @@
-import { nextTick, onMounted, ref } from 'vue'
+import { nextTick, onMounted, ref, watch } from 'vue'
 import { useEventListener } from '@vueuse/core'
 import type { UseIntersectionObserverOptions } from '@vueuse/core'
 import type { Ref } from 'vue'
 
 interface UseScrollReturn {
 	onIntersectionObserver: () => [
-		(cb: [IntersectionObserverEntry]) => void,
+		IntersectionObserverCallback,
 		UseIntersectionObserverOptions
 	]
 	scrollToNextMonth: () => void
@@ -36,7 +36,7 @@ export function useScroll (
 	}
 
 	function onIntersectionObserver (): [
-		(cb: [IntersectionObserverEntry]) => void,
+		(cb: IntersectionObserverEntry[]) => void,
 		UseIntersectionObserverOptions
 	] {
 		return [
@@ -74,11 +74,12 @@ export function useScroll (
 	}
 
 	onMounted(() => {
-		let today = root.value?.querySelector('#today')
-		let coords = today?.getBoundingClientRect()
-		if (coords) {
-			root.value?.scrollTo(coords.x - SHIFT, 0)
-		}
+		scrollTo(root, '.p-linear-calendar-day--today')
+	})
+
+	watch(selectedDate, async () => {
+		await nextTick()
+		scrollTo(root, '.p-linear-calendar-day--selected', true)
 	})
 
 	let timeoutId: ReturnType<typeof setTimeout> | undefined
@@ -95,5 +96,22 @@ export function useScroll (
 		scrollToNextMonth,
 		showNextMonth,
 		nextMonthId: currentMonthId
+	}
+}
+
+function scrollTo (
+	root: Ref<HTMLDivElement | null>,
+	selector: string,
+	smooth?: boolean
+): void {
+	let el = root.value?.querySelector(selector)
+	let left = root.value?.scrollLeft || 0
+	let coords = el?.getBoundingClientRect()
+	if (coords) {
+		root.value?.scrollTo({
+			top: 0,
+			left: left + coords.x - SHIFT,
+			behavior: smooth ? 'smooth' : 'auto'
+		})
 	}
 }

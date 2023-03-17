@@ -1,7 +1,8 @@
 <template lang="pug">
 button.p-linear-calendar-day(
 	:class=`{
-		'p-linear-calendar-day--active': isToday || isSelected,
+		'p-linear-calendar-day--today': isToday,
+		'p-linear-calendar-day--selected': isSelected,
 		'p-linear-calendar-day--past': isPast,
 		'p-linear-calendar-day--weekend': isWeekend
 	}`
@@ -63,7 +64,8 @@ const areaLabel = computed(
 	.p-linear-calendar-day__date
 		color: var(--p-color-white-04)
 
-.p-linear-calendar-day--active
+.p-linear-calendar-day--today,
+.p-linear-calendar-day--selected
 	&:hover
 		.p-linear-calendar-day__border
 			background-color: var(--p-color-black) !important

@@ -20,16 +20,16 @@
 				:key="day.date"
 			)
 				p-linear-calendar-day(
-					:id="day.isToday ? 'today' : undefined"
 					:is-past="day.isPast"
-					:is-today="day.isToday"
-					:is-selected="day.isSelected"
+					:is-today="isToday(day.date)"
+					:is-selected="day.date === selectedDate"
 					:is-weekend="day.isWeekend"
 					:drafts="0"
 					:posts="0"
+					@click="selectDate(day.date)"
 				)
-					template(#date) {{ day.date }}
-					template(#day) {{ t[DAYS[day.day]] }}
+					template(#date) {{ day.day }}
+					template(#day) {{ t[DAYS[day.dayOfWeek]] }}
 	transition(name="fade")
 		button.p-linear-calendar__next-month(
 			v-if="showNextMonth"
@@ -42,6 +42,7 @@ import { vIntersectionObserver } from '@vueuse/components'
 import { calendarMessages } from '@postanu/i18n'
 import { MONTHS, DAYS } from '@postanu/core'
 import { useStore } from '@nanostores/vue'
+import { isToday } from 'date-fns'
 import { computed, ref } from 'vue'
 
 import PLinearCalendarDay from '../p-linear-day/PLinearCalendarDay.vue'
@@ -53,7 +54,7 @@ const calendar = ref(
 	createLinearCalendar({
 		selectedDate: selectedDate.value,
 		subMonths: 1,
-		addMonths: 20
+		addMonths: 3
 	})
 )
 
@@ -69,6 +70,10 @@ const {
 let nextMonth = computed(
 	() => t.value[MONTHS[parseMonthId(nextMonthId.value)[0]]]
 )
+
+function selectDate (date: number): void {
+	selectedDate.value = date
+}
 </script>
 
 <style lang="sass">

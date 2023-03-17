@@ -1,4 +1,4 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 import PLinearCalendar from './PLinearCalendar.vue'
 
@@ -8,16 +8,13 @@ export default {
 	parameters: {
 		layout: 'fullscreen'
 	}
-}
+} as Meta<typeof PLinearCalendar>
 
-export const parameters = { layout: 'fullscreen' }
-
-const Template: Story = args => ({
+const Template: StoryFn<typeof PLinearCalendar> = args => ({
 	components: { PLinearCalendar },
 	setup: () => ({ args }),
 	template: `
-		<p-linear-calendar>
-		</p-linear-calendar>
+		<p-linear-calendar />
 	`
 })
 
