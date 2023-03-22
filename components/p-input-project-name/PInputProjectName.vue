@@ -16,19 +16,21 @@
 	)
 	label.p-input-project-name__label(
 		for="project-name"
-		v-show="modelValue.length > 0"
+		v-show="showPlaceholder"
 	) {{ placeholder }}
 </template>
 
 <script lang="ts" setup>
-import { ref, toRefs } from 'vue'
+import { computed, ref, toRefs } from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 
-const props = defineProps<{
+interface Props {
 	modelValue: string
 	placeholder: string
-}>()
+}
+
+const props = defineProps<Props>()
 
 const emit = defineEmits<{
 	(event: 'update:modelValue', value: string | undefined): void
@@ -37,6 +39,10 @@ const emit = defineEmits<{
 
 const { modelValue } = toRefs(props)
 const input = ref<HTMLInputElement | null>(null)
+
+const showPlaceholder = computed(
+	() => modelValue.value.length > 0 && props.placeholder.length > 0
+)
 
 function emitUpdate (value: string | undefined): void {
 	emit('update:modelValue', value)

@@ -21,7 +21,7 @@ export const Default: Story = args => ({
 	components: { PInputProjectName },
 	setup: () => ({
 		args,
-		model: ref('')
+		model: ref(args.modelValue)
 	}),
 	template: `
 		<p-input-project-name
