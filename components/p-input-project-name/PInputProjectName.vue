@@ -56,7 +56,11 @@ function focus (): void {
 	input.value?.focus()
 }
 
-defineExpose({ focus })
+function blur (): void {
+	input.value?.blur()
+}
+
+defineExpose({ focus, blur })
 </script>
 
 <style lang="sass" scoped>
