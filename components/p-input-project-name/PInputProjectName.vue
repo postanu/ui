@@ -12,7 +12,7 @@
 		:placeholder="placeholder"
 		:model-value="modelValue"
 		@update:model-value="emitUpdate"
-		@keyup.enter="emitChange"
+		@keyup.enter="emitEnter"
 	)
 	label.p-input-project-name__label(
 		for="project-name"
@@ -34,7 +34,7 @@ const props = defineProps<Props>()
 
 const emit = defineEmits<{
 	(event: 'update:modelValue', value: string | undefined): void
-	(event: 'change', value: string): void
+	(event: 'enter', value: string): void
 }>()
 
 const { modelValue } = toRefs(props)
@@ -48,8 +48,8 @@ function emitUpdate (value: string | undefined): void {
 	emit('update:modelValue', value)
 }
 
-function emitChange ($event: KeyboardEvent): void {
-	emit('change', ($event.target as HTMLInputElement).value)
+function emitEnter ($event: KeyboardEvent): void {
+	emit('enter', ($event.target as HTMLInputElement).value)
 }
 
 function focus (): void {
