@@ -15,7 +15,7 @@
 						:class="{ 'p-settings-pages__item--removing': isRemoving(page.id) }"
 					)
 						p-page.p-pages-table__page(
-							:avatar="page.avatarUrl"
+							:avatar="page.avatar"
 							:fullname="page.name"
 							:username="page.username"
 						)

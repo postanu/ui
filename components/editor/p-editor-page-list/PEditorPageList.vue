@@ -13,7 +13,7 @@
 				)
 					p-editor-page.p-editor-page-list__page(
 						:icon="page.network"
-						:avatar="page.avatarUrl"
+						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
 						:show-icon="true"
@@ -37,7 +37,7 @@
 				)
 					p-editor-page.p-editor-page-list__page(
 						:icon="page.network"
-						:avatar="page.avatarUrl"
+						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
 						:show-icon="true"
@@ -61,7 +61,7 @@
 				)
 					p-editor-page.p-editor-page-list__page(
 						:icon="page.network"
-						:avatar="page.avatarUrl"
+						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
 						:show-icon="true"

@@ -44,14 +44,14 @@ export function generatePages (
 			}
 
 			return Array.from<Page, Page>({ length: pagesCount }, () => {
-				let { name, avatarUrl } = getRandomData('members')
+				let { name, avatar } = getRandomData('members')
 				return {
 					id: nanoid(),
 					projectId: `project-${nanoid()}`,
 					name,
 					network,
 					username: usernameFromName(name),
-					avatarUrl,
+					avatar,
 					status: 100,
 					isSolo
 				}

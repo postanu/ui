@@ -14,7 +14,7 @@
 					:key="page.id"
 				)
 					p-avatar(
-						:image="page.avatarUrl"
+						:image="page.avatar"
 						:letter="page.name"
 					)
 				.p-queue-pages__counter(

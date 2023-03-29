@@ -49,6 +49,7 @@ Default.args = {
 export const Letter = Template.bind({})
 Letter.args = {
 	icon: 'facebook',
+	avatar: null,
 	fullname: 'Marilyn Manson',
 	username: 'marilynmanson'
 }

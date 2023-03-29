@@ -20,7 +20,7 @@ import PAvatar from '../p-avatar/PAvatar.vue'
 
 interface Props {
 	icon?: typeof NETWORKS_ORDER[number]
-	avatar?: string
+	avatar: string | null
 	fullname: string
 	username: string
 }
@@ -29,7 +29,7 @@ const props = withDefaults(
 	defineProps<Props>(),
 	{
 		icon: undefined,
-		avatar: undefined
+		avatar: null
 	}
 )
 
