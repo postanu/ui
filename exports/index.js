@@ -19,6 +19,8 @@ export { default as PButtonAvatar } from '../components/buttons/p-button-avatar/
 export { default as PButtonCommon } from '../components/buttons/p-button-common/PButtonCommon.vue'
 export { default as PButtonRemove } from '../components/buttons/p-button-remove/PButtonRemove.vue'
 export { default as PButtonConnect } from '../components/buttons/p-button-connect/PButtonConnect.vue'
+export { default as PButtonOutline } from '../components/buttons/p-button-outline/PButtonOutline.vue'
+export { default as PButtonProject } from '../components/buttons/p-button-project/PButtonProject.vue'
 export { default as PTableRow } from '../components/table/p-table-row/PTableRow.vue'
 export { default as PTableGroup } from '../components/table/p-table-group/PTableGroup.vue'
 export { default as PTableHeadline } from '../components/table/p-table-headline/PTableHeadline.vue'
