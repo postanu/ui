@@ -25,7 +25,6 @@ const background = computed(() => `url("${props.image}")`)
 	box-sizing: content-box
 	width: 24px
 	height: 24px
-	padding: 3px
 	background: v-bind('background')
 	background-position: center
 	background-size: cover
