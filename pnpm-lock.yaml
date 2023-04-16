@@ -88,9 +88,6 @@ devDependencies:
   '@types/node':
     specifier: ^18.15.5
     version: 18.15.5
-  '@types/react':
-    specifier: file:@types/react
-    version: file:@types/react
   '@types/twitter-text':
     specifier: ^3.1.5
     version: 3.1.5
@@ -9307,12 +9304,6 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
-
-  file:@types/react:
-    resolution: {directory: '@types/react', type: directory}
-    name: react
-    version: 0.0.0
     dev: true
 
   github.com/postanu/core/26bf91054f965b15e5feca0c01ebfd773810bd51(nanoid@4.0.1):
