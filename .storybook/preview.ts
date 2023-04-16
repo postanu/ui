@@ -1,4 +1,4 @@
-import { app } from '@storybook/vue3'
+import { setup } from '@storybook/vue3'
 import type { Parameters } from '@storybook/vue3'
 
 import PIconInstagram from '../components/icons/p-icon-instagram/PIconInstagram.vue'
@@ -24,7 +24,9 @@ export const parameters: Parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' }
 }
 
-app.component('p-icon-instagram', PIconInstagram)
-app.component('p-icon-facebook', PIconFacebook)
-app.component('p-icon-twitter', PIconTwitter)
-app.component('p-icon-vk', PIconVK)
+setup(app => {
+	app.component('p-icon-instagram', PIconInstagram)
+	app.component('p-icon-facebook', PIconFacebook)
+	app.component('p-icon-twitter', PIconTwitter)
+	app.component('p-icon-vk', PIconVK)
+})
