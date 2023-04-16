@@ -1,20 +1,18 @@
 <template lang="pug">
 .p-linear-calendar(ref="root")
 	.p-linear-calendar__year(
-		v-for="[yearIndex, year] in calendar"
-		:key="yearIndex"
+		v-for="[yearKey, year] in calendar"
+		:key="yearKey"
 	)
 		.p-linear-calendar__year-header
-			.p-linear-calendar__year-name {{ yearIndex }}
+			.p-linear-calendar__year-name {{ yearKey }}
 		.p-linear-calendar__month(
-			v-for="[monthIndex, month] in year"
-			:key="monthIndex"
+			v-for="[monthKey, month] in year"
+			:key="`${yearKey}:${monthKey}`"
+			:ref="setRef(yearKey, monthKey)"
 		)
 			.p-linear-calendar__month-header
-				.p-linear-calendar__month-name(
-					:data-month-id="monthIndex + ':' + yearIndex"
-					v-intersection-observer="onIntersectionObserver()"
-				) {{ t[MONTHS[monthIndex - 1]] }}
+				.p-linear-calendar__month-name {{ t[MONTHS[monthKey - 1]] }}
 			template(
 				v-for="[,day] in month.days"
 				:key="day.date"
@@ -38,37 +36,32 @@
 </template>
 
 <script lang="ts" setup>
-import { vIntersectionObserver } from '@vueuse/components'
+import { computed, ref } from 'vue'
 import { calendarMessages } from '@postanu/i18n'
 import { MONTHS, DAYS } from '@postanu/core'
 import { useStore } from '@nanostores/vue'
 import { isToday } from 'date-fns'
-import { computed, ref } from 'vue'
 
 import PLinearCalendarDay from '../p-linear-day/PLinearCalendarDay.vue'
-import { createLinearCalendar } from '../../create-calendar/index.js'
-import { parseMonthId, useScroll } from './composables/useScroll.js'
-
-const selectedDate = ref(Date.now())
-const calendar = ref(
-	createLinearCalendar({
-		selectedDate: selectedDate.value,
-		subMonths: 1,
-		addMonths: 3
-	})
-)
+import { useCalendar } from './composables/useCalendar.js'
 
 const root = ref<HTMLDivElement | null>(null)
-const t = useStore(calendarMessages)
+const selectedDate = ref(Date.now())
 const {
-	onIntersectionObserver,
-	scrollToNextMonth,
+	calendar,
+	nextMonthKey,
 	showNextMonth,
-	nextMonthId
-} = useScroll(root, selectedDate)
+	setRef,
+	scrollToNextMonth
+} = useCalendar({
+	root,
+	selectedDate
+})
+
+const t = useStore(calendarMessages)
 
 let nextMonth = computed(
-	() => t.value[MONTHS[parseMonthId(nextMonthId.value)[0]]]
+	() => t.value[MONTHS[nextMonthKey.value - 1]]
 )
 
 function selectDate (date: number): void {
@@ -89,7 +82,12 @@ function selectDate (date: number): void {
 
 .p-linear-calendar
 	padding: 20px 20px 110px
-	overflow-x: auto
+	overflow: hidden
+	overflow-x: scroll
+	will-change: contents, scroll-position
+
+.p-linear-calendar::-webkit-scrollbar
+	display: none
 
 .p-linear-calendar,
 .p-linear-calendar__year,
