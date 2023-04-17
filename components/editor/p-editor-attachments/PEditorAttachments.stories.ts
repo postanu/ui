@@ -1,8 +1,10 @@
-import { ref } from 'vue'
-import type { Story } from '@storybook/vue3'
+import { computed } from 'vue'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { generateAttachments } from '../../../generator/index.js'
 import PEditorAttachments from './PEditorAttachments.vue'
+
+type Story = StoryObj<typeof PEditorAttachments>
 
 export default {
 	title: 'Editor / PEditorAttachments',
@@ -12,24 +14,29 @@ export default {
 			control: 'number'
 		}
 	}
-}
+} as Meta<typeof PEditorAttachments>
 
-const Template: Story = args => ({
-	components: { PEditorAttachments },
-	setup: () => ({
-		args,
-		items: ref(generateAttachments(args.count))
+export const Default: Story = {
+	render: args => ({
+		props: Object.keys(args),
+		components: { PEditorAttachments },
+		setup: props => ({
+			props,
+			items: computed(() => generateAttachments(props.count))
+		}),
+		template: `
+			<p-editor-attachments v-model="items" :disabled="props.disabled" />
+		`
 	}),
-	template: '<p-editor-attachments v-model="items" :disabled="args.disabled"/>'
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	count: 5
+	args: {
+		count: 5
+	}
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-	count: 5,
-	disabled: true
+export const Disabled: Story = {
+	...Default,
+	args: {
+		count: 5,
+		disabled: true
+	}
 }

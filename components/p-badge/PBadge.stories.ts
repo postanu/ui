@@ -1,6 +1,8 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PBadge from './PBadge.vue'
+
+type Story = StoryObj<typeof PBadge>
 
 export default {
 	title: 'PBadge',
@@ -10,13 +12,10 @@ export default {
 			control: 'text'
 		}
 	}
-}
+} as Meta<typeof PBadge>
 
-export const Default: Story = args => ({
-	components: { PBadge },
-	setup: () => ({ args }),
-	template: '<p-badge>{{ args.default }}</p-badge>'
-})
-Default.args = {
-	default: 'Badge'
+export const Default: Story = {
+	args: {
+		default: 'Badge'
+	}
 }

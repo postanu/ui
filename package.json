@@ -99,6 +99,7 @@
     "@storybook/client-logger": "^7.0.5",
     "@storybook/core-common": "^7.0.5",
     "@storybook/node-logger": "^7.0.5",
+    "@storybook/testing-library": "^0.1.0",
     "@storybook/theming": "^7.0.5",
     "@storybook/vue3": "^7.0.5",
     "@storybook/vue3-vite": "^7.0.5",
@@ -143,5 +144,8 @@
     "vue-eslint-parser": "^9.1.0",
     "vuedraggable": "^4.1.0",
     "webpack": "^5.76.3"
+  },
+  "dependencies": {
+    "@storybook/addon-interactions": "^7.0.5"
   }
 }

@@ -1,7 +1,9 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { ALLOWED_TAGS } from '../../p-heading/allowed-tags.js'
 import PTableHeadline from './PTableHeadline.vue'
+
+type Story = StoryObj<typeof PTableHeadline>
 
 export default {
 	title: 'Table / PTableHeadline',
@@ -15,16 +17,11 @@ export default {
 			options: ALLOWED_TAGS
 		}
 	}
-}
+} as Meta<typeof PTableHeadline>
 
-export const Default: Story = args => ({
-	components: { PTableHeadline },
-	setup: () => ({ args }),
-	template: `
-		<p-table-headline :tag="args.tag">{{ args.default }}</p-table-headline>
-	`
-})
-Default.args = {
-	default: 'System',
-	tag: 'h3'
+export const Default: Story = {
+	args: {
+		default: 'System',
+		tag: 'h3'
+	}
 }

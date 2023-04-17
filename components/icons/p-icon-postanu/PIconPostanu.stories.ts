@@ -1,13 +1,12 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PIconPostanu from './PIconPostanu.vue'
+
+type Story = StoryObj<typeof PIconPostanu>
 
 export default {
 	title: 'Icons / PIconPostanu',
 	component: PIconPostanu
 }
 
-export const Default: Story = () => ({
-	components: { PIconPostanu },
-	template: '<p-icon-postanu />'
-})
+export const Default: Story = {}

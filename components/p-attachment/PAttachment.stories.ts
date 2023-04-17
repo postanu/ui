@@ -1,6 +1,8 @@
-import type { StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PAttachment from './PAttachment.vue'
+
+type Story = StoryObj<typeof PAttachment>
 
 export default {
 	title: 'PAttachment',
@@ -11,15 +13,10 @@ export default {
 			description: 'Image URL'
 		}
 	}
-}
+} as Meta<typeof PAttachment>
 
-const Template: StoryFn = args => ({
-	components: { PAttachment },
-	setup: () => ({ args }),
-	template: '<p-attachment :image="args.image" />'
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	image: 'mm.jpg'
+export const Default: Story = {
+	args: {
+		image: 'mm.jpg'
+	}
 }

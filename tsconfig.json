@@ -13,8 +13,7 @@
     "lib": [
       "esnext",
       "dom"
-    ],
-    "types": []
+    ]
   },
   "include": [
     "./.storybook/**/*.ts",
@@ -22,8 +21,7 @@
     "./components/**/*.vue",
     "./components/**/*.ts",
     "./generator/**/*.ts",
-    "./exports/**/*.ts",
-    "./@types/react/index.d.ts"
+    "./exports/**/*.ts"
   ],
   "vueCompilerOptions": {
     "plugins": [

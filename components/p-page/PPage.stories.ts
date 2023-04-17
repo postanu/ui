@@ -1,7 +1,9 @@
 import { NETWORKS_ORDER } from '@postanu/core'
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PPage from './PPage.vue'
+
+type Story = StoryObj<typeof PPage>
 
 export default {
 	title: 'PPage',
@@ -14,49 +16,36 @@ export default {
 					undefined: 'No icon'
 				}
 			},
-			options: [undefined, ...NETWORKS_ORDER],
-			description: 'Icon name'
+			options: [undefined, ...NETWORKS_ORDER]
 		},
 		avatar: {
-			control: 'text',
-			description: 'Image URL'
-		},
-		fullname: {
-			control: 'text',
-			description: 'Page Full Name'
-		},
-		username: {
-			control: 'text',
-			description: 'Page Username / Nickname / URL'
+			control: 'text'
 		}
+	}
+} as Meta<typeof PPage>
+
+export const Default: Story = {
+	args: {
+		icon: 'facebook',
+		avatar: 'mm.jpg',
+		fullname: 'Marilyn Manson',
+		username: 'marilynmanson'
 	}
 }
 
-const Template: Story = args => ({
-	components: { PPage },
-	setup: () => ({ args }),
-	template: '<p-page v-bind="args" />'
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	icon: 'facebook',
-	avatar: 'mm.jpg',
-	fullname: 'Marilyn Manson',
-	username: 'marilynmanson'
+export const Letter: Story = {
+	args: {
+		icon: 'facebook',
+		avatar: null,
+		fullname: 'Marilyn Manson',
+		username: 'marilynmanson'
+	}
 }
 
-export const Letter = Template.bind({})
-Letter.args = {
-	icon: 'facebook',
-	avatar: null,
-	fullname: 'Marilyn Manson',
-	username: 'marilynmanson'
-}
-
-export const NoIcon = Template.bind({})
-NoIcon.args = {
-	avatar: 'mm.jpg',
-	fullname: 'Marilyn Manson',
-	username: 'marilynmanson'
+export const NoIcon: Story = {
+	args: {
+		avatar: 'mm.jpg',
+		fullname: 'Marilyn Manson',
+		username: 'marilynmanson'
+	}
 }

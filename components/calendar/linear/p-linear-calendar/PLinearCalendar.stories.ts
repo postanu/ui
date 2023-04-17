@@ -1,6 +1,8 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PLinearCalendar from './PLinearCalendar.vue'
+
+type Story = StoryObj<typeof PLinearCalendar>
 
 export default {
 	title: 'Calendar / PLinearCalendar',
@@ -10,16 +12,9 @@ export default {
 	}
 } as Meta<typeof PLinearCalendar>
 
-const Template: StoryFn<typeof PLinearCalendar> = args => ({
-	components: { PLinearCalendar },
-	setup: () => ({ args }),
-	template: `
-		<p-linear-calendar />
-	`
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	date: '13',
-	day: 'Fri'
+export const Default: Story = {
+	args: {
+		date: '13',
+		day: 'Fri'
+	}
 }

@@ -1,35 +1,28 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PAvatar from './PAvatar.vue'
+
+type Story = StoryObj<typeof PAvatar>
 
 export default {
 	title: 'PAvatar',
 	component: PAvatar,
 	argTypes: {
 		image: {
-			control: 'text',
-			description: 'Image URL'
-		},
-		letter: {
-			control: 'text',
-			description: 'First letter of user’s name'
+			control: 'text'
 		}
+	}
+} as Meta<typeof PAvatar>
+
+export const Image: Story = {
+	args: {
+		image: 'mm.jpg',
+		letter: 'M'
 	}
 }
 
-const Template: Story = args => ({
-	components: { PAvatar },
-	setup: () => ({ args }),
-	template: '<p-avatar v-bind="args" />'
-})
-
-export const Image = Template.bind({})
-Image.args = {
-	image: 'mm.jpg',
-	letter: 'M'
-}
-
-export const Letter = Template.bind({})
-Letter.args = {
-	letter: 'M'
+export const Letter: Story = {
+	args: {
+		letter: 'M'
+	}
 }

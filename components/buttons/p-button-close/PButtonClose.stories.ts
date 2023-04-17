@@ -1,23 +1,24 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
+import { action } from '@storybook/addon-actions'
 
 import PButtonClose from './PButtonClose.vue'
 
+type Story = StoryObj<typeof PButtonClose>
+
 export default {
 	title: 'Buttons / PButtonClose',
-	component: PButtonClose,
-	argTypes: {
-		close: {
-			action: true
-		}
-	}
+	component: PButtonClose
 } as Meta<typeof PButtonClose>
 
-const Template: StoryFn<typeof PButtonClose> = args => ({
-	components: { PButtonClose },
-	setup: () => ({ args }),
-	template: `
-		<p-button-close @close="args.close" />
-	`
-})
-
-export const Default = Template.bind({})
+export const Default: Story = {
+	render: args => ({
+		components: { PButtonClose },
+		setup: () => ({ args }),
+		template: `
+			<p-button-close @close="args.close" />
+		`
+	}),
+	args: {
+		close: action('close')
+	}
+}

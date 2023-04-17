@@ -1,7 +1,8 @@
-import { defineComponent } from 'vue'
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PQueueHeading from './PQueueHeading.vue'
+
+type Story = StoryObj<typeof PQueueHeading>
 
 export default {
 	title: 'Queue / PQueueHeading',
@@ -11,14 +12,10 @@ export default {
 			control: 'date'
 		}
 	}
-}
+} as Meta<typeof PQueueHeading>
 
-export const Default: Story = args => defineComponent({
-	components: { PQueueHeading },
-	setup: () => ({ args }),
-	template: '<p-queue-heading :date="args.date" :muted="args.muted" />'
-})
-
-Default.args = {
-	date: Date.now()
+export const Default: Story = {
+	args: {
+		date: Date.now()
+	}
 }

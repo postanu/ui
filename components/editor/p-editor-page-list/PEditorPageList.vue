@@ -2,7 +2,7 @@
 .p-editor-page-list
 	.p-editor-page-list__nopages(v-if="isZeroPages")
 		p Connect at least one page <br>you want to publish the post to
-		p-button-common Connect
+		p-button-common(@click="connectPage") Connect
 	template(v-else)
 		.p-editor-page-list__selected(v-if="showSelected")
 			ul.p-editor-page-list__list
@@ -83,7 +83,6 @@ import PButtonIcon from '../../buttons/p-button-icon/PButtonIcon.vue'
 import PEditorPage from '../p-editor-page/PEditorPage.vue'
 import PIconPlus from '../../icons/p-icon-plus/PIconPlus.vue'
 import PHeading from '../../p-heading/PHeading.vue'
-// import PButton from '../../buttons/p-button/PButton.vue'
 
 interface Props {
 	pages: ClientPage[]

@@ -1,68 +1,37 @@
-import { onMounted, ref } from 'vue'
-import type { Story } from '@storybook/vue3'
+import { ref } from 'vue'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PInput from './PInput.vue'
+
+type Story = StoryObj<typeof PInput>
 
 export default {
 	title: 'PInput',
 	component: PInput,
 	argTypes: {
-		value: {
-			control: 'text'
-		},
-		type: {
-			control: 'text'
-		},
 		placeholder: {
 			control: 'text'
-		},
-		modelValue: {
-			control: null
 		}
 	}
-}
+} as Meta<typeof PInput>
 
-const Template: Story = args => ({
-	components: { PInput },
-	setup: (): object => {
-		let input = ref<HTMLInputElement | null>(null)
-		let focused = false
-
-		if (args.testAutoFocus) {
-			onMounted(() => {
-				if (!focused) {
-					input.value?.focus()
-					focused = true
-				}
-			})
-		}
-
-		return {
+export const Default: Story = {
+	render: args => ({
+		components: { PInput },
+		setup: () => ({
 			args,
-			input,
-			type: args.type,
-			placeholder: args.placeholder,
-			value: args.value
-		}
-	},
-	template: `
-		<p-input
-			ref='input'
-			:type="args.type"
-			:placeholder="args.placeholder"
-			v-model:value="value"
-		/>
-	`
-})
-
-export const Default = Template.bind({})
-Default.args = {
-	placeholder: 'Default Input'
-}
-
-export const AutoFocus = Template.bind({})
-AutoFocus.storyName = 'Default: Autofocus'
-AutoFocus.args = {
-	testAutoFocus: true,
-	placeholder: 'Default Input'
+			modelValue: ref(args.modelValue)
+		}),
+		template: `
+			<p-input
+				:type="args.type"
+				:placeholder="args.placeholder"
+				v-model:value="modelValue"
+			/>
+		`
+	}),
+	args: {
+		placeholder: 'Default Input',
+		modelValue: ''
+	}
 }

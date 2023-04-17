@@ -1,38 +1,47 @@
-import type { Story } from '@storybook/vue3'
+import { action } from '@storybook/addon-actions'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { generatePages, randomFromArray } from '../../../generator/index.js'
 import PEditorPageList from './PEditorPageList.vue'
 
+type Story = StoryObj<typeof PEditorPageList>
+
 export default {
 	title: 'Editor / PEditorPageList',
-	component: PEditorPageList,
-	argTypes: {
-		update: { action: true },
-		connect: { action: true },
-		'update:selected': { action: true }
+	component: PEditorPageList
+} as Meta<typeof PEditorPageList>
+
+export const NoPages: Story = {
+	render: args => ({
+		components: { PEditorPageList },
+		setup: () => ({ args }),
+		template: `
+			<p-editor-page-list
+				:pages="args.pages"
+				:selected="args.selected"
+				@update="args.update"
+				@connect="args.connect"
+				@update:selected="args['update:selected']"
+			/>
+		`
+	}),
+	args: {
+		pages: [],
+		update: action('update'),
+		connect: action('connect'),
+		'update:selected': action('update:selected')
 	}
 }
 
-const Template: Story = args => ({
-	components: { PEditorPageList },
-	setup: () => ({ args }),
-	template: `
-		<p-editor-page-list
-			:pages="args.pages"
-			:selected="args.selected"
-			@update="args.update"
-			@connect="args.connect"
-			@update:selected="args['update:selected']"
-		/>
-	`
-})
-
-export const NoPages = Template.bind({})
-NoPages.args = { pages: [] }
-
-export const Full = Template.bind({})
-let pages = generatePages([[10], [3], [3], [3]], { updatables: 3 })
-let selected = randomFromArray(pages, 3, {
-	filter: item => item.status !== 200
-})
-Full.args = { pages, selected }
+export const Full: Story = {
+	...NoPages,
+	args: {
+		...NoPages.args,
+		pages: generatePages([[10], [3], [3], [3]], { updatables: 3 }),
+		selected: randomFromArray(
+			generatePages([[10], [3], [3], [3]], { updatables: 3 }), 3, {
+				filter: item => item.status !== 200
+			}
+		)
+	}
+}

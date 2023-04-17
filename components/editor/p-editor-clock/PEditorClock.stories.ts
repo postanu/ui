@@ -1,6 +1,8 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PEditorClock from './PEditorClock.vue'
+
+type Story = StoryObj<typeof PEditorClock>
 
 export default {
 	title: 'Editor / PEditorClock',
@@ -8,21 +10,21 @@ export default {
 	argTypes: {
 		format: {
 			control: 'select',
-			options: ['12', '24']
+			options: ['12h', '24h']
 		}
+	}
+} as Meta<typeof PEditorClock>
+
+export const One: Story = {
+	name: '12-hour',
+	args: {
+		format: '12h'
 	}
 }
 
-const Template: Story = args => ({
-	components: { PEditorClock },
-	setup: () => ({ args }),
-	template: '<p-editor-clock :format="args.format" />'
-})
-
-export const One = Template.bind({})
-One.storyName = '12-hour'
-One.args = { format: '12' }
-
-export const Two = Template.bind({})
-Two.storyName = '24-hour'
-Two.args = { format: '24' }
+export const Two: Story = {
+	name: '24-hour',
+	args: {
+		format: '24h'
+	}
+}

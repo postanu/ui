@@ -1,7 +1,9 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PButtonIcon from './PButtonIcon.vue'
 import PIconFacebook from '../../icons/p-icon-facebook/PIconFacebook.vue'
+
+type Story = StoryObj<typeof PButtonIcon>
 
 export default {
 	title: 'Buttons / PButtonIcon',
@@ -9,33 +11,32 @@ export default {
 	argTypes: {
 		default: {
 			control: 'text'
-		},
-		href: {
-			control: 'text'
 		}
 	}
 } as Meta<typeof PButtonIcon>
 
-const Template: StoryFn<typeof PButtonIcon> = args => ({
-	components: {
-		PButtonIcon,
-		PIconFacebook
-	},
-	setup: () => ({
-		href: args.href
+export const Default: Story = {
+	render: args => ({
+		components: {
+			PButtonIcon,
+			PIconFacebook
+		},
+		setup: () => ({ args }),
+		template: `
+			<p-button-icon :href="args.href">
+				${args.default}
+			</p-button-icon>
+		`
 	}),
-	template: `
-		<p-button-icon :href="href">
-			${args.default}
-		</p-button-icon>
-	`
-})
+	args: {
+		default: 'Button With Icon <p-icon-facebook />'
+	}
+}
 
-export const Default = Template.bind({})
-Default.args = { default: 'Button With Icon <p-icon-facebook />' }
-
-export const Link = Template.bind({})
-Link.args = {
-	default: 'Button Link With Icon <p-icon-facebook />',
-	href: '#'
+export const Link: Story = {
+	...Default,
+	args: {
+		default: 'Button Link With Icon <p-icon-facebook />',
+		href: '#'
+	}
 }

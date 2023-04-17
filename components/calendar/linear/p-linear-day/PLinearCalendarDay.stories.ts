@@ -1,6 +1,8 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PLinearCalendarDay from './PLinearCalendarDay.vue'
+
+type Story = StoryObj<typeof PLinearCalendarDay>
 
 export default {
 	title: 'Calendar / PLinearCalendarDay',
@@ -19,30 +21,41 @@ export default {
 			control: 'number'
 		}
 	}
+} as Meta<typeof PLinearCalendarDay>
+
+export const Default: Story = {
+	args: {
+		date: '13',
+		day: 'Fri',
+		drafts: 2,
+		posts: 3
+	}
 }
 
-const Template: Story = args => ({
-	components: { PLinearCalendarDay },
-	setup: () => ({ args }),
-	template: `
-		<p-linear-calendar-day
-			:is-past="args.isPast"
-			:is-today="args.isToday"
-			:is-selected="args.isSelected"
-			:is-weekend="args.isWeekend"
-			:drafts="args.drafts"
-			:posts="args.posts"
-		>
-			<template v-slot:date>{{ args.date }}</template>
-			<template v-slot:day>{{ args.day }}</template>
-		</p-linear-calendar-day>
-	`
-})
+export const Selected: Story = {
+	args: {
+		...Default.args,
+		isSelected: true
+	}
+}
 
-export const Default = Template.bind({})
-Default.args = {
-	date: '13',
-	day: 'Fri',
-	drafts: 2,
-	posts: 3
+export const Weekend: Story = {
+	args: {
+		...Default.args,
+		isWeekend: true
+	}
+}
+
+export const Past: Story = {
+	args: {
+		...Default.args,
+		isPast: true
+	}
+}
+
+export const Today: Story = {
+	args: {
+		...Default.args,
+		isToday: true
+	}
 }

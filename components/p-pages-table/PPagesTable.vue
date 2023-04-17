@@ -20,11 +20,10 @@
 							:username="page.username"
 						)
 						.p-pages-table__buttons
-							p-button(
+							p-button-text(
 								v-if="updatable && !isRemoving(page.id) "
-								type="text"
+								type="target"
 								@click="$emit('update', { id: page.id })"
-								target
 							) Update
 							p-button-remove(
 								v-if="removable"
@@ -40,9 +39,9 @@ import type { ClientPage } from '@postanu/types'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList.js'
 import PButtonRemove from '../buttons/p-button-remove/PButtonRemove.vue'
+import PButtonText from '../buttons/p-button-text/PButtonText.vue'
 import PTableGroup from '../table/p-table-group/PTableGroup.vue'
 import PTableRow from '../table/p-table-row/PTableRow.vue'
-import PButton from '../buttons/p-button/PButton.vue'
 import PPage from '../p-page/PPage.vue'
 
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>

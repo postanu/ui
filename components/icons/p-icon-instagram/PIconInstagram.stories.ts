@@ -1,13 +1,12 @@
-import type { Story } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PIconInstagram from './PIconInstagram.vue'
+
+type Story = StoryObj<typeof PIconInstagram>
 
 export default {
 	title: 'Icons / PIconInstagram',
 	component: PIconInstagram
-}
+} as Meta<typeof PIconInstagram>
 
-export const Default: Story = () => ({
-	components: { PIconInstagram },
-	template: '<p-icon-instagram />'
-})
+export const Default: Story = {}
