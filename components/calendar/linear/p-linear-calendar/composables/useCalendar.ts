@@ -105,7 +105,6 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 			monthList[index - 1].ref,
 			([{ isIntersecting }]) => {
 				if (isIntersecting) {
-					console.log('intersecting', monthKey)
 					switch (index) {
 						case 1: {
 							stop()
