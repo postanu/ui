@@ -17,17 +17,11 @@
 				v-for="[,day] in month.days"
 				:key="day.date"
 			)
-				p-linear-calendar-day(
-					:is-past="day.isPast"
-					:is-today="isToday(day.date)"
-					:is-selected="day.date === selectedDate"
-					:is-weekend="day.isWeekend"
-					:drafts="0"
-					:posts="0"
-					@click="selectDate(day.date)"
+				slot(
+					:day="day"
+					:selected-date="selectedDate"
+					:select-date="selectDate"
 				)
-					template(#date) {{ day.day }}
-					template(#day) {{ t[DAYS[day.dayOfWeek]] }}
 	transition(name="fade")
 		button.p-linear-calendar__next-month(
 			v-if="showNextMonth"
@@ -36,13 +30,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
 import { calendarMessages } from '@postanu/i18n'
-import { MONTHS, DAYS } from '@postanu/core'
+import { computed, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
-import { isToday } from 'date-fns'
+import { MONTHS } from '@postanu/core'
 
-import PLinearCalendarDay from '../p-linear-day/PLinearCalendarDay.vue'
 import { useCalendar } from './composables/useCalendar.js'
 
 const root = ref<HTMLDivElement | null>(null)
