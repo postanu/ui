@@ -45,22 +45,10 @@ devDependencies:
   '@storybook/addon-actions':
     specifier: ^7.0.5
     version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@storybook/addon-backgrounds':
-    specifier: ^7.0.5
-    version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@storybook/addon-docs':
-    specifier: ^7.0.5
-    version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-essentials':
     specifier: ^7.0.5
     version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-links':
-    specifier: ^7.0.5
-    version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@storybook/addon-measure':
-    specifier: ^7.0.5
-    version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@storybook/addon-outline':
     specifier: ^7.0.5
     version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
   '@storybook/addon-viewport':
@@ -69,18 +57,6 @@ devDependencies:
   '@storybook/addons':
     specifier: ^7.0.5
     version: 7.0.5(react-dom@18.2.0)(react@18.2.0)
-  '@storybook/client-api':
-    specifier: ^7.0.5
-    version: 7.0.5
-  '@storybook/client-logger':
-    specifier: ^7.0.5
-    version: 7.0.5
-  '@storybook/core-common':
-    specifier: ^7.0.5
-    version: 7.0.5
-  '@storybook/node-logger':
-    specifier: ^7.0.5
-    version: 7.0.5
   '@storybook/testing-library':
     specifier: ^0.1.0
     version: 0.1.0
@@ -2719,13 +2695,6 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@storybook/client-api@7.0.5:
-    resolution: {integrity: sha512-T3QT+Y1CfPjPNHXfFfPiaGl+uepwfKGKwTsLPr5DDGXrDBe569omK9J+kTZptkJ1ZgFQBFcATPdnnHwIkb82kg==}
-    dependencies:
-      '@storybook/client-logger': 7.0.5
-      '@storybook/preview-api': 7.0.5
-    dev: true
-
   /@storybook/client-logger@7.0.5:
     resolution: {integrity: sha512-p8Vtb5G/l3gePNDbNjqgGsikthRqDfsPAqFEsAvBWJVZ3vq/ZSU4IsCWSLO/kdkyJyhTXMqQZnOpQ0pDXlOPcQ==}
     dependencies:
@@ -2934,7 +2903,7 @@ packages:
       memoizerific: 1.11.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      semver: 7.4.0
+      semver: 7.5.0
       store2: 2.14.2
       telejson: 7.1.0
       ts-dedent: 2.2.0
@@ -8107,6 +8076,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.5.0:
     resolution: {integrity: sha512-+XC0AD/R7Q2mPSRuy2Id0+CGTZ98+8f+KvwirxOKIEyid+XSx6HbC63p+O4IndTHuX5Z+JxQ0TghCkO5Cg/2HA==}
@@ -8114,7 +8084,6 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
-    dev: true
 
   /send@0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}

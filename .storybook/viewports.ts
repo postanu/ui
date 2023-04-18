@@ -1,6 +1,6 @@
-import { ViewportMap } from '@storybook/addon-viewport/dist/ts3.9/models'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
-export const viewports: ViewportMap = {
+export const viewports: typeof INITIAL_VIEWPORTS = {
 	w320: {
 		name: 'w320, SE',
 		type: 'mobile',

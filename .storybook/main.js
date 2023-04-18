@@ -1,4 +1,6 @@
-module.exports = {
+import { mergeConfig } from 'vite'
+
+export default {
   staticDirs: ['../public'],
   stories: ['../components/**/*.stories.@(js|ts)'],
   addons: [
@@ -6,10 +8,7 @@ module.exports = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions'
 	],
-  framework: {
-    name: '@storybook/vue3-vite',
-    options: {}
-  },
+  framework: '@storybook/vue3-vite',
 	docs: {
     autodocs: false
   },
@@ -17,13 +16,19 @@ module.exports = {
    * @param config {import('vite').UserConfig}
    */
   async viteFinal(config) {
-    // https://github.com/eirslett/storybook-builder-vite/issues/50
-    config.resolve.dedupe = ['@storybook/client-api'];
-
-    // pre-bundle @postanu/ui dependencies to speed up development
-    if (config.optimizeDeps) {
-      config.optimizeDeps.include.push('@postanu/core', '@postanu/twitter-text', '@postanu/twitter-text/regexp', 'hashtag-regex', 'vuedraggable', 'date-fns', 'nanoid');
-    }
-    return config;
-  }
-};
+		return mergeConfig(config, {
+			optimizeDeps: {
+				// pre-bundle @postanu/ui dependencies to speed up development
+				include: [
+					'@postanu/core',
+					'@postanu/twitter-text',
+					'@postanu/twitter-text/regexp',
+					'hashtag-regex',
+					'vuedraggable',
+					'date-fns',
+					'nanoid'
+				]
+			}
+		})
+	}
+}

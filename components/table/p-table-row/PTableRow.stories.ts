@@ -19,34 +19,6 @@ export default {
 	}
 } as Meta<typeof PTableRow>
 
-// const Template: Story = args => defineComponent({
-// 	components: { PTableRow },
-// 	setup: () => {
-// 		return {
-// 			items: args.default.split('\n'),
-// 			columns: args.columns,
-// 			getCommon: (text: string): string | null => {
-// 				if (args.common) {
-// 					return args.common
-// 				}
-// 				let common = text.match(/\((\D+)\)/)
-// 				return common ? common[1] : null
-// 			}
-// 		}
-// 	},
-// 	template: `
-// 		<p-table-row
-// 			v-for="text in items"
-// 			style="line-height: 50px;"
-// 		>
-// 			{{ text }}
-// 			<template v-if="getCommon(text)" v-slot:common>
-// 				{{ getCommon(text) }}
-// 			</template>
-// 		</p-table-row>
-// 	`
-// })
-
 const Template: Story = {
 	render: args => ({
 		inheritAttrs: false,

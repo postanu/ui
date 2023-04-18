@@ -7,13 +7,17 @@
     "noEmit": true,
     "allowJs": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "lib": [
       "esnext",
       "dom"
-    ]
+    ],
+    "paths": {
+      "react": ["./stub/types__react"]
+    }
   },
   "include": [
     "./.storybook/**/*.ts",
@@ -21,7 +25,8 @@
     "./components/**/*.vue",
     "./components/**/*.ts",
     "./generator/**/*.ts",
-    "./exports/**/*.ts"
+    "./exports/**/*.ts",
+    "./stub/**/*.d.ts"
   ],
   "vueCompilerOptions": {
     "plugins": [
