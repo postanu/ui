@@ -26,7 +26,8 @@
     "./components/**/*.ts",
     "./generator/**/*.ts",
     "./exports/**/*.ts",
-    "./stub/**/*.d.ts"
+    "./stub/**/*.d.ts",
+    "./index.ts"
   ],
   "vueCompilerOptions": {
     "plugins": [

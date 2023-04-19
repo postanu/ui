@@ -7,20 +7,11 @@
   "homepage": "https://postanu.com/",
   "repository": "postanu/ui",
   "type": "module",
-  "types": "./index.d.ts",
   "sideEffects": false,
   "exports": {
-    ".": "./exports/index.js",
-    "./style": "./styles/base.sass",
-    "./queue": "./exports/queue.js",
-    "./editor": "./exports/editor.js"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./exports/*"
-      ]
-    }
+    ".": "./index.ts",
+    "./package.json": "./package.json",
+    "./styles": "./styles/base.sass"
   },
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
