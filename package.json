@@ -20,11 +20,11 @@
   },
   "peerDependencies": {
     "@postanu/core": "^0.3.0",
-    "@postanu/i18n": "github:postanu/i18n",
+    "@postanu/i18n": "^0.0.0",
     "@postanu/twitter-text": "^0.2.0",
     "@postanu/types": "^0.7.0",
     "@vueuse/components": "^9.12.0",
-    "@vueuse/core": "^9.12.0",
+    "@vueuse/core": ">=9.12.0",
     "date-fns": "^2.27.0",
     "hashtag-regex": "^2.1.0",
     "vue": ">=3.2.23",
