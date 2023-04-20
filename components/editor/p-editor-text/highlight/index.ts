@@ -1,5 +1,6 @@
-
+// @ts-ignore
 import createHashtagRegex from 'hashtag-regex'
+// @ts-ignore
 import { extractUrl } from '@postanu/twitter-text/regexp'
 
 import { escapeHtml } from '../escape-html/index.js'
