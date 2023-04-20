@@ -1,8 +1,8 @@
 <template lang="pug">
 .p-page
 	component.p-page__icon(
-		v-if="icon"
 		:is="icon"
+		v-if="icon"
 	)
 	p-avatar(
 		:image="avatar"

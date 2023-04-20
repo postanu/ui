@@ -1,5 +1,6 @@
 <template lang="pug">
 draggable.p-editor-attachments(
+	v-model="items"
 	:class=`{
 		[countClass]: true,
 		'--disabled': disabled
@@ -9,7 +10,6 @@ draggable.p-editor-attachments(
 	:disabled="disabled"
 	ghost-class="p-editor-attachments__ghost"
 	chosen-class="p-editor-attachments__chosen"
-	v-model="items"
 )
 	template(#item="{ element }")
 		li

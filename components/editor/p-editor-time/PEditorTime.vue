@@ -13,10 +13,10 @@
 	) Now
 	template(v-else)
 		p-input.p-editor-time__input(
-			name="hours"
-			maxlength="2"
 			ref="hoursInput"
 			v-model="hours"
+			name="hours"
+			maxlength="2"
 			@blur="onFocus(false)"
 			@focus="onFocus('h')"
 			@keydown="onKeydown($event, 'h')"
@@ -24,10 +24,10 @@
 		)
 		.p-editor-time__colon :
 		p-input.p-editor-time__input(
-			name="minutes"
-			maxlength="2"
 			ref="minutesInput"
 			v-model="minutes"
+			name="minutes"
+			maxlength="2"
 			@blur="onFocus(false)"
 			@focus="onFocus('m')"
 			@keydown="onKeydown($event, 'm')"
@@ -36,10 +36,10 @@
 		template(v-if="ampm")
 			span.p-editor-time__space
 			p-input.p-editor-time__input(
-				name="ampm"
-				maxlength="2"
 				ref="ampmInput"
 				v-model="ampm"
+				name="ampm"
+				maxlength="2"
 				@blur="onFocus(false)"
 				@focus="onFocus('ampm')"
 				@keydown="onKeydown($event, 'ampm')"

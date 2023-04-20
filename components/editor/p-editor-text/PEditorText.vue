@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-textarea-mustache -->
 <template lang="pug">
 .p-editor-text(:class="{ '--large': isLarge }")
 	.p-editor-text__counter.p-headline

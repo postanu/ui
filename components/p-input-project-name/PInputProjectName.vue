@@ -1,10 +1,10 @@
 <template lang="pug">
 .p-input-project-name
 	p-input(
+		id="project-name"
 		ref="input"
 		size="25"
 		type="text"
-		id="project-name"
 		name="project-name"
 		autocorrect="off"
 		autocomplete="off"
@@ -15,8 +15,8 @@
 		@keyup.enter="emitEnter"
 	)
 	label.p-input-project-name__label(
-		for="project-name"
 		v-show="showPlaceholder"
+		for="project-name"
 	) {{ placeholder }}
 </template>
 
