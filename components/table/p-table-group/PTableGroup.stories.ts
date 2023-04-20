@@ -1,4 +1,3 @@
-import { defineComponent } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { members } from '../../../generator/index.js'
