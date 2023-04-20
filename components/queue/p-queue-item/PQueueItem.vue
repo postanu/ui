@@ -23,8 +23,8 @@
 import { computed, ref, toRefs } from 'vue'
 import type { Attachment, ClientPage, PostState } from '@postanu/types'
 
-import { useQueueItemDescription } from '../../../composables/useQueueItemDescription.js'
-import { useQueryItemTitle } from '../../../composables/useQueryItemTitle.js'
+import { useQueueItemDescription } from '../../../composables/useQueueItemDescription/index.js'
+import { useQueryItemTitle } from '../../../composables/useQueryItemTitle/index.js'
 import PQueueItemAttachments from '../p-queue-item-attachments/PQueueItemAttachments.vue'
 import PQueueItemPages from '../p-queue-item-pages/PQueueItemPages.vue'
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports

@@ -29,7 +29,7 @@ import { baseMessages } from '@postanu/i18n'
 import { useStore } from '@nanostores/vue'
 import type { ClientPage } from '@postanu/types'
 
-import { usePagesGroupList } from '../../../composables/usePagesGroupList.js'
+import { usePagesGroupList } from '../../../composables/usePagesGroupList/index.js'
 import PAvatar from '../../p-avatar/PAvatar.vue'
 
 const MAX_VISIBLE_GROUP_SIZE = 2

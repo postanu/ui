@@ -8,7 +8,7 @@ p-heading.p-table-headline(
 
 <script lang="ts" setup>
 import PHeading from '../../p-heading/PHeading.vue'
-import type { ALLOWED_TAGS } from '../../p-heading/allowed-tags.js'
+import type { ALLOWED_TAGS } from '../../p-heading/allowed-tags/index.js'
 
 defineProps<{
 	tag: typeof ALLOWED_TAGS[number]

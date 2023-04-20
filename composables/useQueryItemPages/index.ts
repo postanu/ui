@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import type { ClientPage, PagesGroup, Post } from '@postanu/types'
 import type { ComputedRef, Ref } from 'vue'
 
-import { usePagesGroupList } from './usePagesGroupList.js'
+import { usePagesGroupList } from '../usePagesGroupList/index.js'
 
 /**
  * Collects pages from post variants and groups them by network type.

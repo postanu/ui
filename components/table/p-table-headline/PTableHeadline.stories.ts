@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { ALLOWED_TAGS } from '../../p-heading/allowed-tags.js'
+import { ALLOWED_TAGS } from '../../p-heading/allowed-tags/index.js'
 import PTableHeadline from './PTableHeadline.vue'
 
 type Story = StoryObj<typeof PTableHeadline>

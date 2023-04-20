@@ -50,8 +50,8 @@
 <script lang="ts" setup>
 import { computed, ref, toRefs, unref, watch } from 'vue'
 
-import { timeRef } from '../../../composables/timeRef.js'
-import { useNow } from '../../../composables/useNow.js'
+import { timeRef } from '../../../composables/timeRef/index.js'
+import { useNow } from '../../../composables/useNow/index.js'
 import PInput from '../../p-input/PInput.vue'
 
 type InputType = 'h' | 'm' | 'ampm'

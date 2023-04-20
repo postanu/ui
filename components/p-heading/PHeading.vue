@@ -2,7 +2,7 @@
 import { defineComponent, h, toRefs } from 'vue'
 import type { PropType, VNodeChild } from 'vue'
 
-import type { ALLOWED_TAGS } from './allowed-tags.js'
+import type { ALLOWED_TAGS } from './allowed-tags/index.js'
 
 export default defineComponent({
 	name: 'PHeading',

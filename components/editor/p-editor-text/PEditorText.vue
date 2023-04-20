@@ -20,7 +20,7 @@
 import { computed, nextTick, onMounted, ref, toRefs } from 'vue'
 import { parseTweet } from '@postanu/twitter-text'
 
-import { hashtagRegex, highlight } from './highlight.js'
+import { hashtagRegex, highlight } from './highlight/index.js'
 
 interface Props {
 	placeholder: string

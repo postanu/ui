@@ -2,7 +2,7 @@
 import createHashtagRegex from 'hashtag-regex'
 import { extractUrl } from '@postanu/twitter-text/regexp'
 
-import { escapeHtml } from './escape-html.js'
+import { escapeHtml } from '../escape-html/index.js'
 
 export const hashtagRegex: RegExp = createHashtagRegex()
 

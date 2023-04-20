@@ -35,7 +35,7 @@ import { computed, ref } from 'vue'
 import { useStore } from '@nanostores/vue'
 import { MONTHS } from '@postanu/core'
 
-import { useCalendar } from './composables/useCalendar.js'
+import { useCalendar } from './composables/useCalendar/index.js'
 
 const root = ref<HTMLDivElement | null>(null)
 const selectedDate = ref(Date.now())

@@ -2,7 +2,7 @@ import { computed, ref, watch } from 'vue'
 import type { Refable } from '@postanu/types'
 import type { Ref } from 'vue'
 
-import { extendRef } from './extendRef.js'
+import { extendRef } from '../extendRef/index.js'
 
 type TimeElementRef = Refable<string> & {
 	set: (value: string) => void

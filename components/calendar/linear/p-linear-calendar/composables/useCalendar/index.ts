@@ -2,8 +2,8 @@ import { computed, nextTick, onBeforeUpdate, onMounted, reactive, ref, watch } f
 import { useEventListener, useIntersectionObserver } from '@vueuse/core'
 import type { Ref, ComputedRef, VNodeRef } from 'vue'
 
-import type { LinearCalendar } from '../../../create-calendar/index.js'
-import { createLinearCalendar } from '../../../create-calendar/index.js'
+import type { LinearCalendar } from '../../../../create-calendar/index.js'
+import { createLinearCalendar } from '../../../../create-calendar/index.js'
 
 interface UseCalendarOptions {
 	root: Ref<HTMLElement | null>
