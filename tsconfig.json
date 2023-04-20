@@ -25,7 +25,6 @@
     "./components/**/*.vue",
     "./components/**/*.ts",
     "./generator/**/*.ts",
-    "./exports/**/*.ts",
     "./stub/**/*.d.ts",
     "./index.ts"
   ],
