@@ -32,7 +32,6 @@
 <script lang="ts" setup>
 import { calendarMessages } from '@postanu/i18n'
 import { computed, ref } from 'vue'
-import { useVModel } from '@vueuse/core'
 import { useStore } from '@nanostores/vue'
 import { MONTHS } from '@postanu/core'
 
