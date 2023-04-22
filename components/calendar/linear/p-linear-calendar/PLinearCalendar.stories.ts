@@ -2,6 +2,7 @@ import { calendarMessages } from '@postanu/i18n'
 import { useStore } from '@nanostores/vue'
 import { isToday } from 'date-fns'
 import { DAYS } from '@postanu/core'
+import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PLinearCalendarDay from '../p-linear-calendar-day/PLinearCalendarDay.vue'
@@ -12,24 +13,30 @@ type Story = StoryObj<typeof PLinearCalendar>
 export default {
 	title: 'Calendar / PLinearCalendar',
 	component: PLinearCalendar,
+	argTypes: {
+		selectedDate: {
+			control: 'date'
+		}
+	},
 	parameters: {
 		layout: 'fullscreen'
 	}
 } as Meta<typeof PLinearCalendar>
 
 export const Default: Story = {
-	render: () => ({
+	render: args => ({
 		components: {
 			PLinearCalendarDay,
 			PLinearCalendar
 		},
 		setup: () => ({
-			t: useStore(calendarMessages),
+			selectedDate: ref(args.selectedDate),
 			DAYS,
+			t: useStore(calendarMessages),
 			isToday
 		}),
 		template: `
-			<p-linear-calendar>
+			<p-linear-calendar v-model:selected-date="selectedDate">
 				<template v-slot="{ day, selectedDate, selectDate }">
 					<p-linear-calendar-day
 						:is-past="day.isPast"
@@ -46,5 +53,8 @@ export const Default: Story = {
 				</template>
 			</p-linear-calendar>
 		`
-	})
+	}),
+	args: {
+		selectedDate: Date.now()
+	}
 }

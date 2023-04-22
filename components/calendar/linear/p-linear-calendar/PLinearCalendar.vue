@@ -32,13 +32,25 @@
 <script lang="ts" setup>
 import { calendarMessages } from '@postanu/i18n'
 import { computed, ref } from 'vue'
+import { useVModel } from '@vueuse/core'
 import { useStore } from '@nanostores/vue'
 import { MONTHS } from '@postanu/core'
 
 import { useCalendar } from './composables/useCalendar/index.js'
 
+interface Props {
+	selectedDate: number
+}
+
+interface Emits {
+	(event: 'update:selectedDate', selectedDate: number): void
+}
+
+const emit = defineEmits<Emits>()
+const props = defineProps<Props>()
+const selectedDate = ref(props.selectedDate)
 const root = ref<HTMLDivElement | null>(null)
-const selectedDate = ref(Date.now())
+
 const {
 	calendar,
 	nextMonthKey,
@@ -58,6 +70,7 @@ let nextMonth = computed(
 
 function selectDate (date: number): void {
 	selectedDate.value = date
+	emit('update:selectedDate', date)
 }
 </script>
 
