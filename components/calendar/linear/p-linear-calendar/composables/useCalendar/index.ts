@@ -101,29 +101,20 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 			monthList[index - 1].ref,
 			([{ isIntersecting }]) => {
 				if (isIntersecting) {
-					switch (index) {
-						case 1: {
-							stop()
-							extend('past')
-							break
-						}
-						case 2: {
-							let next = monthKey + 2
-							if (next > 12) next = next - 12
-							changeNextMonth(next)
-							break
-						}
-						case 4: {
-							let next = monthKey + 1
-							if (next === 12) next = 1
-							changeNextMonth(next)
-							break
-						}
-						case 5: {
-							stop()
-							extend('future')
-							break
-						}
+					if (index === 1) {
+						stop()
+						extend('past')
+					} else if (index > 1 && index < 7) {
+						let next = monthKey + 2
+						if (next > 12) next = next - 12
+						changeNextMonth(next)
+					} else if (index > 6 && index < 13) {
+						let next = monthKey + 1
+						if (next === 12) next = 1
+						changeNextMonth(next)
+					} else if (index === 13) {
+						stop()
+						extend('future')
 					}
 				} else if (nextMonthKey.value - monthKey === 1) {
 					changeNextMonth(monthKey)

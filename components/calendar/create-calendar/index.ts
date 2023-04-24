@@ -38,8 +38,8 @@ interface CreateLinearCalendarOptions {
 	selectedDate: number
 }
 
-const FUTURE = 2
-const PAST = 2
+const FUTURE = 6
+const PAST = 6
 
 export function createLinearCalendar (options: CreateLinearCalendarOptions): {
 	calendar: LinearCalendar
