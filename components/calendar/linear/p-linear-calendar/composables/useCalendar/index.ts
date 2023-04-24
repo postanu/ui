@@ -1,4 +1,4 @@
-import { computed, nextTick, onBeforeUpdate, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUpdate, onMounted, reactive, ref } from 'vue'
 import { useEventListener, useIntersectionObserver } from '@vueuse/core'
 import type { Ref, ComputedRef, VNodeRef } from 'vue'
 
@@ -46,10 +46,6 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 			selectedDate: selectedDate.value
 		})
 	)
-
-	watch(selectedDate, () => {
-		scrollTo(root, '.p-linear-calendar-day--selected', true)
-	}, { flush: 'post' })
 
 	onMounted(() => {
 		scrollTo(root, '.p-linear-calendar-day--today')
