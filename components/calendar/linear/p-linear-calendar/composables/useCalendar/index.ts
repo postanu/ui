@@ -48,7 +48,7 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 	)
 
 	onMounted(() => {
-		scrollTo(root, '.p-linear-calendar-day--today')
+		scrollTo(root, '.p-linear-calendar-day--selected')
 	})
 
 	let timeoutId: ReturnType<typeof setTimeout> | undefined
