@@ -9,6 +9,9 @@ export default {
 		'@storybook/addon-interactions'
 	],
   framework: '@storybook/vue3-vite',
+	core: {
+		disableTelemetry: true
+	},
 	docs: {
     autodocs: false
   },
