@@ -1,6 +1,6 @@
 import { calendarMessages } from '@postanu/i18n'
 import { useStore } from '@nanostores/vue'
-import { isToday } from 'date-fns'
+// import { isToday } from 'date-fns'
 import { DAYS } from '@postanu/core'
 import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
@@ -15,7 +15,7 @@ export default {
 	component: PLinearCalendar,
 	argTypes: {
 		selectedDate: {
-			control: 'date'
+			control: 'text'
 		}
 	},
 	parameters: {
@@ -33,7 +33,9 @@ export const Default: Story = {
 			selectedDate: ref(args.selectedDate),
 			DAYS,
 			t: useStore(calendarMessages),
-			isToday
+			isToday: (date: string): boolean => {
+				return date === getCurrentISODate()
+			}
 		}),
 		template: `
 			<p-linear-calendar v-model:selected-date="selectedDate">
@@ -55,6 +57,10 @@ export const Default: Story = {
 		`
 	}),
 	args: {
-		selectedDate: Date.now()
+		selectedDate: getCurrentISODate()
 	}
+}
+
+function getCurrentISODate (): string {
+	return new Date().toISOString().split('T')[0]
 }

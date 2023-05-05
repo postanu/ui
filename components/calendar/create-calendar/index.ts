@@ -4,7 +4,6 @@ import {
 	getMonth,
 	getYear,
 	getDate,
-	getTime,
 	setDate,
 	isPast,
 	getDay,
@@ -14,41 +13,41 @@ import {
 
 interface LinearCalendarDay {
 	day: number
-	date: number
+	date: string
 	dayOfWeek: 0 | 1 | 2 | 3 | 4 | 5 | 6
 	isPast: boolean
 	isWeekend: boolean
 }
 
-interface LinearCalendarMonth {
-	days: Map<number, LinearCalendarDay>
-	// TODO: cleanup unnecessary
-	isToday: boolean
-	isHovered: boolean
-	isSelected: boolean
-}
+type LinearCalendarMonth = Map<number, LinearCalendarDay>
 
-type LinearCalendarYear<Nullable = true> = Map<
+type LinearCalendarYear<IsNullable = true> =
+Map<
 number,
-Nullable extends true ? LinearCalendarMonth | null : LinearCalendarMonth
+IsNullable extends true ? LinearCalendarMonth | null : LinearCalendarMonth
 >
-export type LinearCalendar<Nullable = true> = Map<number, LinearCalendarYear<Nullable>>
+
+export type LinearCalendar<IsNullable = true> = Map<number, LinearCalendarYear<IsNullable>>
 
 interface CreateLinearCalendarOptions {
-	selectedDate: number
+	selectedDate: string
 }
 
-const FUTURE = 6
-const PAST = 6
-
-export function createLinearCalendar (options: CreateLinearCalendarOptions): {
+interface CreateLinearCalendarReturn {
 	calendar: LinearCalendar
 	addPastMonth: (calendar: LinearCalendar) => void
 	addFutureMonth: (calendar: LinearCalendar) => void
 	removePastMonth: (calendar: LinearCalendar) => void
 	removeFutureMonth: (calendar: LinearCalendar) => void
-} {
-	let { selectedDate } = options
+}
+
+const FUTURE = 6
+const PAST = 6
+
+export function createLinearCalendar (
+	options: CreateLinearCalendarOptions
+): CreateLinearCalendarReturn {
+	let selectedDate = new Date(`${options.selectedDate}T00:00:00Z`)
 	let calendar: LinearCalendar = new Map()
 
 	let currentYear = getYear(selectedDate)
@@ -105,12 +104,7 @@ export function createLinearCalendar (options: CreateLinearCalendarOptions): {
 }
 
 function createMonth (monthDate: Date): LinearCalendarMonth {
-	let month: LinearCalendarMonth = {
-		days: new Map<number, LinearCalendarDay>(),
-		isToday: false,
-		isHovered: false,
-		isSelected: false
-	}
+	let month: LinearCalendarMonth = new Map<number, LinearCalendarDay>()
 
 	let dates = Array.from(
 		{ length: getDaysInMonth(monthDate) },
@@ -119,11 +113,11 @@ function createMonth (monthDate: Date): LinearCalendarMonth {
 
 	for (let date of dates) {
 		let day = getDate(date)
-		month.days.set(
+		month.set(
 			day,
 			{
 				day,
-				date: getTime(date),
+				date: getISODate(date),
 				dayOfWeek: getDay(date),
 				isPast: isPast(date),
 				isWeekend: isWeekend(date)
@@ -163,4 +157,8 @@ function removeMonth (
 	if (year) {
 		year.set(monthKey, null)
 	}
+}
+
+function getISODate (date: Date): string {
+	return date.toISOString().split('T')[0]
 }

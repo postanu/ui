@@ -14,7 +14,7 @@
 			.p-linear-calendar__month-header
 				.p-linear-calendar__month-name {{ t[MONTHS[monthKey - 1]] }}
 			template(
-				v-for="[,day] in month.days"
+				v-for="[,day] in month"
 				:key="day.date"
 			)
 				slot(
@@ -38,11 +38,11 @@ import { MONTHS } from '@postanu/core'
 import { useCalendar } from './composables/useCalendar/index.js'
 
 interface Props {
-	selectedDate: number
+	selectedDate: string
 }
 
 interface Emits {
-	(event: 'update:selectedDate', selectedDate: number): void
+	(event: 'update:selectedDate', selectedDate: string): void
 }
 
 const emit = defineEmits<Emits>()
@@ -67,7 +67,7 @@ let nextMonth = computed(
 	() => t.value[MONTHS[nextMonthKey.value - 1]]
 )
 
-function selectDate (date: number): void {
+function selectDate (date: string): void {
 	selectedDate.value = date
 	emit('update:selectedDate', date)
 }

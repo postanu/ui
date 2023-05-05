@@ -7,7 +7,7 @@ import { createLinearCalendar } from '../../../../create-calendar/index.js'
 
 interface UseCalendarOptions {
 	root: Ref<HTMLElement | null>
-	selectedDate: Ref<number>
+	selectedDate: Ref<string>
 }
 
 interface UseCalendarReturn {
@@ -52,7 +52,7 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 	})
 
 	let timeoutId: ReturnType<typeof setTimeout> | undefined
-	let currentMonth = new Date(selectedDate.value).getMonth()
+	let currentMonth = Number(selectedDate.value.split('-')[1])
 	let nextMonthKey = ref<number>(
 		currentMonth + 2 === 12 ? 1 : currentMonth + 2
 	)
@@ -110,7 +110,7 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 						changeNextMonth(next)
 					} else if (index > 6 && index < 13) {
 						let next = monthKey + 1
-						if (next === 12) next = 1
+						if (next > 12) next = 1
 						changeNextMonth(next)
 					} else if (index === 13) {
 						stop()
