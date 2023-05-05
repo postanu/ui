@@ -120,7 +120,6 @@
     "vite": "4.3.4",
     "vue": "^3.2.47",
     "vue-eslint-parser": "^9.2.0",
-    "vuedraggable": "^4.1.0",
-    "webpack": "^5.82.0"
+    "vuedraggable": "^4.1.0"
   }
 }
