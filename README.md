@@ -10,16 +10,5 @@ pnpm add @postanu/ui
 
 ```ts
 import '@postanu/ui/style'
-```
-
-```ts
 import { … } from '@postanu/ui'
-```
-
-```ts
-import { … } from '@postanu/ui/queue'
-```
-
-```ts
-import { … } from '@postanu/ui/editor'
 ```
