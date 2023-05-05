@@ -115,7 +115,6 @@
     "sass": "^1.62.1",
     "simple-git-hooks": "^2.8.1",
     "storybook": "^7.0.8",
-    "storybook-addon-paddings": "^5.0.0",
     "stylelint": "15.6.1",
     "typescript": "^5.0.4",
     "vite": "4.3.4",
