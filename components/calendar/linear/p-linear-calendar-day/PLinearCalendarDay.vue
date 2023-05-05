@@ -114,7 +114,7 @@ const areaLabel = computed(
 
 .p-linear-calendar-day__state
 	position: absolute
-	bottom: -12px
+	bottom: -16px
 	display: flex
 	gap: 4px
 	align-items: center

@@ -51,7 +51,7 @@ const { title: initTitle, attachments } = toRefs(props)
 const title = useQueryItemTitle(initTitle)
 const description = useQueueItemDescription(attachments)
 
-const removeButtonRef = ref<null | typeof PButtonRemove>(null)
+const removeButtonRef = ref<InstanceType<typeof PButtonRemove> | null>(null)
 const isRemoving = ref(false)
 const hasTitle = computed(() => title.value.length > 0)
 
