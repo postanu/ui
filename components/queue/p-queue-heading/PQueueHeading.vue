@@ -14,18 +14,17 @@ import { computed, toRefs } from 'vue'
 import PHeading from '../../p-heading/PHeading.vue'
 
 interface Props {
-	date: number
-	muted?: boolean
+	date: string
+	muted: boolean
 }
 
-const props = withDefaults(
-	defineProps<Props>(),
-	{
-		muted: false
-	}
+const props = defineProps<Props>()
+const { date: ISODate } = toRefs(props)
+
+const date = computed(
+	() => new Date(`${ISODate.value}T00:00:00Z`)
 )
 
-const { date } = toRefs(props)
 const title = computed(() => {
 	if (isYesterday(date.value)) {
 		return 'Yesterday'

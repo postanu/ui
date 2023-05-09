@@ -9,13 +9,14 @@ export default {
 	component: PQueueHeading,
 	argTypes: {
 		date: {
-			control: 'date'
+			control: 'text'
 		}
 	}
 } as Meta<typeof PQueueHeading>
 
 export const Default: Story = {
 	args: {
-		date: Date.now()
+		date: new Date().toISOString().split('T')[0],
+		muted: false
 	}
 }
