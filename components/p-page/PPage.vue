@@ -13,14 +13,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
 import type { NETWORKS_ORDER } from '@postanu/core'
+
+import { computed } from 'vue'
 
 import PAvatar from '../p-avatar/PAvatar.vue'
 
 interface Props {
 	icon?: typeof NETWORKS_ORDER[number]
-	avatar: string | null
+	avatar: null | string
 	fullname: string
 	username: string
 }

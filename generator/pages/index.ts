@@ -1,8 +1,9 @@
-import { nanoid } from 'nanoid'
 import type { Page } from '@postanu/types'
 
+import { nanoid } from 'nanoid'
+
+import { members, networks } from '../data/index.js'
 import { randomInRange, usernameFromName } from '../utils/index.js'
-import { networks, members } from '../data/index.js'
 
 interface GeneratePagesOptions {
 	updatables?: number
@@ -24,7 +25,7 @@ export function generatePages (
 	}
 
 	let getRandomData = <
-		K extends 'networks' | 'members'
+		K extends 'members' | 'networks'
 	>(key: K): typeof data[K][0] => {
 		let index = randomInRange(0, data[key].length - 1)
 		let entry = data[key][index]

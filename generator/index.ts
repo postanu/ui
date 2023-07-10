@@ -1,5 +1,5 @@
-export { getRandomImage, getRandomSentence, getRandomTime } from './random/index.js'
-export { randomInRange, randomFromArray, usernameFromName } from './utils/index.js'
-export { discography, lyrics, members, networks } from './data/index.js'
 export { generateAttachments } from './attachments/index.js'
+export { discography, lyrics, members, networks } from './data/index.js'
 export { generatePages } from './pages/index.js'
+export { getRandomImage, getRandomSentence, getRandomTime } from './random/index.js'
+export { randomFromArray, randomInRange, usernameFromName } from './utils/index.js'

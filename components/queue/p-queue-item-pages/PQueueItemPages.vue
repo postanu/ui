@@ -23,11 +23,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
+import type { ClientPage } from '@postanu/types'
+
+import { useStore } from '@nanostores/vue'
 import { NETWORKS_ABBR } from '@postanu/core'
 import { baseMessages } from '@postanu/i18n'
-import { useStore } from '@nanostores/vue'
-import type { ClientPage } from '@postanu/types'
+import { computed, toRefs } from 'vue'
 
 import { usePagesGroupList } from '../../../composables/usePagesGroupList/index.js'
 import PAvatar from '../../p-avatar/PAvatar.vue'
@@ -47,7 +48,7 @@ const isFullSolo = computed(
 )
 
 const t = useStore(baseMessages)
-const singleNetwork = computed<string | false>(() => {
+const singleNetwork = computed<false | string>(() => {
 	if (pages.value.length === 1) {
 		// @ts-expect-error
 		return t.value[NETWORKS_ABBR[pages.value[0].network]]

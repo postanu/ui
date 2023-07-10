@@ -1,5 +1,6 @@
-import { nanoid } from 'nanoid'
 import type { Attachment, Page, PostState } from '@postanu/types'
+
+import { nanoid } from 'nanoid'
 
 import {
 	generateAttachments,

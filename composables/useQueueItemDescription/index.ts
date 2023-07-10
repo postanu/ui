@@ -1,6 +1,7 @@
-import { computed } from 'vue'
-import type { ComputedRef, Ref } from 'vue'
 import type { Attachment } from '@postanu/types'
+import type { ComputedRef, Ref } from 'vue'
+
+import { computed } from 'vue'
 
 export function useQueueItemDescription (
 	attachments: Ref<Attachment[]>

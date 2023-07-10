@@ -16,8 +16,8 @@
 <script lang="ts" setup>
 import { computed, inject, toRefs, unref } from 'vue'
 
-import { PRadioChangeKey, PRadioValueKey } from './injectionKeys.js'
 import PInput from '../p-input/PInput.vue'
+import { PRadioChangeKey, PRadioValueKey } from './injectionKeys.js'
 
 interface Props {
 	name: string

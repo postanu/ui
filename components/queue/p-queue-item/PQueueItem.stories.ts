@@ -1,5 +1,6 @@
-import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/vue3'
+
+import { action } from '@storybook/addon-actions'
 
 import { generatePosts } from '../../../generator/post/index.js'
 import PQueueItem from './PQueueItem.vue'

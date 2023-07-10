@@ -1,7 +1,7 @@
 // @ts-ignore
-import createHashtagRegex from 'hashtag-regex'
-// @ts-ignore
 import { extractUrl } from '@postanu/twitter-text/regexp'
+// @ts-ignore
+import createHashtagRegex from 'hashtag-regex'
 
 import { escapeHtml } from '../escape-html/index.js'
 
@@ -15,6 +15,6 @@ export function highlight (text: string): string {
 		// mark hashtags
 		.replace(hashtagRegex, '<mark class="p-editor-text__tag">$&</mark>')
 		// cleanup line breaks
-		.replace(/\r\n|\r|\n$/g, '<br> ')
-		.replace(/\r\n|\r|\n/g, '<br>')
+		.replaceAll(/\r\n|\r|\n$/g, '<br> ')
+		.replaceAll(/\r\n|\r|\n/g, '<br>')
 }

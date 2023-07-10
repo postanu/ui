@@ -17,9 +17,10 @@ draggable.p-editor-attachments(
 </template>
 
 <script lang="ts" setup>
+import type { Attachment } from '@postanu/types'
+
 import { computed, toRefs, unref } from 'vue'
 import draggable from 'vuedraggable'
-import type { Attachment } from '@postanu/types'
 
 import PAttachment from '../../p-attachment/PAttachment.vue'
 

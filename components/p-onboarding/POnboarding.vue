@@ -30,6 +30,7 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { openedSteps, activeStep } = toRefs(props)
 
 const stepsStyles = {

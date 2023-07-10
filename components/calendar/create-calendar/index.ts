@@ -1,14 +1,14 @@
 import {
+	add,
+	getDate,
+	getDay,
 	getDaysInMonth,
-	isWeekend,
 	getMonth,
 	getYear,
-	getDate,
-	setDate,
 	isPast,
-	getDay,
-	sub,
-	add
+	isWeekend,
+	setDate,
+	sub
 } from 'date-fns'
 
 interface LinearCalendarDay {
@@ -68,7 +68,7 @@ export function createLinearCalendar (
 	)
 
 	let pastDate = monthsList[0]
-	let futureDate = monthsList[monthsList.length - 1]
+	let futureDate = monthsList.at(-1)!
 
 	for (let monthDate of monthsList) {
 		addMonth(calendar, monthDate)

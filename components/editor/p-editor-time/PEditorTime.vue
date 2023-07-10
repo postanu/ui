@@ -54,7 +54,7 @@ import { timeRef } from '../../../composables/timeRef/index.js'
 import { useNow } from '../../../composables/useNow/index.js'
 import PInput from '../../p-input/PInput.vue'
 
-type InputType = 'h' | 'm' | 'ampm'
+type InputType = 'ampm' | 'h' | 'm'
 type InputRef = InstanceType<typeof PInput> | null
 
 const ALLOWED_SYMBOLS = new Set([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -90,7 +90,7 @@ const { hours, minutes, ampm } = timeRef(
 		emit('update:modelValue', newDate)
 	}
 )
-const focus = ref<false | InputType>(false)
+const focus = ref<InputType | false>(false)
 
 const ampmInput = ref<InputRef>(null)
 const hoursInput = ref<InputRef>(null)
@@ -125,7 +125,7 @@ watch(focus, () => {
 	}
 })
 
-function setFocus (input: InputType, dir: 'prev' | 'next'): void {
+function setFocus (input: InputType, dir: 'next' | 'prev'): void {
 	if (dir === 'prev') {
 		if (input === 'ampm') minutesInput.value?.focus()
 		if (input === 'm') hoursInput.value?.focus()

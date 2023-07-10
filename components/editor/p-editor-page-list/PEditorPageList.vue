@@ -73,16 +73,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs, unref } from 'vue'
-import { NETWORKS_ABBR } from '@postanu/core'
 import type { ClientPage, PageNetwork } from '@postanu/types'
+
+import { NETWORKS_ABBR } from '@postanu/core'
+import { computed, toRefs, unref } from 'vue'
 
 import { usePagesList } from '../../../composables/usePagesList/index.js'
 import PButtonCommon from '../../buttons/p-button-common/PButtonCommon.vue'
 import PButtonIcon from '../../buttons/p-button-icon/PButtonIcon.vue'
-import PEditorPage from '../p-editor-page/PEditorPage.vue'
 import PIconPlus from '../../icons/p-icon-plus/PIconPlus.vue'
 import PHeading from '../../p-heading/PHeading.vue'
+import PEditorPage from '../p-editor-page/PEditorPage.vue'
 
 interface Props {
 	pages: ClientPage[]

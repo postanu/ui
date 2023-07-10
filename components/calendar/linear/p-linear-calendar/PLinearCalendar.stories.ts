@@ -1,9 +1,9 @@
-import { calendarMessages } from '@postanu/i18n'
-import { useStore } from '@nanostores/vue'
-// import { isToday } from 'date-fns'
-import { DAYS } from '@postanu/core'
-import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
+
+import { useStore } from '@nanostores/vue'
+import { DAYS } from '@postanu/core'
+import { calendarMessages } from '@postanu/i18n'
+import { ref } from 'vue'
 
 import PLinearCalendarDay from '../p-linear-calendar-day/PLinearCalendarDay.vue'
 import PLinearCalendar from './PLinearCalendar.vue'

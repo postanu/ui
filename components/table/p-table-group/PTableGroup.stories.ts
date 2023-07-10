@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { members } from '../../../generator/index.js'
-import PTableGroup from './PTableGroup.vue'
 import PTableRow from '../p-table-row/PTableRow.vue'
+import PTableGroup from './PTableGroup.vue'
 
 type Story = StoryObj<typeof PTableGroup>
 

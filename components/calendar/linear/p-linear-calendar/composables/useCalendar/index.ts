@@ -1,8 +1,17 @@
-import { computed, nextTick, onBeforeUpdate, onMounted, reactive, ref } from 'vue'
+import type { ComputedRef, Ref, VNodeRef } from 'vue'
+
 import { useEventListener, useIntersectionObserver } from '@vueuse/core'
-import type { Ref, ComputedRef, VNodeRef } from 'vue'
+import {
+	computed,
+	nextTick,
+	onBeforeUpdate,
+	onMounted,
+	reactive,
+	ref
+} from 'vue'
 
 import type { LinearCalendar } from '../../../../create-calendar/index.js'
+
 import { createLinearCalendar } from '../../../../create-calendar/index.js'
 
 interface UseCalendarOptions {
@@ -144,7 +153,7 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 		}
 	}
 
-	async function extend (time: 'past' | 'future'): Promise<void> {
+	async function extend (time: 'future' | 'past'): Promise<void> {
 		if (!root.value) return
 		let isPast = time === 'past'
 
@@ -186,7 +195,7 @@ export function useCalendar (options: UseCalendarOptions): UseCalendarReturn {
 
 function scrollTo (
 	root: Ref<HTMLElement | null>,
-	to: string | HTMLElement,
+	to: HTMLElement | string,
 	smooth = false
 ): Promise<void> {
 	return new Promise(resolve => {

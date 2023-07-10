@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { format, isToday, isTomorrow, isThisYear, isYesterday } from 'date-fns'
+import { format, isThisYear, isToday, isTomorrow, isYesterday } from 'date-fns'
 import { computed, toRefs } from 'vue'
 
 import PHeading from '../../p-heading/PHeading.vue'
@@ -21,6 +21,7 @@ interface Props {
 const props = defineProps<Props>()
 const { date: ISODate } = toRefs(props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const date = computed(
 	() => new Date(`${ISODate.value}T00:00:00Z`)
 )

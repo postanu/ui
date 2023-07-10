@@ -1,5 +1,6 @@
-import { computed, unref } from 'vue'
 import type { ComputedRef, Ref } from 'vue'
+
+import { computed, unref } from 'vue'
 
 /**
  * Cuts the text if its length exceeds 50 characters.

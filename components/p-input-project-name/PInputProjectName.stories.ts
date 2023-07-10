@@ -1,6 +1,7 @@
+import type { Meta, StoryObj } from '@storybook/vue3'
+
 import { action } from '@storybook/addon-actions'
 import { ref } from 'vue'
-import type { Meta, StoryObj } from '@storybook/vue3'
 
 import PInputProjectName from './PInputProjectName.vue'
 

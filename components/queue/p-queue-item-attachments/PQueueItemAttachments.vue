@@ -9,8 +9,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRefs } from 'vue'
 import type { Attachment } from '@postanu/types'
+
+import { computed, toRefs } from 'vue'
 
 import PAttachment from '../../p-attachment/PAttachment.vue'
 

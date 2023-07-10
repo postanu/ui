@@ -1,8 +1,7 @@
-.DS_Store
-.vercel
-node_modules
+.vercel/
+node_modules/
 
-dist
-dist-storybook
+dist/
+dist-storybook/
 
-test
+test/

@@ -7,8 +7,9 @@ p-button.p-button-connect
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
 import type { NETWORKS_ORDER } from '@postanu/core'
+
+import { computed } from 'vue'
 
 import PIconArrowNorthEast from '../../icons/p-icon-arrow-north-east/PIconArrowNorthEast.vue'
 import PButton from '../p-button/PButton.vue'

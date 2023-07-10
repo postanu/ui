@@ -23,7 +23,7 @@ const medianLetters = new Set([
 ])
 
 interface Props {
-	image?: string | null
+	image?: null | string
 	letter: string
 }
 

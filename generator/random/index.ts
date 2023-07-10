@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 
-import { randomFromArray, randomInRange } from '../utils/index.js'
 import { lyrics } from '../data/index.js'
+import { randomFromArray, randomInRange } from '../utils/index.js'
 
 export function getRandomImage (): string {
 	return `https://picsum.photos/200?random=${nanoid()}`

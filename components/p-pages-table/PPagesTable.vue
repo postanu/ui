@@ -34,15 +34,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, toRefs } from 'vue'
 import type { ClientPage } from '@postanu/types'
+
+import { ref, toRefs } from 'vue'
 
 import { usePagesGroupList } from '../../composables/usePagesGroupList/index.js'
 import PButtonRemove from '../buttons/p-button-remove/PButtonRemove.vue'
 import PButtonText from '../buttons/p-button-text/PButtonText.vue'
+import PPage from '../p-page/PPage.vue'
 import PTableGroup from '../table/p-table-group/PTableGroup.vue'
 import PTableRow from '../table/p-table-row/PTableRow.vue'
-import PPage from '../p-page/PPage.vue'
 
 type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 

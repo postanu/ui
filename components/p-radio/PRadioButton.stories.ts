@@ -1,5 +1,6 @@
-import { ref } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
+
+import { ref } from 'vue'
 
 import PRadioButton from './PRadioButton.vue'
 import PRadioGroup from './PRadioGroup.vue'

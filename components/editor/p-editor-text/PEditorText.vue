@@ -18,8 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, onMounted, ref, toRefs } from 'vue'
 import { parseTweet } from '@postanu/twitter-text'
+import { useVModel } from '@vueuse/core'
+import { computed, nextTick, onMounted, ref } from 'vue'
 
 import { hashtagRegex, highlight } from './highlight/index.js'
 
@@ -35,18 +36,21 @@ const props = withDefaults(
 		text: ''
 	}
 )
+const emit = defineEmits<{
+	'update:text': [text: string]
+}>()
 
-const { text: initialText } = toRefs(props)
+// const { text } = toRefs(props)
 
-const hl = ref<null | HTMLElement>(null)
+const hl = ref<HTMLElement | null>(null)
 const highlighted = ref('')
-const text = ref('')
-const textarea = ref<null | HTMLTextAreaElement>(null)
+const text = useVModel(props, 'text', emit)
+const textarea = ref<HTMLTextAreaElement | null>(null)
 const textareaHeight = ref()
 const isLarge = ref(true)
 
 onMounted(() => {
-	if (initialText.value.length > 0) {
+	if (text.value.length > 0) {
 		handleInput()
 	}
 })

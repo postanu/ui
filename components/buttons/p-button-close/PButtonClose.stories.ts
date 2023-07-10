@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+
 import { action } from '@storybook/addon-actions'
 
 import PButtonClose from './PButtonClose.vue'

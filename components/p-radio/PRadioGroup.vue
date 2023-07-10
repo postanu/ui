@@ -6,7 +6,7 @@
 <script lang="ts" setup>
 import { provide, readonly, toRefs } from 'vue'
 
-import { PRadioValueKey, PRadioChangeKey } from './injectionKeys.js'
+import { PRadioChangeKey, PRadioValueKey } from './injectionKeys.js'
 
 interface Props {
 	modelValue: string

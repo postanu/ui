@@ -9,7 +9,7 @@ p-button.p-button-text(
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
-	type?: 'danger' | 'target' | 'muted'
+	type?: 'danger' | 'muted' | 'target'
 }
 
 defineProps<Props>()

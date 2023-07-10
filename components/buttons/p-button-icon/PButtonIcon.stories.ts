@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import PButtonIcon from './PButtonIcon.vue'
 import PIconFacebook from '../../icons/p-icon-facebook/PIconFacebook.vue'
+import PButtonIcon from './PButtonIcon.vue'
 
 type Story = StoryObj<typeof PButtonIcon>
 
@@ -23,7 +23,7 @@ export const Default: Story = {
 		},
 		setup: () => ({ args }),
 		template: `
-			<p-button-icon :href="args.href">
+			<p-button-icon href="#">
 				${args.default}
 			</p-button-icon>
 		`
@@ -36,7 +36,6 @@ export const Default: Story = {
 export const Link: Story = {
 	...Default,
 	args: {
-		default: 'Button Link With Icon <p-icon-facebook />',
-		href: '#'
+		default: 'Button Link With Icon <p-icon-facebook />'
 	}
 }

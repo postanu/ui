@@ -9,6 +9,6 @@ pnpm add @postanu/ui
 ## Usage
 
 ```ts
-import '@postanu/ui/style'
+import '@postanu/ui/styles'
 import { … } from '@postanu/ui'
 ```

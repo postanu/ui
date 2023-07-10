@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { ALLOWED_TAGS } from './allowed-tags/index.js'
 import PHeading from './PHeading.vue'
+import { ALLOWED_TAGS } from './allowed-tags/index.js'
 
 type Story = StoryObj<typeof PHeading>
 

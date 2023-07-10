@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import PQueueItemPages from './PQueueItemPages.vue'
 import { generatePages } from '../../../generator/index.js'
+import PQueueItemPages from './PQueueItemPages.vue'
 
 type Story = StoryObj<typeof PQueueItemPages>
 

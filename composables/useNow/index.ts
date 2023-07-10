@@ -1,5 +1,6 @@
-import { getCurrentScope, onScopeDispose, ref } from 'vue'
 import type { Ref } from 'vue'
+
+import { getCurrentScope, onScopeDispose, ref } from 'vue'
 
 export function useNow (): Ref<Date> {
 	let active = true

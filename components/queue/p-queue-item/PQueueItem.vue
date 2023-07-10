@@ -20,15 +20,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, toRefs } from 'vue'
 import type { Attachment, ClientPage, PostState } from '@postanu/types'
 
-import { useQueueItemDescription } from '../../../composables/useQueueItemDescription/index.js'
+import { computed, ref, toRefs } from 'vue'
+
 import { useQueryItemTitle } from '../../../composables/useQueryItemTitle/index.js'
+import { useQueueItemDescription } from '../../../composables/useQueueItemDescription/index.js'
+import PButtonRemove from '../../buttons/p-button-remove/PButtonRemove.vue'
 import PQueueItemAttachments from '../p-queue-item-attachments/PQueueItemAttachments.vue'
 import PQueueItemPages from '../p-queue-item-pages/PQueueItemPages.vue'
-// eslint-disable-next-line @typescript-eslint/consistent-type-imports
-import PButtonRemove from '../../buttons/p-button-remove/PButtonRemove.vue'
 
 interface Props {
 	time: string
@@ -48,6 +48,7 @@ const emit = defineEmits<{
 
 const { title: initTitle, attachments } = toRefs(props)
 
+// eslint-disable-next-line vue/no-dupe-keys
 const title = useQueryItemTitle(initTitle)
 const description = useQueueItemDescription(attachments)
 

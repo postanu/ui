@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+
 import { action } from '@storybook/addon-actions'
 
 import PButtonRemove from './PButtonRemove.vue'
@@ -35,8 +36,8 @@ export const Default: Story = {
 		template: `
 			<p-button-remove
 				:timeout="args.timeout"
-				@removing="args.removing"
-				@remove="args.remove"
+				@removing="args.onRemoving"
+				@remove="args.onRemove"
 			>
 				<template v-slot:default>{{ args.default }}</template>
 				<template v-slot:question>{{ args.question }}</template>
@@ -50,7 +51,7 @@ export const Default: Story = {
 		question: 'Delete?',
 		agree: 'Confirm',
 		disagree: 'Cancel',
-		removing: action('removing'),
-		remove: action('remove')
+		onRemoving: action('removing'),
+		onRemove: action('remove')
 	}
 }

@@ -1,17 +1,17 @@
+import type { MaybeRef, Ref } from 'vue'
+
 import { computed, ref, watch } from 'vue'
-import type { Refable } from '@postanu/types'
-import type { Ref } from 'vue'
 
 import { extendRef } from '../extendRef/index.js'
 
-type TimeElementRef = Refable<string> & {
+type TimeElementRef = MaybeRef<string> & {
 	set: (value: string) => void
 	increase: (value: number) => void
 	decrease: (value: number) => void
 }
 
 export interface TimeRef {
-	ampm: Ref<string | null> & { change: (value?: 'AM' | 'PM') => void }
+	ampm: Ref<null | string> & { change: (value?: 'AM' | 'PM') => void }
 	hours: TimeElementRef
 	minutes: TimeElementRef
 }
@@ -56,7 +56,7 @@ export function timeRef (
 	let isMilitary = ampm.value
 
 	let set = (type: 'hours' | 'minutes') =>
-		(value: string | number): void => {
+		(value: number | string): void => {
 			let [from, to] = limits[type]
 			let isHours = type === 'hours'
 			if (isHours && !isMilitary) {

@@ -1,6 +1,7 @@
-import { computed } from 'vue'
 import type { ClientPage, PagesGroup, Post } from '@postanu/types'
 import type { ComputedRef, Ref } from 'vue'
+
+import { computed } from 'vue'
 
 import { usePagesGroupList } from '../usePagesGroupList/index.js'
 

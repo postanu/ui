@@ -1,5 +1,6 @@
-import { computed } from 'vue'
 import type { Meta, StoryObj } from '@storybook/vue3'
+
+import { computed } from 'vue'
 
 import { generateAttachments } from '../../../generator/index.js'
 import PEditorAttachments from './PEditorAttachments.vue'

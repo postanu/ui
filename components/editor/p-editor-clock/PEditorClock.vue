@@ -3,15 +3,15 @@
 </template>
 
 <script lang="ts" setup>
+import { format as dateFnsFormat } from 'date-fns'
 import {
+	computed,
 	getCurrentInstance,
 	onUnmounted,
-	computed,
+	ref,
 	toRefs,
-	unref,
-	ref
+	unref
 } from 'vue'
-import { format as dateFnsFormat } from 'date-fns'
 
 interface Props {
 	format: '12h' | '24h'

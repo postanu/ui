@@ -1,13 +1,14 @@
+import type { ClientPage, PagesGroup } from '@postanu/types'
+import type { ComputedRef, Ref } from 'vue'
+
 import { NETWORKS_ORDER } from '@postanu/core'
 import { computed } from 'vue'
-import type { ClientPage, PagesGroup, Refable } from '@postanu/types'
-import type { ComputedRef } from 'vue'
 
 /**
  * Groups pages by network, sorts them in special order and marks solo groups.
  */
 export function usePagesGroupList (
-	pages: Refable<ClientPage[]>
+	pages: Ref<ClientPage[]>
 ): ComputedRef<PagesGroup[]> {
 	return computed(() => {
 		// eslint-disable-next-line unicorn/no-array-reduce

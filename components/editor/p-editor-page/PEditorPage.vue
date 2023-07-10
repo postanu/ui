@@ -16,7 +16,7 @@ import PPage from '../../p-page/PPage.vue'
 
 interface Props {
 	icon?: typeof NETWORKS_ORDER[number]
-	avatar: string | null
+	avatar: null | string
 	fullname: string
 	username: string
 }

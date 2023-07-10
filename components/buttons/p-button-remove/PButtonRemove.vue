@@ -46,10 +46,10 @@ const emit = defineEmits<{
 }>()
 
 const removing = ref(false)
-const timeout = ref<ReturnType<typeof setTimeout> | null>(null)
+const timeoutId = ref<ReturnType<typeof setTimeout> | null>(null)
 const hover = ref(false)
 
-watch([hover, removing, timeout], ([_hover, _removing, _timeout]) => {
+watch([hover, removing, timeoutId], ([_hover, _removing, _timeout]) => {
 	if (_removing) {
 		if (_hover) {
 			_timeout && stopTimeout()
@@ -64,13 +64,13 @@ function setHover (value: boolean): void {
 }
 
 function startTimeout (): void {
-	timeout.value = setTimeout(hideQuestion, props.timeout)
+	timeoutId.value = setTimeout(hideQuestion, props.timeout)
 }
 
 function stopTimeout (): void {
-	if (timeout.value) {
-		clearTimeout(timeout.value)
-		timeout.value = null
+	if (timeoutId.value) {
+		clearTimeout(timeoutId.value)
+		timeoutId.value = null
 	}
 }
 

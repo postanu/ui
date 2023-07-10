@@ -25,7 +25,7 @@ const Template: Story = {
 		setup: () => ({
 			items: args.default.split('\n'),
 			columns: args.columns,
-			getCommon: (text: string): string | null => {
+			getCommon: (text: string): null | string => {
 				if (args.common) {
 					return args.common
 				}

@@ -10,7 +10,7 @@ const HTML_ENTITIES: Record<string, string> = {
 }
 
 export function escapeHtml (text: string): string {
-	return text.replace(/["&'<>]/g, character => {
+	return text.replaceAll(/["&'<>]/g, character => {
 		return HTML_ENTITIES[character]
 	})
 }
