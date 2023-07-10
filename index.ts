@@ -1,15 +1,3 @@
-export { default as PEditorText } from './components/editor/p-editor-text/PEditorText.vue'
-export { default as PEditorTime } from './components/editor/p-editor-time/PEditorTime.vue'
-export { default as PEditorClock } from './components/editor/p-editor-clock/PEditorClock.vue'
-export { default as PEditorPage } from './components/editor/p-editor-page/PEditorPage.vue'
-export { default as PEditorPageList } from './components/editor/p-editor-page-list/PEditorPageList.vue'
-export { default as PEditorAttachments } from './components/editor/p-editor-attachments/PEditorAttachments.vue'
-
-export { default as PQueueItem } from './components/queue/p-queue-item/PQueueItem.vue'
-export { default as PQueueHeading } from './components/queue/p-queue-heading/PQueueHeading.vue'
-export { default as PQueueItemPages } from './components/queue/p-queue-item-pages/PQueueItemPages.vue'
-export { default as PQueueItemAttachments } from './components/queue/p-queue-item-attachments/PQueueItemAttachments.vue'
-
 export * from './components/icons/index.js'
 export { default as PKey } from './components/p-key/PKey.vue'
 export { default as PLogo } from './components/p-logo/PLogo.vue'
@@ -36,5 +24,3 @@ export { default as PButtonProject } from './components/buttons/p-button-project
 export { default as PTableRow } from './components/table/p-table-row/PTableRow.vue'
 export { default as PTableGroup } from './components/table/p-table-group/PTableGroup.vue'
 export { default as PTableHeadline } from './components/table/p-table-headline/PTableHeadline.vue'
-export { default as PLinearCalendar } from './components/calendar/linear/p-linear-calendar/PLinearCalendar.vue'
-export { default as PLinearCalendarDay } from './components/calendar/linear/p-linear-calendar-day/PLinearCalendarDay.vue'

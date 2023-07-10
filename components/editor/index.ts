@@ -1,0 +1,6 @@
+export { default as PEditorText } from './p-editor-text/PEditorText.vue'
+export { default as PEditorTime } from './p-editor-time/PEditorTime.vue'
+export { default as PEditorClock } from './p-editor-clock/PEditorClock.vue'
+export { default as PEditorPage } from './p-editor-page/PEditorPage.vue'
+export { default as PEditorPageList } from './p-editor-page-list/PEditorPageList.vue'
+export { default as PEditorAttachments } from './p-editor-attachments/PEditorAttachments.vue'
