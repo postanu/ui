@@ -3,9 +3,9 @@ component(
 	:is="tag"
 	:class=`{
 		'p-heading': true,
-		'p-heading--hero': hero,
-		'p-heading--multiline': multiline,
-		[classByTag]: true
+		'p-hero': hero,
+		[classByTag]: true,
+		'p-heading--multiline': multiline
 	}`
 )
 	slot
@@ -36,17 +36,6 @@ const classByTag = computed(() => `p-${props.tag}`)
 .p-heading
 	user-select: none
 
-.p-heading--hero
-	font-size: var(--p-hero-font-size)
-	font-weight: var(--p-hero-font-weight)
-	line-height: var(--p-hero-line-height)
-	color: var(--p-color-white-08)
-	text-transform: uppercase
-
 .p-heading--multiline
-	line-height: 1.471
-
-@media (width < 1280px)
-	.p-heading
-		font-size: 5.3334vw
+	line-height: var(--p-hero-multiline-line-height)
 </style>
