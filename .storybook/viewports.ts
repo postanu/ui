@@ -1,44 +1,108 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export const viewports: typeof INITIAL_VIEWPORTS = {
-	w320: {
-		name: 'w320, SE',
+	m320: {
+		name: '320×568, iPhone SE',
 		type: 'mobile',
 		styles: {
 			width: '320px',
 			height: '568px'
 		}
 	},
-	w375: {
-		name: 'w375, Xs',
+	m375: {
+		name: '375×667, iPhone 8',
 		type: 'mobile',
 		styles: {
 			width: '375px',
-			height: '812px'
+			height: '667px'
 		}
 	},
-	w414: {
-		name: 'w414, Pro',
+	m390: {
+		name: '390×844, iPhone 13 / 14',
 		type: 'mobile',
 		styles: {
-			width: '414px',
-			height: '896px'
+			width: '390px',
+			height: '844px'
 		}
 	},
-	w1440: {
-		name: 'w1440',
+	m430: {
+		name: '430×932, iPhone Pro',
 		type: 'mobile',
+		styles: {
+			width: '430px',
+			height: '932px'
+		}
+	},
+	t744: {
+		name: '744×1133, iPad Mini 8.3"',
+		type: 'tablet',
+		styles: {
+			width: '744px',
+			height: '1133px'
+		}
+	},
+	t834: {
+		name: '834×1194, iPad Pro 11"',
+		type: 'tablet',
+		styles: {
+			width: '834px',
+			height: '1194px'
+		}
+	},
+	t1024: {
+		name: '1024×1366, iPad Pro 12"',
+		type: 'tablet',
+		styles: {
+			width: '1024px',
+			height: '1366px'
+		}
+	},
+	t1440: {
+		name: '1440×960, Surface Pro 8',
+		type: 'tablet',
 		styles: {
 			width: '1440px',
-			height: '1024px'
+			height: '960px'
 		}
 	},
-	w1680: {
-		name: 'w1680, 13"',
-		type: 'mobile',
+	d1280: {
+		name: '1280×832, MacBook Air',
+		type: 'desktop',
 		styles: {
-			width: '1680px',
-			height: '1050px'
+			width: '1280px',
+			height: '832px'
+		}
+	},
+	d1440: {
+		name: '1440×1034, Desktop',
+		type: 'desktop',
+		styles: {
+			width: '1440px',
+			height: '1034px'
+		}
+	},
+	d1512: {
+		name: '1512×982, MacBook Pro 14"',
+		type: 'desktop',
+		styles: {
+			width: '1512px',
+			height: '982px'
+		}
+	},
+	d1728: {
+		name: '1728×1117, MacBook Pro 16"',
+		type: 'desktop',
+		styles: {
+			width: '1728px',
+			height: '1117px'
+		}
+	},
+	d2048: {
+		name: '2048×1240, MacBook Pro 16" (scaled)',
+		type: 'desktop',
+		styles: {
+			width: '2048px',
+			height: '1240px'
 		}
 	}
 }
