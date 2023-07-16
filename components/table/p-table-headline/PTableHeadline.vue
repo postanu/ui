@@ -1,15 +1,12 @@
 <template lang="pug">
-p-heading.p-table-headline(
-	:tag="tag"
-	:headline="true"
-)
+p-headline.p-table-headline(:tag="tag")
 	slot
 </template>
 
 <script lang="ts" setup>
-import type { ALLOWED_TAGS } from '../../p-heading/allowed-tags/index.js'
+import type { ALLOWED_TAGS } from '../../typography/allowed-tags/index.js'
 
-import PHeading from '../../p-heading/PHeading.vue'
+import PHeadline from '../../typography/p-headline/PHeadline.vue'
 
 defineProps<{
 	tag: typeof ALLOWED_TAGS[number]
