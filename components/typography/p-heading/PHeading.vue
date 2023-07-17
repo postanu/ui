@@ -3,9 +3,7 @@ component(
 	:is="tag"
 	:class=`{
 		'p-heading': true,
-		'p-hero': hero,
-		[classByTag]: true,
-		'p-heading--multiline': multiline
+		[classByTag]: true
 	}`
 )
 	slot
@@ -18,8 +16,6 @@ import type { ALLOWED_TAGS } from '../allowed-tags/index.js'
 
 interface Props {
 	tag: typeof ALLOWED_TAGS[number]
-	hero?: boolean
-	multiline?: boolean
 }
 
 interface Slots {
@@ -35,7 +31,4 @@ const classByTag = computed(() => `p-${props.tag}`)
 <style lang="sass">
 .p-heading
 	user-select: none
-
-.p-heading--multiline
-	line-height: var(--p-hero-multiline-line-height)
 </style>

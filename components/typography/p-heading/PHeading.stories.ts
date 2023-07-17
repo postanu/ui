@@ -15,12 +15,6 @@ export default {
 		tag: {
 			control: 'select',
 			options: ALLOWED_TAGS
-		},
-		hero: {
-			control: 'boolean'
-		},
-		multiline: {
-			control: 'boolean'
 		}
 	}
 } as Meta<typeof PHeading>
@@ -32,41 +26,16 @@ const Template: Story = {
 		template: `
 			<p-heading
 				:tag="args.tag"
-				:hero="args.hero"
-				:multiline="args.multiline"
 				v-html="args.default"
 			/>
 		`
 	})
 }
 
-export const Heading: Story = {
+export const Default: Story = {
 	...Template,
 	args: {
 		default: 'Heading',
 		tag: 'h1'
-	}
-}
-
-export const Hero: Story = {
-	...Template,
-	args: {
-		default: 'Hero Heading',
-		tag: 'h1',
-		hero: true
-	}
-}
-
-export const HeroMultiline: Story = {
-	...Template,
-	args: {
-		default: `
-			Sharing your opinion<br>
-			and talking about your life<br>
-			should be easy
-		`,
-		tag: 'h1',
-		hero: true,
-		multiline: true
 	}
 }
