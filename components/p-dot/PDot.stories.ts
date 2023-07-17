@@ -10,7 +10,7 @@ export default {
 	argTypes: {
 		state: {
 			control: 'select',
-			options: ['error', 'loading']
+			options: ['error', 'loading', false]
 		}
 	}
 } as Meta<typeof PDot>
@@ -27,9 +27,20 @@ const Template: Story = {
 	})
 }
 
+export const Default: Story = {
+	...Template
+}
+
 export const Loading: Story = {
 	...Template,
 	args: {
 		state: 'loading'
+	}
+}
+
+export const Error: Story = {
+	...Template,
+	args: {
+		state: 'error'
 	}
 }
