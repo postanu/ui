@@ -11,7 +11,7 @@ export default {
 		default: {
 			control: 'text'
 		},
-		type: {
+		variant: {
 			control: 'select',
 			options: ['danger', 'target', 'muted']
 		}
@@ -27,20 +27,20 @@ export const Default: Story = {
 export const Target: Story = {
 	args: {
 		default: 'Target Text Button',
-		type: 'target'
+		variant: 'target'
 	}
 }
 
 export const Danger: Story = {
 	args: {
 		default: 'Danger Text Button',
-		type: 'danger'
+		variant: 'danger'
 	}
 }
 
 export const Muted: Story = {
 	args: {
 		default: 'Muted Text Button',
-		type: 'muted'
+		variant: 'muted'
 	}
 }

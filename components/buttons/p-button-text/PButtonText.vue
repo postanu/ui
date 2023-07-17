@@ -1,6 +1,6 @@
 <template lang="pug">
 p-button.p-button-text(
-	:class="`p-button-text--type--${$props.type}`"
+	:class="`p-button-text--var--${$props.variant}`"
 )
 	slot
 </template>
@@ -9,7 +9,7 @@ p-button.p-button-text(
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
-	type?: 'danger' | 'muted' | 'target'
+	variant?: 'danger' | 'muted' | 'target'
 }
 
 defineProps<Props>()
@@ -25,12 +25,12 @@ defineProps<Props>()
 
 	font-weight: 500
 
-.p-button-text--type--danger
+.p-button-text--var--danger
 	color: var(--p-color-red-08)
 
-.p-button-text--type--target
+.p-button-text--var--target
 	color: var(--p-color-blue-09)
 
-.p-button-text--type--muted
+.p-button-text--var--muted
 	color: var(--p-color-white-06)
 </style>
