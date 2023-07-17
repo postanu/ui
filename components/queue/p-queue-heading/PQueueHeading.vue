@@ -11,7 +11,7 @@
 import { format, isThisYear, isToday, isTomorrow, isYesterday } from 'date-fns'
 import { computed, toRefs } from 'vue'
 
-import PHeading from '../../p-heading/PHeading.vue'
+import PHeading from '../../typography/p-heading/PHeading.vue'
 
 interface Props {
 	date: string

@@ -24,10 +24,9 @@
 				p.p-editor-page-list__note(
 					v-if="showSelectableNote"
 				) Select the pages you want <br>to publish the post to:
-				p-heading(
+				p-headline(
 					v-else
 					tag="h3"
-					headline
 				) Select
 			ul.p-editor-page-list__list
 				li(
@@ -45,10 +44,7 @@
 					)
 		.p-editor-page-list__updatable(v-if="showUpdatable")
 			.p-editor-page-list__heading
-				p-heading(
-					tag="h3"
-					headline
-				) Update
+				p-headline(tag="h3") Update
 				p.p-editor-page-list__caption
 					| Before you can publish to these pages,
 					br
@@ -82,7 +78,7 @@ import { usePagesList } from '../../../composables/usePagesList/index.js'
 import PButtonCommon from '../../buttons/p-button-common/PButtonCommon.vue'
 import PButtonIcon from '../../buttons/p-button-icon/PButtonIcon.vue'
 import PIconPlus from '../../icons/p-icon-plus/PIconPlus.vue'
-import PHeading from '../../p-heading/PHeading.vue'
+import PHeadline from '../../typography/p-headline/PHeadline.vue'
 import PEditorPage from '../p-editor-page/PEditorPage.vue'
 
 interface Props {
