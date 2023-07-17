@@ -12,6 +12,7 @@ export { default as PButtonText } from './components/buttons/p-button-text/PButt
 export { default as PAttachment } from './components/p-attachment/PAttachment.vue'
 export { default as PAvatar } from './components/p-avatar/PAvatar.vue'
 export { default as PBadge } from './components/p-badge/PBadge.vue'
+export { default as PDot } from './components/p-dot/PDot.vue'
 export { default as PInput } from './components/p-input/PInput.vue'
 export { default as PInputProjectName } from './components/p-input-project-name/PInputProjectName.vue'
 export { default as PKey } from './components/p-key/PKey.vue'
