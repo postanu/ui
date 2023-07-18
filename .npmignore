@@ -11,4 +11,3 @@ public/
 postcss.config.cjs
 .nano-staged.json
 pnpm-lock.yaml
-tsconfig.json
