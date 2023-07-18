@@ -18,10 +18,9 @@
   },
   "typesVersions": {
     "*": {
-      "*": [
-        "*",
-        "./components/*/index.ts"
-      ]
+      "queue": ["./components/queue/index.ts"],
+      "editor": ["./components/editor/index.ts"],
+      "calendar": ["./components/calendar/index.ts"]
     }
   },
   "scripts": {
