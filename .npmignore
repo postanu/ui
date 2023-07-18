@@ -8,6 +8,6 @@ public/
 .browserslistrc
 .stylelintrc
 
-postcss.config.cjs
+.postcssrc.json
 .nano-staged.json
 pnpm-lock.yaml
