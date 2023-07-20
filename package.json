@@ -12,7 +12,8 @@
     "dev": "storybook dev -p 6006 --no-open",
     "build:storybook": "storybook build -o ./dist",
     "build:types": "rm -rf ./types && vue-tsc --project tsconfig.build.json",
-    "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'"
+    "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'",
+    "publish": "pnpm build:types && clean-publish"
   },
   "exports": {
     ".": "./index.ts",
@@ -108,6 +109,7 @@
     "@vueuse/components": "^10.2.1",
     "@vueuse/core": "^10.2.1",
     "autoprefixer": "^10.4.14",
+    "clean-publish": "^4.2.0",
     "date-fns": "^2.30.0",
     "eslint": "^8.45.0",
     "eslint-config-standard": "^17.1.0",
