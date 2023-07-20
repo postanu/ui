@@ -79,7 +79,6 @@
     }
   },
   "devDependencies": {
-    "@antfu/ni": "^0.21.5",
     "@nanostores/i18n": "^0.10.0",
     "@nanostores/vue": "^0.10.0",
     "@postanu/browserslist-config": "^0.3.0",
