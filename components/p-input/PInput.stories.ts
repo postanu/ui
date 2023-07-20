@@ -4,7 +4,11 @@ import { ref } from 'vue'
 
 import PInput from './PInput.vue'
 
-type Story = StoryObj<typeof PInput>
+type Story = StoryObj<typeof PInput> & {
+	args?: {
+		placeholder?: string
+	}
+}
 
 export default {
 	title: 'PInput',

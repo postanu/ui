@@ -1,4 +1,4 @@
-import type { Page } from '@postanu/types'
+import type { ClientPage, Page } from '@postanu/types'
 
 import { nanoid } from 'nanoid'
 
@@ -16,7 +16,7 @@ interface GeneratePagesOptions {
 export function generatePages (
 	pattern: Array<[number]>,
 	options: GeneratePagesOptions = {}
-): Page[] {
+): ClientPage[] {
 	let groupsCount = pattern.length
 	let updatables = options.updatables
 	let data = {
@@ -73,5 +73,6 @@ export function generatePages (
 		}
 	}
 
+	// @ts-ignore
 	return list
 }

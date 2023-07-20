@@ -18,9 +18,9 @@ export function randomFromArray<T> (
 	collection: T[],
 	count = 1,
 	options?: RandomFromArrayOptions<T>
-): T | T[] {
+): T[] {
 	if (count === 1) {
-		return collection[randomInRange(0, collection.length - 1)]
+		return [collection[randomInRange(0, collection.length - 1)]]
 	} else {
 		let copy = options?.copy || false
 		let filter = options?.filter || ((): boolean => true)

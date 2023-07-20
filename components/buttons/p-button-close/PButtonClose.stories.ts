@@ -16,10 +16,10 @@ export const Default: Story = {
 		components: { PButtonClose },
 		setup: () => ({ args }),
 		template: `
-			<p-button-close @close="args.close" />
+			<p-button-close @close="args.onClose" />
 		`
 	}),
 	args: {
-		close: action('close')
+		onClose: action('close')
 	}
 }

@@ -20,17 +20,17 @@ export const NoPages: Story = {
 			<p-editor-page-list
 				:pages="args.pages"
 				:selected="args.selected"
-				@update="args.update"
-				@connect="args.connect"
-				@update:selected="args['update:selected']"
+				@update="args.onUpdate"
+				@connect="args.onConnect"
+				@update:selected="args['onUpdate:selected']"
 			/>
 		`
 	}),
 	args: {
 		pages: [],
-		update: action('update'),
-		connect: action('connect'),
-		'update:selected': action('update:selected')
+		onUpdate: action('update'),
+		onConnect: action('connect'),
+		'onUpdate:selected': action('update:selected')
 	}
 }
 

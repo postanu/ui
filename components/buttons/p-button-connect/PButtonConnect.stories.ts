@@ -4,7 +4,11 @@ import { NETWORKS_ORDER } from '@postanu/core'
 
 import PButtonConnect from './PButtonConnect.vue'
 
-type Story = StoryObj<typeof PButtonConnect>
+type Story = StoryObj<typeof PButtonConnect> & {
+	args?: {
+		href?: string
+	}
+}
 
 export default {
 	title: 'Buttons / PButtonConnect',

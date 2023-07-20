@@ -5,7 +5,11 @@ import { computed } from 'vue'
 import { generateAttachments } from '../../../generator/index.js'
 import PEditorAttachments from './PEditorAttachments.vue'
 
-type Story = StoryObj<typeof PEditorAttachments>
+type Story = StoryObj<typeof PEditorAttachments> & {
+	args?: {
+		count?: number
+	}
+}
 
 export default {
 	title: 'Editor / PEditorAttachments',
