@@ -1,11 +1,21 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "outDir": "./types",
     "noEmit": false,
-    "outDir": "./types"
+    "declaration": true,
+    "emitDeclarationOnly": true
   },
   "include": [
     "./components/**/*.vue",
+    "./components/**/*.ts",
     "./index.ts"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist",
+    "./types",
+    "./generator",
+    "./**/*.stories.ts"
   ]
 }
