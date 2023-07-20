@@ -1,8 +1,8 @@
 import { mergeConfig } from 'vite'
 
 export default {
-  staticDirs: ['../public'],
-  stories: ['../components/**/*.stories.@(js|ts)'],
+  staticDirs: ['../src/public'],
+  stories: ['../src/components/**/*.stories.@(js|ts)'],
   addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',

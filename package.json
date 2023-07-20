@@ -16,20 +16,18 @@
     "publish": "pnpm build:types && clean-publish"
   },
   "exports": {
-    ".": "./index.ts",
-    "./queue": "./components/queue/index.ts",
-    "./editor": "./components/editor/index.ts",
-    "./calendar": "./components/calendar/index.ts",
-    "./styles": "./styles/base.sass",
+    ".": "./src/components/core/index.ts",
+    "./queue": "./src/components/queue/index.ts",
+    "./editor": "./src/components/editor/index.ts",
+    "./calendar": "./src/components/calendar/index.ts",
+    "./styles": "./src/styles/index.sass",
     "./package.json": "./package.json"
   },
-  "types": "./types/index.d.ts",
+  "types": "./types/components/core/index.d.ts",
   "typesVersions": {
     "*": {
-      "types/index.d.ts": [
-        "./types/index.d.ts"
-      ],
       "*": [
+        "*",
         "./types/components/*/index.d.ts"
       ]
     }

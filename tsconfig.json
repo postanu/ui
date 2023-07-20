@@ -21,8 +21,10 @@
     }
   },
   "include": [
-    "**/*.ts",
-    "**/*.vue",
+    "./src/**/*.ts",
+    "./src/**/*.vue",
+    "./generator/**/*.ts",
+    "./.storybook/**/*.ts",
     "./stub/**/*.d.ts"
   ],
   "vueCompilerOptions": {

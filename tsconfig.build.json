@@ -7,9 +7,8 @@
     "emitDeclarationOnly": true
   },
   "include": [
-    "./components/**/*.vue",
-    "./components/**/*.ts",
-    "./index.ts"
+    "./src/components/**/*.vue",
+    "./src/components/**/*.ts"
   ],
   "exclude": [
     "./node_modules",

@@ -1,13 +1,13 @@
 import { setup } from '@storybook/vue3'
 import type { Preview } from '@storybook/vue3'
 
-import PIconInstagram from '../components/icons/p-icon-instagram/PIconInstagram.vue'
-import PIconFacebook from '../components/icons/p-icon-facebook/PIconFacebook.vue'
-import PIconTwitter from '../components/icons/p-icon-twitter/PIconTwitter.vue'
-import PIconVK from '../components/icons/p-icon-vk/PIconVK.vue'
+import PIconInstagram from '../src/components/core/icons/p-icon-instagram/PIconInstagram.vue'
+import PIconFacebook from '../src/components/core/icons/p-icon-facebook/PIconFacebook.vue'
+import PIconTwitter from '../src/components/core/icons/p-icon-twitter/PIconTwitter.vue'
+import PIconVK from '../src/components/core/icons/p-icon-vk/PIconVK.stories'
 
 import './styles.sass'
-import '../styles/base.sass'
+import '../src/styles/index.sass'
 import { viewports } from './viewports.js'
 
 setup(app => {

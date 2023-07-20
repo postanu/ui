@@ -6,7 +6,7 @@ generator/
 stub/
 
 .storybook/
-public/
+src/public/
 
 .browserslistrc
 .stylelintrc
