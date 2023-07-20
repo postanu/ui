@@ -30,6 +30,8 @@ const Template: Story = {
 		},
 		setup: () => ({
 			name: args.name,
+			// TODO
+			// @ts-ignore
 			groups: JSON.parse(args.content)
 		}),
 		template: `

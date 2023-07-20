@@ -17,9 +17,6 @@ export default {
 		value: {
 			control: 'text'
 		},
-		modelValue: {
-			control: 'text'
-		},
 		default: {
 			control: 'text'
 		},
@@ -38,7 +35,7 @@ const Template: Story = {
 		setup: () => ({
 			...args,
 			content: args.default,
-			modelValue: ref(args.modelValue || '')
+			modelValue: ref('')
 		}),
 		template: `
 			<p-radio-group v-model="modelValue" @update:model-value="onUpdate">
@@ -65,7 +62,6 @@ export const Preselected: Story = {
 	args: {
 		name: 'group',
 		value: 'euaaaio',
-		default: 'euaaaio',
-		modelValue: 'euaaaio'
+		default: 'euaaaio'
 	}
 }

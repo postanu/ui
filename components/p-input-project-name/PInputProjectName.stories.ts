@@ -27,7 +27,7 @@ export const Default: Story = {
 		template: `
 			<p-input-project-name
 				v-model="model"
-				@change="args.change"
+				@enter="args.onEnter"
 				:placeholder="args.placeholder"
 			/>
 		`
@@ -35,6 +35,6 @@ export const Default: Story = {
 	args: {
 		placeholder: 'Type the name of the new project',
 		modelValue: '',
-		change: action('change')
+		onEnter: action('enter')
 	}
 }

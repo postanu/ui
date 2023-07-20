@@ -27,7 +27,9 @@ const Template: Story = {
 		setup: () => ({
 			...args,
 			pages: args.pages
+				// @ts-ignore
 				? JSON.parse(args.pages)
+				// @ts-ignore
 				: generatePages(JSON.parse(args.pattern))
 		}),
 		template: `
@@ -35,14 +37,14 @@ const Template: Story = {
 				:pages="pages"
 				:updatable="updatable"
 				:removable="removable"
-				@update="update"
-				@remove="remove"
+				@update="onUpdate"
+				@remove="onRemove"
 			/>
 		`
 	}),
 	args: {
-		update: action('update'),
-		remove: action('remove')
+		onUpdate: action('update'),
+		onRemove: action('remove')
 	}
 }
 
@@ -50,6 +52,8 @@ export const OnePage: Story = {
 	...Template,
 	args: {
 		...Template.args,
+		// TODO
+		// @ts-ignore
 		pages: JSON.stringify(generatePages([[1]]), null, '\t')
 	}
 }
@@ -58,6 +62,8 @@ export const MultiPage: Story = {
 	...Template,
 	args: {
 		...Template.args,
+		// TODO
+		// @ts-ignore
 		pages: JSON.stringify(generatePages([[0], [0], [0]]), null, '\t')
 	}
 }
@@ -66,6 +72,8 @@ export const Generative: Story = {
 	...Template,
 	args: {
 		...Template.args,
+		// TODO
+		// @ts-ignore
 		pattern: '[[0], [1], [3], [2]]'
 	}
 }

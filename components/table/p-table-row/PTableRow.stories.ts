@@ -3,7 +3,13 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { discography, randomInRange } from '../../../generator/index.js'
 import PTableRow from './PTableRow.vue'
 
-type Story = StoryObj<typeof PTableRow>
+// TODO: fix types
+type Story = StoryObj<typeof PTableRow> & {
+	args?: {
+		default?: string
+		common?: string
+	}
+}
 
 export default {
 	title: 'Table / PTableRow',
@@ -23,10 +29,14 @@ const Template: Story = {
 		inheritAttrs: false,
 		components: { PTableRow },
 		setup: () => ({
+			// @ts-ignore
 			items: args.default.split('\n'),
+			// @ts-ignore
 			columns: args.columns,
 			getCommon: (text: string): null | string => {
+				// @ts-ignore
 				if (args.common) {
+					// @ts-ignore
 					return args.common
 				}
 				let common = text.match(/\((\D+)\)/)

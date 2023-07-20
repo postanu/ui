@@ -42,6 +42,8 @@ export const Default: Story = {
 	...Template,
 	args: {
 		time: post.time,
+		// TODO
+		// @ts-ignore
 		pages: post.pages,
 		title: post.title,
 		attachments: post.attachments,

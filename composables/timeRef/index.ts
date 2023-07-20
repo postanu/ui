@@ -1,10 +1,11 @@
-import type { MaybeRef, Ref } from 'vue'
+import type { Ref } from 'vue'
 
+import { extendRef } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 
-import { extendRef } from '../extendRef/index.js'
+// import { extendRef } from '../extendRef/index.js'
 
-type TimeElementRef = MaybeRef<string> & {
+type TimeElementRef = Ref<string> & {
 	set: (value: string) => void
 	increase: (value: number) => void
 	decrease: (value: number) => void

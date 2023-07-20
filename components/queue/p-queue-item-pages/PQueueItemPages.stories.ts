@@ -3,7 +3,11 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { generatePages } from '../../../generator/index.js'
 import PQueueItemPages from './PQueueItemPages.vue'
 
-type Story = StoryObj<typeof PQueueItemPages>
+type Story = StoryObj<typeof PQueueItemPages> & {
+	args?: {
+		pattern?: string
+	}
+}
 
 export default {
 	title: 'Queue / PQueueItemPages',
@@ -20,7 +24,10 @@ const Template: Story = {
 		components: { PQueueItemPages },
 		setup: () => ({
 			args,
+			// TODO
+			// @ts-ignore
 			pages: args.pattern
+				// @ts-ignore
 				? generatePages(JSON.parse(args.pattern))
 				: args.pages
 		}),
