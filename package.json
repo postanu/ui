@@ -8,6 +8,12 @@
   "repository": "postanu/ui",
   "type": "module",
   "sideEffects": false,
+  "scripts": {
+    "dev": "storybook dev -p 6006 --no-open",
+    "build:storybook": "storybook build -o ./dist",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
+    "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'"
+  },
   "exports": {
     ".": "./index.ts",
     "./queue": "./components/queue/index.ts",
@@ -28,12 +34,6 @@
         "./components/calendar/index.ts"
       ]
     }
-  },
-  "scripts": {
-    "dev": "storybook dev -p 6006 --no-open",
-    "build:storybook": "storybook build -o ./dist",
-    "build:types": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
-    "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'"
   },
   "peerDependencies": {
     "@nanostores/vue": "^0.10.0",
