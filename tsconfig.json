@@ -21,13 +21,9 @@
     }
   },
   "include": [
-    "./.storybook/**/*.ts",
-    "./composables/**/*.ts",
-    "./components/**/*.vue",
-    "./components/**/*.ts",
-    "./generator/**/*.ts",
-    "./stub/**/*.d.ts",
-    "./index.ts"
+    "**/*.ts",
+    "**/*.vue",
+    "./stub/**/*.d.ts"
   ],
   "vueCompilerOptions": {
     "plugins": [

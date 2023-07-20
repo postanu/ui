@@ -31,7 +31,8 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
-    "build": "storybook build -o ./dist",
+    "build:storybook": "storybook build -o ./dist",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.build.json",
     "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'"
   },
   "peerDependencies": {
@@ -80,6 +81,7 @@
     }
   },
   "devDependencies": {
+    "@antfu/ni": "^0.21.5",
     "@nanostores/i18n": "^0.10.0",
     "@nanostores/vue": "^0.10.0",
     "@postanu/browserslist-config": "^0.3.0",
