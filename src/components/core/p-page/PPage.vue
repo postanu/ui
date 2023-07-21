@@ -23,14 +23,15 @@ interface Props {
 	icon?: typeof NETWORKS_ORDER[number]
 	avatar: null | string
 	fullname: string
-	username: string
+	username: null | string
 }
 
 const props = withDefaults(
 	defineProps<Props>(),
 	{
 		icon: undefined,
-		avatar: null
+		avatar: null,
+		username: null
 	}
 )
 

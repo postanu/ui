@@ -30,8 +30,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0
   '@postanu/types':
-    specifier: ^0.10.2
-    version: 0.10.2(@postanu/core@0.6.2)
+    specifier: ^0.10.3
+    version: 0.10.3(@postanu/core@0.6.2)
   '@storybook/addon-actions':
     specifier: ^7.1.0
     version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -2327,8 +2327,8 @@ packages:
       twemoji-parser: 13.1.0
     dev: true
 
-  /@postanu/types@0.10.2(@postanu/core@0.6.2):
-    resolution: {integrity: sha512-NtnnkWULmemjpS7ohO1v+INHRR8G4QRl725x5y7g1VQ8mayHPWyZaT0alri5l0HentRQ7iqe5xlb1FNTssk9zg==}
+  /@postanu/types@0.10.3(@postanu/core@0.6.2):
+    resolution: {integrity: sha512-LJFDXbEa7ylFXXQC+/ts5j3Dl9SxY6FRN5uQA2GpKjkusGbgbYc2vWsRlVrc/uvLScPr4UpLDFLeJU/WHuai7Q==}
     peerDependencies:
       '@postanu/core': ^0.6.2
     dependencies:

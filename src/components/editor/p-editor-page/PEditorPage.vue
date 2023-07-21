@@ -18,7 +18,7 @@ interface Props {
 	icon?: typeof NETWORKS_ORDER[number]
 	avatar: null | string
 	fullname: string
-	username: string
+	username: null | string
 }
 
 withDefaults(
