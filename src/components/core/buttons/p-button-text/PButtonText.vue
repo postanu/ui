@@ -1,18 +1,22 @@
 <template lang="pug">
-p-button.p-button-text(
-	:class="`p-button-text--var--${$props.variant}`"
-)
+p-button.p-button-text(:class="variantClass")
 	slot
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
+
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
 	variant?: 'danger' | 'muted' | 'target'
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const variantClass = computed(
+	() => props.variant && `p-button-text--var--${props.variant}`
+)
 </script>
 
 <style lang="sass">

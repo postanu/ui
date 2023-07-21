@@ -13,7 +13,7 @@ export default {
 		},
 		variant: {
 			control: 'select',
-			options: ['danger', 'target', 'muted']
+			options: ['danger', 'target', 'muted', undefined]
 		}
 	}
 } as Meta<typeof PButtonText>
