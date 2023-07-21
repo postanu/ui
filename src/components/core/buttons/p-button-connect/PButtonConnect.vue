@@ -29,6 +29,7 @@ const icon = computed(() => `p-icon-${props.network}`)
 	--p-button-radius: 5px
 
 	position: relative
+	display: block
 	width: 100px
 
 .p-button-connect__arrow
