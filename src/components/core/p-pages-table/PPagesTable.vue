@@ -22,7 +22,7 @@
 						.p-pages-table__buttons
 							p-button-text(
 								v-if="updatable && !isRemoving(page.id) "
-								type="target"
+								variant="target"
 								@click="$emit('update', { id: page.id })"
 							) Update
 							p-button-remove(

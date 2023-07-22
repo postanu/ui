@@ -5,7 +5,7 @@
 )
 	p-button-text(
 		v-if="!removing"
-		type="danger"
+		variant="danger"
 		@click="showQuestion"
 	)
 		slot(name="default") Remove
@@ -13,12 +13,12 @@
 		.p-button-remove__question
 			slot(name="question") Delete?
 		p-button-text(
-			type="muted"
+			variant="muted"
 			@click="hideQuestion"
 		)
 			slot(name="disagree") Cancel
 		p-button-text(
-			type="danger"
+			variant="danger"
 			@click="remove"
 		)
 			slot(name="agree") Confirm
