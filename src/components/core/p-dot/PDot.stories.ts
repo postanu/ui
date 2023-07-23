@@ -10,7 +10,7 @@ export default {
 	argTypes: {
 		state: {
 			control: 'select',
-			options: ['error', 'loading', false]
+			options: ['error', 'loading', 'success', false]
 		}
 	}
 } as Meta<typeof PDot>
@@ -42,5 +42,12 @@ export const Error: Story = {
 	...Template,
 	args: {
 		state: 'error'
+	}
+}
+
+export const Success: Story = {
+	...Template,
+	args: {
+		state: 'success'
 	}
 }

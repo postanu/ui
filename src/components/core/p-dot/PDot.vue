@@ -6,7 +6,7 @@
 import { computed } from 'vue'
 
 interface Props {
-	state?: 'error' | 'loading' | false
+	state?: 'error' | 'loading' | 'success' | false
 }
 
 const props = defineProps<Props>()
@@ -26,12 +26,16 @@ const stateClass = computed(
 	opacity: 0
 	transition: background-color 0.3s ease-out
 
+.p-dot--error
+	background-color: var(--p-color-red-09)
+	opacity: 1
+
 .p-dot--loading
 	opacity: 1
 	animation: p-dot-loading 0.6s infinite ease-out 0.3s
 
-.p-dot--error
-	background-color: var(--p-color-red-09)
+.p-dot--success
+	background-color: var(--p-color-green)
 	opacity: 1
 
 @keyframes p-dot-loading
