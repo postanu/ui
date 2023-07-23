@@ -32,4 +32,11 @@
 
 .p-table-group__name
 	line-height: 50px
+
+@media (width < 1366px)
+	.p-table-group
+		grid-template-columns: 1fr
+
+	.p-table-group__name
+		display: none
 </style>
