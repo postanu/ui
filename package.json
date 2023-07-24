@@ -13,7 +13,7 @@
     "build:storybook": "storybook build -o ./dist",
     "build:types": "rm -rf ./types && vue-tsc --project tsconfig.build.json",
     "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'",
-    "publish": "pnpm build:types && clean-publish"
+    "publish": "pnpm run build:types && clean-publish"
   },
   "exports": {
     ".": "./src/components/core/index.ts",
