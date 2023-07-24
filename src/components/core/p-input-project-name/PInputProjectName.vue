@@ -1,27 +1,18 @@
 <template lang="pug">
-.p-input-project-name
-	p-input(
-		id="project-name"
-		ref="input"
-		size="25"
-		type="text"
-		name="project-name"
-		autocorrect="off"
-		autocomplete="off"
-		autocapitalize="off"
-		:placeholder="placeholder"
-		:model-value="modelValue"
-		@update:model-value="emitUpdate"
-		@keyup.enter="emitEnter"
-	)
-	label.p-input-project-name__label(
-		v-show="showPlaceholder"
-		for="project-name"
-	) {{ placeholder }}
+p-input.p-input-project-name(
+	ref="input"
+	size="25"
+	type="text"
+	name="project-name"
+	:placeholder="placeholder"
+	:model-value="modelValue"
+	@update:model-value="emitUpdate"
+	@keyup.enter="emitEnter"
+)
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, toRefs } from 'vue'
+import { ref, toRefs } from 'vue'
 
 import PInput from '../p-input/PInput.vue'
 
@@ -39,10 +30,6 @@ const emit = defineEmits<{
 
 const { modelValue } = toRefs(props)
 const input = ref<HTMLInputElement | null>(null)
-
-const showPlaceholder = computed(
-	() => modelValue.value.length > 0 && props.placeholder.length > 0
-)
 
 function emitUpdate (value: string | undefined): void {
 	emit('update:modelValue', value)
@@ -65,14 +52,10 @@ defineExpose({ focus, blur })
 
 <style lang="sass" scoped>
 .p-input-project-name
-	min-height: 70px
-
-.p-input-project-name > .p-input
-	padding: 2px 0 8px
+	padding: 15px 0
+	overflow: hidden
 	font-size: var(--p-h2-regular-font-size)
-	font-weight: 700
-
-.p-input-project-name__label
-	padding-bottom: 3px
-	margin-top: -3px
+	font-weight: var(--p-h2-bold-font-weight)
+	text-overflow: ellipsis
+	white-space: nowrap
 </style>

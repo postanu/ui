@@ -33,7 +33,7 @@ export const Default: Story = {
 		`
 	}),
 	args: {
-		placeholder: 'Type the name of the new project',
+		placeholder: 'Stockholm',
 		modelValue: '',
 		onEnter: action('enter')
 	}
