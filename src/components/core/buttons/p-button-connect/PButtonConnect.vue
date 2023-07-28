@@ -24,7 +24,7 @@ const icon = computed(() => `p-icon-${props.network}`)
 </script>
 
 <style lang="sass">
-.p-button-connect
+a.p-button-connect
 	--p-button-content-padding: 10px
 	--p-button-radius: 5px
 
