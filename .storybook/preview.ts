@@ -4,7 +4,7 @@ import type { Preview } from '@storybook/vue3'
 import PIconInstagram from '../src/components/core/icons/p-icon-instagram/PIconInstagram.vue'
 import PIconFacebook from '../src/components/core/icons/p-icon-facebook/PIconFacebook.vue'
 import PIconTwitter from '../src/components/core/icons/p-icon-twitter/PIconTwitter.vue'
-import PIconVK from '../src/components/core/icons/p-icon-vk/PIconVK.stories'
+import PIconVK from '../src/components/core/icons/p-icon-vk/PIconVK.vue'
 
 import './styles.sass'
 import '../src/styles/index.sass'

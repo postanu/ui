@@ -6,7 +6,7 @@
 	)
 	p-avatar(
 		:image="avatar"
-		:letter="fullname"
+		:text="fullname"
 	)
 	.p-page__fn {{ fullname }}
 	.p-page__un.p-caption {{ username }}

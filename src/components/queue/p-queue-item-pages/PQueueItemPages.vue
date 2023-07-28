@@ -15,7 +15,7 @@
 				)
 					p-avatar(
 						:image="page.avatar"
-						:letter="page.name"
+						:text="page.name"
 					)
 				.p-queue-pages__counter(
 					v-if="group.pages.length > MAX_VISIBLE_GROUP_SIZE"
