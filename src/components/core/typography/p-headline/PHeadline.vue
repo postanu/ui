@@ -21,6 +21,7 @@ defineSlots<Slots>()
 
 <style lang="sass">
 .p-headline
+	padding: 15px 0
 	font-size: var(--p-headline-font-size)
 	font-weight: var(--p-headline-font-weight)
 	line-height: var(--p-headline-line-height)
