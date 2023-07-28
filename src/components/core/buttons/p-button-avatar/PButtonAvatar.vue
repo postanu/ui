@@ -1,19 +1,21 @@
 <template lang="pug">
 p-button.p-button-avatar
-	.p-button-avatar__content
+	p-avatar.p-button-avatar__content(
+		:image="image"
+		:text="text"
+	)
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-
+import PAvatar from '../../p-avatar/PAvatar.vue'
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
-	image: string
+	image?: string
+	text: string
 }
 
-const props = defineProps<Props>()
-const background = computed(() => `url("${props.image}")`)
+defineProps<Props>()
 </script>
 
 <style lang="sass">
@@ -22,11 +24,6 @@ const background = computed(() => `url("${props.image}")`)
 	--p-button-radius: 50%
 
 .p-button-avatar__content
-	box-sizing: content-box
-	width: 24px
-	height: 24px
-	background: v-bind('background')
-	background-position: center
-	background-size: cover
-	border-radius: var(--p-button-radius)
+	--p-avatar-size: 24px
+	--p-avatar-border-size: 0
 </style>

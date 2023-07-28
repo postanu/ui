@@ -9,6 +9,15 @@ export default {
 	component: PButtonAvatar
 } as Meta<typeof PButtonAvatar>
 
-export const Default: Story = {
-	args: { image: 'mm.jpg' }
+export const Image: Story = {
+	args: {
+		image: 'mm.jpg',
+		text: 'Marilyn'
+	}
+}
+
+export const Letter: Story = {
+	args: {
+		text: 'Marilyn'
+	}
 }

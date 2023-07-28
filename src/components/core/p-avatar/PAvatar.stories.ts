@@ -17,12 +17,12 @@ export default {
 export const Image: Story = {
 	args: {
 		image: 'mm.jpg',
-		letter: 'M'
+		text: 'Marilyn'
 	}
 }
 
 export const Letter: Story = {
 	args: {
-		letter: 'M'
+		text: 'Marilyn'
 	}
 }
