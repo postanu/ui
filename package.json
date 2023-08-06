@@ -29,7 +29,8 @@
     "*": {
       "*": [
         "*",
-        "./types/components/*/index.d.ts"
+        "./types/components/*/index.d.ts",
+        "./types/composables/index.d.ts"
       ]
     }
   },
