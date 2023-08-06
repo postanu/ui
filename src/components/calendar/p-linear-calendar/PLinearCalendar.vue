@@ -12,28 +12,32 @@
 			:ref="setRef(yearKey, monthKey)"
 		)
 			.p-linear-calendar__month-header
-				.p-linear-calendar__month-name {{ t[MONTHS[monthKey - 1]] }}
+				.p-linear-calendar__month-name
+					slot(
+						name="month"
+						:month-key="monthKey - 1"
+					)
 			template(
 				v-for="[,day] in month"
 				:key="day.date"
 			)
 				slot(
+					name="day"
 					:day="day"
-					:selected-date="selectedDate"
-					:select-date="selectDate"
 				)
 	transition(name="fade")
 		button.p-linear-calendar__next-month(
 			v-if="showNextMonth"
 			@click="scrollToNextMonth"
-		) {{ nextMonth }}
+		)
+			slot(
+				name="nextMonth"
+				:month-key="nextMonthKey - 1"
+			)
 </template>
 
 <script lang="ts" setup>
-import { useStore } from '@nanostores/vue'
-import { MONTHS } from '@postanu/core'
-import { calendarMessages } from '@postanu/i18n'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 import type { LinearCalendarDay } from '../create-calendar/index.js'
 
@@ -44,19 +48,17 @@ interface Props {
 }
 
 interface Slots {
-	default (props: {
-		day: LinearCalendarDay
-		selectedDate: string
-		selectDate: (date: string) => void
-	}): unknown
+	day (props: { day: LinearCalendarDay }): unknown
+	month (props: { monthKey: number }): unknown
+	nextMonth (props: { monthKey: number }): unknown
 }
 
 interface Emits {
 	(event: 'update:selectedDate', selectedDate: string): void
 }
 
-const emit = defineEmits<Emits>()
 const props = defineProps<Props>()
+defineEmits<Emits>()
 defineSlots<Slots>()
 
 const selectedDate = ref(props.selectedDate)
@@ -72,17 +74,6 @@ const {
 	root,
 	selectedDate
 })
-
-const t = useStore(calendarMessages)
-
-let nextMonth = computed(
-	() => t.value[MONTHS[nextMonthKey.value - 1]]
-)
-
-function selectDate (date: string): void {
-	selectedDate.value = date
-	emit('update:selectedDate', date)
-}
 </script>
 
 <style lang="sass">

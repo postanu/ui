@@ -20,6 +20,7 @@
     "./queue": "./src/components/queue/index.ts",
     "./editor": "./src/components/editor/index.ts",
     "./calendar": "./src/components/calendar/index.ts",
+    "./composables": "./src/composables/index.ts",
     "./styles": "./src/styles/index.sass",
     "./package.json": "./package.json"
   },

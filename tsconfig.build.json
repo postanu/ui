@@ -8,7 +8,8 @@
   },
   "include": [
     "./src/components/**/*.vue",
-    "./src/components/**/*.ts"
+    "./src/components/**/*.ts",
+    "./src/composables/**/*.ts"
   ],
   "exclude": [
     "./node_modules",

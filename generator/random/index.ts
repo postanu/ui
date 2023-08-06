@@ -24,3 +24,7 @@ export function getRandomTime (): string {
 	let a = randomFromArray(['AM', 'PM'])
 	return `${h}:${m} ${a}`
 }
+
+export function getRandomNumber (max: number): number {
+	return Math.floor(Math.random() * max)
+}
