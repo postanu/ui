@@ -1,5 +1,5 @@
 <template lang="pug">
-.p-linear-calendar(ref="root")
+.p-linear-calendar(ref="el")
 	.p-linear-calendar__year(
 		v-for="[yearKey, year] in calendar"
 		:key="yearKey"
