@@ -58,11 +58,12 @@ interface Emits {
 }
 
 const props = defineProps<Props>()
+const selectedDate = ref(props.selectedDate)
+const el = ref<HTMLDivElement | null>(null)
+
 defineEmits<Emits>()
 defineSlots<Slots>()
-
-const selectedDate = ref(props.selectedDate)
-const root = ref<HTMLDivElement | null>(null)
+defineExpose({ el })
 
 const {
 	calendar,
@@ -71,7 +72,7 @@ const {
 	setRef,
 	scrollToNextMonth
 } = useCalendar({
-	root,
+	root: el,
 	selectedDate
 })
 </script>
