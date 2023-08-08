@@ -1,5 +1,6 @@
 <template lang="pug">
 button.p-linear-calendar-day(
+	ref="el"
 	:class=`{
 		'p-linear-calendar-day--today': isToday,
 		'p-linear-calendar-day--selected': isSelected,
@@ -26,7 +27,7 @@ button.p-linear-calendar-day(
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Props {
 	isPast: boolean
@@ -38,9 +39,14 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const el = ref<HTMLButtonElement | null>(null)
+
 const areaLabel = computed(
 	() => `${props.drafts} drafts, ${props.posts} scheduled posts`
 )
+
+defineExpose({ el })
 </script>
 
 <style lang="sass">
