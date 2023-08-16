@@ -1,4 +1,4 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import type { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export const viewports: typeof INITIAL_VIEWPORTS = {
 	m320: {
