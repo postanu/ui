@@ -7,7 +7,6 @@ import { calendarMessages } from '@postanu/i18n'
 import { ref } from 'vue'
 
 import { getRandomNumber } from '../../../../generator/index.js'
-import { usePostsScale } from '../../../composables/index.js'
 import PLinearCalendarDay from '../p-linear-calendar-day/PLinearCalendarDay.vue'
 import PLinearCalendar from './PLinearCalendar.vue'
 
@@ -60,11 +59,12 @@ export const Default: Story = {
 				if (counters.has(date)) {
 					return counters.get(date)!
 				} else {
-					let drafts = ref(getRandomNumber(6))
-					let posts = ref(getRandomNumber(6))
-					let scale = usePostsScale(drafts, posts)
-					counters.set(date, scale.value)
-					return scale.value
+					let scale = {
+						drafts: getRandomNumber(4),
+						posts: getRandomNumber(4)
+					}
+					counters.set(date, scale)
+					return scale
 				}
 			}
 
