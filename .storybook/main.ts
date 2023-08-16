@@ -1,8 +1,10 @@
+import type { StorybookConfig } from '@storybook/vue3-vite'
+
 import { mergeConfig } from 'vite'
 
-export default {
+const storybookConfig: StorybookConfig = {
   staticDirs: ['../src/public'],
-  stories: ['../src/components/**/*.stories.@(js|ts)'],
+  stories: ['../src/components/**/*.stories.ts'],
   addons: [
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
@@ -15,9 +17,6 @@ export default {
 	docs: {
     autodocs: false
   },
-  /**
-   * @param config {import('vite').UserConfig}
-   */
   async viteFinal(config) {
 		return mergeConfig(config, {
 			optimizeDeps: {
@@ -35,3 +34,5 @@ export default {
 		})
 	}
 }
+
+export default storybookConfig
