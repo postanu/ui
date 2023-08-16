@@ -5,34 +5,26 @@ import { computed } from 'vue'
 export function usePostsScale (drafts: Ref<number>, posts: Ref<number>): Ref<{
 	drafts: number
 	posts: number
-}>	 {
+}> {
 	return computed(() => {
-		let total = drafts.value + posts.value
+		let totalDrafts = drafts.value
+		let totalPosts = posts.value
 		let scaleSize = 6
 
-		if (total <= scaleSize) {
+		if (totalDrafts === 0) {
 			return {
-				drafts: drafts.value,
-				posts: posts.value
+				drafts: 0,
+				posts: totalPosts > scaleSize ? scaleSize : totalPosts
+			}
+		} else if (totalDrafts + totalPosts <= scaleSize) {
+			return {
+				drafts: totalDrafts,
+				posts: totalPosts
 			}
 		} else {
-			let minScaleFactor = scaleSize / total
-
-			let scaledDrafts = Math.max(1, Math.floor(drafts.value * minScaleFactor))
-			let scaledPosts = Math.max(1, Math.floor(posts.value * minScaleFactor))
-
-			let remainingSpace = scaleSize - (scaledDrafts + scaledPosts)
-			if (remainingSpace > 0) {
-				return drafts.value > posts.value
-					? {
-						drafts: scaledDrafts + remainingSpace,
-						posts: scaledPosts
-					}
-					: {
-						drafts: scaledDrafts,
-						posts: scaledPosts + remainingSpace
-					}
-			}
+			let totalRatio = totalDrafts / (totalDrafts + totalPosts)
+			let scaledDrafts = Math.min(totalDrafts, Math.floor(totalRatio * scaleSize))
+			let scaledPosts = scaleSize - scaledDrafts
 
 			return {
 				drafts: scaledDrafts,
