@@ -29,7 +29,7 @@ button.p-linear-calendar-day(
 <script lang="ts" setup>
 import { computed, ref, toRefs } from 'vue'
 
-import { usePostsScale } from '../../../composables/use-posts-scale/index.js'
+import { usePostsScale } from '../../../composables/index.js'
 
 interface Props {
 	isPast: boolean

@@ -24,8 +24,7 @@ import type { Attachment, ClientPage, PostState } from '@postanu/types'
 
 import { computed, ref, toRefs } from 'vue'
 
-import { useQueryItemTitle } from '../../../composables/useQueryItemTitle/index.js'
-import { useQueueItemDescription } from '../../../composables/useQueueItemDescription/index.js'
+import { useQueueItemDescription, useQueueItemTitle } from '../../../composables/index.js'
 import PButtonRemove from '../../core/buttons/p-button-remove/PButtonRemove.vue'
 import PQueueItemAttachments from '../p-queue-item-attachments/PQueueItemAttachments.vue'
 import PQueueItemPages from '../p-queue-item-pages/PQueueItemPages.vue'
@@ -49,7 +48,7 @@ const emit = defineEmits<{
 const { title: initTitle, attachments } = toRefs(props)
 
 // eslint-disable-next-line vue/no-dupe-keys
-const title = useQueryItemTitle(initTitle)
+const title = useQueueItemTitle(initTitle)
 const description = useQueueItemDescription(attachments)
 
 const removeButtonRef = ref<InstanceType<typeof PButtonRemove> | null>(null)

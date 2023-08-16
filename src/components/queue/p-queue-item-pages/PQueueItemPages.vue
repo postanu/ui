@@ -30,7 +30,7 @@ import { NETWORKS_ABBR } from '@postanu/core'
 import { baseMessages } from '@postanu/i18n'
 import { computed, toRefs } from 'vue'
 
-import { usePagesGroupList } from '../../../composables/usePagesGroupList/index.js'
+import { usePagesGroupList } from '../../../composables/index.js'
 import PAvatar from '../../core/p-avatar/PAvatar.vue'
 
 const MAX_VISIBLE_GROUP_SIZE = 2

@@ -6,7 +6,7 @@ import { computed, unref } from 'vue'
  * Cuts the text if its length exceeds 50 characters.
  * Cuts the last space and adds an ellipsis.
  */
-export function useQueryItemTitle (title: Ref<string>): ComputedRef<string> {
+export function useQueueItemTitle (title: Ref<string>): ComputedRef<string> {
 	return computed(() => {
 		let text = unref(title)
 

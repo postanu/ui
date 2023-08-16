@@ -74,7 +74,7 @@ import type { ClientPage, PageNetwork } from '@postanu/types'
 import { NETWORKS_ABBR } from '@postanu/core'
 import { computed, toRefs, unref } from 'vue'
 
-import { usePagesList } from '../../../composables/usePagesList/index.js'
+import { usePagesList } from '../../../composables/index.js'
 import PButtonCommon from '../../core/buttons/p-button-common/PButtonCommon.vue'
 import PButtonIcon from '../../core/buttons/p-button-icon/PButtonIcon.vue'
 import PIconPlus from '../../core/icons/p-icon-plus/PIconPlus.vue'

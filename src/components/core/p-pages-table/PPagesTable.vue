@@ -38,7 +38,7 @@ import type { ClientPage } from '@postanu/types'
 
 import { ref, toRefs } from 'vue'
 
-import { usePagesGroupList } from '../../../composables/usePagesGroupList/index.js'
+import { usePagesGroupList } from '../../../composables/index.js'
 import PButtonRemove from '../buttons/p-button-remove/PButtonRemove.vue'
 import PButtonText from '../buttons/p-button-text/PButtonText.vue'
 import PPage from '../p-page/PPage.vue'
