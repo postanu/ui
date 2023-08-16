@@ -28,7 +28,11 @@ export const Default: Story = {
 		date: '13',
 		day: 'Fri',
 		drafts: 2,
-		posts: 3
+		posts: 3,
+		isSelected: false,
+		isWeekend: false,
+		isToday: false,
+		isPast: false
 	}
 }
 

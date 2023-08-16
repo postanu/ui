@@ -17,17 +17,19 @@ button.p-linear-calendar-day(
 		slot(name="day")
 	.p-linear-calendar-day__state(v-if="drafts | posts")
 		.p-linear-calendar-day__state-draft(
-			v-for="n in drafts"
+			v-for="n in counters.drafts"
 			:key="n"
 		)
 		.p-linear-calendar-day__state-post(
-			v-for="n in posts"
+			v-for="n in counters.posts"
 			:key="n"
 		)
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed, ref, toRefs } from 'vue'
+
+import { usePostsScale } from '../../../composables/use-posts-scale/index.js'
 
 interface Props {
 	isPast: boolean
@@ -39,12 +41,15 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+const { drafts, posts } = toRefs(props)
 
 const el = ref<HTMLButtonElement | null>(null)
 
 const areaLabel = computed(
-	() => `${props.drafts} drafts, ${props.posts} scheduled posts`
+	() => `${drafts.value} drafts, ${posts.value} scheduled posts`
 )
+
+const counters = usePostsScale(drafts, posts)
 
 defineExpose({ el })
 </script>
