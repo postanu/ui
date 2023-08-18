@@ -4,7 +4,7 @@ component.p-headline(:is="tag")
 </template>
 
 <script lang="ts" setup>
-import type { ALLOWED_TAGS } from '../allowed-tags/index.js'
+import type { ALLOWED_TAGS } from './allowed-tags/index.js'
 
 interface Props {
 	tag: typeof ALLOWED_TAGS[number]

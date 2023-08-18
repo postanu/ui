@@ -5,7 +5,7 @@ import PBadge from './PBadge.vue'
 type Story = StoryObj<typeof PBadge>
 
 export default {
-	title: 'PBadge',
+	title: 'Typography / PBadge',
 	component: PBadge,
 	argTypes: {
 		default: {

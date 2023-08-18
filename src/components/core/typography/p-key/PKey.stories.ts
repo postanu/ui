@@ -5,7 +5,7 @@ import PKey from './PKey.vue'
 type Story = StoryObj<typeof PKey>
 
 export default {
-	title: 'PKey',
+	title: 'Typography / PKey',
 	component: PKey,
 	argTypes: {
 		default: {

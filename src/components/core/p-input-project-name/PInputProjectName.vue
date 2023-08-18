@@ -54,8 +54,8 @@ defineExpose({ focus, blur })
 .p-input-project-name
 	padding: 15px 0
 	overflow: hidden
-	font-size: var(--p-h2-regular-font-size)
-	font-weight: var(--p-h2-bold-font-weight)
+	font-size: var(--p-h3-font-size)
+	font-weight: var(--p-h3-font-weight-bold)
 	text-overflow: ellipsis
 	white-space: nowrap
 </style>

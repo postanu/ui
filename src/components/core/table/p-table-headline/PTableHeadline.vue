@@ -4,7 +4,9 @@ p-headline.p-table-headline(:tag="tag")
 </template>
 
 <script lang="ts" setup>
-import type { ALLOWED_TAGS } from '../../typography/allowed-tags/index.js'
+import type {
+	ALLOWED_TAGS
+} from '../../typography/p-headline/allowed-tags/index.js'
 
 import PHeadline from '../../typography/p-headline/PHeadline.vue'
 

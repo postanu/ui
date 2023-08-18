@@ -7,9 +7,9 @@
 .p-key
 	display: inline-block
 	padding: 0 10px
-	font-size: var(--p-key-font-size)
-	font-weight: var(--p-key-font-weight)
-	line-height: var(--p-key-line-height)
+	font-size: var(--p-badge-font-size)
+	font-weight: var(--p-badge-font-weight)
+	line-height: var(--p-badge-line-height)
 	color: var(--p-color-white-05)
 	text-align: center
 	cursor: default

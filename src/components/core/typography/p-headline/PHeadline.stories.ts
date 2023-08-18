@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { ALLOWED_TAGS } from '../allowed-tags/index.js'
 import PHeadline from './PHeadline.vue'
+import { ALLOWED_TAGS } from './allowed-tags/index.js'
 
 type Story = StoryObj<typeof PHeadline>
 
 export default {
-	title: 'PHeadline',
+	title: 'Typography / PHeadline',
 	component: PHeadline,
 	argTypes: {
 		default: {

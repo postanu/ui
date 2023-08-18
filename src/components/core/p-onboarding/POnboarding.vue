@@ -20,7 +20,7 @@
 <script lang="ts" setup>
 import { computed, toRefs } from 'vue'
 
-import PKey from '../p-key/PKey.vue'
+import PKey from '../typography/p-key/PKey.vue'
 
 type Steps = 1 | 2
 
