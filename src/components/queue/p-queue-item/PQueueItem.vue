@@ -11,7 +11,7 @@
 			.p-queue-item__description(v-else) {{ description }}
 			.p-queue-item__attachments
 				p-queue-item-attachments(:items="attachments")
-	.p-queue-item__controls
+	.p-queue-item__controls(v-if="removable")
 		p-button-remove(
 			ref="removeButtonRef"
 			@removing="emitRemoving"
@@ -35,6 +35,7 @@ interface Props {
 	title: string
 	attachments: Attachment[]
 	state: PostState
+	removable: boolean
 }
 
 const props = defineProps<Props>()
@@ -78,7 +79,7 @@ defineExpose({ removeButtonRef })
 	user-select: none
 
 	&:hover
-		&:after
+		&:before
 			opacity: 1
 
 	&:hover,
@@ -92,12 +93,12 @@ defineExpose({ removeButtonRef })
 	z-index: -1
 	content: ""
 
-.p-queue-item:before
+.p-queue-item:after
 	inset: -1px -20px 0
 	border-top: 1px solid var(--p-color-white-01)
 	border-bottom: 1px solid var(--p-color-white-01)
 
-.p-queue-item:after
+.p-queue-item:before
 	inset: 0 -20px 1px
 	background-color: var(--p-color-white-005)
 	opacity: 0

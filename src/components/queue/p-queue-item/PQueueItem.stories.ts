@@ -30,6 +30,7 @@ const Template: Story = {
 				:title="args.title"
 				:attachments="args.attachments"
 				:state="args.state"
+				:removable="args.removable"
 				@removing="args.removing"
 				@remove="args.remove"
 				@click="args.click"
@@ -50,6 +51,7 @@ export const Default: Story = {
 		state: post.state,
 		removing: action('removing'),
 		remove: action('remove'),
-		click: action('click')
+		click: action('click'),
+		removable: true
 	}
 }
