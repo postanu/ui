@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
+import { ref } from 'vue'
+
 import PEditorText from './PEditorText.vue'
 
 type Story = StoryObj<typeof PEditorText>
@@ -9,10 +11,30 @@ export default {
 	component: PEditorText
 } as Meta<typeof PEditorText>
 
-export const Empty: Story = {}
+const Template: Story = {
+	render: args => ({
+		components: { PEditorText },
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		setup: () => {
+			let text = ref(args.text)
+			return {
+				...args,
+				text
+			}
+		},
+		template: `
+			<p-editor-text
+				v-model:text="text"
+				:placeholder="placeholder"
+			/>
+		`
+	})
+}
 
-// export const Filled: Story = {
-// 	args: {
-// 		text: 'I need a new leader, we need a new Luden'
-// 	}
-// }
+export const Default: Story = {
+	...Template,
+	args: {
+		text: '',
+		placeholder: 'Type something'
+	}
+}
