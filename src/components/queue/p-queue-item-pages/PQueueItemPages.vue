@@ -1,33 +1,28 @@
 <template lang="pug">
 .p-queue-pages(:class="{ '--solo': isFullSolo }")
-	template(v-if="singleNetwork") {{ singleNetwork }}
-	template(v-else)
-		.p-queue-pages__group(
-			v-for="group in pagesGroupList"
-			:key="group.name"
-		)
-			.p-queue-pages__type
-				component(:is="`p-icon-${group.name}`")
-			template(v-if="!group.isSolo")
-				.p-queue-pages__item(
-					v-for="page in group.pages.slice(0, MAX_VISIBLE_GROUP_SIZE)"
-					:key="page.id"
+	.p-queue-pages__group(
+		v-for="group in pagesGroupList"
+		:key="group.name"
+	)
+		.p-queue-pages__type
+			component(:is="`p-icon-${group.name}`")
+		template(v-if="!group.isSolo")
+			.p-queue-pages__item(
+				v-for="page in group.pages.slice(0, MAX_VISIBLE_GROUP_SIZE)"
+				:key="page.id"
+			)
+				p-avatar(
+					:image="page.avatar"
+					:text="page.name"
 				)
-					p-avatar(
-						:image="page.avatar"
-						:text="page.name"
-					)
-				.p-queue-pages__counter(
-					v-if="group.pages.length > MAX_VISIBLE_GROUP_SIZE"
-				) +{{ group.pages.length - MAX_VISIBLE_GROUP_SIZE }}
+			.p-queue-pages__counter(
+				v-if="group.pages.length > MAX_VISIBLE_GROUP_SIZE"
+			) +{{ group.pages.length - MAX_VISIBLE_GROUP_SIZE }}
 </template>
 
 <script lang="ts" setup>
 import type { ClientPage } from '@postanu/types'
 
-import { useStore } from '@nanostores/vue'
-import { NETWORKS_ABBR } from '@postanu/core'
-import { baseMessages } from '@postanu/i18n'
 import { computed, toRefs } from 'vue'
 
 import { usePagesGroupList } from '../../../composables/index.js'
@@ -46,15 +41,6 @@ const { pages } = toRefs(props)
 const isFullSolo = computed(
 	() => pages.value.every(page => page.isSolo)
 )
-
-const t = useStore(baseMessages)
-const singleNetwork = computed<false | string>(() => {
-	if (pages.value.length === 1) {
-		// @ts-expect-error
-		return t.value[NETWORKS_ABBR[pages.value[0].network]]
-	}
-	return false
-})
 
 const pagesGroupList = usePagesGroupList(pages)
 </script>
