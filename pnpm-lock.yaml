@@ -15,8 +15,8 @@ devDependencies:
     specifier: ^0.3.0
     version: 0.3.0
   '@postanu/core':
-    specifier: ^0.6.2
-    version: 0.6.2(nanoid@4.0.2)
+    specifier: ^0.6.3
+    version: 0.6.3(nanoid@4.0.2)
   '@postanu/eslint-config':
     specifier: ^4.0.1
     version: 4.0.1(@typescript-eslint/eslint-plugin@6.4.0)(@typescript-eslint/parser@6.4.0)(eslint-config-standard@17.1.0)(eslint-plugin-import@2.28.0)(eslint-plugin-n@16.0.1)(eslint-plugin-perfectionist@1.5.1)(eslint-plugin-prefer-let@3.0.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-security@1.7.1)(eslint-plugin-unicorn@48.0.1)(eslint-plugin-vue-pug@0.6.0)(eslint-plugin-vue@9.17.0)(eslint@8.47.0)(typescript@5.1.6)(vue-eslint-parser@9.3.1)
@@ -30,8 +30,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0
   '@postanu/types':
-    specifier: ^0.10.3
-    version: 0.10.3(@postanu/core@0.6.2)
+    specifier: ^0.10.4
+    version: 0.10.4(@postanu/core@0.6.3)
   '@storybook/addon-actions':
     specifier: ^7.3.1
     version: 7.3.1(react-dom@18.2.0)(react@18.2.0)
@@ -2279,8 +2279,8 @@ packages:
     resolution: {integrity: sha512-q8H5xeFoKIFCK9g1crGhsA5QIXMbAlmrTg2O/aNC0GMCDeRDAzFkna2AN+mlnFWcDAKgOrz5/GY+wwYtb+ZGoA==}
     dev: true
 
-  /@postanu/core@0.6.2(nanoid@4.0.2):
-    resolution: {integrity: sha512-OHAkT3yl+aRi/9MwyppEQbA5et25DeFv74B6K+qncJpfc5MGCr0YGdmk6hvvZHAp8X9Z5E/6uJwuEeoivEi6+g==}
+  /@postanu/core@0.6.3(nanoid@4.0.2):
+    resolution: {integrity: sha512-7Q4UXGNHc0cH7b3CAXkVO7B+YDYXZt23ZiwPVVdhmcSVWNgkNQdc5GMr+fE4AN3xpwW0WgDTdc6LXVZWmCfvyg==}
     peerDependencies:
       nanoid: '>=4.0.2'
     dependencies:
@@ -2372,12 +2372,12 @@ packages:
       twemoji-parser: 13.1.0
     dev: true
 
-  /@postanu/types@0.10.3(@postanu/core@0.6.2):
-    resolution: {integrity: sha512-LJFDXbEa7ylFXXQC+/ts5j3Dl9SxY6FRN5uQA2GpKjkusGbgbYc2vWsRlVrc/uvLScPr4UpLDFLeJU/WHuai7Q==}
+  /@postanu/types@0.10.4(@postanu/core@0.6.3):
+    resolution: {integrity: sha512-B8+gPYaNBJrig9qTWgcbNJJfQF6JitGKyCXyX76Pr9KhmamHuiZbcVqnwOJGxjMlIlSXEa5Tf7Mr7G2xmPxIgQ==}
     peerDependencies:
       '@postanu/core': ^0.6.2
     dependencies:
-      '@postanu/core': 0.6.2(nanoid@4.0.2)
+      '@postanu/core': 0.6.3(nanoid@4.0.2)
     dev: true
 
   /@radix-ui/number@1.0.1:
@@ -5082,7 +5082,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /chownr@1.1.4:
@@ -6470,8 +6470,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -7260,7 +7260,7 @@ packages:
       micromatch: 4.0.5
       walker: 1.0.8
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /jest-mock@27.5.1:
@@ -8901,7 +8901,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /rollup@3.28.0:
@@ -8909,7 +8909,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /run-parallel@1.2.0:
@@ -10019,7 +10019,7 @@ packages:
       rollup: 3.28.0
       sass: 1.65.1
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /void-elements@3.1.0:
