@@ -6,7 +6,7 @@ import { members, networks } from '../data/index.js'
 import { randomInRange, usernameFromName } from '../utils/index.js'
 
 interface GeneratePagesOptions {
-	updatables?: number
+	updatableCount?: number
 }
 
 /**
@@ -18,7 +18,7 @@ export function generatePages (
 	options: GeneratePagesOptions = {}
 ): ClientPage[] {
 	let groupsCount = pattern.length
-	let updatables = options.updatables
+	let updatableCount = options.updatableCount
 	let data = {
 		members: [...members],
 		networks: [...networks]
@@ -62,8 +62,8 @@ export function generatePages (
 
 	let list = groups.flat(2)
 
-	if (updatables) {
-		let counter = updatables
+	if (updatableCount) {
+		let counter = updatableCount
 		while (counter !== 0) {
 			let index = randomInRange(0, list.length - 1)
 			if (list[index].status !== 200) {
