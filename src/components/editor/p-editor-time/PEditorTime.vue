@@ -8,7 +8,7 @@
 	}`
 )
 	.p-editor-time__now(
-		v-if="isNow"
+		v-if="allowNow && isNow"
 		@click="hideNow"
 	) Now
 	template(v-else)
@@ -65,6 +65,7 @@ const NOW_DIFF = 60_000
 interface Props {
 	modelValue: number
 	locales?: string
+	allowNow?: boolean
 }
 
 interface Emits {
