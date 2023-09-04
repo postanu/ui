@@ -10,7 +10,7 @@ import PButton from '../p-button/PButton.vue'
 
 <style lang="sass">
 .p-button-icon
-	--p-button-content-padding: 5px 5px 5px 15px
+	--p-button-content-padding: 5px
 
 .p-button-icon__content
 	display: flex
