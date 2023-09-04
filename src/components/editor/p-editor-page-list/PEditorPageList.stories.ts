@@ -38,9 +38,9 @@ export const Full: Story = {
 	...NoPages,
 	args: {
 		...NoPages.args,
-		pages: generatePages([[10], [3], [3], [3]], { updatables: 3 }),
+		pages: generatePages([[10], [3], [3], [3]], { updatableCount: 3 }),
 		selected: randomFromArray(
-			generatePages([[10], [3], [3], [3]], { updatables: 3 }), 3, {
+			generatePages([[10], [3], [3], [3]], { updatableCount: 3 }), 3, {
 				filter: item => item.status !== 200
 			}
 		)
