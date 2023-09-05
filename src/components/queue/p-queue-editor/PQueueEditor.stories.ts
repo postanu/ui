@@ -16,6 +16,12 @@ export default {
 } as Meta<typeof PQueueEditor>
 
 const Template: Story = {
+	decorators: [
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		() => ({
+			template: '<div style="padding-top:100px;"><story/></div>'
+		})
+	],
 	render: args => ({
 		components: {
 			PQueueEditor
