@@ -1,6 +1,22 @@
 import type { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 export const viewports: typeof INITIAL_VIEWPORTS = {
+	b1366: {
+		name: 'Breakpoint < 1366px',
+		type: 'tablet',
+		styles: {
+			width: '1365px',
+			height: '100%'
+		}
+	},
+	b800: {
+		name: 'Breakpoint < 800px',
+		type: 'mobile',
+		styles: {
+			width: '799px',
+			height: '100%'
+		}
+	},
 	m320: {
 		name: '320×568, iPhone SE',
 		type: 'mobile',
