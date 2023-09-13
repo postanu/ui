@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/vue3-vite'
 
 import { mergeConfig } from 'vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 const storybookConfig: StorybookConfig = {
 	staticDirs: ['../src/public'],
@@ -19,6 +20,9 @@ const storybookConfig: StorybookConfig = {
 	},
 	async viteFinal (config) {
 		return mergeConfig(config, {
+			plugins: [
+				VueDevTools()
+			],
 			optimizeDeps: {
 				// pre-bundle @postanu/ui dependencies to speed up development
 				include: [
