@@ -32,11 +32,16 @@ function onLoad (): void {
 	width: 20px
 	height: 20px
 	background-color: var(--p-color-white-01)
-	border: 1px solid var(--p-color-white-02)
-	border-radius: 3px
 
 .p-attachment--loading
 	--p-attachment-loaded: 0
+
+.p-attachment:after
+	position: absolute
+	inset: -1px
+	content: ""
+	border: 1px solid var(--p-color-white-02)
+	border-radius: 3px
 
 .p-attachment__i
 	position: absolute
@@ -44,7 +49,6 @@ function onLoad (): void {
 	box-sizing: content-box
 	width: 100%
 	height: 100%
-	border-radius: 2px
 	opacity: var(--p-attachment-loaded)
 	transition: opacity 0.1s ease-in
 	object-fit: cover
