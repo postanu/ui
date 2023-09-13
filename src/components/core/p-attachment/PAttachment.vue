@@ -1,5 +1,5 @@
 <template lang="pug">
-.p-attachment(:class="{ '--loading': loading }")
+.p-attachment(:class="{ 'p-attachment--loading': loading }")
 	img.p-attachment__i(
 		:src="image"
 		loading="eager"
@@ -10,7 +10,11 @@
 <script lang="ts" setup>
 import { nextTick, ref } from 'vue'
 
-defineProps<{ image: string }>()
+interface Props {
+	image: string
+}
+
+defineProps<Props>()
 
 const loading = ref(true)
 
@@ -23,27 +27,24 @@ function onLoad (): void {
 
 <style lang="sass">
 .p-attachment
+	--p-attachment-loaded: 1
 	position: relative
 	width: 20px
 	height: 20px
+	border: 1px solid var(--p-color-white-02)
+	border-radius: 3px
 
-	&.--loading
-		border: 1px solid var(--p-color-white-02)
-		border-radius: 3px
-
-		.p-attachment__i
-			opacity: 0
+.p-attachment--loading
+	--p-attachment-loaded: 0
 
 .p-attachment__i
 	position: absolute
-	top: -1px
-	left: -1px
+	inset: 0
 	box-sizing: content-box
 	width: 100%
 	height: 100%
-	border: 1px solid var(--p-color-white-02)
 	border-radius: 3px
-	opacity: 1
-	transition: opacity 0.05s ease-in
+	opacity: var(--p-attachment-loaded)
+	transition: opacity 0.1s ease-in
 	object-fit: cover
 </style>
