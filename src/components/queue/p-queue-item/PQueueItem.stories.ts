@@ -1,40 +1,95 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
+import type { ConcreteComponent } from 'vue'
 
 import { action } from '@storybook/addon-actions'
 
 import { generatePosts } from '../../../../generator/post/index.js'
-import PQueueItem from './PQueueItem.vue'
+import { useButtonRemoveList } from '../../../composables/index.js'
+import { PAvatar, PButtonRemove } from '../../core/index.js'
+import {
+	PQueueItem,
+	PQueueItemAttachments,
+	PQueueItemPages
+} from '../index.js'
 
 type Story = StoryObj<typeof PQueueItem>
 
 export default {
 	title: 'Queue / PQueueItem',
 	component: PQueueItem,
-	argTypes: {
-		removing: { action: true },
-		remove: { action: true },
-		click: { action: true }
+	parameters: {
+		layout: 'fullscreen'
 	}
 } as Meta<typeof PQueueItem>
 
-let post = generatePosts(1)[0]
-
 const Template: Story = {
+	decorators: [
+		(): ConcreteComponent => ({
+			template: '<div style="padding-top: 20px;"><story/></div>'
+		})
+	],
 	render: args => ({
-		components: { PQueueItem },
-		setup: () => ({ args }),
+		components: {
+			PAvatar,
+			PButtonRemove,
+			PQueueItem,
+			PQueueItemPages,
+			PQueueItemAttachments
+		},
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		setup: () => {
+			let posts = generatePosts(6)
+			let [
+				setRemovingRef,
+				setRemoving,
+				isRemoving
+			] = useButtonRemoveList()
+			return {
+				args,
+				posts,
+				setRemovingRef,
+				setRemoving,
+				isRemoving
+			}
+		},
 		template: `
 			<p-queue-item
-				:time="args.time"
-				:pages="args.pages"
-				:title="args.title"
-				:attachments="args.attachments"
-				:state="args.state"
-				:removable="args.removable"
-				@removing="args.removing"
-				@remove="args.remove"
-				@click="args.click"
-			/>
+				v-for="post in posts"
+				:style="{ '--p-queue-item-show-controls': isRemoving(post.id) ? '1' : undefined }"
+				:description="args.description"
+				@click="args.onClick"
+			>
+				<template #time>
+					{{ post.time }}
+				</template>
+				<template #pages>
+					<p-queue-item-pages
+						:items="post.pages"
+					/>
+				</template>
+				<template #state>
+					<p-avatar
+						v-for="editor in post.editors"
+						:style="{ marginLeft: '5px' }"
+						:text="editor.name"
+						:image="editor.avatar"
+					/>
+				</template>
+				<template #title>
+					{{ post.title || 'No title' }}
+				</template>
+				<template #attachments v-if="post.attachments.length > 0">
+					<p-queue-item-attachments
+						:items="post.attachments"
+					/>
+				</template>
+				<template #controls>
+					<p-button-remove
+						:ref="el => setRemovingRef(post.id, el)"
+						@removing="value => setRemoving(post.id, value)"
+					/>
+				</template>
+			</p-queue-item>
 		`
 	})
 }
@@ -42,16 +97,6 @@ const Template: Story = {
 export const Default: Story = {
 	...Template,
 	args: {
-		time: post.time,
-		// TODO
-		// @ts-ignore
-		pages: post.pages,
-		title: post.title,
-		attachments: post.attachments,
-		state: post.state,
-		removing: action('removing'),
-		remove: action('remove'),
-		click: action('click'),
-		removable: true
+		onClick: action('click')
 	}
 }
