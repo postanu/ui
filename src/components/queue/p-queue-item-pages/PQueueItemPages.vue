@@ -31,18 +31,18 @@ import PAvatar from '../../core/p-avatar/PAvatar.vue'
 const MAX_VISIBLE_GROUP_SIZE = 2
 
 interface Props {
-	pages: ClientPage[]
+	items: ClientPage[]
 }
 
 const props = defineProps<Props>()
 
-const { pages } = toRefs(props)
+const { items } = toRefs(props)
 
 const isFullSolo = computed(
-	() => pages.value.every(page => page.isSolo)
+	() => items.value.every(page => page.isSolo)
 )
 
-const pagesGroupList = usePagesGroupList(pages)
+const pagesGroupList = usePagesGroupList(items)
 </script>
 
 <style lang="sass">

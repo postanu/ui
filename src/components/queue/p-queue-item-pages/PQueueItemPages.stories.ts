@@ -26,33 +26,33 @@ const Template: Story = {
 			args,
 			// TODO
 			// @ts-ignore
-			pages: args.pattern
+			items: args.pattern
 				// @ts-ignore
 				? generatePages(JSON.parse(args.pattern))
-				: args.pages
+				: args.items
 		}),
-		template: '<p-queue-item-pages :pages="pages" />'
+		template: '<p-queue-item-pages :items="items" />'
 	})
 }
 
 export const Single: Story = {
 	...Template,
 	args: {
-		pages: generatePages([[1]])
+		items: generatePages([[1]])
 	}
 }
 
 export const Solo: Story = {
 	...Template,
 	args: {
-		pages: generatePages([[1], [1], [1], [1]])
+		items: generatePages([[1], [1], [1], [1]])
 	}
 }
 
 export const HalfSolo: Story = {
 	...Template,
 	args: {
-		pages: generatePages([[1], [1], [0], [0]])
+		items: generatePages([[1], [1], [0], [0]])
 	}
 }
 
