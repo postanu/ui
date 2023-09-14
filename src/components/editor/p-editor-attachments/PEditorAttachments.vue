@@ -13,16 +13,19 @@ draggable.p-editor-attachments(
 )
 	template(#item="{ element }")
 		li
-			p-attachment.p-editor-attachments__item(:image="element.url")
+			p-queue-item-attachment-image.p-editor-attachments__item(
+				:image="element.url"
+			)
 </template>
 
 <script lang="ts" setup>
 import type { Attachment } from '@postanu/types'
 
-import { computed, toRefs, unref } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { computed, toRefs } from 'vue'
 import draggable from 'vuedraggable'
 
-import PAttachment from '../../core/p-attachment/PAttachment.vue'
+import { PQueueItemAttachmentImage } from '../../queue/index.js'
 
 interface Props {
 	modelValue: Attachment[]
@@ -44,12 +47,14 @@ const emit = defineEmits<Emits>()
 
 const { modelValue } = toRefs(props)
 
-const items = computed({
-	get: () => unref(modelValue),
-	set: value => {
-		emit('update:modelValue', value)
-	}
-})
+const items = useVModel(props, 'modelValue', emit)
+
+// const items = computed({
+// 	get: () => unref(modelValue),
+// 	set: value => {
+// 		emit('update:modelValue', value)
+// 	}
+// })
 const count = computed(() => modelValue.value.length)
 const countClass = computed(() => `--${count.value}`)
 </script>
@@ -117,7 +122,7 @@ const countClass = computed(() => `--${count.value}`)
 
 	&:not(.--disabled)
 		li:hover
-			.p-attachment__i
+			.p-queue-item-attachment-image__i
 				border-color: var(--p-color-white-05)
 
 	li
@@ -127,11 +132,11 @@ const countClass = computed(() => `--${count.value}`)
 
 		&.p-editor-attachments__chosen
 			.p-editor-attachments__item
-				.p-attachment__i
+				.p-queue-item-attachment-image__i
 					border-color: var(--p-color-blue)
 
 		&.p-editor-attachments__ghost
-			.p-attachment__i
+			.p-queue-item-attachment-image__i
 				opacity: 0.5
 
 .p-editor-attachments__item

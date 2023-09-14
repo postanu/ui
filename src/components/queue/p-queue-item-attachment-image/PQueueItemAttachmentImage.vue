@@ -1,6 +1,8 @@
 <template lang="pug">
-.p-attachment(:class="{ 'p-attachment--loading': loading }")
-	img.p-attachment__i(
+.p-queue-item-attachment-image(
+	:class="{ 'p-queue-item-attachment-image--loading': loading }"
+)
+	img.p-queue-item-attachment-image__i(
 		:src="image"
 		loading="eager"
 		@load="onLoad"
@@ -26,18 +28,19 @@ function onLoad (): void {
 </script>
 
 <style lang="sass">
-.p-attachment
-	--p-attachment-loaded: 1
-	--p-attachment-size: 20px
+.p-queue-item-attachment-image
+	--p-queue-item-attachment-image-loaded: 1
+	--p-queue-item-attachment-image-size: 20px
+
 	position: relative
-	width: var(--p-attachment-size)
-	height: var(--p-attachment-size)
+	width: var(--p-queue-item-attachment-image-size)
+	height: var(--p-queue-item-attachment-image-size)
 	background-color: var(--p-color-white-01)
 
-.p-attachment--loading
-	--p-attachment-loaded: 0
+.p-queue-item-attachment-image--loading
+	--p-queue-item-attachment-image-loaded: 0
 
-.p-attachment:after
+.p-queue-item-attachment-image:after
 	position: absolute
 	inset: -1px
 	pointer-events: none
@@ -45,13 +48,13 @@ function onLoad (): void {
 	border: 1px solid var(--p-color-white-02)
 	border-radius: 3px
 
-.p-attachment__i
+.p-queue-item-attachment-image__i
 	position: absolute
 	inset: 0
 	box-sizing: content-box
 	width: 100%
 	height: 100%
-	opacity: var(--p-attachment-loaded)
+	opacity: var(--p-queue-item-attachment-image-loaded)
 	transition: opacity 0.1s ease-in
 	object-fit: cover
 </style>

@@ -8,7 +8,7 @@ import { useButtonRemoveList } from '../../../composables/index.js'
 import { PAvatar, PButtonRemove } from '../../core/index.js'
 import {
 	PQueueItem,
-	PQueueItemAttachments,
+	PQueueItemAttachmentsList,
 	PQueueItemPages
 } from '../index.js'
 
@@ -34,7 +34,7 @@ const Template: Story = {
 			PButtonRemove,
 			PQueueItem,
 			PQueueItemPages,
-			PQueueItemAttachments
+			PQueueItemAttachmentsList
 		},
 		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 		setup: () => {
@@ -79,7 +79,7 @@ const Template: Story = {
 					{{ post.title || 'No title' }}
 				</template>
 				<template #attachments v-if="post.attachments.length > 0">
-					<p-queue-item-attachments
+					<p-queue-item-attachments-list
 						:items="post.attachments"
 					/>
 				</template>

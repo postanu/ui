@@ -9,7 +9,6 @@ export { default as PButtonOutline } from './buttons/p-button-outline/PButtonOut
 export { default as PButtonProject } from './buttons/p-button-project/PButtonProject.vue'
 export { default as PButtonRemove } from './buttons/p-button-remove/PButtonRemove.vue'
 export { default as PButtonText } from './buttons/p-button-text/PButtonText.vue'
-export { default as PAttachment } from './p-attachment/PAttachment.vue'
 export { default as PAvatar } from './p-avatar/PAvatar.vue'
 export { default as PDot } from './p-dot/PDot.vue'
 export { default as PInput } from './p-input/PInput.vue'

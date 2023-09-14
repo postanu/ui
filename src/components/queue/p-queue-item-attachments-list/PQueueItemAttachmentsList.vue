@@ -1,11 +1,11 @@
 <template lang="pug">
-.p-queue-item-attachments
-	p-attachment.p-queue-item-attachments__item(
+.p-queue-item-attachments-list
+	p-queue-item-attachment-image.p-queue-item-attachments-list__item(
 		v-for="item in visibleItems"
 		:key="item.id"
 		:image="item.url"
 	)
-	.p-queue-item-attachments__counter(v-if="count") +{{ count }}
+	.p-queue-item-attachments-list__counter(v-if="count") +{{ count }}
 </template>
 
 <script lang="ts" setup>
@@ -13,7 +13,7 @@ import type { Attachment } from '@postanu/types'
 
 import { computed, toRefs } from 'vue'
 
-import PAttachment from '../../core/p-attachment/PAttachment.vue'
+import { PQueueItemAttachmentImage } from '../index.js'
 
 const MAX_VISIBLE_COUNT = 4
 
@@ -37,26 +37,26 @@ const count = computed(() => {
 </script>
 
 <style lang="sass">
-.p-queue-item-attachments
+.p-queue-item-attachments-list
 	display: flex
 	gap: 10px
 
-.p-queue-item-attachments__item
-	--p-attachment-size: 20px
+.p-queue-item-attachments-list__item
+	--p-queue-item-attachment-image-size: 20px
 
-.p-queue-item-attachments__counter
+.p-queue-item-attachments-list__counter
 	font-size: 12px
 	line-height: 10px
 
 @media (width < 800px)
-	.p-queue-item-attachments
+	.p-queue-item-attachments-list
 		gap: 5px
 		padding: 4px 0
 
-	.p-queue-item-attachments__item
-		--p-attachment-size: 12px
+	.p-queue-item-attachments-list__item
+		--p-queue-item-attachment-image-size: 12px
 
-	.p-queue-item-attachments__counter
+	.p-queue-item-attachments-list__counter
 		font-size: 10px
 		line-height: 8px
 </style>

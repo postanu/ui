@@ -5,43 +5,40 @@ import { computed } from 'vue'
 import { generateAttachments } from '../../../../generator/index.js'
 import PEditorAttachments from './PEditorAttachments.vue'
 
-type Story = StoryObj<typeof PEditorAttachments> & {
-	args?: {
-		count?: number
-	}
-}
+type Story = StoryObj<typeof PEditorAttachments>
 
 export default {
 	title: 'Editor / PEditorAttachments',
 	component: PEditorAttachments,
 	argTypes: {
 		count: {
-			control: 'number'
+			control: {
+				type: 'number',
+				min: 0,
+				max: 10
+			}
 		}
 	}
 } as Meta<typeof PEditorAttachments>
 
-export const Default: Story = {
+export const Template: Story = {
 	render: args => ({
-		props: Object.keys(args),
 		components: { PEditorAttachments },
-		setup: props => ({
-			props,
-			items: computed(() => generateAttachments(props.count))
+		setup: () => ({
+			args,
+			// @ts-expect-error
+			items: computed(() => generateAttachments(args.count))
 		}),
 		template: `
-			<p-editor-attachments v-model="items" :disabled="props.disabled" />
+			<p-editor-attachments v-model="items" :disabled="args.disabled" />
 		`
-	}),
-	args: {
-		count: 5
-	}
+	})
 }
 
-export const Disabled: Story = {
-	...Default,
+export const Default: Story = {
+	...Template,
 	args: {
-		count: 5,
-		disabled: true
+		// @ts-expect-error
+		count: 5
 	}
 }

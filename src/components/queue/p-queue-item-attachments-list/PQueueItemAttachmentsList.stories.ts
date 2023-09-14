@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { generateAttachments, randomInRange } from '../../../../generator/index.js'
-import PQueueItemAttachments from './PQueueItemAttachments.vue'
+import PQueueItemAttachmentsList from './PQueueItemAttachmentsList.vue'
 
-type Story = StoryObj<typeof PQueueItemAttachments>
+type Story = StoryObj<typeof PQueueItemAttachmentsList>
 
 export default {
-	title: 'Queue / PQueueItemAttachments',
-	component: PQueueItemAttachments
-} as Meta<typeof PQueueItemAttachments>
+	title: 'Queue / PQueueItemAttachmentsList',
+	component: PQueueItemAttachmentsList
+} as Meta<typeof PQueueItemAttachmentsList>
 
 export const One: Story = {
 	args: {

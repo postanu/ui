@@ -1,4 +1,6 @@
+export { default as PQueueEditor } from './p-queue-editor/PQueueEditor.vue'
 export { default as PQueueHeading } from './p-queue-heading/PQueueHeading.vue'
 export { default as PQueueItem } from './p-queue-item/PQueueItem.vue'
-export { default as PQueueItemAttachments } from './p-queue-item-attachments/PQueueItemAttachments.vue'
+export { default as PQueueItemAttachmentImage } from './p-queue-item-attachment-image/PQueueItemAttachmentImage.vue'
+export { default as PQueueItemAttachmentsList } from './p-queue-item-attachments-list/PQueueItemAttachmentsList.vue'
 export { default as PQueueItemPages } from './p-queue-item-pages/PQueueItemPages.vue'
