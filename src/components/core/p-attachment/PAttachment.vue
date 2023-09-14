@@ -28,9 +28,10 @@ function onLoad (): void {
 <style lang="sass">
 .p-attachment
 	--p-attachment-loaded: 1
+	--p-attachment-size: 20px
 	position: relative
-	width: 20px
-	height: 20px
+	width: var(--p-attachment-size)
+	height: var(--p-attachment-size)
 	background-color: var(--p-color-white-01)
 
 .p-attachment--loading
@@ -39,6 +40,7 @@ function onLoad (): void {
 .p-attachment:after
 	position: absolute
 	inset: -1px
+	pointer-events: none
 	content: ""
 	border: 1px solid var(--p-color-white-02)
 	border-radius: 3px
