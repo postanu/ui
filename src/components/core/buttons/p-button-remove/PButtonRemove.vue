@@ -33,6 +33,20 @@ interface Props {
 	timeout?: number
 }
 
+interface Emits {
+	(event: 'removing', state: boolean): void
+	(event: 'remove'): void
+}
+
+interface Slots {
+	default: () => unknown
+	question: () => unknown
+	disagree: () => unknown
+	agree: () => unknown
+}
+
+defineSlots<Slots>()
+
 const props = withDefaults(
 	defineProps<Props>(),
 	{
@@ -40,10 +54,7 @@ const props = withDefaults(
 	}
 )
 
-const emit = defineEmits<{
-	(event: 'removing', state: boolean): void
-	(event: 'remove'): void
-}>()
+const emit = defineEmits<Emits>()
 
 const removing = ref(false)
 const timeoutId = ref<ReturnType<typeof setTimeout> | null>(null)
