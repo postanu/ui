@@ -2,9 +2,12 @@ import type { Attachment, Page, PostState } from '@postanu/types'
 
 import { nanoid } from 'nanoid'
 
+import type { GeneratedUser } from '../user/index.js'
+
 import {
 	generateAttachments,
 	generatePages,
+	generateUsers,
 	getRandomSentence,
 	getRandomTime,
 	networks,
@@ -18,6 +21,7 @@ interface GeneratedPost {
 	title: string
 	attachments: Attachment[]
 	state: PostState
+	editors: GeneratedUser[]
 }
 
 export function generatePosts (count: number): GeneratedPost[] {
@@ -36,7 +40,8 @@ export function generatePosts (count: number): GeneratedPost[] {
 			pages: selectPostPages(projectPages),
 			title,
 			attachments,
-			state: 100
+			state: 100,
+			editors: generateUsers(randomInRange(0, 3))
 		}
 	})
 }
