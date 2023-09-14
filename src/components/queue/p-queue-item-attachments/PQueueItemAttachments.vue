@@ -1,6 +1,6 @@
 <template lang="pug">
 .p-queue-item-attachments
-	p-attachment(
+	p-attachment.p-queue-item-attachments__item(
 		v-for="item in visibleItems"
 		:key="item.id"
 		:image="item.url"
@@ -41,7 +41,22 @@ const count = computed(() => {
 	display: flex
 	gap: 10px
 
+.p-queue-item-attachments__item
+	--p-attachment-size: 20px
+
 .p-queue-item-attachments__counter
 	font-size: 12px
-	line-height: 1
+	line-height: 10px
+
+@media (width < 800px)
+	.p-queue-item-attachments
+		gap: 5px
+		padding: 4px 0
+
+	.p-queue-item-attachments__item
+		--p-attachment-size: 12px
+
+	.p-queue-item-attachments__counter
+		font-size: 10px
+		line-height: 8px
 </style>
