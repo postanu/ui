@@ -59,6 +59,6 @@ export const HalfSolo: Story = {
 export const Hardcore: Story = {
 	...Template,
 	args: {
-		pattern: '[[0], [0], [0], [0]]'
+		pattern: '[[0], [0], [0], [0], [0], [0], [0], [0], [0]]'
 	}
 }
