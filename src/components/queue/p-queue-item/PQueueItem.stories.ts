@@ -3,7 +3,7 @@ import type { ConcreteComponent } from 'vue'
 
 import { action } from '@storybook/addon-actions'
 
-import { generatePosts } from '../../../../generator/post/index.js'
+import { generatePosts } from '../../../../generator/index.js'
 import { useButtonRemoveList } from '../../../composables/index.js'
 import { PAvatar, PButtonRemove } from '../../core/index.js'
 import {
