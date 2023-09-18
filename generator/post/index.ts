@@ -1,5 +1,6 @@
 import type { Attachment, Page, PostState } from '@postanu/types'
 
+import { NETWORKS_ORDER } from '@postanu/core'
 import { nanoid } from 'nanoid'
 
 import type { GeneratedUser } from '../user/index.js'
@@ -10,7 +11,6 @@ import {
 	generateUsers,
 	getRandomSentence,
 	getRandomTime,
-	networks,
 	randomInRange
 } from '..'
 
@@ -26,7 +26,7 @@ interface GeneratedPost {
 
 export function generatePosts (count: number): GeneratedPost[] {
 	let projectPagesPattern = Array.from<unknown, [number]>(
-		{ length: networks.length - 1 },
+		{ length: NETWORKS_ORDER.length - 1 },
 		(item, index) => [index]
 	)
 	let projectPages = generatePages(projectPagesPattern)

@@ -1,8 +1,9 @@
 import type { ClientPage, Page } from '@postanu/types'
 
+import { NETWORKS_ORDER } from '@postanu/core'
 import { nanoid } from 'nanoid'
 
-import { members, networks } from '../data/index.js'
+import { members } from '../data/index.js'
 import { randomInRange, usernameFromName } from '../utils/index.js'
 
 interface GeneratePagesOptions {
@@ -21,12 +22,12 @@ export function generatePages (
 	let updatableCount = options.updatableCount
 	let data = {
 		members: [...members],
-		networks: [...networks]
+		networks: [...NETWORKS_ORDER]
 	}
 
 	let getRandomData = <
 		K extends 'members' | 'networks'
-	>(key: K): typeof data[K][0] => {
+	>(key: K): typeof data[K][number] => {
 		let index = randomInRange(0, data[key].length - 1)
 		let entry = data[key][index]
 		data[key].splice(index, 1)
@@ -43,6 +44,9 @@ export function generatePages (
 			if (pagesCount === 0) {
 				pagesCount = randomInRange(2, 6) // think about pages max count
 			}
+
+			// refill data
+			data.members = [...members]
 
 			return Array.from<Page, Page>({ length: pagesCount }, () => {
 				let { name, avatar } = getRandomData('members')

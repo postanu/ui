@@ -1,5 +1,3 @@
-import type { PageNetwork } from '@postanu/types'
-
 export const discography = [
 	'Portrait of an American Family (1994)',
 	'Antichrist Superstar (1996)',
@@ -209,11 +207,4 @@ export const members = [
 		type: 'Former',
 		avatar: 'https://upload.wikimedia.org/wikipedia/commons/7/78/Daisy_%22SMP%22_Berkowitz_and_THEE_PAUSE_of_The_Daisy_Kids.jpg'
 	}
-]
-
-export const networks: PageNetwork[] = [
-	'facebook',
-	'instagram',
-	'twitter',
-	'vk'
 ]
