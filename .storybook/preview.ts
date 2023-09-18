@@ -5,17 +5,29 @@ import type { Preview } from '@storybook/vue3'
 
 import { setup } from '@storybook/vue3'
 
-import PIconFacebook from '../src/components/core/icons/p-icon-facebook/PIconFacebook.vue'
-import PIconInstagram from '../src/components/core/icons/p-icon-instagram/PIconInstagram.vue'
-import PIconTwitter from '../src/components/core/icons/p-icon-twitter/PIconTwitter.vue'
-import PIconVK from '../src/components/core/icons/p-icon-vk/PIconVK.vue'
+import {
+	PIconFacebook,
+	PIconInstagram,
+	PIconLinkedIn,
+	PIconPinterest,
+	PIconTelegram,
+	PIconThreads,
+	PIconTwitter,
+	PIconVK,
+	PIconYouTube
+} from '../src/components/core/index.js'
 import { viewports } from './viewports.js'
 
 setup(app => {
-	app.component('PIconInstagram', PIconInstagram)
 	app.component('PIconFacebook', PIconFacebook)
+	app.component('PIconInstagram', PIconInstagram)
+	app.component('PIconLinkedin', PIconLinkedIn)
+	app.component('PIconPinterest', PIconPinterest)
+	app.component('PIconTelegram', PIconTelegram)
+	app.component('PIconThreads', PIconThreads)
 	app.component('PIconTwitter', PIconTwitter)
 	app.component('PIconVk', PIconVK)
+	app.component('PIconYoutube', PIconYouTube)
 })
 
 const preview: Preview = {
