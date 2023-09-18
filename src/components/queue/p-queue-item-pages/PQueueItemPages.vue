@@ -1,12 +1,12 @@
 <template lang="pug">
-.p-queue-pages(:class="{ '--solo': isFullSolo }")
+.p-queue-pages(:class="{ '--solo': isSolo }")
 	.p-queue-pages__group(
 		v-for="group in pagesGroupList"
 		:key="group.name"
 	)
 		.p-queue-pages__type
 			component(:is="`p-icon-${group.name}`")
-		template(v-if="!group.isSolo")
+		template(v-if="!group.isSolo && showPages")
 			.p-queue-pages__item(
 				v-for="page in group.pages.slice(0, MAX_VISIBLE_GROUP_SIZE)"
 				:key="page.id"
@@ -38,11 +38,15 @@ const props = defineProps<Props>()
 
 const { items } = toRefs(props)
 
-const isFullSolo = computed(
-	() => items.value.every(page => page.isSolo)
-)
-
 const pagesGroupList = usePagesGroupList(items)
+
+const showPages = computed(() => {
+	let longGroups = pagesGroupList.value.filter(group => !group.isSolo)
+	return longGroups.length <= 4
+})
+const isSolo = computed(
+	() => items.value.every(page => page.isSolo) || !showPages.value
+)
 </script>
 
 <style lang="sass">
