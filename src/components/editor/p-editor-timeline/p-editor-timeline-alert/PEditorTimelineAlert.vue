@@ -2,7 +2,8 @@
 .p-editor-timeline-alert
 	p-editor-timeline-scroll-opacity
 		.p-editor-timeline-alert__network
-			component.p-editor-timeline-alert__network-icon(:is="'p-icon-' + network")
+			//- component.p-editor-timeline-alert__network-icon(:is="'p-icon-' + network")
+			p-icon-network.p-editor-timeline-alert__network-icon(:network="network")
 			.p-editor-timeline-alert__network-name
 				slot(name="network-name")
 	ul.p-editor-timeline-alert__list
@@ -28,12 +29,15 @@
 </template>
 
 <script lang="ts" setup>
+import type { PageNetwork } from '@postanu/types'
+
 import type { AlertsListItem } from '../types/index.js'
 
+import { PIconNetwork } from '../../../core/index.js'
 import PEditorTimelineScrollOpacity from '../p-editor-timeline-scroll-opacity/PEditorTimelineScrollOpacity.vue'
 
 interface Props {
-	network: string
+	network: PageNetwork
 	alerts: AlertsListItem[]
 }
 

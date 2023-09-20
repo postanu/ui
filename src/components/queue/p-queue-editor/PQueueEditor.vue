@@ -30,7 +30,7 @@ transition(
 							'p-queue-editor__pages-item--disabled': !isAllowedNetwork(network)
 						}`
 					)
-						component(:is="`p-icon-${network}`")
+						p-icon-network(:network="network")
 			.p-queue-editor__main
 				p-headline.p-queue-editor__counters(
 					v-if="showCounters"
@@ -57,11 +57,13 @@ import { useVModels } from '@vueuse/core'
 import { computed, ref, toRefs, watch } from 'vue'
 
 import { useTextCounters } from '../../../composables/index.js'
-import PButtonIcon from '../../core/buttons/p-button-icon/PButtonIcon.vue'
-import PIconClose from '../../core/icons/p-icon-close/PIconClose.vue'
-import PHeadline from '../../core/typography/p-headline/PHeadline.vue'
-import PEditorText from '../../editor/p-editor-text/PEditorText.vue'
-import PEditorTime from '../../editor/p-editor-time/PEditorTime.vue'
+import {
+	PButtonIcon,
+	PHeadline,
+	PIconClose,
+	PIconNetwork
+} from '../../core/index.js'
+import { PEditorText, PEditorTime } from '../../editor/index.js'
 
 interface Props {
 	placeholder: string
