@@ -89,18 +89,18 @@
 </template>
 
 <script lang="ts" setup>
+import type { PageNetwork } from '@postanu/types'
+
 import { useVModel } from '@vueuse/core'
 import { computed, nextTick, ref, toRefs } from 'vue'
 
-import type { ActivitiesList, AlertsList } from './types/index.js'
+import type { ActiveTab, ActivitiesList, AlertsList } from './types/index.js'
 
 import PButtonCommon from '../../core/buttons/p-button-common/PButtonCommon.vue'
 import PEditorTimelineAction from './p-editor-timeline-action/PEditorTimelineAction.vue'
 import PEditorTimelineAlert from './p-editor-timeline-alert/PEditorTimelineAlert.vue'
 import PEditorTimelineHidden from './p-editor-timeline-hidden/PEditorTimelineHidden.vue'
 import PEditorTimelineScrollOpacity from './p-editor-timeline-scroll-opacity/PEditorTimelineScrollOpacity.vue'
-
-type ActiveTab = 'activities' | 'alerts' | null
 
 interface Props {
 	activeTab: ActiveTab
@@ -120,7 +120,7 @@ interface Slots {
 	'activity-title': () => unknown
 	'network-name': (
 		props: {
-			network: string
+			network: PageNetwork
 		}
 	) => unknown
 	'alert-text': (

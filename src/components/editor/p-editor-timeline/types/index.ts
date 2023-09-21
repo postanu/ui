@@ -1,5 +1,7 @@
 import type { NETWORKS_ORDER } from '@postanu/core'
 
+export type ActiveTab = 'activities' | 'alerts' | null
+
 export type AlertsListItem = {
 	id: string
 	type: 'error' | 'warning'
