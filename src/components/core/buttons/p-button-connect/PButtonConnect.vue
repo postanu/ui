@@ -1,7 +1,7 @@
 <template lang="pug">
 p-button.p-button-connect
 	p-icon-arrow-north-east.p-button-connect__arrow
-	component.p-button-connect__icon(:is="icon")
+	p-icon-network.p-button-connect__icon(:network="network")
 	span.p-button-connect__label
 		slot
 </template>
@@ -9,18 +9,15 @@ p-button.p-button-connect
 <script lang="ts" setup>
 import type { NETWORKS_ORDER } from '@postanu/core'
 
-import { computed } from 'vue'
-
 import PIconArrowNorthEast from '../../icons/p-icon-arrow-north-east/PIconArrowNorthEast.vue'
+import PIconNetwork from '../../icons/p-icon-network/PIconNetwork.vue'
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
 	network: typeof NETWORKS_ORDER[number]
 }
 
-const props = defineProps<Props>()
-
-const icon = computed(() => `p-icon-${props.network}`)
+defineProps<Props>()
 </script>
 
 <style lang="sass">
