@@ -35,8 +35,6 @@
     }
   },
   "peerDependencies": {
-    "@nanostores/vue": "^0.10.0",
-    "@postanu/i18n": "^0.0.0",
     "@postanu/twitter-text": "^0.2.0",
     "@postanu/types": "^0.14.1",
     "@vueuse/components": "^10.4.1",
@@ -47,12 +45,6 @@
     "vuedraggable": ">=4.1.0"
   },
   "peerDependenciesMeta": {
-    "@nanostores/vue": {
-      "optional": true
-    },
-    "@postanu/i18n": {
-      "optional": true
-    },
     "@postanu/twitter-text": {
       "optional": true
     },
@@ -76,11 +68,8 @@
     }
   },
   "devDependencies": {
-    "@nanostores/i18n": "^0.10.0",
-    "@nanostores/vue": "^0.10.0",
     "@postanu/browserslist-config": "^0.3.0",
     "@postanu/eslint-config": "^4.2.0",
-    "@postanu/i18n": "github:postanu/i18n",
     "@postanu/stylelint-config": "^0.7.7",
     "@postanu/twitter-text": "^0.2.0",
     "@postanu/types": "^0.14.1",
@@ -121,7 +110,6 @@
     "hashtag-regex": "^2.1.0",
     "nano-staged": "^0.8.0",
     "nanoid": "^5.0.1",
-    "nanostores": "^0.9.3",
     "postcss": "^8.4.31",
     "postcss-focus": "^7.0.0",
     "pug": "^3.0.2",

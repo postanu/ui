@@ -1,8 +1,6 @@
 /* eslint-disable unicorn/consistent-function-scoping */
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { useStore } from '@nanostores/vue'
-import { calendarMessages } from '@postanu/i18n'
 import { ref } from 'vue'
 
 import { getRandomNumber } from '../../../../generator/index.js'
@@ -31,7 +29,6 @@ export const Default: Story = {
 			PLinearCalendar
 		},
 		setup: (): unknown => {
-			let t = useStore(calendarMessages)
 			let selectedDate = ref(args.selectedDate)
 
 			function isToday (date: string): boolean {
@@ -69,7 +66,6 @@ export const Default: Story = {
 
 			return {
 				selectedDate,
-				t,
 				isToday,
 				isSelectedDate,
 				selectDate,

@@ -5,21 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 devDependencies:
-  '@nanostores/i18n':
-    specifier: ^0.10.0
-    version: 0.10.0(nanostores@0.9.3)
-  '@nanostores/vue':
-    specifier: ^0.10.0
-    version: 0.10.0(nanostores@0.9.3)(vue@3.3.4)
   '@postanu/browserslist-config':
     specifier: ^0.3.0
     version: 0.3.0
   '@postanu/eslint-config':
     specifier: ^4.2.0
     version: 4.2.0(@typescript-eslint/eslint-plugin@6.7.3)(@typescript-eslint/parser@6.7.3)(eslint-config-standard@17.1.0)(eslint-plugin-import@2.28.1)(eslint-plugin-n@16.1.0)(eslint-plugin-perfectionist@2.1.0)(eslint-plugin-prefer-let@3.0.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-security@1.7.1)(eslint-plugin-unicorn@48.0.1)(eslint-plugin-vue-pug@0.6.0)(eslint-plugin-vue@9.17.0)(eslint@8.50.0)(typescript@5.2.2)(vue-eslint-parser@9.3.1)
-  '@postanu/i18n':
-    specifier: github:postanu/i18n
-    version: github.com/postanu/i18n/e98f3e30464ef8d97834cd9fbcb37610fcc82558(@nanostores/i18n@0.10.0)(nanostores@0.9.3)
   '@postanu/stylelint-config':
     specifier: ^0.7.7
     version: 0.7.7(postcss@8.4.31)(stylelint@15.10.3)
@@ -140,9 +131,6 @@ devDependencies:
   nanoid:
     specifier: ^5.0.1
     version: 5.0.1
-  nanostores:
-    specifier: ^0.9.3
-    version: 0.9.3
   postcss:
     specifier: ^8.4.31
     version: 8.4.31
@@ -2069,33 +2057,6 @@ packages:
       '@types/mdx': 2.0.8
       '@types/react': 18.2.23
       react: 18.2.0
-    dev: true
-
-  /@nanostores/i18n@0.10.0(nanostores@0.9.3):
-    resolution: {integrity: sha512-NxAjM7RLW7TKWa5TSba1gX0KG8CB13G56v30ZZS787KUbaIoVOjC2R2+mRWvg2vMNz8CTd+RlQB3XeuI2cJLEQ==}
-    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
-    peerDependencies:
-      nanostores: ^0.9.0
-    dependencies:
-      nanostores: 0.9.3
-    dev: true
-
-  /@nanostores/vue@0.10.0(nanostores@0.9.3)(vue@3.3.4):
-    resolution: {integrity: sha512-832RAUbzRfHPs1CdqVEwfvgB2+RD/INji4Zo8bUSEfRO2pQRMMeq479gydnohGpRaa0oNwlfKo7TGFXCghq/1g==}
-    engines: {node: ^18.0.0 || >=20.0.0}
-    peerDependencies:
-      '@nanostores/logger': '>=0.2.3'
-      '@vue/devtools-api': '>=6.5.0'
-      nanostores: '>=0.9.2'
-      vue: '>=3.3.1'
-    peerDependenciesMeta:
-      '@nanostores/logger':
-        optional: true
-      '@vue/devtools-api':
-        optional: true
-    dependencies:
-      nanostores: 0.9.3
-      vue: 3.3.4
     dev: true
 
   /@ndelangen/get-tarball@3.0.9:
@@ -7851,11 +7812,6 @@ packages:
     hasBin: true
     dev: true
 
-  /nanostores@0.9.3:
-    resolution: {integrity: sha512-KobZjcVyNndNrb5DAjfs0WG0lRcZu5Q1BOrfTOxokFLi25zFrWPjg+joXC6kuDqNfSt9fQwppyjUBkRPtsL+8w==}
-    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
-    dev: true
-
   /natural-compare-lite@1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
     dev: true
@@ -10596,17 +10552,4 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
-    dev: true
-
-  github.com/postanu/i18n/e98f3e30464ef8d97834cd9fbcb37610fcc82558(@nanostores/i18n@0.10.0)(nanostores@0.9.3):
-    resolution: {tarball: https://codeload.github.com/postanu/i18n/tar.gz/e98f3e30464ef8d97834cd9fbcb37610fcc82558}
-    id: github.com/postanu/i18n/e98f3e30464ef8d97834cd9fbcb37610fcc82558
-    name: '@postanu/i18n'
-    version: 0.0.0
-    peerDependencies:
-      '@nanostores/i18n': '>=0.8.0'
-      nanostores: '>=0.7.3'
-    dependencies:
-      '@nanostores/i18n': 0.10.0(nanostores@0.9.3)
-      nanostores: 0.9.3
     dev: true
