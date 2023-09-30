@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 
 import PButtonConnect from './PButtonConnect.vue'
 
@@ -19,7 +19,7 @@ export default {
 		},
 		network: {
 			control: 'select',
-			options: NETWORKS_ORDER
+			options: NETWORKS
 		}
 	}
 } as Meta<typeof PButtonConnect>

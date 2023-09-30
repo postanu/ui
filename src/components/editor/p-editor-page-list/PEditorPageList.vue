@@ -12,7 +12,7 @@
 					:[networkAbbr(page.network)]="true"
 				)
 					p-editor-page.p-editor-page-list__page(
-						:icon="page.network"
+						:network="page.network"
 						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
@@ -35,7 +35,7 @@
 					:[networkAbbr(page.network)]="true"
 				)
 					p-editor-page.p-editor-page-list__page(
-						:icon="page.network"
+						:network="page.network"
 						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
@@ -56,7 +56,7 @@
 					:[networkAbbr(page.network)]="true"
 				)
 					p-editor-page.p-editor-page-list__page(
-						:icon="page.network"
+						:network="page.network"
 						:avatar="page.avatar"
 						:fullname="page.name"
 						:username="page.username"
@@ -71,7 +71,6 @@
 <script lang="ts" setup>
 import type { ClientPage, PageNetwork } from '@postanu/types'
 
-import { NETWORKS_ABBR } from '@postanu/core'
 import { computed, toRefs, unref } from 'vue'
 
 import { usePagesList } from '../../../composables/index.js'
@@ -138,7 +137,7 @@ let connectPage = (): void => { emit('connect') }
 
 // eslint-disable-next-line unicorn/consistent-function-scoping
 function networkAbbr (network: PageNetwork): string {
-	return `data-${NETWORKS_ABBR[network]}`
+	return `data-${network}`
 }
 </script>
 
@@ -154,9 +153,14 @@ function networkAbbr (network: PageNetwork): string {
 			transition: opacity 0.05s ease-in
 
 // all but the first
-.p-editor-page-list__list > li[data-fb] ~ li[data-fb],
-.p-editor-page-list__list > li[data-ig] ~ li[data-ig],
-.p-editor-page-list__list > li[data-tw] ~ li[data-tw],
+.p-editor-page-list__list > li[data-facebook] ~ li[data-facebook],
+.p-editor-page-list__list > li[data-instagram] ~ li[data-instagram],
+.p-editor-page-list__list > li[data-threads] ~ li[data-threads],
+.p-editor-page-list__list > li[data-twitter] ~ li[data-twitter],
+.p-editor-page-list__list > li[data-telegram] ~ li[data-telegram],
+.p-editor-page-list__list > li[data-linkedin] ~ li[data-linkedin],
+.p-editor-page-list__list > li[data-pinterest] ~ li[data-pinterest],
+.p-editor-page-list__list > li[data-youtube] ~ li[data-youtube],
 .p-editor-page-list__list > li[data-vk] ~ li[data-vk]
 	> .p-editor-page-list__page:not(:hover, :focus)
 		--p-editor-page-show-icon: 0

@@ -16,7 +16,7 @@ export default {
 
 export const Default: Story = {
 	args: {
-		icon: 'facebook',
+		network: 'facebook',
 		avatar: 'mm.jpg',
 		fullname: 'Marilyn Manson',
 		username: 'marilynmanson'

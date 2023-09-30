@@ -1,12 +1,12 @@
 import type { ClientPage } from '@postanu/types'
 import type { Ref } from 'vue'
 
-import { NETWORKS_ORDER as ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 import { customRef } from 'vue'
 
 function sort (pages: ClientPage[]): ClientPage[] {
 	return pages.sort((a, b) => {
-		return ORDER.indexOf(a.network) - ORDER.indexOf(b.network) ||
+		return NETWORKS.indexOf(a.network) - NETWORKS.indexOf(b.network) ||
 			a.name.localeCompare(b.name)
 	})
 }

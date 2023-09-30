@@ -1,7 +1,7 @@
 import type { ClientPage, PagesGroup } from '@postanu/types'
 import type { ComputedRef, Ref } from 'vue'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 import { computed } from 'vue'
 
 /**
@@ -32,7 +32,7 @@ export function usePagesGroupList (
 		}, [])
 
 		let sorted = grouped.sort((a, b) => {
-			return NETWORKS_ORDER.indexOf(a.name) - NETWORKS_ORDER.indexOf(b.name)
+			return NETWORKS.indexOf(a.name) - NETWORKS.indexOf(b.name)
 		})
 
 		return sorted

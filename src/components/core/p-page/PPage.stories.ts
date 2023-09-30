@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 
 import PPage from './PPage.vue'
 
@@ -10,14 +10,14 @@ export default {
 	title: 'PPage',
 	component: PPage,
 	argTypes: {
-		icon: {
+		network: {
 			control: {
 				type: 'select',
 				labels: {
 					undefined: 'No icon'
 				}
 			},
-			options: [undefined, ...NETWORKS_ORDER]
+			options: [undefined, ...NETWORKS]
 		},
 		avatar: {
 			control: 'text'
@@ -27,7 +27,7 @@ export default {
 
 export const Default: Story = {
 	args: {
-		icon: 'facebook',
+		network: 'facebook',
 		avatar: 'mm.jpg',
 		fullname: 'Marilyn Manson',
 		username: 'marilynmanson'
@@ -36,7 +36,7 @@ export const Default: Story = {
 
 export const Letter: Story = {
 	args: {
-		icon: 'facebook',
+		network: 'facebook',
 		avatar: null,
 		fullname: 'Marilyn Manson',
 		username: 'marilynmanson'

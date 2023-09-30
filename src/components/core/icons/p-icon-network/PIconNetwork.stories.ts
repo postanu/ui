@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 
 import PIconNetwork from './PIconNetwork.vue'
 
@@ -14,7 +14,7 @@ export default {
 			control: {
 				type: 'select'
 			},
-			options: NETWORKS_ORDER
+			options: NETWORKS
 		}
 	}
 } as Meta<typeof PIconNetwork>

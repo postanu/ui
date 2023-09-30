@@ -1,4 +1,4 @@
-import type { NETWORKS_ORDER } from '@postanu/core'
+import type { PageNetwork } from '@postanu/types'
 
 export type ActiveTab = 'activities' | 'alerts' | null
 
@@ -8,7 +8,7 @@ export type AlertsListItem = {
 }
 
 export type AlertsList = {
-	[key in typeof NETWORKS_ORDER[number]]?: AlertsListItem[]
+	[key in PageNetwork]?: AlertsListItem[]
 }
 
 export interface ActivitiesAction {

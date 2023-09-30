@@ -14,9 +14,6 @@ devDependencies:
   '@postanu/browserslist-config':
     specifier: ^0.3.0
     version: 0.3.0
-  '@postanu/core':
-    specifier: ^0.7.0
-    version: 0.7.0(nanoid@5.0.1)
   '@postanu/eslint-config':
     specifier: ^4.1.1
     version: 4.1.1(@typescript-eslint/eslint-plugin@6.7.0)(@typescript-eslint/parser@6.7.0)(eslint-config-standard@17.1.0)(eslint-plugin-import@2.28.1)(eslint-plugin-n@16.1.0)(eslint-plugin-perfectionist@2.1.0)(eslint-plugin-prefer-let@3.0.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-security@1.7.1)(eslint-plugin-unicorn@48.0.1)(eslint-plugin-vue-pug@0.6.0)(eslint-plugin-vue@9.17.0)(eslint@8.49.0)(typescript@5.2.2)(vue-eslint-parser@9.3.1)
@@ -30,8 +27,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0
   '@postanu/types':
-    specifier: ^0.11.1
-    version: 0.11.1(@postanu/core@0.7.0)
+    specifier: ^0.14.1
+    version: 0.14.1
   '@storybook/addon-actions':
     specifier: ^7.4.2
     version: 7.4.2(react-dom@18.2.0)(react@18.2.0)
@@ -2511,14 +2508,6 @@ packages:
     resolution: {integrity: sha512-q8H5xeFoKIFCK9g1crGhsA5QIXMbAlmrTg2O/aNC0GMCDeRDAzFkna2AN+mlnFWcDAKgOrz5/GY+wwYtb+ZGoA==}
     dev: true
 
-  /@postanu/core@0.7.0(nanoid@5.0.1):
-    resolution: {integrity: sha512-8wnwp8ej5UhPN4OKhhs5NEjX2B2GqAKrPKyviaUDMwfFmcUUvmKBliUO0wd3rH5mvgEM53nlIabbilf0Ip4jAA==}
-    peerDependencies:
-      nanoid: '>=4.0.2'
-    dependencies:
-      nanoid: 5.0.1
-    dev: true
-
   /@postanu/eslint-config@4.1.1(@typescript-eslint/eslint-plugin@6.7.0)(@typescript-eslint/parser@6.7.0)(eslint-config-standard@17.1.0)(eslint-plugin-import@2.28.1)(eslint-plugin-n@16.1.0)(eslint-plugin-perfectionist@2.1.0)(eslint-plugin-prefer-let@3.0.1)(eslint-plugin-promise@6.1.1)(eslint-plugin-security@1.7.1)(eslint-plugin-unicorn@48.0.1)(eslint-plugin-vue-pug@0.6.0)(eslint-plugin-vue@9.17.0)(eslint@8.49.0)(typescript@5.2.2)(vue-eslint-parser@9.3.1):
     resolution: {integrity: sha512-3Ot679V1rLFjEq8xHuRntvG49FNbFB4BykZJ2fGutR8hPmSnce0SaegZAOTvPHdmaimmfaaIhM3tz5skNEiqwA==}
     peerDependencies:
@@ -2604,12 +2593,8 @@ packages:
       twemoji-parser: 13.1.0
     dev: true
 
-  /@postanu/types@0.11.1(@postanu/core@0.7.0):
-    resolution: {integrity: sha512-VXvXuVOCW4Wmklzhad82Mc23jfZ9IByc+DInvOXQIXHLxfKWkPUcz0Gpew2AfWcEER5wqBJOJ19qMufLNXeSCw==}
-    peerDependencies:
-      '@postanu/core': '>=0.7.0'
-    dependencies:
-      '@postanu/core': 0.7.0(nanoid@5.0.1)
+  /@postanu/types@0.14.1:
+    resolution: {integrity: sha512-4rYONEcbOifIxpkhIeNcMnljdrIUSRGgOkgkGWm8SO7Z144R7ne/oY4U4QPHW0laOTTiRl2UWxyqjz2gS0Oljw==}
     dev: true
 
   /@radix-ui/number@1.0.1:
@@ -4042,7 +4027,7 @@ packages:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.3.4
-      vue-component-type-helpers: 1.8.11
+      vue-component-type-helpers: 1.8.15
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10594,8 +10579,8 @@ packages:
     resolution: {integrity: sha512-eOpPHogvorZRobNqJGhapa0JdwaxpjVvyBp0QIUMRMSf8ZAlqOdEquKuRmw9Qwu0qXtJIWqFtMkmvJjUZmMjVA==}
     dev: true
 
-  /vue-component-type-helpers@1.8.11:
-    resolution: {integrity: sha512-CWItFzuEWjkSXDeMGwQEc5cFH4FaueyPQHfi1mBDe+wA2JABqNjFxFUtmZJ9WHkb0HpEwqgBg1umiXrWYXkXHw==}
+  /vue-component-type-helpers@1.8.15:
+    resolution: {integrity: sha512-RKiPRKW4BdwgmQ9vaNkHYKAThdTbgU4TOphVyyzqxRwsOJOoRIrb+vB49XLvs5CKPNrvxMXZMwPe5FyJCqFWyg==}
     dev: true
 
   /vue-demi@0.14.6(vue@3.3.4):

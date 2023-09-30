@@ -1,6 +1,6 @@
 import type { Attachment, Page, PostState } from '@postanu/types'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 import { nanoid } from 'nanoid'
 
 import type { GeneratedUser } from '../user/index.js'
@@ -26,7 +26,7 @@ interface GeneratedPost {
 
 export function generatePosts (count: number): GeneratedPost[] {
 	let projectPagesPattern = Array.from<unknown, [number]>(
-		{ length: NETWORKS_ORDER.length - 1 },
+		{ length: NETWORKS.length - 1 },
 		(item, index) => [index]
 	)
 	let projectPages = generatePages(projectPagesPattern)

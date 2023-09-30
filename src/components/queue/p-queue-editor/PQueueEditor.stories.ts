@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 import { action } from '@storybook/addon-actions'
 
 import PQueueEditor from './PQueueEditor.vue'
@@ -54,7 +54,7 @@ export const Default: Story = {
 		placeholderTime: 'Now',
 		placeholderContent: 'Create new post',
 		// @ts-expect-error
-		networks: NETWORKS_ORDER,
+		networks: NETWORKS,
 		allowedNetworks: ['facebook', 'instagram', 'twitter'],
 		time: Date.now(),
 		text: '',

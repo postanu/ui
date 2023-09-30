@@ -2,7 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { useStore } from '@nanostores/vue'
-import { DAYS, MONTHS } from '@postanu/core'
 import { calendarMessages } from '@postanu/i18n'
 import { ref } from 'vue'
 
@@ -70,8 +69,6 @@ export const Default: Story = {
 
 			return {
 				selectedDate,
-				DAYS,
-				MONTHS,
 				t,
 				isToday,
 				isSelectedDate,
@@ -82,10 +79,10 @@ export const Default: Story = {
 		template: `
 			<p-linear-calendar v-model:selected-date="selectedDate">
 				<template v-slot:month="{ monthKey }">
-					{{ t[MONTHS[monthKey]] }}
+					{{ new Date(0, monthKey).toLocaleString('en-en', { month: 'long' }) }}
 				</template>
 				<template v-slot:nextMonth="{ monthKey }">
-					{{ t[MONTHS[monthKey]] }}
+					{{ new Date(0, monthKey).toLocaleString('en-en', { month: 'long' }) }}
 				</template>
 				<template v-slot:day="{ day }">
 					<p-linear-calendar-day
@@ -98,7 +95,9 @@ export const Default: Story = {
 						@click="selectDate(day.date)"
 					>
 						<template #date> {{ day.day }} </template>
-						<template #day> {{ t[DAYS[day.dayOfWeek]] }} </template>
+						<template #day>
+							{{ new Date(0, 0, day.dayOfWeek).toLocaleString('en-en', { weekday: 'short' }) }}
+						</template>
 					</p-linear-calendar-day>
 				</template>
 			</p-linear-calendar>

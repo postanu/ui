@@ -26,7 +26,6 @@ const storybookConfig: StorybookConfig = {
 			optimizeDeps: {
 				// pre-bundle @postanu/ui dependencies to speed up development
 				include: [
-					'@postanu/core',
 					'@postanu/twitter-text',
 					'@postanu/twitter-text/regexp',
 					'hashtag-regex',

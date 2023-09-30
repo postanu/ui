@@ -36,7 +36,6 @@
   },
   "peerDependencies": {
     "@nanostores/vue": "^0.10.0",
-    "@postanu/core": "^0.7.0",
     "@postanu/i18n": "^0.0.0",
     "@postanu/twitter-text": "^0.2.0",
     "@postanu/types": "^0.11.0",
@@ -49,9 +48,6 @@
   },
   "peerDependenciesMeta": {
     "@nanostores/vue": {
-      "optional": true
-    },
-    "@postanu/core": {
       "optional": true
     },
     "@postanu/i18n": {
@@ -83,12 +79,11 @@
     "@nanostores/i18n": "^0.10.0",
     "@nanostores/vue": "^0.10.0",
     "@postanu/browserslist-config": "^0.3.0",
-    "@postanu/core": "^0.7.0",
     "@postanu/eslint-config": "^4.1.1",
     "@postanu/i18n": "github:postanu/i18n",
     "@postanu/stylelint-config": "^0.7.7",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.11.1",
+    "@postanu/types": "^0.14.1",
     "@storybook/addon-actions": "^7.4.2",
     "@storybook/addon-essentials": "^7.4.2",
     "@storybook/addon-interactions": "^7.4.2",

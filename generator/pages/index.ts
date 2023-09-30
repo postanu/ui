@@ -1,6 +1,6 @@
 import type { ClientPage, Page } from '@postanu/types'
 
-import { NETWORKS_ORDER } from '@postanu/core'
+import { NETWORKS } from '@postanu/types'
 import { nanoid } from 'nanoid'
 
 import { members } from '../data/index.js'
@@ -22,7 +22,7 @@ export function generatePages (
 	let updatableCount = options.updatableCount
 	let data = {
 		members: [...members],
-		networks: [...NETWORKS_ORDER]
+		networks: [...NETWORKS]
 	}
 
 	let getRandomData = <

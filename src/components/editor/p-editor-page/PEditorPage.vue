@@ -1,7 +1,7 @@
 <template lang="pug">
 p-button.p-editor-page
 	p-page.p-editor-page__content(
-		:icon="icon"
+		:network="network"
 		:avatar="avatar"
 		:fullname="fullname"
 		:username="username"
@@ -9,25 +9,19 @@ p-button.p-editor-page
 </template>
 
 <script lang="ts" setup>
-import type { NETWORKS_ORDER } from '@postanu/core'
+import type { PageNetwork } from '@postanu/types'
 
 import PButton from '../../core/buttons/p-button/PButton.vue'
 import PPage from '../../core/p-page/PPage.vue'
 
 interface Props {
-	icon?: typeof NETWORKS_ORDER[number]
+	network?: PageNetwork
 	avatar: null | string
 	fullname: string
 	username: null | string
 }
 
-withDefaults(
-	defineProps<Props>(),
-	{
-		icon: undefined,
-		avatar: undefined
-	}
-)
+defineProps<Props>()
 </script>
 
 <style lang="sass">
