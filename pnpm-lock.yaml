@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^0.2.0
     version: 0.2.0
   '@postanu/types':
-    specifier: ^0.14.1
-    version: 0.14.1
+    specifier: ^0.14.2
+    version: 0.14.2
   '@storybook/addon-actions':
     specifier: ^7.4.5
     version: 7.4.5(react-dom@18.2.0)(react@18.2.0)
@@ -2188,8 +2188,8 @@ packages:
       twemoji-parser: 13.1.0
     dev: true
 
-  /@postanu/types@0.14.1:
-    resolution: {integrity: sha512-4rYONEcbOifIxpkhIeNcMnljdrIUSRGgOkgkGWm8SO7Z144R7ne/oY4U4QPHW0laOTTiRl2UWxyqjz2gS0Oljw==}
+  /@postanu/types@0.14.2:
+    resolution: {integrity: sha512-/xbpzjIwhIljsG2I/84eCahCbaZcQ2s4kY4hG8cy94a2FmkSiLAuRicEJP57Vws4a34Hv+L4cHKiwgHp58wA9Q==}
     dev: true
 
   /@radix-ui/number@1.0.1:
