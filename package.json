@@ -12,7 +12,10 @@
     "dev": "storybook dev -p 6006 --no-open",
     "build:storybook": "storybook build -o ./dist",
     "build:types": "rm -rf ./types && vue-tsc --project tsconfig.build.json",
-    "lint": "vue-tsc --noEmit && eslint . && stylelint './**/*.{vue,sass}'",
+    "test:tsc": "vue-tsc --noEmit",
+    "test:eslint": "eslint .",
+    "test:stylelint": "stylelint './**/*.{vue,sass}'",
+    "test": "pnpm run /^test:/",
     "publish": "pnpm run build:types && clean-publish"
   },
   "exports": {
