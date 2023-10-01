@@ -1,6 +1,6 @@
-import type { ClientPage, Page } from '@postanu/types'
+import type { ClientPage, Page } from '@postanu/shared'
 
-import { NETWORKS } from '@postanu/types'
+import { NETWORKS } from '@postanu/shared'
 import { nanoid } from 'nanoid'
 
 import { members } from '../data/index.js'

@@ -1,7 +1,7 @@
-import type { ClientPage, PagesGroup } from '@postanu/types'
+import type { ClientPage, PagesGroup } from '@postanu/shared'
 import type { ComputedRef, Ref } from 'vue'
 
-import { NETWORKS } from '@postanu/types'
+import { NETWORKS } from '@postanu/shared'
 import { computed } from 'vue'
 
 /**

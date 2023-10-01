@@ -1,7 +1,7 @@
-import type { ClientPage } from '@postanu/types'
+import type { ClientPage } from '@postanu/shared'
 import type { Ref } from 'vue'
 
-import { NETWORKS } from '@postanu/types'
+import { NETWORKS } from '@postanu/shared'
 import { customRef } from 'vue'
 
 function sort (pages: ClientPage[]): ClientPage[] {

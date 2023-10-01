@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { Attachment } from '@postanu/types'
+import type { Attachment } from '@postanu/shared'
 
 import { computed, toRefs } from 'vue'
 

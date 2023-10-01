@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ClientPage } from '@postanu/types'
+import type { ClientPage } from '@postanu/shared'
 
 import { computed, toRefs } from 'vue'
 

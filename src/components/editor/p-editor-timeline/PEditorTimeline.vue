@@ -89,7 +89,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import { useVModel } from '@vueuse/core'
 import { computed, nextTick, ref, toRefs } from 'vue'

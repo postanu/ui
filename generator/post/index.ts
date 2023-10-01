@@ -1,6 +1,6 @@
-import type { Attachment, Page, PostState } from '@postanu/types'
+import type { Attachment, Page, PostState } from '@postanu/shared'
 
-import { NETWORKS } from '@postanu/types'
+import { NETWORKS } from '@postanu/shared'
 import { nanoid } from 'nanoid'
 
 import type { GeneratedUser } from '../user/index.js'

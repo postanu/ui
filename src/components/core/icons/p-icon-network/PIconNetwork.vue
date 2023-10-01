@@ -3,7 +3,7 @@ component.test(:is="icon")
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import { computed } from 'vue'
 

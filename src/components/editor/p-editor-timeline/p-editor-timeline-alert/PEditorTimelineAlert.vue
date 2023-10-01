@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import type { AlertsListItem } from '../types/index.js'
 

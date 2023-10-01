@@ -9,7 +9,7 @@ p-button.p-editor-page
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import PButton from '../../core/buttons/p-button/PButton.vue'
 import PPage from '../../core/p-page/PPage.vue'

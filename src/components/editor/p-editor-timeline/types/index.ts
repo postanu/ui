@@ -1,4 +1,4 @@
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 export type ActiveTab = 'activities' | 'alerts' | null
 

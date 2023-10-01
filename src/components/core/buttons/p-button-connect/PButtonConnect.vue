@@ -7,7 +7,7 @@ p-button.p-button-connect
 </template>
 
 <script lang="ts" setup>
-import type { NETWORKS } from '@postanu/types'
+import type { NETWORKS } from '@postanu/shared'
 
 import PIconArrowNorthEast from '../../icons/p-icon-arrow-north-east/PIconArrowNorthEast.vue'
 import PIconNetwork from '../../icons/p-icon-network/PIconNetwork.vue'

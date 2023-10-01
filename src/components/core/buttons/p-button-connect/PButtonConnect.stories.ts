@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { NETWORKS } from '@postanu/types'
+import { NETWORKS } from '@postanu/shared'
 
 import PButtonConnect from './PButtonConnect.vue'
 

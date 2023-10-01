@@ -19,7 +19,7 @@ draggable.p-editor-attachments(
 </template>
 
 <script lang="ts" setup>
-import type { Attachment } from '@postanu/types'
+import type { Attachment } from '@postanu/shared'
 
 import { useVModel } from '@vueuse/core'
 import { computed, toRefs } from 'vue'

@@ -35,8 +35,8 @@
     }
   },
   "peerDependencies": {
+    "@postanu/shared": "^0.15.1",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.14.1",
     "@vueuse/components": "^10.4.1",
     "@vueuse/core": "^10.4.1",
     "date-fns": "^2.30.0",
@@ -48,7 +48,7 @@
     "@postanu/twitter-text": {
       "optional": true
     },
-    "@postanu/types": {
+    "@postanu/shared": {
       "optional": true
     },
     "@vueuse/components": {
@@ -70,9 +70,9 @@
   "devDependencies": {
     "@postanu/browserslist-config": "^0.3.0",
     "@postanu/eslint-config": "^4.2.0",
+    "@postanu/shared": "^0.15.1",
     "@postanu/stylelint-config": "^0.7.7",
     "@postanu/twitter-text": "^0.2.0",
-    "@postanu/types": "^0.14.2",
     "@storybook/addon-actions": "^7.4.5",
     "@storybook/addon-essentials": "^7.4.5",
     "@storybook/addon-interactions": "^7.4.5",

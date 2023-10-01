@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import PIconNetwork from '../icons/p-icon-network/PIconNetwork.vue'
 import PAvatar from '../p-avatar/PAvatar.vue'

@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { ClientPage, PageNetwork } from '@postanu/types'
+import type { ClientPage, PageNetwork } from '@postanu/shared'
 
 import { computed, toRefs, unref } from 'vue'
 

@@ -51,7 +51,7 @@ transition(
 </template>
 
 <script lang="ts" setup>
-import type { PageNetwork } from '@postanu/types'
+import type { PageNetwork } from '@postanu/shared'
 
 import { useVModels } from '@vueuse/core'
 import { computed, ref, toRefs, watch } from 'vue'

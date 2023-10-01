@@ -1,4 +1,4 @@
-import type { Attachment } from '@postanu/types'
+import type { Attachment } from '@postanu/shared'
 import type { ComputedRef, Ref } from 'vue'
 
 import { computed } from 'vue'
