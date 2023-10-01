@@ -11,7 +11,7 @@ import PAvatar from '../../p-avatar/PAvatar.vue'
 import PButton from '../p-button/PButton.vue'
 
 interface Props {
-	image?: string
+	image: null | string
 	text: string
 }
 

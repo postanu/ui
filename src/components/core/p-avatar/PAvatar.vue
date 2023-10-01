@@ -13,7 +13,7 @@
 import { computed, ref, toRefs } from 'vue'
 
 interface Props {
-	image?: null | string
+	image: null | string
 	text: string
 }
 
