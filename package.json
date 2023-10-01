@@ -15,8 +15,7 @@
     "test:tsc": "vue-tsc --noEmit",
     "test:eslint": "eslint .",
     "test:stylelint": "stylelint './**/*.{vue,sass}'",
-    "test": "pnpm run /^test:/",
-    "publish": "pnpm run build:types && clean-publish"
+    "test": "pnpm run /^test:/"
   },
   "exports": {
     ".": "./src/components/core/index.ts",
