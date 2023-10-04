@@ -9,40 +9,26 @@ type Story = StoryObj<typeof PPagesTable>
 
 export default {
 	title: 'PPagesTable',
-	component: PPagesTable,
-	argTypes: {
-		pattern: {
-			control: 'text'
-		},
-		pages: {
-			control: 'text'
-		}
-	}
+	component: PPagesTable
 } as Meta<typeof PPagesTable>
 
 const Template: Story = {
 	render: args => ({
-		inheritAttrs: false,
 		components: { PPagesTable },
-		setup: () => ({
-			...args,
-			pages: args.pages
-				// @ts-ignore
-				? JSON.parse(args.pages)
-				// @ts-ignore
-				: generatePages(JSON.parse(args.pattern))
-		}),
+		setup: () => ({ args }),
 		template: `
 			<p-pages-table
-				:pages="pages"
-				:updatable="updatable"
-				:removable="removable"
-				@update="onUpdate"
-				@remove="onRemove"
+				:pages="args.pages"
+				:updatable="args.updatable"
+				:removable="args.removable"
+				@update="args.onUpdate"
+				@remove="args.onRemove"
 			/>
 		`
 	}),
 	args: {
+		updatable: true,
+		removable: true,
 		onUpdate: action('update'),
 		onRemove: action('remove')
 	}
@@ -52,9 +38,7 @@ export const OnePage: Story = {
 	...Template,
 	args: {
 		...Template.args,
-		// TODO
-		// @ts-ignore
-		pages: JSON.stringify(generatePages([[1]]), null, '\t')
+		pages: generatePages([[1]])
 	}
 }
 
@@ -62,18 +46,6 @@ export const MultiPage: Story = {
 	...Template,
 	args: {
 		...Template.args,
-		// TODO
-		// @ts-ignore
-		pages: JSON.stringify(generatePages([[0], [0], [0]]), null, '\t')
-	}
-}
-
-export const Generative: Story = {
-	...Template,
-	args: {
-		...Template.args,
-		// TODO
-		// @ts-ignore
-		pattern: '[[0], [1], [3], [2]]'
+		pages: generatePages([[0], [0], [0]])
 	}
 }

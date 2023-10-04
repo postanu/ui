@@ -23,7 +23,7 @@
 							p-button-text(
 								v-if="updatable && !isRemoving(page.id) "
 								variant="target"
-								@click="$emit('update', { id: page.id })"
+								@click="emit('update', page.id)"
 							) Update
 							p-button-remove(
 								v-if="removable"
@@ -49,30 +49,23 @@ type ButtonRemoveRef = InstanceType<typeof PButtonRemove>
 
 interface Props {
 	pages: ClientPage[]
-	updatable?: boolean
-	removable?: boolean
+	updatable: boolean
+	removable: boolean
 }
 
 interface Emits {
-	(event: 'update', data: { id: string }): void
-	(event: 'remove', data: { id: string }): void
+	(event: 'update', id: string): void
+	(event: 'remove', id: string): void
 }
 
-const props = withDefaults(
-	defineProps<Props>(),
-	{
-		updatable: true,
-		removable: true
-	}
-)
-
+const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
 const { pages } = toRefs(props)
 const groupedPages = usePagesGroupList(pages)
 
 function remove (id: string): void {
-	emit('remove', { id })
+	emit('remove', id)
 }
 
 const removingRef = ref<{ [pageId: string]: ButtonRemoveRef }>({})
