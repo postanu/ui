@@ -175,7 +175,7 @@ export const members = [
 		name: 'Sara Lee Lucas',
 		years: '1991–1995',
 		type: 'Former',
-		avatar: 'https://upload.wikimedia.org/wikipedia/en/4/4d/Lucas_at_Masterlab_in_2008.jpg'
+		avatar: null
 	},
 	{
 		name: 'Gidget Gein',
