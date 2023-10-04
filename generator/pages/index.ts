@@ -1,6 +1,6 @@
 import type { ClientPage, Page } from '@postanu/shared'
 
-import { NETWORKS } from '@postanu/shared'
+import { NETWORKS, PageStatus } from '@postanu/shared'
 import { nanoid } from 'nanoid'
 
 import { members } from '../data/index.js'
@@ -57,7 +57,7 @@ export function generatePages (
 					network,
 					username: usernameFromName(name),
 					avatar,
-					status: 100,
+					status: PageStatus.connected,
 					isSolo
 				}
 			})
