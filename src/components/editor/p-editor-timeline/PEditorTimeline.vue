@@ -203,8 +203,7 @@ async function setActiveTab (type: 'activities' | 'alerts'): Promise<void> {
 	max-height: 100vh
 	padding-left: 1px
 	margin-left: 30px
-	overflow-x: hidden
-	overflow-y: scroll
+	overflow: hidden scroll
 
 .p-editor-timeline--tab-alerts,
 .p-editor-timeline--tab-activities
