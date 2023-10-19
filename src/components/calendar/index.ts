@@ -1,2 +1,2 @@
-export { default as PLinearCalendar } from './p-linear-calendar/PLinearCalendar.vue'
-export { default as PLinearCalendarDay } from './p-linear-calendar-day/PLinearCalendarDay.vue'
+export { default as PCalendar } from './p-calendar/PCalendar.vue'
+export { default as PCalendarDay } from './p-calendar-day/PCalendarDay.vue'

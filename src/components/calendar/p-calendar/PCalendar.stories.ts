@@ -4,14 +4,14 @@ import type { Meta, StoryObj } from '@storybook/vue3'
 import { ref } from 'vue'
 
 import { getRandomNumber } from '../../../../generator/index.js'
-import PLinearCalendarDay from '../p-linear-calendar-day/PLinearCalendarDay.vue'
-import PLinearCalendar from './PLinearCalendar.vue'
+import PCalendarDay from '../p-calendar-day/PCalendarDay.vue'
+import PCalendar from './PCalendar.vue'
 
-type Story = StoryObj<typeof PLinearCalendar>
+type Story = StoryObj<typeof PCalendar>
 
 export default {
-	title: 'Calendar / PLinearCalendar',
-	component: PLinearCalendar,
+	title: 'Calendar / PCalendar',
+	component: PCalendar,
 	argTypes: {
 		selectedDate: {
 			control: 'text'
@@ -20,27 +20,31 @@ export default {
 	parameters: {
 		layout: 'fullscreen'
 	}
-} as Meta<typeof PLinearCalendar>
+} as Meta<typeof PCalendar>
 
 export const Default: Story = {
 	render: args => ({
 		components: {
-			PLinearCalendarDay,
-			PLinearCalendar
+			PCalendarDay,
+			PCalendar
 		},
 		setup: (): unknown => {
-			let selectedDate = ref(args.selectedDate)
+			let initialDate = ref(args.initialDate)
+
+			function isPast (date: Date): boolean {
+				return date.getTime() < Date.now()
+			}
 
 			function isToday (date: string): boolean {
 				return date === getCurrentISODate()
 			}
 
 			function isSelectedDate (date: string): boolean {
-				return date === selectedDate.value
+				return date === initialDate.value
 			}
 
 			function selectDate (date: string): void {
-				selectedDate.value = date
+				initialDate.value = date
 			}
 
 			let counters = new Map<number, {
@@ -65,7 +69,8 @@ export const Default: Story = {
 			}
 
 			return {
-				selectedDate,
+				initialDate,
+				isPast,
 				isToday,
 				isSelectedDate,
 				selectDate,
@@ -73,16 +78,16 @@ export const Default: Story = {
 			}
 		},
 		template: `
-			<p-linear-calendar v-model:selected-date="selectedDate">
-				<template v-slot:month="{ monthKey }">
-					{{ new Date(0, monthKey).toLocaleString('en-en', { month: 'long' }) }}
+			<p-calendar :initial-date="initialDate">
+				<template v-slot:year="{ year }">
+					{{ year }}
 				</template>
-				<template v-slot:nextMonth="{ monthKey }">
-					{{ new Date(0, monthKey).toLocaleString('en-en', { month: 'long' }) }}
+				<template v-slot:month="{ month }">
+					{{ new Date(0, month - 1).toLocaleString('en-en', { month: 'long' }) }}
 				</template>
 				<template v-slot:day="{ day }">
-					<p-linear-calendar-day
-						:is-past="day.isPast"
+					<p-calendar-day
+						:is-past="isPast(day.date)"
 						:is-today="isToday(day.date)"
 						:is-selected="isSelectedDate(day.date)"
 						:is-weekend="day.isWeekend"
@@ -94,13 +99,13 @@ export const Default: Story = {
 						<template #day>
 							{{ new Date(0, 0, day.dayOfWeek).toLocaleString('en-en', { weekday: 'short' }) }}
 						</template>
-					</p-linear-calendar-day>
+					</p-calendar-day>
 				</template>
-			</p-linear-calendar>
+			</p-calendar>
 		`
 	}),
 	args: {
-		selectedDate: getCurrentISODate()
+		initialDate: getCurrentISODate()
 	}
 }
 

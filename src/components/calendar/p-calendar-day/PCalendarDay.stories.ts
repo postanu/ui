@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import PLinearCalendarDay from './PLinearCalendarDay.vue'
+import PCalendarDay from './PCalendarDay.vue'
 
-type Story = StoryObj<typeof PLinearCalendarDay>
+type Story = StoryObj<typeof PCalendarDay>
 
 export default {
-	title: 'Calendar / PLinearCalendarDay',
-	component: PLinearCalendarDay,
+	title: 'Calendar / PCalendarDay',
+	component: PCalendarDay,
 	argTypes: {
 		date: {
 			control: 'text'
@@ -21,7 +21,7 @@ export default {
 			control: 'number'
 		}
 	}
-} as Meta<typeof PLinearCalendarDay>
+} as Meta<typeof PCalendarDay>
 
 export const Default: Story = {
 	args: {
