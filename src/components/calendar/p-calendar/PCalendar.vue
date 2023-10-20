@@ -8,11 +8,7 @@
 					:key="item.key"
 					:style="item.style"
 				)
-					.p-calendar__year-label
-						slot(
-							name="year"
-							:year="item.year"
-						)
+					.p-calendar__year-label {{ item.year }}
 			.p-calendar__month-list
 				.p-calendar__month(
 					v-for="item in monthsList"
@@ -59,7 +55,6 @@ interface Props {
 interface Slots {
 	day (props: { day: DatesListItem }): unknown
 	month (props: { month: number }): unknown
-	year (props: { year: number }): unknown
 }
 
 defineSlots<Slots>()
