@@ -1,38 +1,40 @@
 <template lang="pug">
-.p-calendar(v-bind="containerProps")
-	.p-calendar__wrapper(v-bind="wrapperProps")
-		.p-calendar__year-list
-			.p-calendar__year(
-				v-for="item in yearsList"
-				:key="item.key"
-				:style="item.style"
-			)
-				.p-calendar__year-label
-					slot(
-						name="year"
-						:year="item.year"
+.p-calendar
+	.p-calendar__scroll(v-bind="containerProps")
+		.p-calendar__wrapper(v-bind="wrapperProps")
+			.p-calendar__year-list
+				.p-calendar__year(
+					v-for="item in yearsList"
+					:key="item.key"
+					:style="item.style"
+				)
+					.p-calendar__year-label
+						slot(
+							name="year"
+							:year="item.year"
+						)
+			.p-calendar__month-list
+				.p-calendar__month(
+					v-for="item in monthsList"
+					:key="item.key"
+					:style="item.style"
+				)
+					button.p-calendar__month-label(
+						@click="scrollToMonth(item.month, item.year)"
 					)
-		.p-calendar__month-list
-			.p-calendar__month(
-				v-for="item in monthsList"
-				:key="item.key"
-				:style="item.style"
-			)
-				button.p-calendar__month-label(
-					@click="scrollToMonth(item.month, item.year)"
+						slot(
+							name="month"
+							:month="item.month"
+						)
+			.p-calendar__day-list
+				.p-calendar__day(
+					v-for="item in datesList"
+					:key="item.index"
 				)
 					slot(
-						name="month"
-						:month="item.month"
+						name="day"
+						:day="item.data"
 					)
-		.p-calendar__day(
-			v-for="item in datesList"
-			:key="item.index"
-		)
-			slot(
-				name="day"
-				:day="item.data"
-			)
 	button.p-calendar__next-month(
 		v-if="nextMonth"
 		@click="scrollToMonth(nextMonth.month, nextMonth.year)"
@@ -78,19 +80,35 @@ const {
 <style lang="sass">
 .p-calendar
 	position: relative
-	padding: 80px 20px 110px
+
+.p-calendar__scroll
+	position: relative
+	padding: 0 20px
 	overflow: hidden
 	overflow-x: scroll
-	will-change: contents, scroll-position
+	will-change: scroll-position
+
+.p-calendar__next-month
+	position: absolute
+	top: 20px
+	right: 0
+	padding-right: 20px
+	font-weight: 700
+	color: var(--p-color-white-03)
+	background-color: var(--p-color-black)
+	box-shadow: -40px 0 20px 20px var(--p-color-black), 40px 0 20px 10px var(--p-color-black)
 
 .p-calendar__next-month:hover
 	color: var(--p-color-white-09)
 
 .p-calendar__wrapper
+	padding: 70px 0 90px
+
+.p-calendar__day-list
 	display: flex
 	flex-direction: row
 	gap: 10px
-	height: 100%
+	will-change: contents
 
 .p-calendar__month-list,
 .p-calendar__year-list
@@ -101,10 +119,10 @@ const {
 	padding-left: 20px
 
 .p-calendar__month-list
-	top: 40px
+	top: 20px
 
 .p-calendar__year-list
-	top: 20px
+	top: 0
 
 .p-calendar__month-label,
 .p-calendar__year-label
@@ -114,14 +132,4 @@ const {
 	display: inline-block
 	padding-right: 20px
 	font-weight: 700
-
-.p-calendar__next-month
-	position: fixed
-	top: 40px
-	right: 0
-	padding-right: 20px
-	font-weight: 700
-	color: var(--p-color-white-03)
-	background-color: var(--p-color-black)
-	box-shadow: -40px 0 20px 20px var(--p-color-black), 40px 0 20px 10px var(--p-color-black)
 </style>
