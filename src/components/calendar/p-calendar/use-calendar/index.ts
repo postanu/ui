@@ -48,18 +48,6 @@ export function useCalendar (
 		}
 	)
 
-	let containerProps = {
-		ref: vl.containerProps.ref,
-		onScroll: vl.containerProps.onScroll
-	}
-
-	let wrapperProps = computed(() => ({
-		style: {
-			width: vl.wrapperProps.value.style.width,
-			marginLeft: vl.wrapperProps.value.style.marginLeft
-		}
-	}))
-
 	let nextMonth = computed(() => {
 		if (vl.list.value.length === 0) {
 			return false
@@ -112,8 +100,8 @@ export function useCalendar (
 	}
 
 	return {
-		containerProps,
-		wrapperProps,
+		containerProps: vl.containerProps,
+		wrapperProps: vl.wrapperProps,
 		datesList: vl.list,
 		monthsList,
 		yearsList,

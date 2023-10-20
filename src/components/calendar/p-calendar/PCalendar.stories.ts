@@ -23,6 +23,12 @@ export default {
 } as Meta<typeof PCalendar>
 
 export const Default: Story = {
+	decorators: [
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		() => ({
+			template: '<div style="padding-top: 30px;"><story/></div>'
+		})
+	],
 	render: args => ({
 		components: {
 			PCalendarDay,
