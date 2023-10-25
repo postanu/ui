@@ -1,12 +1,12 @@
 <template lang="pug">
 .p-button-remove(
-	@mouseenter="setHover(true)"
-	@mouseleave="setHover(false)"
+	@mouseenter="handleHover(true)"
+	@mouseleave="handleHover(false)"
 )
 	p-button-text(
 		v-if="!removing"
 		variant="danger"
-		@click="showQuestion"
+		@click="handleQuestion(true)"
 	)
 		slot(name="default") Remove
 	template(v-else)
@@ -14,29 +14,21 @@
 			slot(name="question") Delete?
 		p-button-text(
 			variant="muted"
-			@click="hideQuestion"
+			@click="handleQuestion(false)"
 		)
 			slot(name="disagree") Cancel
 		p-button-text(
 			variant="danger"
-			@click="remove"
+			@click="emitRemove"
 		)
 			slot(name="agree") Confirm
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { useVModel } from '@vueuse/core'
+import { getCurrentScope, onScopeDispose } from 'vue'
 
 import PButtonText from '../p-button-text/PButtonText.vue'
-
-interface Props {
-	timeout?: number
-}
-
-interface Emits {
-	(event: 'removing', state: boolean): void
-	(event: 'remove'): void
-}
 
 interface Slots {
 	default: () => unknown
@@ -45,68 +37,55 @@ interface Slots {
 	agree: () => unknown
 }
 
+interface Props {
+	removing: boolean
+}
+
+interface Emits {
+	(event: 'update:removing', value: boolean): void
+	(event: 'remove'): void
+}
+
+const TIMEOUT = 4000
+
 defineSlots<Slots>()
-
-const props = withDefaults(
-	defineProps<Props>(),
-	{
-		timeout: 4000
-	}
-)
-
+const props = defineProps<Props>()
 const emit = defineEmits<Emits>()
 
-const removing = ref(false)
-const timeoutId = ref<ReturnType<typeof setTimeout> | null>(null)
-const hover = ref(false)
+const removing = useVModel(props, 'removing', emit)
+let timeoutId: ReturnType<typeof setTimeout> | null = null
 
-watch([hover, removing, timeoutId], ([_hover, _removing, _timeout]) => {
-	if (_removing) {
-		if (_hover) {
-			_timeout && stopTimeout()
-		} else {
-			!_timeout && startTimeout()
-		}
-	}
-})
-
-function setHover (value: boolean): void {
-	hover.value = value
+function handleHover (value: boolean): void {
+	if (!removing.value) return
+	value ? handleTimeout(false) : handleTimeout(true)
 }
 
-function startTimeout (): void {
-	timeoutId.value = setTimeout(hideQuestion, props.timeout)
-}
-
-function stopTimeout (): void {
-	if (timeoutId.value) {
-		clearTimeout(timeoutId.value)
-		timeoutId.value = null
+function handleTimeout (start = false): void {
+	if (start) {
+		timeoutId = setTimeout(handleQuestion, TIMEOUT)
+	} else if (timeoutId) {
+		clearTimeout(timeoutId)
+		timeoutId = null
 	}
 }
 
-function showQuestion (): void {
-	removing.value = true
-	emit('removing', removing.value)
-}
-
-function hideQuestion (): void {
-	emit('removing', false)
-	setTimeout(() => {
+function handleQuestion (show = false): void {
+	if (show) {
+		removing.value = true
+		handleTimeout(true)
+	} else {
+		handleTimeout(false)
 		removing.value = false
-	}, 100)
+	}
 }
 
-function remove (): void {
+function emitRemove (): void {
 	emit('remove')
-	hideQuestion()
 }
 
-function cancel (): void {
-	hideQuestion()
-}
-
-defineExpose({ cancel })
+getCurrentScope() && onScopeDispose(() => {
+	handleTimeout(false)
+})
 </script>
 
 <style lang="sass">

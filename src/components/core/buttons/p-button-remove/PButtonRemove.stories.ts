@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
 import { action } from '@storybook/addon-actions'
+import { ref } from 'vue'
 
 import PButtonRemove from './PButtonRemove.vue'
 
@@ -21,10 +22,6 @@ export default {
 		},
 		disagree: {
 			control: 'text'
-		},
-		timeout: {
-			control: 'number',
-			description: 'Milliseconds before cancel removing.'
 		}
 	}
 } as Meta<typeof PButtonRemove>
@@ -32,10 +29,16 @@ export default {
 export const Default: Story = {
 	render: args => ({
 		components: { PButtonRemove },
-		setup: () => ({ args }),
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+		setup: () => {
+			return {
+				args,
+				removing: ref(args.removing)
+			}
+		},
 		template: `
 			<p-button-remove
-				:timeout="args.timeout"
+				v-model:removing="args.removing"
 				@removing="args.onRemoving"
 				@remove="args.onRemove"
 			>
@@ -51,7 +54,7 @@ export const Default: Story = {
 		question: 'Delete?',
 		agree: 'Confirm',
 		disagree: 'Cancel',
-		onRemoving: action('removing'),
+		removing: false,
 		onRemove: action('remove')
 	}
 }

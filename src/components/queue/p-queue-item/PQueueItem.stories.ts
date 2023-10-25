@@ -4,7 +4,7 @@ import type { ConcreteComponent } from 'vue'
 import { action } from '@storybook/addon-actions'
 
 import { generatePosts } from '../../../../generator/index.js'
-import { useButtonRemoveList } from '../../../composables/index.js'
+import { createButtonRemoveManager } from '../../../composables/index.js'
 import { PAvatar, PButtonRemove } from '../../core/index.js'
 import {
 	PQueueItem,
@@ -21,6 +21,8 @@ export default {
 		layout: 'fullscreen'
 	}
 } as Meta<typeof PQueueItem>
+
+const useButtonRemoveManager = createButtonRemoveManager()
 
 const Template: Story = {
 	decorators: [
@@ -39,23 +41,25 @@ const Template: Story = {
 		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 		setup: () => {
 			let posts = generatePosts(6)
-			let [
-				setRemovingRef,
-				setRemoving,
-				isRemoving
-			] = useButtonRemoveList()
+			// eslint-disable-next-line unicorn/no-array-reduce
+			let controls = posts.reduce<{
+				[id: string]: ReturnType<typeof useButtonRemoveManager>
+			}>((prev, { id }) => {
+				return {
+					...prev,
+					[id]: useButtonRemoveManager(id)
+				}
+			}, {})
 			return {
 				args,
 				posts,
-				setRemovingRef,
-				setRemoving,
-				isRemoving
+				controls
 			}
 		},
 		template: `
 			<p-queue-item
 				v-for="post in posts"
-				:style="{ '--p-queue-item-show-controls': isRemoving(post.id) ? '1' : undefined }"
+				:style="{ '--p-queue-item-show-controls': controls[post.id][0].value ? '1' : undefined }"
 				:description="args.description"
 				@click="args.onClick"
 			>
@@ -85,8 +89,7 @@ const Template: Story = {
 				</template>
 				<template #controls>
 					<p-button-remove
-						:ref="el => setRemovingRef(post.id, el)"
-						@removing="value => setRemoving(post.id, value)"
+						v-model:removing="controls[post.id][1].value"
 					/>
 				</template>
 			</p-queue-item>
