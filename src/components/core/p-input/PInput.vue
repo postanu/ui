@@ -1,6 +1,6 @@
 <template lang="pug">
 input.p-input(
-	ref="input"
+	ref="el"
 	:type="type"
 	:value="modelValue"
 	@input="updateValue"
@@ -30,11 +30,11 @@ const props = withDefaults(
 
 const emit = defineEmits<Emits>()
 
-let { modelValue } = toRefs(props)
-let input = ref<HTMLInputElement>()
+const { modelValue } = toRefs(props)
+const el = ref<HTMLInputElement>()
 
 function updateValue (): void {
-	emit('update:modelValue', unref(input)?.value)
+	emit('update:modelValue', unref(el)?.value)
 }
 
 function emitValue (): void {
@@ -42,8 +42,9 @@ function emitValue (): void {
 }
 
 defineExpose({
-	focus: (): void => input.value?.focus(),
-	blur: (): void => input.value?.blur()
+	el,
+	focus: (): void => el.value?.focus(),
+	blur: (): void => el.value?.blur()
 })
 </script>
 
