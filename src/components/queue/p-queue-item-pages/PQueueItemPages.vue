@@ -43,7 +43,6 @@ const showPages = computed(() => {
 	return longGroups.length <= 4
 })
 const isSolo = computed(
-	// () => items.value.every(page => page.isSolo) || !showPages.value
 	() => groupsList.value.every(
 		group => group.pages.length === 1
 	) || !showPages.value
