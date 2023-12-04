@@ -1,6 +1,5 @@
 export * from './time-ref/index.js'
 export * from './use-now/index.js'
-export * from './use-pages-group-list/index.js'
 export * from './use-pages-list/index.js'
 export * from './use-posts-scale/index.js'
 export * from './use-queue-item-title/index.js'

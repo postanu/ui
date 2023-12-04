@@ -1,12 +1,12 @@
 <template lang="pug">
 .p-queue-pages(:class="{ '--solo': isSolo }")
 	.p-queue-pages__group(
-		v-for="group in pagesGroupList"
-		:key="group.name"
+		v-for="group in groupsList"
+		:key="group.network"
 	)
 		.p-queue-pages__type
-			component(:is="`p-icon-${group.name}`")
-		template(v-if="!group.isSolo && showPages")
+			p-icon-network(:network="group.network")
+		template(v-if="group.pages.length !== 1 && showPages")
 			.p-queue-pages__item(
 				v-for="page in group.pages.slice(0, MAX_VISIBLE_GROUP_SIZE)"
 				:key="page.id"
@@ -21,31 +21,32 @@
 </template>
 
 <script lang="ts" setup>
-import type { ClientPage } from '@postanu/shared'
+import type { PagesGroup } from '@postanu/shared'
 
 import { computed, toRefs } from 'vue'
 
-import { usePagesGroupList } from '../../../composables/index.js'
+import PIconNetwork from '../../core/icons/p-icon-network/PIconNetwork.vue'
 import PAvatar from '../../core/p-avatar/PAvatar.vue'
 
 const MAX_VISIBLE_GROUP_SIZE = 2
 
 interface Props {
-	items: ClientPage[]
+	groupsList: PagesGroup[]
 }
 
 const props = defineProps<Props>()
+const { groupsList } = toRefs(props)
 
-const { items } = toRefs(props)
-
-const pagesGroupList = usePagesGroupList(items)
-
+// show only 4 long groups
 const showPages = computed(() => {
-	let longGroups = pagesGroupList.value.filter(group => !group.isSolo)
+	let longGroups = groupsList.value.filter(group => group.pages.length > 1)
 	return longGroups.length <= 4
 })
 const isSolo = computed(
-	() => items.value.every(page => page.isSolo) || !showPages.value
+	// () => items.value.every(page => page.isSolo) || !showPages.value
+	() => groupsList.value.every(
+		group => group.pages.length === 1
+	) || !showPages.value
 )
 </script>
 

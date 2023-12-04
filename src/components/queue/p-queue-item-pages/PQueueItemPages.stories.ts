@@ -1,64 +1,47 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import { generatePages } from '../../../../generator/index.js'
+import { generatePagesGroups } from '../../../../generator/index.js'
 import PQueueItemPages from './PQueueItemPages.vue'
 
-type Story = StoryObj<typeof PQueueItemPages> & {
-	args?: {
-		pattern?: string
-	}
-}
+type Story = StoryObj<typeof PQueueItemPages>
 
 export default {
 	title: 'Queue / PQueueItemPages',
-	component: PQueueItemPages,
-	argTypes: {
-		pattern: {
-			control: 'text'
-		}
-	}
+	component: PQueueItemPages
 } as Meta<typeof PQueueItemPages>
 
 const Template: Story = {
 	render: args => ({
 		components: { PQueueItemPages },
-		setup: () => ({
-			args,
-			// TODO
-			// @ts-ignore
-			items: args.pattern
-				// @ts-ignore
-				? generatePages(JSON.parse(args.pattern))
-				: args.items
-		}),
-		template: '<p-queue-item-pages :items="items" />'
+		setup: () => ({ args }),
+		template: '<p-queue-item-pages :groups-list="args.groupsList" />'
 	})
 }
 
 export const Single: Story = {
 	...Template,
 	args: {
-		items: generatePages([[1]])
+		groupsList: generatePagesGroups([1])
 	}
 }
 
 export const Solo: Story = {
 	...Template,
 	args: {
-		items: generatePages([[1], [1], [1], [1]])
+		groupsList: generatePagesGroups([1, 1, 1, 1, 1])
 	}
 }
 
 export const HalfSolo: Story = {
 	...Template,
 	args: {
-		items: generatePages([[1], [1], [0], [0]])
+		groupsList: generatePagesGroups([1, 1, 0, 0])
 	}
 }
 
 export const Hardcore: Story = {
 	...Template,
 	args: {
-		pattern: '[[0], [0], [0], [0], [0], [0], [0], [0], [0]]'
+		groupsList: generatePagesGroups([0, 0, 0, 0, 0])
 	}
 }

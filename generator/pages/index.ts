@@ -1,9 +1,10 @@
-import type { ClientPage, Page } from '@postanu/shared'
+import type { ClientPage, Page, PagesGroup } from '@postanu/shared'
 
 import { NETWORKS, PageStatus } from '@postanu/shared'
 import { nanoid } from 'nanoid'
 
 import { members } from '../data/index.js'
+import { generateUsers } from '../index.js'
 import { randomInRange, usernameFromName } from '../utils/index.js'
 
 interface GeneratePagesOptions {
@@ -79,4 +80,27 @@ export function generatePages (
 
 	// @ts-ignore
 	return list
+}
+
+export function generatePagesGroups (
+	patter: number[]
+): PagesGroup[] {
+	return patter.map((pagesCount, groupIndex) => {
+		if (pagesCount === 0) {
+			pagesCount = randomInRange(2, 6)
+		}
+		let users = generateUsers(pagesCount)
+		return {
+			network: NETWORKS[groupIndex],
+			pages: Array.from<Page, Page>({ length: pagesCount }, (_, index) => ({
+				id: nanoid(),
+				projectId: `project-${nanoid()}`,
+				name: users[index].name,
+				network: NETWORKS[index],
+				username: nanoid(12),
+				avatar: users[index].avatar,
+				status: PageStatus.connected
+			}))
+		}
+	})
 }
