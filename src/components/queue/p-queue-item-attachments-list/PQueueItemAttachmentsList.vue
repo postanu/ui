@@ -3,7 +3,7 @@
 	p-queue-item-attachment-image.p-queue-item-attachments-list__item(
 		v-for="item in visibleItems"
 		:key="item.id"
-		:image="item.url"
+		:image="item.src"
 	)
 	.p-queue-item-attachments-list__counter(v-if="count") +{{ count }}
 </template>
