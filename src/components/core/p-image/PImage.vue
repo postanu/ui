@@ -40,6 +40,9 @@ function onLoad (): void {
 .p-image
 	--p-image-loaded: 1
 	--p-image-size: 100px
+	--p-image-border-size: 1px
+	--p-image-border-color: var(--p-color-white-02)
+	--p-image-border: var(--p-image-border-size) solid var(--p-image-border-color)
 
 	position: relative
 	width: var(--p-image-size)
@@ -54,7 +57,7 @@ function onLoad (): void {
 	inset: -1px
 	pointer-events: none
 	content: ""
-	border: 1px solid var(--p-color-white-02)
+	border: var(--p-image-border)
 	border-radius: 3px
 
 .p-image__img

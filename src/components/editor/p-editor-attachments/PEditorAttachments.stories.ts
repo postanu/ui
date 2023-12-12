@@ -21,7 +21,7 @@ export default {
 	}
 } as Meta<typeof PEditorAttachments>
 
-export const Template: Story = {
+const Template: Story = {
 	render: args => ({
 		components: { PEditorAttachments },
 		setup: () => ({
