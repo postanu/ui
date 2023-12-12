@@ -11,6 +11,7 @@ export { default as PButtonRemove } from './buttons/p-button-remove/PButtonRemov
 export { default as PButtonText } from './buttons/p-button-text/PButtonText.vue'
 export { default as PAvatar } from './p-avatar/PAvatar.vue'
 export { default as PDot } from './p-dot/PDot.vue'
+export { default as PImage } from './p-image/PImage.vue'
 export { default as PInput } from './p-input/PInput.vue'
 export { default as PInputProjectName } from './p-input-project-name/PInputProjectName.vue'
 export { default as PLogo } from './p-logo/PLogo.vue'
