@@ -25,8 +25,7 @@ import type { PagesGroup } from '@postanu/shared'
 
 import { computed, toRefs } from 'vue'
 
-import PIconNetwork from '../../core/icons/p-icon-network/PIconNetwork.vue'
-import PAvatar from '../../core/p-avatar/PAvatar.vue'
+import { PAvatar, PIconNetwork } from '../../core/index.js'
 
 const MAX_VISIBLE_GROUP_SIZE = 2
 
