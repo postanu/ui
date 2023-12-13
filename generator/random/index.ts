@@ -28,3 +28,7 @@ export function getRandomTime (): string {
 export function getRandomNumber (max: number): number {
 	return Math.floor(Math.random() * max)
 }
+
+export function getRandomIdsList (count: number): string[] {
+	return Array.from({ length: count }, () => nanoid())
+}

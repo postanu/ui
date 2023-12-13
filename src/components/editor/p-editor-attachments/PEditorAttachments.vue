@@ -7,30 +7,24 @@ ul.p-editor-attachments(
 	}`
 )
 	li.p-editor-attachments__item(
-		v-for="item in list"
-		:key="item.id"
+		v-for="id in list"
+		:key="id"
 	)
-		p-image.p-editor-attachments__image(
-			:src="item.src"
-		)
+		slot(:id="id")
 </template>
 
 <script lang="ts" setup>
-import type { Attachment } from '@postanu/shared'
-
 import { useVModel } from '@vueuse/core'
 import { useSortable } from '@vueuse/integrations/useSortable'
 import { computed, ref, toRefs } from 'vue'
 
-import { PImage } from '../../core/index.js'
-
 interface Props {
-	modelValue: Attachment[]
+	modelValue: string[]
 	disabled?: boolean
 }
 
 interface Emits {
-	(event: 'update:modelValue', value: Attachment[]): void
+	(event: 'update:modelValue', value: string[]): void
 }
 
 const props = withDefaults(
@@ -134,6 +128,6 @@ useSortable(el, list, {
 		.p-editor-attachments__image
 			opacity: 0.5
 
-.p-editor-attachments__image
-	--p-image-size: 100%
+	.p-image
+		--p-image-size: 100%
 </style>

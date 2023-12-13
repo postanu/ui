@@ -37,7 +37,7 @@
     }
   },
   "peerDependencies": {
-    "@postanu/shared": "^0.17.2",
+    "@postanu/shared": ">=0.17.2",
     "@postanu/twitter-text": "^0.2.0",
     "@vueuse/components": ">=10.6.1",
     "@vueuse/core": ">=10.6.1",
