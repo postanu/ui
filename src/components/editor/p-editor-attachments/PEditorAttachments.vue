@@ -3,7 +3,7 @@ ul.p-editor-attachments(
 	ref="el"
 	:class=`{
 		[countClass]: true,
-		'--disabled': disabled
+		'--disabled': isDisabled
 	}`
 )
 	li.p-editor-attachments__item(
@@ -20,7 +20,7 @@ import { computed, ref, toRefs } from 'vue'
 
 interface Props {
 	modelValue: string[]
-	disabled?: boolean
+	movable?: boolean
 }
 
 interface Emits {
@@ -30,21 +30,22 @@ interface Emits {
 const props = withDefaults(
 	defineProps<Props>(),
 	{
-		disabled: false
+		movable: true
 	}
 )
 const emit = defineEmits<Emits>()
-const { disabled } = toRefs(props)
+const { movable } = toRefs(props)
 const list = useVModel(props, 'modelValue', emit)
 
 const el = ref<HTMLElement | null>()
 
 const countClass = computed(() => `--${list.value.length}`)
+const isDisabled = computed(() => !movable.value)
 
 useSortable(el, list, {
-	disabled: disabled.value,
-	ghostClass: 'p-editor-attachments--ghost',
-	chosenClass: 'p-editor-attachments--chosen'
+	disabled: isDisabled.value,
+	ghostClass: '--ghost',
+	chosenClass: '--chosen'
 })
 </script>
 
@@ -120,12 +121,12 @@ useSortable(el, list, {
 	height: 100%
 	cursor: move
 
-	&.p-editor-attachments--chosen
+	&.--chosen
 		.p-image
 			--p-image-border-color: var(--p-color-blue)
 
-	&.p-editor-attachments--ghost
-		.p-editor-attachments__image
+	&.--ghost
+		.p-image
 			opacity: 0.5
 
 	.p-image
