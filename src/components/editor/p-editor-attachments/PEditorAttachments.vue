@@ -111,7 +111,7 @@ useSortable(el, list, {
 
 	&:not(.--disabled)
 		.p-editor-attachments__item:hover
-			.p-editor-attachments__image
+			.p-image
 				--p-image-border-color: var(--p-color-white-05)
 
 .p-editor-attachments__item
@@ -121,7 +121,7 @@ useSortable(el, list, {
 	cursor: move
 
 	&.p-editor-attachments--chosen
-		.p-editor-attachments__image
+		.p-image
 			--p-image-border-color: var(--p-color-blue)
 
 	&.p-editor-attachments--ghost
