@@ -44,13 +44,14 @@ const isDisabled = computed(() => !movable.value)
 
 useSortable(el, list, {
 	disabled: isDisabled.value,
-	ghostClass: '--ghost',
-	chosenClass: '--chosen'
+	ghostClass: '--ghost'
 })
 </script>
 
 <style lang="sass">
 .p-editor-attachments
+	--p-editor-border-color: var(--p-color-white-02)
+
 	display: flex
 	flex-flow: row wrap
 	gap: 20px
@@ -112,23 +113,30 @@ useSortable(el, list, {
 
 	&:not(.--disabled)
 		.p-editor-attachments__item:hover
-			.p-image
-				--p-image-border-color: var(--p-color-white-05)
+			--p-editor-border-color: var(--p-color-white-05)
 
 .p-editor-attachments__item
+	position: relative
 	flex: 1
 	width: 100%
 	height: 100%
 	cursor: move
 
-	&.--chosen
-		.p-image
-			--p-image-border-color: var(--p-color-blue)
-
 	&.--ghost
-		.p-image
-			opacity: 0.5
+		--p-editor-border-color: var(--p-color-blue)
 
 	.p-image
 		--p-image-size: 100%
+		--p-image-border: none
+
+	.p-image:after
+		content: none
+
+.p-editor-attachments__item:after
+	position: absolute
+	inset: -1px
+	pointer-events: none
+	content: ""
+	border: 1px solid var(--p-editor-border-color)
+	border-radius: 3px
 </style>
